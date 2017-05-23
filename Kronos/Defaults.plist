@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>NO_NAME</key>
+		<array>
+			<dict>
+				<key>TYPE</key>
+				<string>TEXT</string>
+				<key>TITLE</key>
+				<string>About Chrono</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array/>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>SWITCH</string>
+				<key>TITLE</key>
+				<string>Help Button Visability</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>helpButtonVIsability</string>
+				</array>
+			</dict>
+		</array>
+		<key>BACK UP</key>
+		<array>
+			<dict>
+				<key>TYPE</key>
+				<string>TEXT_WITH_TEXT_AND_IMAGE</string>
+				<key>TITLE</key>
+				<string>Backup Data</string>
+				<key>SUBTITLE</key>
+				<string>NO BACKUPS AVAILABLE</string>
+				<key>IMAGE</key>
+				<string>icn-backup</string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>lastBackupData</string>
+				</array>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>TEXT</string>
+				<key>TITLE</key>
+				<string>Email Backup Data</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array/>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>TEXT</string>
+				<key>TITLE</key>
+				<string>Import Backup Data</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array/>
+			</dict>
+		</array>
+		<key>TIMER PREFERENCES</key>
+		<array>
+			<dict>
+				<key>TYPE</key>
+				<string>COLOR_PICKER</string>
+				<key>TITLE</key>
+				<string>Timer Colour</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>timerColor</string>
+				</array>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>OPTIONS</string>
+				<key>TITLE</key>
+				<string>Timer Day Dots Background</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array>
+					<string>CHARCOAL</string>
+					<string>WHITE</string>
+				</array>
+				<key>KEYS</key>
+				<array>
+					<string>timerDaysBackgroundColor</string>
+				</array>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>SWITCH</string>
+				<key>TITLE</key>
+				<string>Timer Markings</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array>
+					<string>HOURS</string>
+					<string>MINS</string>
+				</array>
+				<key>KEYS</key>
+				<array>
+					<string>timerMarkingsHours</string>
+					<string>timerMarkingsMins</string>
+				</array>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>OPTIONS</string>
+				<key>TITLE</key>
+				<string>Timer Number Visability</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array>
+					<string>OFF</string>
+					<string>CURRENT</string>
+					<string>ELAPSED</string>
+					<string>ALL</string>
+				</array>
+				<key>KEYS</key>
+				<array>
+					<string>timerNumberVisability</string>
+				</array>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>SWITCH</string>
+				<key>TITLE</key>
+				<string>New Timer Auto Start</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>autoStartTimer</string>
+				</array>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>ENTER_TEXT</string>
+				<key>TITLE</key>
+				<string>Work Hours Per Day</string>
+				<key>SUBTITLE</key>
+				<string>SELECT NUMBER 1-24</string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>workHoursPerDay</string>
+				</array>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>ENTER_TEXT</string>
+				<key>TITLE</key>
+				<string>Default Day Rate</string>
+				<key>SUBTITLE</key>
+				<string>SELECT FEE HERE</string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>defaultDayRate</string>
+				</array>
+			</dict>
+		</array>
+		<key>CALENDER</key>
+		<array>
+			<dict>
+				<key>TYPE</key>
+				<string>CALENDER</string>
+				<key>TITLE</key>
+				<string>Calender Days Off</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>calenderDays</string>
+				</array>
+			</dict>
+		</array>
+		<key>INVOICE</key>
+		<array>
+			<dict>
+				<key>TYPE</key>
+				<string>OPTIONS</string>
+				<key>TITLE</key>
+				<string>Invoice To Nearest (Minute)</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array>
+					<string>01</string>
+					<string>05</string>
+					<string>30</string>
+					<string>60</string>
+					<string>120</string>
+				</array>
+				<key>KEYS</key>
+				<array>
+					<string>invoiceToNearest</string>
+				</array>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>TEXT_WITH_TEXT_AND_IMAGE</string>
+				<key>TITLE</key>
+				<string>View Invoice Template</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string>btn-view-pdf</string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array/>
+			</dict>
+			<dict>
+				<key>TYPE</key>
+				<string>SWITCH</string>
+				<key>TITLE</key>
+				<string>Timings On Invoice</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>includeThingsOnInvoice</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<array>
+		<string>NO_NAME</string>
+		<string>BACK UP</string>
+		<string>TIMER PREFERENCES</string>
+		<string>CALENDER</string>
+		<string>INVOICE</string>
+	</array>
+</array>
+</plist>

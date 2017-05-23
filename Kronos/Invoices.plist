@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>PERSONAL INFO</key>
+		<array>
+			<dict>
+				<key>TITLE</key>
+				<string>NAME</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>EMAIL</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>PHONE</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>POSTCODE</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>ADDRESS LINE 1</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>ADDRESS LINE 2</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>CITY</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>COUNTRY</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>URL</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>LOGO</string>
+				<key>SUBTITLE</key>
+				<string>CHOOSE FROM PHOTO LIBRARY / IMAGE NAME</string>
+			</dict>
+		</array>
+		<key>ACCOUNT DETAILS</key>
+		<array>
+			<dict>
+				<key>TITLE</key>
+				<string>ACCOUNT NAME</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>BANK NAME</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>ACCOUNT NO</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>IBAN NO</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>SORT CODE</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>SWIFT CODE</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+			<dict>
+				<key>TITLE</key>
+				<string>PAYMENT TERMS AND CONDITIONS</string>
+				<key>SUBTITLE</key>
+				<string>--</string>
+			</dict>
+		</array>
+	</dict>
+	<array>
+		<string>PERSONAL INFO</string>
+		<string>ACCOUNT DETAILS</string>
+	</array>
+</array>
+</plist>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>IMAGE</key>
+		<true/>
+		<key>TYPE</key>
+		<string>EXPANDABLE</string>
+		<key>TEXT</key>
+		<string>SELECT</string>
+		<key>TITLE</key>
+		<string>AGENCY</string>
+	</dict>
+	<dict>
+		<key>TYPE</key>
+		<string>EXPANDABLE</string>
+		<key>IMAGE</key>
+		<true/>
+		<key>TEXT</key>
+		<string>SELECT</string>
+		<key>TITLE</key>
+		<string>CLIENT</string>
+	</dict>
+	<dict>
+		<key>TYPE</key>
+		<string>EXPANDABLE</string>
+		<key>IMAGE</key>
+		<true/>
+		<key>TEXT</key>
+		<string>SELECT</string>
+		<key>TITLE</key>
+		<string>PROJECT</string>
+	</dict>
+	<dict>
+		<key>TYPE</key>
+		<string>EXPANDABLE</string>
+		<key>IMAGE</key>
+		<true/>
+		<key>TEXT</key>
+		<string>SELECT</string>
+		<key>TITLE</key>
+		<string>STAGE / TASK</string>
+	</dict>
+	<dict>
+		<key>TYPE</key>
+		<string>OPTIONS</string>
+		<key>TITLE</key>
+		<string>FEE RATE</string>
+		<key>OPTIONS</key>
+		<array>
+			<string>DEFAULT</string>
+			<string>CUSTOM</string>
+		</array>
+	</dict>
+	<dict>
+		<key>TYPE</key>
+		<string>ENTER_TEXT</string>
+		<key>TEXT</key>
+		<string>HOURS</string>
+		<key>TITLE</key>
+		<string>ALLOCATE TASK TIME (hours)</string>
+	</dict>
+</array>
+</plist>
