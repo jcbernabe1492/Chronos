@@ -122,9 +122,12 @@ class DataController:NSObject
         try! managedObjectContext.save()
     }
     
-
-    func addAgency(tempAgency:Agency, isAgency:Bool)
+    func addAgency(tempAgency:Agency, isAgency:Bool) -> Bool
     {
+        if verifyIfAgencyNameExists(name: tempAgency.name!) {
+            return false
+        }
+        
         let newAgency:Agency = NSEntityDescription.insertNewObject(forEntityName: "Agency", into: managedObjectContext) as! Agency
         newAgency.address1 = tempAgency.address1
         newAgency.address2 = tempAgency.address2
@@ -144,6 +147,8 @@ class DataController:NSObject
         {
             print("error saving agency")
         }
+        
+        return true
         
     }
     
@@ -183,6 +188,19 @@ class DataController:NSObject
         return []
     }
     
+    func verifyIfAgencyNameExists(name: String) -> Bool
+    {
+        var array = getAllAgencies()
+     
+        let predicate = NSPredicate(format: "name == %@", name)
+        array = array.filtered(using: predicate) as! NSMutableArray
+        
+        if array.count > 0 {
+            return true
+        }
+        
+        return false
+    }
     
     func getAllActiveProjectTasks() -> NSMutableArray
     {
@@ -300,13 +318,12 @@ class DataController:NSObject
 
         return Agency.getClient(forId: (project?.clientId.intValue)!)
     }
+    
     func getAgencyForTask(id:Int) -> Agency?
     {
         let project = Project.getProject(forId: id)
         return Agency.getAgency(forId: (project?.agencyId.intValue)!)!
     }
-    
-    
     
     func getAllTimeSpentOnProject(project:NSNumber) -> Double
     {
@@ -330,7 +347,5 @@ class DataController:NSObject
 
         return p.allocatedProjectTime.doubleValue
     }
-    
-    
 }
 

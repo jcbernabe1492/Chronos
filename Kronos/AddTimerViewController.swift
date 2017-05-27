@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol {
+class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol, AddTimerOutputMethods {
 
     
     var presenter: AddTimerPresenterProtocol?
@@ -18,9 +18,13 @@ class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter.addTimer
+        
         addTimerTableView?.delegate = presenter
         addTimerTableView?.dataSource = presenter
         addTimerTableView?.backgroundColor = UIColor.cellBackgroundColor()
+        
         view.backgroundColor = UIColor.cellBackgroundColor()
         // Do any additional setup after loading the view.
         presenter?.viewDidLoad()
@@ -71,6 +75,10 @@ class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol {
     func endTableEditing()
     {
         addTimerTableView?.endEditing(true)
+    }
+    
+    func showAlertController(alertController: UIAlertController) {
+        self.present(alertController, animated: true, completion: nil)
     }
 
 

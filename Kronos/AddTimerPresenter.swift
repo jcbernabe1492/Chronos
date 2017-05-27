@@ -575,12 +575,24 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                 if currentSection == .ADD_AGENCY
                 {
                     tempAgency.isAgency = true
-                    DataController.sharedInstance.addAgency(tempAgency: tempAgency, isAgency: true)
+                    if DataController.sharedInstance.addAgency(tempAgency: tempAgency, isAgency: true) != true {
+                        
+                        let alertController = UIAlertController.init(title: "Agency Name Exists", message: "Agency name already exists. Please enter a different name.", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
+                        
+                        addTimerPresenterOutput?.showAlertController(alertController: alertController)
+                        
+                        return
+                    }
+                    
                     tempProject?.agencyId = tempAgency.id
                 }
                 else
                 {
-                    DataController.sharedInstance.addAgency(tempAgency: tempAgency, isAgency: false)
+                    if DataController.sharedInstance.addAgency(tempAgency: tempAgency, isAgency: false) != true {
+                        
+                    }
+                    
                     tempProject?.clientId = tempAgency.id
                 }
                 

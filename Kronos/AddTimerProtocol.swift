@@ -47,3 +47,8 @@ protocol AddTimerWireframeProtocol : class  {
     func canSaveTimer() -> Bool
     
 }
+
+extension AddTimerPresenterProtocol {
+    var addTimerPresenterOutput: AddTimerOutputMethods? { get set }
+    func showAlertController(alertController: UIAlertController)
+}
