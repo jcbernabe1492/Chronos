@@ -11,6 +11,8 @@ import UIKit
 
 class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
 {
+    weak var addTimerPresenterOutput: AddTimerOutputMethods?
+
     var interactor: AddTimerInteractorInput?
     var view: AddTimerViewControllerProtocol?
     var wireframe: AddTimerWireframeProtocol?
@@ -577,7 +579,7 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                     tempAgency.isAgency = true
                     if DataController.sharedInstance.addAgency(tempAgency: tempAgency, isAgency: true) != true {
                         
-                        let alertController = UIAlertController.init(title: "Agency Name Exists", message: "Agency name already exists. Please enter a different name.", preferredStyle: .alert)
+                        let alertController = UIAlertController.init(title: "Agency Name Exists", message: "Agency name already exists. Please enter a different agency name.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
                         
                         addTimerPresenterOutput?.showAlertController(alertController: alertController)

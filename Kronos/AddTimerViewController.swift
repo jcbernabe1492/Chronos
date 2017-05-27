@@ -9,7 +9,6 @@
 import UIKit
 
 class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol, AddTimerOutputMethods {
-
     
     var presenter: AddTimerPresenterProtocol?
     @IBOutlet var addTimerTableView:UITableView?
@@ -19,8 +18,6 @@ class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.addTimer
-        
         addTimerTableView?.delegate = presenter
         addTimerTableView?.dataSource = presenter
         addTimerTableView?.backgroundColor = UIColor.cellBackgroundColor()
@@ -28,6 +25,7 @@ class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol, 
         view.backgroundColor = UIColor.cellBackgroundColor()
         // Do any additional setup after loading the view.
         presenter?.viewDidLoad()
+        presenter?.addTimerPresenterOutput = self
         
         let v = UIView(frame: CGRect(x: 0, y: 0, width: (addTimerTableView?.frame.size.width)! , height: 0.5))
         v.backgroundColor = UIColor.black
@@ -78,7 +76,9 @@ class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol, 
     }
     
     func showAlertController(alertController: UIAlertController) {
-        self.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 
 

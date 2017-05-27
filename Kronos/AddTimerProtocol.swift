@@ -28,12 +28,13 @@ protocol AddTimerInteractorInput : class {
     func getStageTask(forId id:Int) -> StageTask
 }
 
-
-
 protocol AddTimerPresenterProtocol : class, UITableViewDataSource, UITableViewDelegate {
     var interactor: AddTimerInteractorInput? { get set }
     var wireframe: AddTimerWireframeProtocol? { get set }
      weak var view: AddTimerViewControllerProtocol? { get set }
+    
+    weak var addTimerPresenterOutput: AddTimerOutputMethods? { get set }
+    
     func viewDidLoad()
     func expandToItem(cell:ExpandableItem)
     func selectedTableView(cell:UITableViewCell)
@@ -48,7 +49,6 @@ protocol AddTimerWireframeProtocol : class  {
     
 }
 
-extension AddTimerPresenterProtocol {
-    var addTimerPresenterOutput: AddTimerOutputMethods? { get set }
+protocol AddTimerOutputMethods : class {
     func showAlertController(alertController: UIAlertController)
 }
