@@ -19,6 +19,9 @@ protocol HomeWireframeProtocol : class {
     var archiveWireframe:ArchiveWireframe? {get set}
     
     
+    func showEditTimerScreen()
+    func closeEditTimerScreen()
+    
     func showSettingsScreen()
     func showAddTimerScreen(active:Bool)
     func canSaveTimer() -> Bool

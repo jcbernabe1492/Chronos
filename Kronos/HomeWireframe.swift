@@ -16,6 +16,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol
 {
     weak var viewController:HomeViewController?
     weak var settingsController:SettingsViewController?
+    weak var editTimerViewController:EditTimerViewController?
     var calenderWireframe: CalenderWireframe?
     var addTimerWireframe:AddTimerWireframe?
     var loadTimerWireframe:LoadTimerWireframe?
@@ -46,6 +47,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol
     func isAnyViewAnimating() -> Bool {
         return isAnimating
     }
+    
     class func addStartScreenOnWindow(_ window:UIWindow)
     {
         let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartScreen")
@@ -215,6 +217,17 @@ class HomeWireframe : NSObject, HomeWireframeProtocol
         addTimerWireframe = nil
     }
     
+// MARK: - Show/Close Edit TImer
+    func showEditTimerScreen() {
+        editTimerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditTimer") as? EditTimerViewController
+        viewController?.present(editTimerViewController!, animated: false, completion: nil)
+    }
+    
+    func closeEditTimerScreen() {
+        
+    }
+    
+// MARK: - Show/Close Archive
     func showArchive()
     {
         archiveWireframe = ArchiveWireframe()
@@ -229,7 +242,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol
         animateViewControllerFromTop(newViewController: archiveWireframe!.archiveViewController!, active: true, done: {self.archiveWireframe = nil})
     }
     
-    //CalnderView
+// MARK: - Show/Close Calendar View
     func showCalenderView()
     {
         if loadTimerWireframe != nil
@@ -267,6 +280,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol
         
     }
     
+// MARK: - Show/Close Invoice View
     func showInvoiceView(section:Int)
     {
         if loadTimerWireframe != nil
@@ -310,7 +324,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol
     }
     
     
-    //AnimateViewControllerFromBottom
+// MARK: - AnimateViewControllerFromBottom
     func animateViewControllerFromBottom(newViewController:UIViewController ,active:Bool, done:@escaping () -> Void)
     {
         if !active

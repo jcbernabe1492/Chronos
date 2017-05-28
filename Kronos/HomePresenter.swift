@@ -139,17 +139,19 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate
         return true
     }
     
+    func updateCalendarDay() {
+        interactor?.updateCalendarDay(stopping: false)
+    }
     
-    
+// MARK: - Timer View Delegates
+    func showEditTimer() {
+        wireframe?.showEditTimerScreen()
+    }
     
     func setTopLabels(min: Int, hrs: Int, days: Int) {
         view?.setTopLabels(min: min, hrs: hrs, days: days)
     }
 
-    func updateCalendarDay() {
-        interactor?.updateCalendarDay(stopping: false)
-    }
-    
     func startStopButtonPressed(_ active:Bool)
     {
         var image:UIImage?
@@ -165,7 +167,19 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate
         view?.updateTopLogoImage(image: image!)
     }
     
+    func noTimerActive() {
+        let alert = UIAlertController(title: "No Active Timers Available", message: "Load or create a new timer", preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(closeAction)
+        
+        (view as! UIViewController).present(alert, animated: true, completion: nil)
+    }
     
+    func addTime(active: Bool) {
+        view?.addTime(active: active)
+    }
+    
+// MARK: - Settings Button Pressed
     func settingsButtonPressed() {
         wireframe?.showSettingsScreen()
     }
@@ -178,6 +192,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate
     func addTimerClosedFromElseWhere(){
         view?.addTimerButtonPressed()
     }
+    
     //For addtimer
     func canSave() -> Bool {
         if wireframe!.canSaveTimer()
@@ -243,18 +258,6 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate
     
     func isAnyViewAnimating() -> Bool {
         return (wireframe?.isAnyViewAnimating())!
-    }
-
-    func noTimerActive() {
-        let alert = UIAlertController(title: "No Active Timers Available", message: "Load or create a new timer", preferredStyle: .alert)
-        let closeAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alert.addAction(closeAction)
-        
-        (view as! UIViewController).present(alert, animated: true, completion: nil)
-    }
-    
-    func addTime(active: Bool) {
-        view?.addTime(active: active)
     }
     
     func closeAnyViewControllers() {

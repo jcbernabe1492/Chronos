@@ -14,6 +14,7 @@ protocol TimerViewDelegate {
     func noTimerActive()
     func setTopLabels(min:Int, hrs:Int, days:Int)
     func addTime(active:Bool)
+    func showEditTimer()
 }
 
 enum TimerType
@@ -21,7 +22,7 @@ enum TimerType
     case Normal, ProjectTime, AllocatedTime
 }
 
-class TimerView: UIView, TimerProtocol {
+class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
 
     var dimView:UIView?
     //Delegate
@@ -55,7 +56,6 @@ class TimerView: UIView, TimerProtocol {
     var timerHandRadian:Int?
     var timer:TimerType = .Normal
     
-    
     var cancelButton : UIButton?
     var plusButton : UIButton?
     var minusButton : UIButton?
@@ -68,6 +68,8 @@ class TimerView: UIView, TimerProtocol {
     
     var addTimeDimView : UIView?
     var tempTimeChange:Int = 0
+    
+    var editTimerView = EditTimerView()
     
     typealias Minutes = Int
     typealias Hours = Int
@@ -815,9 +817,21 @@ class TimerView: UIView, TimerProtocol {
         }
     }
     
+// MARK: - Edit Timer Delegate Methods
+    func closeButtonTapped() {
+        cancelButtonPressed()
+    }
+    func plusTimerTapped() {
+        plusButtonPressed()
+    }
+    func minusTimerTapped() {
+        minusButtonPressed()
+    }
+    func okButtonTapped() {
+        okayButtonPressed()
+    }
     
-    
-    
+// MARK: - Button Long Pressed
     func buttonLongPressed(tap:UILongPressGestureRecognizer)
     {
         if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) == nil
@@ -828,86 +842,100 @@ class TimerView: UIView, TimerProtocol {
         {
             delegate?.addTime(active: true)
             
-            cancelButton = UIButton()
-            cancelButton?.setImage(UIImage(named:"timer-increment-close"), for: .normal)
-            cancelButton?.translatesAutoresizingMaskIntoConstraints = false
-            cancelButton?.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
-            addSubview(cancelButton!)
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerX, relatedBy: .equal, toItem: cancelButton!, attribute: .centerX, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: cancelButton!, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .width, relatedBy: .equal, toItem: cancelButton!, attribute: .width, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .height, relatedBy: .equal, toItem: cancelButton!, attribute: .height, multiplier: 1.0, constant: 0.0))
+            delegate?.showEditTimer()
             
-            minusButton = UIButton()
-            minusButton?.setImage(UIImage(named:"timer-increment-minus"), for: .normal)
-            minusButton?.translatesAutoresizingMaskIntoConstraints = false
-            minusButton?.addTarget(self, action: #selector(minusButtonPressed), for: .touchUpInside)
-            addSubview(minusButton!)
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerX, relatedBy: .equal, toItem: minusButton!, attribute: .centerX, multiplier: 0.6, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: minusButton!, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .width, relatedBy: .equal, toItem: minusButton!, attribute: .width, multiplier: 0.75, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .height, relatedBy: .equal, toItem: minusButton!, attribute: .height, multiplier: 0.75, constant: 0.0))
-            
-            plusButton = UIButton()
-            plusButton?.setImage(UIImage(named:"timer-increment-plus"), for: .normal)
-            plusButton?.translatesAutoresizingMaskIntoConstraints = false
-            plusButton?.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
-            addSubview(plusButton!)
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerX, relatedBy: .equal, toItem: plusButton!, attribute: .centerX, multiplier: 0.6, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: plusButton!, attribute: .centerY, multiplier: 2.4, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .width, relatedBy: .equal, toItem: plusButton!, attribute: .width, multiplier: 0.75, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .height, relatedBy: .equal, toItem: plusButton!, attribute: .height, multiplier: 0.75, constant: 0.0))
-            
-            okayButton = UIButton()
-            okayButton?.translatesAutoresizingMaskIntoConstraints = false
-            okayButton?.setImage(UIImage(named:"timer-increment-okay"), for: .normal)
-            okayButton?.addTarget(self, action: #selector(okayButtonPressed), for: .touchUpInside)
-            addSubview(okayButton!)
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerX, relatedBy: .equal, toItem: okayButton!, attribute: .centerX, multiplier: 0.6, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: okayButton!, attribute: .centerY, multiplier: 0.63, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .width, relatedBy: .equal, toItem: okayButton!, attribute: .width, multiplier: 0.75, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .height, relatedBy: .equal, toItem: okayButton!, attribute: .height, multiplier: 0.75, constant: 0.0))
-            
-            middleLine = UIView()
-            middleLine?.translatesAutoresizingMaskIntoConstraints = false
-            middleLine?.backgroundColor = UIColor.white
-            insertSubview(middleLine!, belowSubview: cancelButton!)
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: middleLine!, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .trailing, relatedBy: .equal, toItem: middleLine!, attribute: .leading, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: minusButton!, attribute: .leading, relatedBy: .equal, toItem: middleLine!, attribute: .trailing, multiplier: 1.0, constant: -20.0))
-            addConstraint(NSLayoutConstraint(item: middleLine!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 5.0))
-            
-            topLine = UIView(frame:CGRect(x: startStopButton.center.x, y: startStopButton.center.y - 50, width: 100, height: 5))
-            topLine?.translatesAutoresizingMaskIntoConstraints = false
-            topLine?.backgroundColor = UIColor.white
-            insertSubview(topLine!, belowSubview: cancelButton!)
-            topLine?.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/4)
-            
-            bottomLine = UIView(frame:CGRect(x: startStopButton.center.x, y: startStopButton.center.y + 50, width: 100, height: 5))
-            bottomLine?.translatesAutoresizingMaskIntoConstraints = false
-            bottomLine?.backgroundColor = UIColor.white
-            insertSubview(bottomLine!, belowSubview: cancelButton!)
-            bottomLine?.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
+//            editTimerView = EditTimerView.instanceFromNib()
+//            editTimerView.editTimerDelegate = self
+//            editTimerView.translatesAutoresizingMaskIntoConstraints = false
+//            addSubview(editTimerView)
+//            
+//            addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: editTimerView, attribute: .leading, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: editTimerView, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: editTimerView, attribute: .top, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: editTimerView, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+//            layoutSubviews()
 
-            addTimeDimView = UIView()
-            addTimeDimView?.translatesAutoresizingMaskIntoConstraints = false
-            addTimeDimView?.backgroundColor = UIColor.black
-            addTimeDimView?.alpha = 0.7
             
-          
-            
-            self.insertSubview(addTimeDimView!, belowSubview: cancelButton!)
-            
-            addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: addTimeDimView!, attribute: .leading, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: addTimeDimView!, attribute: .trailing, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: addTimeDimView!, attribute: .top, multiplier: 1.0, constant: 0.0))
-            addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: addTimeDimView!, attribute: .bottom, multiplier: 1.0, constant: 0.0))
-                layoutSubviews()
-                for timer in otherTimers!
-                {
-                    timer.layoutSubviews()
-                }
-              addTimeDimView?.layer.cornerRadius = (addTimeDimView?.bounds.size.width)!/2
+//            cancelButton = UIButton()
+//            cancelButton?.setImage(UIImage(named:"timer-increment-close"), for: .normal)
+//            cancelButton?.translatesAutoresizingMaskIntoConstraints = false
+//            cancelButton?.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
+//            addSubview(cancelButton!)
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerX, relatedBy: .equal, toItem: cancelButton!, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: cancelButton!, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .width, relatedBy: .equal, toItem: cancelButton!, attribute: .width, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .height, relatedBy: .equal, toItem: cancelButton!, attribute: .height, multiplier: 1.0, constant: 0.0))
+//            
+//            minusButton = UIButton()
+//            minusButton?.setImage(UIImage(named:"timer-increment-minus"), for: .normal)
+//            minusButton?.translatesAutoresizingMaskIntoConstraints = false
+//            minusButton?.addTarget(self, action: #selector(minusButtonPressed), for: .touchUpInside)
+//            addSubview(minusButton!)
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerX, relatedBy: .equal, toItem: minusButton!, attribute: .centerX, multiplier: 0.6, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: minusButton!, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .width, relatedBy: .equal, toItem: minusButton!, attribute: .width, multiplier: 0.75, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .height, relatedBy: .equal, toItem: minusButton!, attribute: .height, multiplier: 0.75, constant: 0.0))
+//            
+//            plusButton = UIButton()
+//            plusButton?.setImage(UIImage(named:"timer-increment-plus"), for: .normal)
+//            plusButton?.translatesAutoresizingMaskIntoConstraints = false
+//            plusButton?.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
+//            addSubview(plusButton!)
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerX, relatedBy: .equal, toItem: plusButton!, attribute: .centerX, multiplier: 0.6, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: plusButton!, attribute: .centerY, multiplier: 2.4, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .width, relatedBy: .equal, toItem: plusButton!, attribute: .width, multiplier: 0.75, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .height, relatedBy: .equal, toItem: plusButton!, attribute: .height, multiplier: 0.75, constant: 0.0))
+//            
+//            okayButton = UIButton()
+//            okayButton?.translatesAutoresizingMaskIntoConstraints = false
+//            okayButton?.setImage(UIImage(named:"timer-increment-okay"), for: .normal)
+//            okayButton?.addTarget(self, action: #selector(okayButtonPressed), for: .touchUpInside)
+//            addSubview(okayButton!)
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerX, relatedBy: .equal, toItem: okayButton!, attribute: .centerX, multiplier: 0.6, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: okayButton!, attribute: .centerY, multiplier: 0.63, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .width, relatedBy: .equal, toItem: okayButton!, attribute: .width, multiplier: 0.75, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .height, relatedBy: .equal, toItem: okayButton!, attribute: .height, multiplier: 0.75, constant: 0.0))
+//            
+//            middleLine = UIView()
+//            middleLine?.translatesAutoresizingMaskIntoConstraints = false
+//            middleLine?.backgroundColor = UIColor.white
+//            insertSubview(middleLine!, belowSubview: cancelButton!)
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .centerY, relatedBy: .equal, toItem: middleLine!, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: startStopButton, attribute: .trailing, relatedBy: .equal, toItem: middleLine!, attribute: .leading, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: minusButton!, attribute: .leading, relatedBy: .equal, toItem: middleLine!, attribute: .trailing, multiplier: 1.0, constant: -20.0))
+//            addConstraint(NSLayoutConstraint(item: middleLine!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 5.0))
+//            
+//            topLine = UIView(frame:CGRect(x: startStopButton.center.x, y: startStopButton.center.y - 50, width: 100, height: 5))
+//            topLine?.translatesAutoresizingMaskIntoConstraints = false
+//            topLine?.backgroundColor = UIColor.white
+//            insertSubview(topLine!, belowSubview: cancelButton!)
+//            topLine?.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/4)
+//            
+//            bottomLine = UIView(frame:CGRect(x: startStopButton.center.x, y: startStopButton.center.y + 50, width: 100, height: 5))
+//            bottomLine?.translatesAutoresizingMaskIntoConstraints = false
+//            bottomLine?.backgroundColor = UIColor.white
+//            insertSubview(bottomLine!, belowSubview: cancelButton!)
+//            bottomLine?.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
+//
+//            addTimeDimView = UIView()
+//            addTimeDimView?.translatesAutoresizingMaskIntoConstraints = false
+//            addTimeDimView?.backgroundColor = UIColor.black
+//            addTimeDimView?.alpha = 0.7
+//            
+//          
+//            
+//            self.insertSubview(addTimeDimView!, belowSubview: cancelButton!)
+//            
+//            addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: addTimeDimView!, attribute: .leading, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: addTimeDimView!, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: addTimeDimView!, attribute: .top, multiplier: 1.0, constant: 0.0))
+//            addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: addTimeDimView!, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+//                layoutSubviews()
+//                for timer in otherTimers!
+//                {
+//                    timer.layoutSubviews()
+//                }
+//              addTimeDimView?.layer.cornerRadius = (addTimeDimView?.bounds.size.width)!/2
         }
     }
     
@@ -980,15 +1008,18 @@ class TimerView: UIView, TimerProtocol {
     func cancelButtonPressed()
     {
         delegate?.addTime(active: false)
-        addTimeDimView?.removeFromSuperview()
-        addTimeDimView = nil
-        okayButton?.removeFromSuperview()
-        plusButton?.removeFromSuperview()
-        minusButton?.removeFromSuperview()
-        cancelButton?.removeFromSuperview()
-        middleLine?.removeFromSuperview()
-        topLine?.removeFromSuperview()
-        bottomLine?.removeFromSuperview()
+        
+        editTimerView.removeFromSuperview()
+        
+//        addTimeDimView?.removeFromSuperview()
+//        addTimeDimView = nil
+//        okayButton?.removeFromSuperview()
+//        plusButton?.removeFromSuperview()
+//        minusButton?.removeFromSuperview()
+//        cancelButton?.removeFromSuperview()
+//        middleLine?.removeFromSuperview()
+//        topLine?.removeFromSuperview()
+//        bottomLine?.removeFromSuperview()
 
         let times = secondsToHoursMinutesSeconds(seconds: Int(ChronoTimer.sharedInstance.currentTime!))
         delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
@@ -1049,7 +1080,7 @@ class TimerView: UIView, TimerProtocol {
         
     }
     
-    
+// MARK: - Start Stop Button Pressed
     func buttonPressed()
     {
         startStopButtonPressed()
