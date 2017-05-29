@@ -12,7 +12,7 @@ import UIKit
 
 
 
-class HomeWireframe : NSObject, HomeWireframeProtocol
+class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDelegate
 {
     weak var viewController:HomeViewController?
     weak var settingsController:SettingsViewController?
@@ -220,10 +220,28 @@ class HomeWireframe : NSObject, HomeWireframeProtocol
 // MARK: - Show/Close Edit TImer
     func showEditTimerScreen() {
         editTimerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditTimer") as? EditTimerViewController
+        editTimerViewController?.editTimerDelegate = self
         viewController?.present(editTimerViewController!, animated: false, completion: nil)
     }
     
     func closeEditTimerScreen() {
+        
+    }
+    
+// MARK: - Edit Timer Delegate
+    func okButtonTapped() {
+        
+    }
+    
+    func closeButtonTapped() {
+        
+    }
+    
+    func minusTimerTapped() {
+        
+    }
+    
+    func plusTimerTapped() {
         
     }
     

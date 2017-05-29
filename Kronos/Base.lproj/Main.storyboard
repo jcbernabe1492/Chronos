@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="url.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoo-Hf-58A">
-                                <rect key="frame" x="161" y="120" width="54" height="18"/>
+                                <rect key="frame" x="160.5" y="120" width="54" height="18"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part of SCDB.me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMK-PY-yGO">
-                                <rect key="frame" x="138" y="445" width="100.5" height="14.5"/>
+                                <rect key="frame" x="137.5" y="445" width="100.5" height="14.5"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touc screen to close" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8B9-oW-wVR">
-                                <rect key="frame" x="111.5" y="574" width="153" height="18"/>
+                                <rect key="frame" x="111" y="574" width="153" height="18"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -207,7 +207,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALENDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-jX-dPJ">
-                                <rect key="frame" x="23.5" y="136" width="38" height="8.5"/>
+                                <rect key="frame" x="23" y="136" width="38" height="8.5"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -225,7 +225,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVOICES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-Be-nZ0">
-                                <rect key="frame" x="317" y="136" width="33.5" height="8.5"/>
+                                <rect key="frame" x="316.5" y="136" width="33.5" height="8.5"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -277,7 +277,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8t-EO-Q6P">
-                                <rect key="frame" x="16" y="160.5" width="2" height="1"/>
+                                <rect key="frame" x="16" y="160" width="2" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="mCW-fm-8lx"/>
@@ -398,7 +398,7 @@
                                 <rect key="frame" x="0.0" y="501" width="375" height="33"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT TASK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej7-up-mYc">
-                                        <rect key="frame" x="20" y="13" width="71.5" height="10.5"/>
+                                        <rect key="frame" x="20" y="12.5" width="71.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -425,13 +425,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EARNED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCB-cw-aoO">
-                                        <rect key="frame" x="316.5" y="13" width="38.5" height="10.5"/>
+                                        <rect key="frame" x="316.5" y="12.5" width="38.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu9-3V-tgR">
-                                        <rect key="frame" x="261.5" y="13" width="25" height="10.5"/>
+                                        <rect key="frame" x="261.5" y="12.5" width="25" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -834,7 +834,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuu-zO-2oF">
-                                        <rect key="frame" x="0.0" y="183" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="205.5" width="375" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5E-yh-go4">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
@@ -887,7 +887,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6N-dM-Ge2">
-                                        <rect key="frame" x="0.0" y="233" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="255.5" width="375" height="200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZs-9I-2Ox">
                                                 <rect key="frame" x="27" y="100" width="90" height="70"/>
@@ -949,13 +949,13 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWF-vT-w0P">
-                                                <rect key="frame" x="132" y="18" width="111" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWF-vT-w0P">
+                                                <rect key="frame" x="158" y="33" width="59" height="59"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="74" id="hXV-Nx-dS8"/>
-                                                    <constraint firstAttribute="width" constant="111" id="uqy-yF-X4c"/>
+                                                    <constraint firstAttribute="height" constant="59" id="hXV-Nx-dS8"/>
+                                                    <constraint firstAttribute="width" constant="59" id="uqy-yF-X4c"/>
                                                 </constraints>
-                                                <state key="normal" title="CLOSE">
+                                                <state key="normal" image="timer-increment-close">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -983,7 +983,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VA0-Ny-Oiv">
-                                        <rect key="frame" x="0.0" y="433" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="455.5" width="375" height="80"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrp-Gf-CSK">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
@@ -992,39 +992,39 @@
                                                     <constraint firstAttribute="height" constant="1" id="rbP-Kz-tL9"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpS-a8-D6F">
-                                                <rect key="frame" x="160" y="12.5" width="55" height="55"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpS-a8-D6F">
+                                                <rect key="frame" x="158.5" y="10.5" width="59" height="59"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="boi-uE-MN6"/>
-                                                    <constraint firstAttribute="width" constant="55" id="mSv-47-Dog"/>
+                                                    <constraint firstAttribute="height" constant="59" id="boi-uE-MN6"/>
+                                                    <constraint firstAttribute="width" constant="59" id="mSv-47-Dog"/>
                                                 </constraints>
-                                                <state key="normal" title="PLUS">
+                                                <state key="normal" image="timer-increment-plus">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="plusButtonTapped:" destination="Qnx-Tk-0rJ" eventType="touchUpInside" id="Afa-RY-kpk"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH6-ws-u64">
-                                                <rect key="frame" x="230" y="12.5" width="55" height="55"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH6-ws-u64">
+                                                <rect key="frame" x="237.5" y="10.5" width="59" height="59"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="M6z-xk-iu0"/>
-                                                    <constraint firstAttribute="width" constant="55" id="tB4-u9-z7M"/>
+                                                    <constraint firstAttribute="height" constant="59" id="M6z-xk-iu0"/>
+                                                    <constraint firstAttribute="width" constant="59" id="tB4-u9-z7M"/>
                                                 </constraints>
-                                                <state key="normal" title="OK">
+                                                <state key="normal" image="timer-increment-okay">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="okButtonTapped:" destination="Qnx-Tk-0rJ" eventType="touchUpInside" id="TqR-k2-wJY"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFs-a9-Mzy">
-                                                <rect key="frame" x="90" y="12.5" width="55" height="55"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFs-a9-Mzy">
+                                                <rect key="frame" x="79.5" y="10" width="59" height="59"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="fYz-vu-QlN"/>
-                                                    <constraint firstAttribute="width" constant="55" id="hHx-lV-ld8"/>
+                                                    <constraint firstAttribute="height" constant="59" id="fYz-vu-QlN"/>
+                                                    <constraint firstAttribute="width" constant="59" id="hHx-lV-ld8"/>
                                                 </constraints>
-                                                <state key="normal" title="MINUS">
+                                                <state key="normal" image="timer-increment-minus">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1035,11 +1035,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Xrp-Gf-CSK" firstAttribute="top" secondItem="VA0-Ny-Oiv" secondAttribute="top" id="44q-2r-iEa"/>
-                                            <constraint firstItem="kH6-ws-u64" firstAttribute="leading" secondItem="PpS-a8-D6F" secondAttribute="trailing" constant="15" id="6Ax-wt-sTr"/>
-                                            <constraint firstItem="PpS-a8-D6F" firstAttribute="leading" secondItem="eFs-a9-Mzy" secondAttribute="trailing" constant="15" id="9y7-SP-uEt"/>
+                                            <constraint firstItem="kH6-ws-u64" firstAttribute="leading" secondItem="PpS-a8-D6F" secondAttribute="trailing" constant="20" id="6Ax-wt-sTr"/>
+                                            <constraint firstItem="PpS-a8-D6F" firstAttribute="leading" secondItem="eFs-a9-Mzy" secondAttribute="trailing" constant="20" id="9y7-SP-uEt"/>
                                             <constraint firstItem="Xrp-Gf-CSK" firstAttribute="leading" secondItem="VA0-Ny-Oiv" secondAttribute="leading" id="UXQ-aJ-Wrv"/>
                                             <constraint firstAttribute="height" constant="80" id="Vdf-0i-TJ2"/>
-                                            <constraint firstItem="PpS-a8-D6F" firstAttribute="centerY" secondItem="VA0-Ny-Oiv" secondAttribute="centerY" id="YNo-sp-nWB"/>
+                                            <constraint firstItem="PpS-a8-D6F" firstAttribute="centerY" secondItem="VA0-Ny-Oiv" secondAttribute="centerY" constant="-0.5" id="YNo-sp-nWB"/>
                                             <constraint firstAttribute="trailing" secondItem="Xrp-Gf-CSK" secondAttribute="trailing" id="dWt-wc-mhW"/>
                                             <constraint firstItem="eFs-a9-Mzy" firstAttribute="centerY" secondItem="PpS-a8-D6F" secondAttribute="centerY" id="lT4-y6-cOd"/>
                                             <constraint firstItem="PpS-a8-D6F" firstAttribute="centerX" secondItem="VA0-Ny-Oiv" secondAttribute="centerX" id="tFZ-9M-PLq"/>
@@ -1053,7 +1053,7 @@
                                     <constraint firstItem="o6N-dM-Ge2" firstAttribute="top" secondItem="kuu-zO-2oF" secondAttribute="bottom" id="Br9-hV-7QH"/>
                                     <constraint firstAttribute="trailing" secondItem="o6N-dM-Ge2" secondAttribute="trailing" id="Lsf-Ck-XMK"/>
                                     <constraint firstItem="VA0-Ny-Oiv" firstAttribute="top" secondItem="o6N-dM-Ge2" secondAttribute="bottom" id="QEh-VM-U9G"/>
-                                    <constraint firstItem="o6N-dM-Ge2" firstAttribute="centerY" secondItem="r1j-pt-lBp" secondAttribute="centerY" id="TLg-1H-Yea"/>
+                                    <constraint firstItem="o6N-dM-Ge2" firstAttribute="centerY" secondItem="r1j-pt-lBp" secondAttribute="centerY" constant="22" id="TLg-1H-Yea"/>
                                     <constraint firstItem="VA0-Ny-Oiv" firstAttribute="leading" secondItem="r1j-pt-lBp" secondAttribute="leading" id="XO2-Ab-IWW"/>
                                     <constraint firstAttribute="trailing" secondItem="VA0-Ny-Oiv" secondAttribute="trailing" id="q1m-9e-Td0"/>
                                     <constraint firstAttribute="trailing" secondItem="kuu-zO-2oF" secondAttribute="trailing" id="ufS-np-WUj"/>
@@ -1061,7 +1061,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TrT-Jx-B2S" firstAttribute="leading" secondItem="a5T-cv-RUK" secondAttribute="leading" id="1X5-E2-hhH"/>
                             <constraint firstAttribute="trailing" secondItem="r1j-pt-lBp" secondAttribute="trailing" id="2sR-aO-7Qx"/>
@@ -1381,7 +1381,7 @@
                                 <rect key="frame" x="0.0" y="460" width="375" height="40.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MONTHLY SUMMARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQw-ZJ-mt1">
-                                        <rect key="frame" x="20" y="16.5" width="96.5" height="10.5"/>
+                                        <rect key="frame" x="20" y="16" width="96.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1397,7 +1397,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOURS WORKED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZa-38-gHI">
-                                        <rect key="frame" x="278.5" y="16.5" width="76.5" height="10.5"/>
+                                        <rect key="frame" x="278.5" y="16" width="76.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1856,7 +1856,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARE PDF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzL-zB-BHF">
-                                        <rect key="frame" x="309.5" y="85" width="41" height="8.5"/>
+                                        <rect key="frame" x="310" y="85" width="41" height="8.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1868,7 +1868,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVOICE STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvY-ll-ZCn">
-                                        <rect key="frame" x="159" y="85" width="59.5" height="8.5"/>
+                                        <rect key="frame" x="158.5" y="85" width="59.5" height="8.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -3026,7 +3026,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUZ-Ia-Iw8">
-                                                    <rect key="frame" x="13" y="17" width="28.5" height="12.5"/>
+                                                    <rect key="frame" x="13" y="17.5" width="28.5" height="12.5"/>
                                                     <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3423,6 +3423,10 @@
         <image name="invoice-pdf" width="60" height="60"/>
         <image name="invoice-status-draft" width="60" height="60"/>
         <image name="radio-off" width="16" height="16"/>
+        <image name="timer-increment-close" width="150" height="149"/>
+        <image name="timer-increment-minus" width="150" height="149"/>
+        <image name="timer-increment-okay" width="150" height="150"/>
+        <image name="timer-increment-plus" width="150" height="150"/>
         <image name="user-guide-top" width="466" height="217"/>
     </resources>
 </document>

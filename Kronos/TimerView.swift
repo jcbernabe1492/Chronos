@@ -840,7 +840,7 @@ class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
         }
         if tap.state == .began && !timerIsActive
         {
-            delegate?.addTime(active: true)
+//            delegate?.addTime(active: true)
             
             delegate?.showEditTimer()
             
@@ -1009,7 +1009,7 @@ class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
     {
         delegate?.addTime(active: false)
         
-        editTimerView.removeFromSuperview()
+//        editTimerView.removeFromSuperview()
         
 //        addTimeDimView?.removeFromSuperview()
 //        addTimeDimView = nil
