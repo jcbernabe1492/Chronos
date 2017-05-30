@@ -18,10 +18,6 @@ protocol HomeWireframeProtocol : class {
     var invoiceWireframe:InvoiceWireframe? {get set}
     var archiveWireframe:ArchiveWireframe? {get set}
     
-    
-    func showEditTimerScreen()
-    func closeEditTimerScreen()
-    
     func showSettingsScreen()
     func showAddTimerScreen(active:Bool)
     func canSaveTimer() -> Bool
@@ -37,7 +33,16 @@ protocol HomeWireframeProtocol : class {
     
     func closeAnyViewControllers()
     
+    //Edit Timer
+    func showEditTimerScreen()
+    func closeEditTimerScreen()
     
+    weak var homeWireFrameDelegate: HomeWireFrameDelegate? {get set}
+}
+
+protocol HomeWireFrameDelegate : class {
+    func updateTimerViewWithNewTime(time: Int)
+    func updateTopLabels(min:Int, hrs:Int, days:Int)
 }
 
 protocol HomePresenterProtocol : class {

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3033FC841ED9D6DF0057DFA4 /* EditTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033FC831ED9D6DF0057DFA4 /* EditTimerView.swift */; };
-		3033FC861ED9D6F30057DFA4 /* EditTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3033FC851ED9D6F30057DFA4 /* EditTimerView.xib */; };
 		303A123D1EDB08D000047702 /* EditTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A123C1EDB08D000047702 /* EditTimerViewController.swift */; };
 		86008A6A1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
 		86008A6B1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
@@ -329,8 +327,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3033FC831ED9D6DF0057DFA4 /* EditTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimerView.swift; sourceTree = "<group>"; };
-		3033FC851ED9D6F30057DFA4 /* EditTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditTimerView.xib; sourceTree = "<group>"; };
 		303A123C1EDB08D000047702 /* EditTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimerViewController.swift; sourceTree = "<group>"; };
 		86008A691D62CCC1005BFE96 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
 		86008A6D1D62CCE2005BFE96 /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -483,15 +479,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3033FC821ED9D6AC0057DFA4 /* Edit Timer */ = {
-			isa = PBXGroup;
-			children = (
-				3033FC831ED9D6DF0057DFA4 /* EditTimerView.swift */,
-				3033FC851ED9D6F30057DFA4 /* EditTimerView.xib */,
-			);
-			name = "Edit Timer";
-			sourceTree = "<group>";
-		};
 		303A12381EDB089500047702 /* EditTimer */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,7 +546,6 @@
 		86008A631D62CBC9005BFE96 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3033FC821ED9D6AC0057DFA4 /* Edit Timer */,
 				86BF07AB1D6A9430005FE76B /* Timer View */,
 				86008A791D62CF66005BFE96 /* Protocols */,
 				86008A681D62CC94005BFE96 /* Wireframe */,
@@ -1234,7 +1220,6 @@
 			files = (
 				8610ACE01D7DDD19008F628F /* AddTimerCells.plist in Resources */,
 				8666C6031DEDD343002C4713 /* More_Page_Time.pdf in Resources */,
-				3033FC861ED9D6F30057DFA4 /* EditTimerView.xib in Resources */,
 				86BE99711D620C590020F0C9 /* LaunchScreen.storyboard in Resources */,
 				868F4AE51D709CC800C838D8 /* Defaults.plist in Resources */,
 				8610ACE41D7EFC07008F628F /* ExpandableCells.plist in Resources */,
@@ -1298,7 +1283,6 @@
 				86973DF61DBAAFD700964202 /* SummaryLabelCell.swift in Sources */,
 				8646F1071D7DBE7700188605 /* AddTimerPresenter.swift in Sources */,
 				868F4B051D70A3C700C838D8 /* EnterTextTableViewCell.swift in Sources */,
-				3033FC841ED9D6DF0057DFA4 /* EditTimerView.swift in Sources */,
 				86BF07A81D6A942C005FE76B /* TimerView.swift in Sources */,
 				86E5BEFB1D8073FA00D7C579 /* Agency+CoreDataClass.swift in Sources */,
 				86E5BEE91D8073FA00D7C579 /* Project+CoreDataClass.swift in Sources */,

@@ -22,7 +22,7 @@ enum TimerType
     case Normal, ProjectTime, AllocatedTime
 }
 
-class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
+class TimerView: UIView, TimerProtocol {
 
     var dimView:UIView?
     //Delegate
@@ -68,8 +68,6 @@ class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
     
     var addTimeDimView : UIView?
     var tempTimeChange:Int = 0
-    
-    var editTimerView = EditTimerView()
     
     typealias Minutes = Int
     typealias Hours = Int
@@ -817,20 +815,6 @@ class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
         }
     }
     
-// MARK: - Edit Timer Delegate Methods
-    func closeButtonTapped() {
-        cancelButtonPressed()
-    }
-    func plusTimerTapped() {
-        plusButtonPressed()
-    }
-    func minusTimerTapped() {
-        minusButtonPressed()
-    }
-    func okButtonTapped() {
-        okayButtonPressed()
-    }
-    
 // MARK: - Button Long Pressed
     func buttonLongPressed(tap:UILongPressGestureRecognizer)
     {
@@ -939,6 +923,15 @@ class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
         }
     }
     
+    func updateTimerViewWithNewTime(time: Int) {
+        tempTimeChange = time
+        ChronoTimer.sharedInstance.addtime(time: tempTimeChange)
+        updateCalenderDay(time: time)
+        updateMinuteAndHourCircles(true)
+        tempTimeChange = 0
+        getTimeForTimer(updateOthers: true)
+    }
+    
     func okayButtonPressed()
     {
         ChronoTimer.sharedInstance.addtime(time: tempTimeChange)
@@ -972,59 +965,6 @@ class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
         }
         try! DataController.sharedInstance.managedObjectContext.save()
     
-    }
-    
-    func plusButtonPressed()
-    {
-        tempTimeChange = tempTimeChange + 1
-        let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
-
-        let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
-        delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
-  
-    }
-    
-    func minusButtonPressed()
-    {
-        tempTimeChange = tempTimeChange - 1
-        let tempTime = ChronoTimer.sharedInstance.currentTime! + Double(tempTimeChange*60)
-        
-        if tempTime <= 0
-        {
-            tempTimeChange = tempTimeChange + 1
-            return
-        }
-        else
-        {
-            let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
-            delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
-        }
-    }
-    
-    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
-        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
-    }
-    
-    func cancelButtonPressed()
-    {
-        delegate?.addTime(active: false)
-        
-//        editTimerView.removeFromSuperview()
-        
-//        addTimeDimView?.removeFromSuperview()
-//        addTimeDimView = nil
-//        okayButton?.removeFromSuperview()
-//        plusButton?.removeFromSuperview()
-//        minusButton?.removeFromSuperview()
-//        cancelButton?.removeFromSuperview()
-//        middleLine?.removeFromSuperview()
-//        topLine?.removeFromSuperview()
-//        bottomLine?.removeFromSuperview()
-
-        let times = secondsToHoursMinutesSeconds(seconds: Int(ChronoTimer.sharedInstance.currentTime!))
-        delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
-        tempTimeChange = 0
- 
     }
     
     func updateMinuteAndHourCircles(_ updateOthers:Bool = false)
@@ -1077,6 +1017,62 @@ class TimerView: UIView, TimerProtocol, EditTimerViewDelegate {
         
         hoursPassedView?.percentage =  (Double(hoursPassed).multiplied(by: 1.0)).divided(by: 24)
         hoursPassedView?.setNeedsDisplay()
+        
+    }
+    
+// MARK: - Edit Timer Plus Button Pressed
+    func plusButtonPressed()
+    {
+        tempTimeChange = tempTimeChange + 1
+        let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
+        
+        let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
+        delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
+        
+    }
+    
+// MARK: - Edit Timer Minus Button Pressed
+    func minusButtonPressed()
+    {
+        tempTimeChange = tempTimeChange - 1
+        let tempTime = ChronoTimer.sharedInstance.currentTime! + Double(tempTimeChange*60)
+        
+        if tempTime <= 0
+        {
+            tempTimeChange = tempTimeChange + 1
+            return
+        }
+        else
+        {
+            let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
+            delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
+        }
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+// MARK: - Edit Timer Cancel Button Pressed
+    func cancelButtonPressed()
+    {
+        delegate?.addTime(active: false)
+        
+        //        editTimerView.removeFromSuperview()
+        
+        //        addTimeDimView?.removeFromSuperview()
+        //        addTimeDimView = nil
+        //        okayButton?.removeFromSuperview()
+        //        plusButton?.removeFromSuperview()
+        //        minusButton?.removeFromSuperview()
+        //        cancelButton?.removeFromSuperview()
+        //        middleLine?.removeFromSuperview()
+        //        topLine?.removeFromSuperview()
+        //        bottomLine?.removeFromSuperview()
+        
+        let times = secondsToHoursMinutesSeconds(seconds: Int(ChronoTimer.sharedInstance.currentTime!))
+        delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
+        tempTimeChange = 0
         
     }
     

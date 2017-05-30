@@ -9,10 +9,8 @@
 import UIKit
 
 protocol EditTimerViewControllerDelegate : class {
-    func closeButtonTapped()
-    func plusTimerTapped()
-    func minusTimerTapped()
-    func okButtonTapped()
+    func okButtonTappedWithNewTime(time: Int)
+    func updateTopLabels(min:Int, hrs:Int, days:Int)
 }
 
 class EditTimerViewController: UIViewController {
@@ -48,12 +46,10 @@ class EditTimerViewController: UIViewController {
     
 // MARK: - IBAction Methods
     @IBAction func closeButtonTapped(_ sender: Any) {
-        editTimerDelegate?.closeButtonTapped()
         self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func plusButtonTapped(_ sender: Any) {
-        editTimerDelegate?.plusTimerTapped()
         
         tempTimeChange = tempTimeChange + 1
         
@@ -62,10 +58,10 @@ class EditTimerViewController: UIViewController {
         let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
         
         setTimeLabels(min: times.1, hrs: times.0, days: 0)
+        editTimerDelegate?.updateTopLabels(min: times.1, hrs: times.0, days: 0)
     }
     
     @IBAction func minusButtonTapped(_ sender: Any) {
-        editTimerDelegate?.minusTimerTapped()
         
         tempTimeChange = tempTimeChange - 1
         
@@ -74,12 +70,13 @@ class EditTimerViewController: UIViewController {
         let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
         
         setTimeLabels(min: times.1, hrs: times.0, days: 0)
+        editTimerDelegate?.updateTopLabels(min: times.1, hrs: times.0, days: 0)
     }
     
     @IBAction func okButtonTapped(_ sender: Any) {
-        editTimerDelegate?.okButtonTapped()
+        editTimerDelegate?.okButtonTappedWithNewTime(time: tempTimeChange)
         
-        ChronoTimer.sharedInstance.addtime(time: tempTimeChange)
+        //ChronoTimer.sharedInstance.addtime(time: tempTimeChange)
         
         tempTimeChange = 0
         self.dismiss(animated: false, completion: nil)

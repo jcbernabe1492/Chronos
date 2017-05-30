@@ -17,6 +17,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     weak var viewController:HomeViewController?
     weak var settingsController:SettingsViewController?
     weak var editTimerViewController:EditTimerViewController?
+    weak var homeWireFrameDelegate: HomeWireFrameDelegate?
     var calenderWireframe: CalenderWireframe?
     var addTimerWireframe:AddTimerWireframe?
     var loadTimerWireframe:LoadTimerWireframe?
@@ -228,21 +229,14 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         
     }
     
-// MARK: - Edit Timer Delegate
-    func okButtonTapped() {
-        
+// MARK: - Edit Timer View Controller Delegate
+    
+    func updateTopLabels(min: Int, hrs: Int, days: Int) {
+        homeWireFrameDelegate?.updateTopLabels(min: min, hrs: hrs, days: days)
     }
     
-    func closeButtonTapped() {
-        
-    }
-    
-    func minusTimerTapped() {
-        
-    }
-    
-    func plusTimerTapped() {
-        
+    func okButtonTappedWithNewTime(time: Int) {
+        homeWireFrameDelegate?.updateTimerViewWithNewTime(time: time)
     }
     
 // MARK: - Show/Close Archive

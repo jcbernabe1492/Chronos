@@ -16,7 +16,7 @@ enum MODULES
 }
 
 
-class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate
+class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWireFrameDelegate
 {
     var interactor : HomeInteractorInput?
     var wireframe : HomeWireframeProtocol?
@@ -27,8 +27,12 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate
     
     weak var view : HomeViewControllerProtocol?
     
+    var timerOne: TimerView?
+    
     func viewDidLoad() {
-            createTimerView(TimerType.Normal)
+        createTimerView(TimerType.Normal)
+        
+        wireframe?.homeWireFrameDelegate = self
     }
     
     func createTimerView(_ type:TimerType) {
@@ -61,6 +65,8 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate
         timer3.minuteDidPass = {() in
             self.view?.updateTopLabels()
         }
+        
+        self.timerOne = timer
         
         timer.otherTimers = [timer2, timer3]
         timer2.otherTimers = [timer, timer3]
@@ -141,6 +147,16 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate
     
     func updateCalendarDay() {
         interactor?.updateCalendarDay(stopping: false)
+    }
+    
+// MARK: - HomeWireFrame Delegates
+    
+    func updateTimerViewWithNewTime(time: Int) {
+        self.timerOne?.updateTimerViewWithNewTime(time: time)
+    }
+    
+    func updateTopLabels(min: Int, hrs: Int, days: Int) {
+        view?.setTopLabels(min: min, hrs: hrs, days: days)
     }
     
 // MARK: - Timer View Delegates

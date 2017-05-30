@@ -16,6 +16,8 @@ let TIME_INCREMENT_HOUR = 60.00 * 60.00
 protocol TimerProtocol
 {
     func secondPassed(newTime:Double)
+    
+    func updateTimerViewWithNewTime(time: Int)
 }
 
 class ChronoTimer:NSObject
