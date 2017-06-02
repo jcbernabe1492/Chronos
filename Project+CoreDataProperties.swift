@@ -54,7 +54,9 @@ extension Project {
         {
             return 1
         }
-        return Int((highest?.id)!) + 1
+        
+        let newProjectID = Int((highest?.id)!) + 1
+        return Int64(newProjectID)
     }
 
     class func deleteProjectWith(id:Int)
@@ -81,7 +83,6 @@ extension Project {
         }
         return returnSet
     }
-    
 
     class func all() -> [Project]? {
         let fetchRequest:NSFetchRequest<Project> = Project.fetchRequest()

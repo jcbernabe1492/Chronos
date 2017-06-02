@@ -122,9 +122,10 @@ class DataController:NSObject
         try! managedObjectContext.save()
     }
     
+// MARK: - Add Agency
     func addAgency(tempAgency:Agency, isAgency:Bool) -> Bool
     {
-        if verifyIfAgencyNameExists(name: tempAgency.name!) {
+        if verifyIfAgencyNameExists(name: tempAgency.name!, isAgency: isAgency) {
             return false
         }
         
@@ -188,11 +189,18 @@ class DataController:NSObject
         return []
     }
     
-    func verifyIfAgencyNameExists(name: String) -> Bool
+// MARK: - Verify Agency/Client Name Exists
+    func verifyIfAgencyNameExists(name: String, isAgency: Bool) -> Bool
     {
-        var array = getAllAgencies()
-     
-        let predicate = NSPredicate(format: "name == %@", name)
+        var array: NSMutableArray!
+        
+        if isAgency {
+            array = getAllAgencies()
+        } else {
+            array = getAllClients()
+        }
+        
+        let predicate = NSPredicate(format: "name ==[c] %@", name)
         array = array.filtered(using: predicate) as! NSMutableArray
         
         if array.count > 0 {
@@ -202,6 +210,7 @@ class DataController:NSObject
         return false
     }
     
+// MARK: - Get All Active Project Tasks
     func getAllActiveProjectTasks() -> NSMutableArray
     {
         let tasks = self.getAllProjectTasks()
@@ -216,7 +225,7 @@ class DataController:NSObject
         return returnArray
     }
     
-    
+// MARK: - Get All Projects
     func getAllProjects() -> NSMutableArray
     {
         var fetchedObjects:Array<Project>
@@ -233,6 +242,23 @@ class DataController:NSObject
 
     }
     
+    func verifyProjectNameIsUnique(name: String) -> Bool
+    {
+        var array: NSMutableArray!
+        
+        array = getAllProjects()
+        
+        let predicate = NSPredicate(format: "name ==[c] %@", name)
+        array = array.filtered(using: predicate) as! NSMutableArray
+        
+        if array.count > 0 {
+            return false
+        }
+        
+        return true
+    }
+    
+// MARK: - Get All Project Tasks
     func getAllProjectTasks() -> NSMutableArray
     {
         var fetchedObjects:Array<StageTask>
@@ -249,7 +275,23 @@ class DataController:NSObject
         return []
     }
     
+    func verifyTaskNameIsUnique(name: String) -> Bool
+    {
+        var array: NSMutableArray!
+        
+        array = getAllProjectTasks()
+        
+        let predicate = NSPredicate(format: "name ==[c] %@", name)
+        array = array.filtered(using: predicate) as! NSMutableArray
+        
+        if array.count > 0 {
+            return false
+        }
+        
+        return true
+    }
     
+// MARK: - Get All Current Job Timers
     func getAllCurrentJobTimers() -> NSMutableArray
     {
         

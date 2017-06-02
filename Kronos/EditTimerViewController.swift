@@ -63,14 +63,33 @@ class EditTimerViewController: UIViewController {
     
     @IBAction func minusButtonTapped(_ sender: Any) {
         
+//        tempTimeChange = tempTimeChange - 1
+//        //        let tempTime = ChronoTimer.sharedInstance.currentTime! + Double(tempTimeChange*60)
+//        //
+//        //        if tempTime <= 0
+//        //        {
+//        //            tempTimeChange = tempTimeChange + 1
+//        //            return
+//        //        }
+//        //        else
+//        //        {
+//        //            let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
+//        //            delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
+//        //        }
+        
         tempTimeChange = tempTimeChange - 1
         
         let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
         
-        let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
-        
-        setTimeLabels(min: times.1, hrs: times.0, days: 0)
-        editTimerDelegate?.updateTopLabels(min: times.1, hrs: times.0, days: 0)
+        if tempTime <= 0 {
+            tempTimeChange = tempTimeChange + 1
+            
+        } else {
+            let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
+            
+            setTimeLabels(min: times.1, hrs: times.0, days: 0)
+            editTimerDelegate?.updateTopLabels(min: times.1, hrs: times.0, days: 0)
+        }
     }
     
     @IBAction func okButtonTapped(_ sender: Any) {

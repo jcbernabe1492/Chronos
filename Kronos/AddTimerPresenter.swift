@@ -592,7 +592,12 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                 else
                 {
                     if DataController.sharedInstance.addAgency(tempAgency: tempAgency, isAgency: false) != true {
+                        let alertController = UIAlertController.init(title: "Client Name Exists", message: "Client name already exists. Please enter a different client name.", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
                         
+                        addTimerPresenterOutput?.showAlertController(alertController: alertController)
+                        
+                        return
                     }
                     
                     tempProject?.clientId = tempAgency.id
@@ -613,8 +618,19 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
             }
             else
             {
+                let projectNameInput = (tableData?[0] as! NSDictionary).value(forKey: "TEXT") as? String
+                
+                if DataController.sharedInstance.verifyProjectNameIsUnique(name: projectNameInput!) != true {
+                    let alertController = UIAlertController.init(title: "Project Name Exists", message: "Project name already exists. Please enter a different project name.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
+                    
+                    addTimerPresenterOutput?.showAlertController(alertController: alertController)
+                    
+                    return
+                }
+                
                 tempProject?.id = NSNumber(value: Project.getNewProjectID())
-                tempProject?.name = (tableData?[0] as! NSDictionary).value(forKey: "TEXT") as? String
+                tempProject?.name = projectNameInput
                 
                 let dayLengthNum = Int(UserDefaults.standard.value(forKey: "workHoursPerDay") as! String)
                 if dayLengthNum != nil{
@@ -638,8 +654,18 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
             }
             else
             {
-               
-                tempTask?.name = (tableData?[0] as! NSDictionary).value(forKey: "TEXT") as? String
+                let taskNameInput = (tableData?[0] as! NSDictionary).value(forKey: "TEXT") as? String
+                
+                if DataController.sharedInstance.verifyTaskNameIsUnique(name: taskNameInput!) != true {
+                    let alertController = UIAlertController.init(title: "Task Name Exists", message: "Task name already exists. Please enter a different task name.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
+                    
+                    addTimerPresenterOutput?.showAlertController(alertController: alertController)
+                    
+                    return
+                }
+                
+                tempTask?.name = taskNameInput
                 let stringValue = (tableData?[1] as! NSDictionary).value(forKey: "TEXT") as! String
                 if stringValue != "SELECT"
                 {
