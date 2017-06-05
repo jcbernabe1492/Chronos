@@ -579,7 +579,7 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                     tempAgency.isAgency = true
                     if DataController.sharedInstance.addAgency(tempAgency: tempAgency, isAgency: true) != true {
                         
-                        let alertController = UIAlertController.init(title: "Agency Name Exists", message: "Agency name already exists. Please enter a different agency name.", preferredStyle: .alert)
+                        let alertController = UIAlertController.init(title: "Agency Name Exists", message: "\(tempAgency.name!) already exists. Please enter a different name.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
                         
                         addTimerPresenterOutput?.showAlertController(alertController: alertController)
@@ -592,7 +592,7 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                 else
                 {
                     if DataController.sharedInstance.addAgency(tempAgency: tempAgency, isAgency: false) != true {
-                        let alertController = UIAlertController.init(title: "Client Name Exists", message: "Client name already exists. Please enter a different client name.", preferredStyle: .alert)
+                        let alertController = UIAlertController.init(title: "Client Name Exists", message: "\(tempAgency.name!) already exists. Please enter a different name.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
                         
                         addTimerPresenterOutput?.showAlertController(alertController: alertController)
@@ -621,7 +621,7 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                 let projectNameInput = (tableData?[0] as! NSDictionary).value(forKey: "TEXT") as? String
                 
                 if DataController.sharedInstance.verifyProjectNameIsUnique(name: projectNameInput!) != true {
-                    let alertController = UIAlertController.init(title: "Project Name Exists", message: "Project name already exists. Please enter a different project name.", preferredStyle: .alert)
+                    let alertController = UIAlertController.init(title: "Project Name Exists", message: "\(projectNameInput!) already exists. Please enter a different name.", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
                     
                     addTimerPresenterOutput?.showAlertController(alertController: alertController)
@@ -657,7 +657,7 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                 let taskNameInput = (tableData?[0] as! NSDictionary).value(forKey: "TEXT") as? String
                 
                 if DataController.sharedInstance.verifyTaskNameIsUnique(name: taskNameInput!) != true {
-                    let alertController = UIAlertController.init(title: "Task Name Exists", message: "Task name already exists. Please enter a different task name.", preferredStyle: .alert)
+                    let alertController = UIAlertController.init(title: "Task Name Exists", message: "\(taskNameInput!) already exists. Please enter a different name.", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
                     
                     addTimerPresenterOutput?.showAlertController(alertController: alertController)

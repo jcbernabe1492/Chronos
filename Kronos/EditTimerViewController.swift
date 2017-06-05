@@ -35,22 +35,34 @@ class EditTimerViewController: UIViewController {
     
     var tempTimeChange:Int = 0
     
+    var changeTimer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
         let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
         setTimeLabels(min: times.1, hrs: times.0, days: 0)
+        
+        let plusLongPress = UILongPressGestureRecognizer.init(target: self, action: #selector(startPlusTimer(gesture:)))
+        plusLongPress.minimumPressDuration = 1
+        plusButton.addGestureRecognizer(plusLongPress)
+        plusButton.addTarget(self, action: #selector(plusReleased), for: .touchUpInside)
+        
+        let minusLongPress = UILongPressGestureRecognizer.init(target: self, action: #selector(startMinusTimer(gesture:)))
+        minusLongPress.minimumPressDuration = 1
+        minusButton.addGestureRecognizer(minusLongPress)
+        minusButton.addTarget(self, action: #selector(minusReleased), for: .touchUpInside)
     }
-
     
 // MARK: - IBAction Methods
     @IBAction func closeButtonTapped(_ sender: Any) {
+        changeTimer?.invalidate()
+        
         self.dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func plusButtonTapped(_ sender: Any) {
-        
+    func addTime() {
         tempTimeChange = tempTimeChange + 1
         
         let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
@@ -61,22 +73,7 @@ class EditTimerViewController: UIViewController {
         editTimerDelegate?.updateTopLabels(min: times.1, hrs: times.0, days: 0)
     }
     
-    @IBAction func minusButtonTapped(_ sender: Any) {
-        
-//        tempTimeChange = tempTimeChange - 1
-//        //        let tempTime = ChronoTimer.sharedInstance.currentTime! + Double(tempTimeChange*60)
-//        //
-//        //        if tempTime <= 0
-//        //        {
-//        //            tempTimeChange = tempTimeChange + 1
-//        //            return
-//        //        }
-//        //        else
-//        //        {
-//        //            let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
-//        //            delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
-//        //        }
-        
+    func subtractTime() {
         tempTimeChange = tempTimeChange - 1
         
         let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
@@ -90,6 +87,55 @@ class EditTimerViewController: UIViewController {
             setTimeLabels(min: times.1, hrs: times.0, days: 0)
             editTimerDelegate?.updateTopLabels(min: times.1, hrs: times.0, days: 0)
         }
+    }
+    
+    func plusReleased() {
+        endTimer(toAddTime: true)
+    }
+    
+    func minusReleased() {
+        endTimer(toAddTime: false)
+    }
+    
+    func endTimer(toAddTime: Bool) {
+        if changeTimer != nil {
+            changeTimer?.invalidate()
+            changeTimer = nil
+        } else {
+            if toAddTime {
+                addTime()
+            } else {
+                subtractTime()
+            }
+        }
+    }
+    
+    func startPlusTimer(gesture: UIGestureRecognizer) {
+        if gesture.state == .began {
+            if changeTimer == nil {
+                changeTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(plusTimerRun), userInfo: nil, repeats: true)
+            }
+        } else if gesture.state == .ended {
+            plusReleased()
+        }
+    }
+    
+    func startMinusTimer(gesture: UIGestureRecognizer) {
+        if gesture.state == .began {
+            if changeTimer == nil {
+                changeTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(minusTimerRun), userInfo: nil, repeats: true)
+            }
+        } else if gesture.state == .ended {
+            minusReleased()
+        }
+    }
+    
+    func plusTimerRun() {
+        addTime()
+    }
+    
+    func minusTimerRun() {
+        subtractTime()
     }
     
     @IBAction func okButtonTapped(_ sender: Any) {

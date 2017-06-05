@@ -828,6 +828,7 @@ class TimerView: UIView, TimerProtocol {
             
             delegate?.showEditTimer()
             
+            
 //            editTimerView = EditTimerView.instanceFromNib()
 //            editTimerView.editTimerDelegate = self
 //            editTimerView.translatesAutoresizingMaskIntoConstraints = false
