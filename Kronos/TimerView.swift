@@ -1352,9 +1352,9 @@ class TimerView: UIView, TimerProtocol {
         hoursPassed = 0
         hoursView.setNeedsDisplay()
         timerIsActive = false
-        let timerHandRadian = timerHand.layer.presentation()?.value(forKeyPath: "transform.rotation.z")
+        //let timerHandRadian = timerHand.layer.presentation()?.value(forKeyPath: "transform.rotation.z")
         timerHand.layer.removeAllAnimations()
-        timerHand.transform = CGAffineTransform(rotationAngle: 0 as! CGFloat)
+        timerHand.transform = CGAffineTransform(rotationAngle: 0)
         startStopButton.setImage(UIImage(named: "btn-timer-stopped"), for: [])
 
         
