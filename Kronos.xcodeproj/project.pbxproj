@@ -1180,7 +1180,7 @@
 				TargetAttributes = {
 					86BE99621D620C590020F0C9 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 8KW4SQ3F4C;
+						DevelopmentTeam = MMD69U6HW5;
 						DevelopmentTeamName = "David Wee";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
@@ -1686,17 +1686,17 @@
 				ALTERNATE_GROUP = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 8KW4SQ3F4C;
+				DEVELOPMENT_TEAM = MMD69U6HW5;
 				GCC_PREPROCESSOR_DEFINITIONS = PRO;
 				INFOPLIST_FILE = Kronos/Info.plist;
 				INSTALL_GROUP = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DPRO";
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidwee.Chrono.Pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Chrono.Pro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fee1a2e7-c327-4799-9449-b4df9f2f72b5";
-				PROVISIONING_PROFILE_SPECIFIER = "* Development";
+				PROVISIONING_PROFILE = "c769336b-11dc-4337-b0ed-dab21be3dac7";
+				PROVISIONING_PROFILE_SPECIFIER = ChronosProDevelopment;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1715,7 +1715,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DPRO";
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidwee.Chrono.Pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Chrono.Pro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;

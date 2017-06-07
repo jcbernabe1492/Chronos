@@ -160,8 +160,8 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
     }
     
 // MARK: - Timer View Delegates
-    func showEditTimer() {
-        wireframe?.showEditTimerScreen()
+    func showEditTimer(buttonFrame: CGRect) {
+        wireframe?.showEditTimerScreen(buttonFrame: buttonFrame)
     }
     
     func setTopLabels(min: Int, hrs: Int, days: Int) {

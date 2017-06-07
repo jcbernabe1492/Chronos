@@ -20,11 +20,12 @@ class EditTimerViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var centerView: UIView!
-    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var closeButtonY: NSLayoutConstraint!
     
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var plusButton: UIButton!
@@ -36,6 +37,8 @@ class EditTimerViewController: UIViewController {
     var tempTimeChange:Int = 0
     
     var changeTimer: Timer?
+    
+    var buttonFrame: CGRect?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +56,14 @@ class EditTimerViewController: UIViewController {
         minusLongPress.minimumPressDuration = 1
         minusButton.addGestureRecognizer(minusLongPress)
         minusButton.addTarget(self, action: #selector(minusReleased), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        let halfScreenHeight = UIScreen.main.bounds.size.height/2
+//        let newCloseButtonY = halfScreenHeight - (buttonFrame?.origin.y)!
+        self.closeButtonY.constant = (buttonFrame?.origin.y)! + (buttonFrame?.size.height)!/2
     }
     
 // MARK: - IBAction Methods

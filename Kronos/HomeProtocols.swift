@@ -34,7 +34,7 @@ protocol HomeWireframeProtocol : class {
     func closeAnyViewControllers()
     
     //Edit Timer
-    func showEditTimerScreen()
+    func showEditTimerScreen(buttonFrame: CGRect)
     func closeEditTimerScreen()
     
     weak var homeWireFrameDelegate: HomeWireFrameDelegate? {get set}

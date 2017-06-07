@@ -219,9 +219,10 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     }
     
 // MARK: - Show/Close Edit TImer
-    func showEditTimerScreen() {
+    func showEditTimerScreen(buttonFrame: CGRect) {
         editTimerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditTimer") as? EditTimerViewController
         editTimerViewController?.editTimerDelegate = self
+        editTimerViewController?.buttonFrame = buttonFrame
         viewController?.present(editTimerViewController!, animated: false, completion: nil)
     }
     

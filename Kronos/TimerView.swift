@@ -14,7 +14,7 @@ protocol TimerViewDelegate {
     func noTimerActive()
     func setTopLabels(min:Int, hrs:Int, days:Int)
     func addTime(active:Bool)
-    func showEditTimer()
+    func showEditTimer(buttonFrame: CGRect)
 }
 
 enum TimerType
@@ -825,9 +825,8 @@ class TimerView: UIView, TimerProtocol {
         if tap.state == .began && !timerIsActive
         {
 //            delegate?.addTime(active: true)
-            
-            delegate?.showEditTimer()
-            
+            let globalPoint = startStopButton.superview?.convert(startStopButton.frame.origin, to: nil)
+            delegate?.showEditTimer(buttonFrame: CGRect(origin: globalPoint!, size: startStopButton.frame.size))
             
 //            editTimerView = EditTimerView.instanceFromNib()
 //            editTimerView.editTimerDelegate = self
