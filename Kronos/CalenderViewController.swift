@@ -36,7 +36,6 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
     var currentMonth:Int!
     var loadedYears:[Int] = []
     var scrollViewWasLoadedOnce = false
-
     
     private var previousScrollPos = CGFloat(0.0)
     
@@ -78,6 +77,9 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
+        refreshChangesFromSettings()
+        
         if scrollViewWasLoadedOnce
         {
             if Date().timeIntervalSince(UserDefaults.standard.value(forKey: "refreshDate") as! Date) > 900 {
@@ -97,6 +99,24 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
         }
         scrollViewWasLoadedOnce = true
 
+    }
+    
+    private func refreshChangesFromSettings() {
+        
+        guard let changed = UserDefaults.standard.value(forKey: "calenderDaysChanged") as? Bool else {
+            return
+        }
+        
+        //let changed = UserDefaults.standard.value(forKey: "calenderDaysChanged") as? Bool
+        
+        if changed {
+            let date = Date()
+            let calendar = Calendar.current
+            let year = calendar.component(.year, from: date)
+            loadYear(year, position: 0)
+            
+            UserDefaults.standard.set(false, forKey: "calenderDaysChanged")
+        }
     }
 
     override func didReceiveMemoryWarning() {

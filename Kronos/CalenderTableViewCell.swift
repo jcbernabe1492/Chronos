@@ -41,6 +41,7 @@ class CalenderTableViewCell: UITableViewCell {
     @IBAction func buttonClicked(btn:CalenderButton)
     {
         var array = UserDefaults.standard.value(forKey: "calenderDays") as! Array<String>
+        
         if array.contains(btn.dayString!)
         {
             let i = array.index(of: "\(btn.dayString!)")
@@ -51,6 +52,7 @@ class CalenderTableViewCell: UITableViewCell {
             array.append(btn.dayString!)
         }
         UserDefaults.standard.set(array, forKey: "calenderDays")
+        UserDefaults.standard.set(true, forKey: "calenderDaysChanged")
         setupButtons()
     }
     
