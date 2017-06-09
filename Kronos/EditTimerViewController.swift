@@ -73,8 +73,8 @@ class EditTimerViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func addTime() {
-        tempTimeChange = tempTimeChange + 1
+    func addTime(byValue: Int) {
+        tempTimeChange = tempTimeChange + byValue
         
         let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
         
@@ -84,8 +84,8 @@ class EditTimerViewController: UIViewController {
         editTimerDelegate?.updateTopLabels(min: times.1, hrs: times.0, days: 0)
     }
     
-    func subtractTime() {
-        tempTimeChange = tempTimeChange - 1
+    func subtractTime(byValue: Int) {
+        tempTimeChange = tempTimeChange - byValue
         
         let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
         
@@ -114,9 +114,9 @@ class EditTimerViewController: UIViewController {
             changeTimer = nil
         } else {
             if toAddTime {
-                addTime()
+                addTime(byValue: 1)
             } else {
-                subtractTime()
+                subtractTime(byValue: 1)
             }
         }
     }
@@ -142,11 +142,11 @@ class EditTimerViewController: UIViewController {
     }
     
     func plusTimerRun() {
-        addTime()
+        addTime(byValue: 2)
     }
     
     func minusTimerRun() {
-        subtractTime()
+        subtractTime(byValue: 2)
     }
     
     @IBAction func okButtonTapped(_ sender: Any) {
