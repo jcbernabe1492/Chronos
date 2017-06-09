@@ -36,6 +36,7 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
     var currentMonth:Int!
     var loadedYears:[Int] = []
     var scrollViewWasLoadedOnce = false
+    var firstLoad = false
     
     private var previousScrollPos = CGFloat(0.0)
     
@@ -74,11 +75,18 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
         loadedYears.append(2017)
         view.backgroundColor = calendarScrollingView.backgroundColor
         UserDefaults.standard.setValue(Date(), forKey: "refreshDate")
+        
+        firstLoad = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         
-        refreshChangesFromSettings()
+        if firstLoad == false {
+            refreshChangesFromSettings()
+        } else {
+            UserDefaults.standard.set(false, forKey: "calenderDaysChanged")
+            firstLoad = false
+        }
         
         if scrollViewWasLoadedOnce
         {
