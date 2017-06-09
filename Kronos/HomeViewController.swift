@@ -304,6 +304,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     }
     
     //MARK: - ACTIONS
+
+// MARK: - Settings Button Pressed
     @IBAction func settingsButtonPressed()
     {
         
@@ -322,7 +324,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         presenter?.settingsButtonPressed()
     }
     
-    
+// MARK: - Calendar Button Pressed
     @IBAction func calenderButtonPressed()
     {
         if !(presenter?.moduleButtonPressed(selectedModule: .CALENDER))! { return }
@@ -352,6 +354,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         
     }
     
+// MARK: - Invoice Button Pressed
     @IBAction func invoiceButtonPressed()
     {
         self.presenter?.closeAnyViewControllers()
@@ -508,7 +511,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         invoiceButton?.setImage(UIImage(named:"icn-invoice-job"), for: .normal)
     }
     
-    
+// MARK: - Invoices Button Pressed
     @IBAction func invoicesButtonPressed()
     {
 
@@ -558,6 +561,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         }
     }
     
+// MARK: - Load Timer Button Pressed
     @IBAction func loadTimerButtonPressed()
     {
      
@@ -600,7 +604,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         }
     }
     
-    
+// MARK: - Add Timer Button Pressed
     @IBAction func addTimerButtonPressed()
     {
             if !(presenter?.moduleButtonPressed(selectedModule: .ADD_TIMER))! { return }
@@ -635,7 +639,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             }
     }
     
-    
+// MARK: - Archive Button Pressed
     @IBAction func archiveButtonPressed()
     {
         if settingsSelected { self.settingsButtonPressed() }
@@ -667,6 +671,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         
     }
     
+// MARK: - Full History Button Pressed
     @IBAction func fullHistoryPressed()
     {
         thisYearButton.alpha = 0.2
