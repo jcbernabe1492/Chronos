@@ -341,6 +341,10 @@ class LoadTimerPresenter:NSObject, LoadTimerPresenterProtocol
         
     func trashOkayButtonClicked()
     {
+//        let currentJobTimer = JobTimer.getTimerWith(id: (UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! NSNumber).intValue)
+//        
+//        return
+        
         var toDeleteArray:NSMutableArray?
         toDeleteArray = view?.tableViewCells()
         DispatchQueue.main.async {

@@ -85,7 +85,7 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
                     for s in self.calendarScrollingView.subviews {
                         s.removeFromSuperview()
                         self.loadedYears = []
-                    }
+                        }
                 }
                 let date = Date()
                 let calendar = Calendar.current
@@ -212,9 +212,14 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
     {
         currentDay = day
         currentStatus = day.type.rawValue
-        dayStatusButton?.setImage(UIImage(named:daySettingsImageArray[currentStatus]), for: .normal)
-        bottomTtitleLabel?.text = "\(String(format: "%02d", day.day)) \(Months().monthArray[day.month-1].uppercased()) \(day.year)"
-        setDayValues(active: true)
+        
+        DispatchQueue.main.async {
+            self.dayStatusButton?.setImage(UIImage(named:daySettingsImageArray[self.currentStatus]), for: .normal)
+            self.bottomTtitleLabel?.text = "\(String(format: "%02d", day.day)) \(Months().monthArray[day.month-1].uppercased()) \(day.year)"
+            self.setDayValues(active: true)
+        }
+        
+    
         
     }
     
@@ -258,8 +263,8 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
                 bottomLabelView?.addConstraint(NSLayoutConstraint(item: bottomLabelView!, attribute: .height, relatedBy: .equal, toItem: dayTableView, attribute: .height, multiplier: 1.0, constant: 0.0))
                 hoursWorkedLabel?.isHidden = false
             }
-        }else
-        {
+        } else {
+            
             if active == true
             {
                 dayTableView?.reloadData()

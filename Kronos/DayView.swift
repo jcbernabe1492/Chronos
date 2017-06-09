@@ -16,6 +16,7 @@ let ONE_HOUR = 60.0*60.0
 protocol DayViewDelegate
 {
     func dayViewWasPressed(day:Day)
+    func updatePreviouseDaySelected(dayView: DayView)
 }
 
 class DayView: UIView {
@@ -75,6 +76,8 @@ class DayView: UIView {
                 innerCircle?.layer.borderColor = UIColor.black.cgColor
                 innerCircle?.layer.borderWidth = 2
                 backgroundImage?.image = UIImage(named: "img-calendar-day-off-today")
+                
+                self.delegate?.updatePreviouseDaySelected(dayView: self)
             }
         }
         else if isSelected
@@ -82,6 +85,8 @@ class DayView: UIView {
             outerCircle?.layer.borderColor = UIColor.black.cgColor
             outerCircle?.layer.borderWidth = 2
             backgroundImage?.image = UIImage(named: "img-calendar-day-off-today")
+            
+            self.delegate?.updatePreviouseDaySelected(dayView: self)
         }
         else
         {
@@ -282,10 +287,14 @@ class DayView: UIView {
             {
                 (superview as! DayViewDelegate).dayViewWasPressed(day: day!)
             }
-        }else
-        {
+        } else {
             delegate?.dayViewWasPressed(day: day!)
         }
+        
+//        self.isSelected = true
+//        self.setupDayImage()
+//        self.setNeedsDisplay()
+//        self.layoutSubviews()
     }
     
 

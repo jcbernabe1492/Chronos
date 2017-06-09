@@ -89,6 +89,8 @@ class TimerView: UIView, TimerProtocol {
     {
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerView.settingsDidChange), name: NSNotification.Name(rawValue: "kSettingsChangedNotificaiton"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerView.startStopButtonPressed(_:_:)), name: NSNotification.Name(rawValue:"kTimerDeletedNotification"), object: nil)
 
 
         // Timer Days View - This is the view with the days elapsed (yellow) and days allocated (gray)
@@ -266,6 +268,7 @@ class TimerView: UIView, TimerProtocol {
         var daysAlloctaed = 0
         if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) == nil { return }
         let currentJobTimer = JobTimer.getTimerWith(id: (UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! NSNumber).intValue)
+        
         
       
         

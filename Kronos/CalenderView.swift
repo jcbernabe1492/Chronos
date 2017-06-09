@@ -32,6 +32,8 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
     
     var dayViewArray:[DayView] = []
     
+    var previousDaySelected: DayView? 
+    
     init(month:Int, year:Int)
     {
         self.year = year
@@ -188,6 +190,8 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+// MARK: - Day View Delegate Methods
+    
     func dayViewWasPressed(day: Day) {
         for d in days{
             if d.isSelected
@@ -206,10 +210,20 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
             }
             
         }
+        
+//        self.previousDaySelected?.isSelected = false
+//        self.previousDaySelected?.setupDayImage()
+//        self.previousDaySelected?.setNeedsDisplay()
+//        self.previousDaySelected?.layoutSubviews()
+        
         if delegate != nil
         {
-            delegate?.dayViewWasPressed(day: day)
+            //delegate?.dayViewWasPressed(day: day)
         }
+    }
+    
+    func updatePreviouseDaySelected(dayView: DayView) {
+        self.previousDaySelected = dayView
     }
     
     func updateDayView(dayView:Day, type:DAY_TYPE)
