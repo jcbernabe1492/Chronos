@@ -218,7 +218,7 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
         
         if delegate != nil
         {
-            //delegate?.dayViewWasPressed(day: day)
+            delegate?.dayViewWasPressed(day: day)
         }
     }
     
