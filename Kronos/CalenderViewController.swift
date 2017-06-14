@@ -106,7 +106,9 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
 
         }
         scrollViewWasLoadedOnce = true
-
+        
+        let amounts = CalenderUtils.getDataFor(month: Date().getMonth(), year: Date().getYear())
+        self.updateBottomLabels(amounts: amounts)
     }
     
     private func refreshChangesFromSettings() {
@@ -157,8 +159,10 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
                     let calender1Leading = NSLayoutConstraint(item: self.calendarScrollingView, attribute: .leading, relatedBy: .equal, toItem: calender1, attribute: .leading, multiplier: 1.0, constant: -(UIScreen.main.bounds.size.width * CGFloat(month)))
                     calender1.calenderLeadingConstraint = calender1Leading
                     self.view.addConstraint(calender1Leading)
-                    let amounts = CalenderUtils.getDataFor(month: (calender1.currentMonth)!, year: (calender1.year)!)
-                    self.updateBottomLabels(amounts: amounts)
+                    
+//                    let amounts = CalenderUtils.getDataFor(month: (calender1.currentMonth)!, year: (calender1.year)!)
+//                    self.updateBottomLabels(amounts: amounts)
+                    
                     self.hoursWorkedLabel?.isHidden = true
                     if month == 11 {
                         self.scrollToCurrentMonth(year:year, index: position)
@@ -189,16 +193,22 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
         calendarScrollingView.contentOffset = CGPoint(x:size * CGFloat(m), y:height * CGFloat(index))
         
     }
-    //MARK: - IBActions
+// MARK: - Month Button Pressed
     @IBAction func monthButtonPressed()
     {
         setDayValues(active: false)
         bottomTtitleLabel?.text = "MONTHLY SUMMARY"
         monthButton.setTitleColor(UIColor(red: 240.0/255.0, green: 80.0/255.0, blue: 50.0/255.0, alpha: 1.0), for: .normal)
         yearButton.setTitleColor(UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1.0), for: .normal)
+        
+        let m = Date().getMonth()
+        let amounts = CalenderUtils.getDataFor(month: m, year: Int((yearButton.titleLabel?.text)!)!)
+        //(numberOfProjects,totalTimeWorked,totalEarned,daySet.count)
+        updateBottomLabels(amounts: amounts)
+        print(amounts)
     }
     
-    
+// MARK: - Year Button Pressed
     //TODO: - Could cache months here after they are in the past and calculated before
     @IBAction func yearButtonPressed()
     {
@@ -373,6 +383,10 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
         let month = scrolledToX/UIScreen.main.bounds.size.width
         self.monthButton.setTitle(Months().monthArray[Int(month)
             ].uppercased(), for: .normal)
+        
+        let amounts = CalenderUtils.getDataFor(month: Int(month)+1, year: Date().getYear())
+        self.updateBottomLabels(amounts: amounts)
+        
         if loadedYears.contains(userYear+year) {
             return
         }
