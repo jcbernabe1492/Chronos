@@ -176,6 +176,13 @@ class DayView: UIView {
             hourView?.removeFromSuperview()
             hourView = nil
         }
+        
+        if overtimeHourView != nil
+        {
+            overtimeHourView?.removeFromSuperview()
+            overtimeHourView = nil
+        }
+        
         let taskTimes = CalenderUtils.getTimeWorked(day: day!)
         if taskTimes.isEmpty {return}
         
@@ -185,7 +192,8 @@ class DayView: UIView {
             totalTimeWorked = totalTimeWorked + task.value
         }
         
-        var hours = floor(totalTimeWorked/60/60)
+        //var hours = floor(totalTimeWorked/60/60)
+        var hours = round(totalTimeWorked/60/60)
         let percent = (ONE_HOUR*hours / DAY_HOURS )/2
         if hourView == nil
         {
@@ -291,10 +299,11 @@ class DayView: UIView {
             delegate?.dayViewWasPressed(day: day!)
         }
         
-//        self.isSelected = true
-//        self.setupDayImage()
-//        self.setNeedsDisplay()
-//        self.layoutSubviews()
+        self.isSelected = true
+        self.setupDayImage()
+        self.setNeedsDisplay()
+        self.layoutSubviews()
+        
     }
     
 
