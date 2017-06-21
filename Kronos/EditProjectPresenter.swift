@@ -55,7 +55,7 @@ class EditProjectPresenter :NSObject,  EditProjectPresenterProtocol
         {
             return (fees?.count)!-1
         }
-        return 8
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -181,16 +181,16 @@ class EditProjectPresenter :NSObject,  EditProjectPresenterProtocol
                 }
                 cell?.selectionStyle = .none
                 break
+//            case 5:
+//
+//                let project = Project.getProject(forId: (tableData?.projectId.intValue)!)
+//                cell = createTextCell(title: "ALLOCATE PROJECT TIME", enterText: "\(project!.allocatedProjectTime) HOURS")
+//                tempProjectTime = "\(project!.allocatedProjectTime)"
+//                projectTime = (cell as! AddTimerEnterTextCell).enterText
+//                (cell as! AddTimerEnterTextCell).setKeyboardNumeric()
+//                (cell as! AddTimerEnterTextCell).row = indexPath.row
+//                break
             case 5:
-
-                let project = Project.getProject(forId: (tableData?.projectId.intValue)!)
-                cell = createTextCell(title: "ALLOCATE PROJECT TIME", enterText: "\(project!.allocatedProjectTime) HOURS")
-                tempProjectTime = "\(project!.allocatedProjectTime)"
-                projectTime = (cell as! AddTimerEnterTextCell).enterText
-                (cell as! AddTimerEnterTextCell).setKeyboardNumeric()
-                (cell as! AddTimerEnterTextCell).row = indexPath.row
-                break
-            case 6:
 
                 cell = createTextCell(title: "ALLOCATE TASK TIME", enterText: "\(tableData!.allocatedTaskTime) HOURS")
             
@@ -199,7 +199,7 @@ class EditProjectPresenter :NSObject,  EditProjectPresenterProtocol
                 (cell as! AddTimerEnterTextCell).setKeyboardNumeric()
                 (cell as! AddTimerEnterTextCell).row = indexPath.row
                 break
-            case 7:
+            case 6:
                 var ref = "ENTER HERE"
                 if let referene  = tableData?.reference
                 {
@@ -368,14 +368,19 @@ class EditProjectPresenter :NSObject,  EditProjectPresenterProtocol
             task?.name = stageTaskName?.text
         }
         
-        if project?.allocatedProjectTime != NSNumber(value: Int((projectTime?.text?.components(separatedBy: " ").first)!)!)
-        {
-            project?.allocatedProjectTime = NSNumber(value: Int((projectTime?.text?.components(separatedBy: " ").first)!)!)
-        }
+//        if project?.allocatedProjectTime != NSNumber(value: Int((projectTime?.text?.components(separatedBy: " ").first)!)!)
+//        {
+//            project?.allocatedProjectTime = NSNumber(value: Int((projectTime?.text?.components(separatedBy: " ").first)!)!)
+//           
+//        }
         
         if task?.allocatedTaskTime != NSNumber(value: Int((taskTime?.text?.components(separatedBy: " ").first)!)!)
         {
             task?.allocatedTaskTime = NSNumber(value: Int((taskTime?.text?.components(separatedBy: " ").first)!)!)
+            
+            //project?.allocatedProjectTime = NSNumber(value: Int((taskTime?.text?.components(separatedBy: " ").first)!)!)
+            
+            project?.allocatedProjectTime = NSNumber(value: (project?.allocatedProjectTime.intValue)! + Int((task?.allocatedTaskTime)!))
         }
         
         if task?.reference == nil || task?.reference != referenceName?.text

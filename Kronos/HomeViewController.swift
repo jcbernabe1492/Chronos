@@ -908,6 +908,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
          updateHomeScreenValues()
     }
     
+// MARK: - Bottom Values
     enum BottomValues
     {
         case task, project, allocatedTime
