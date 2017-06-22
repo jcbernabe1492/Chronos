@@ -153,6 +153,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
     
     func updateTimerViewWithNewTime(time: Int) {
         self.timerOne?.updateTimerViewWithNewTime(time: time)
+        view?.updateHomeScreenValues()
     }
     
     func updateTopLabels(min: Int, hrs: Int, days: Int) {
@@ -219,10 +220,12 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         return false
     }
     
+// Mark: - Load Timer Tapped
     func loadTimerButtonPressed(active: Bool) {
         wireframe?.showLoadTimerScreen(active: active)
     }
     
+// Mark: - Calendar Tapped
     func calenderButtonPressed() {
         wireframe?.showCalenderView()
     }
@@ -231,6 +234,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         wireframe?.closeCalender(done: done)
     }
     
+// Mark: - Invoice Tapped
     func invoiceButtonPressed(section:Int)
     {
         wireframe?.showInvoiceView(section: section)
@@ -240,6 +244,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         wireframe?.closeInvoice(done: done)
     }
     
+// Mark: - Archive Tapped
     func archiveButtonPressed(active: Bool) {
         if active{
             wireframe?.showArchive()
