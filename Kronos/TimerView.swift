@@ -690,9 +690,12 @@ class TimerView: UIView, TimerProtocol {
                  print("PROJECT START -> \(timeInSeconds)")
                 break
             case .AllocatedTime:
-                let projectTimeAllocated = (project?.allocatedProjectTime.intValue)! / dayLength!
+//                let projectTimeAllocated = (project?.allocatedProjectTime.intValue)! / dayLength!
+//                let projectTimePast = DataController.sharedInstance.getAllTimeSpentOnProject(project: project!.id)
+//                let allocatedTimeInSeconds = Double(projectTimeAllocated)*Double(dayLength!)*60.0*60.0
+                let projectTimeAllocated = (project?.allocatedProjectTime.intValue)!
                 let projectTimePast = DataController.sharedInstance.getAllTimeSpentOnProject(project: project!.id)
-                let allocatedTimeInSeconds = Double(projectTimeAllocated)*Double(dayLength!)*60.0*60.0
+                let allocatedTimeInSeconds = Double(projectTimeAllocated)*60.0*60.0
                 getDaysHoursMinFrom(time: allocatedTimeInSeconds - projectTimePast, dayLength: dayLength!)
                 break
             }

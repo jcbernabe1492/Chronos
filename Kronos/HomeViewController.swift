@@ -6,6 +6,7 @@
 //  Copyright © 2016 davidwee. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScrollViewDelegate {
@@ -241,8 +242,14 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                     as! Int)
                 let currentTask = StageTask.getStageTask(forId: timer?.stageTaskId as! Int)
                 if let taskTime = currentTask?.allocatedTaskTime {
+//                    let time = selectedTimer.timeInSeconds
+//                    let countDownTime = (taskTime.doubleValue * 3600) + time!
+                    
+                    print(taskTime)
+                    // selectedTimer.timeInSeconds already has the total time of all timers within the same project
+                    // see in - TimerView.getTimeForTimer() .case AllocatedTime
                     let time = selectedTimer.timeInSeconds
-                    let countDownTime = (taskTime.doubleValue * 3600) + time!
+                    let countDownTime = time!
                     print(countDownTime)
                     let project = Project.getProject(forId: (currentTask?.projectId.intValue)!)
                     var dayLength = project?.dayLength.intValue
@@ -943,7 +950,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             taskNameLabel?.text = "T: \(task?.name ?? "N/A")"
             if value == .project {
                 allocatedForTaskName?.text = "Time allocated for project"
-            }else {
+            } else {
                 allocatedForTaskName?.text = "Time allocated for task"
             }
             bottomBtnDaysWorked.isHidden = false
@@ -1004,8 +1011,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                  bottomTitleLabel.text = "TOTAL HOURS"
             }
            
-        }else
-        {
+        } else {
             bottomHeaderLabel.text = "REMAINING TIME"
             clientNameLabel?.text = "P: \(project?.name ?? "N/A")"
             projectNameLabel?.text = "T: \(task?.name ?? "N/A")"
@@ -1024,7 +1030,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                 let alocatedProjectTime = (project?.allocatedProjectTime.doubleValue)!*3600.0
                 
                 let projectTimes = getDaysAndHours(fromTime: alocatedProjectTime - projectTimeWorked, dayLength: (project?.dayLength.intValue)!)
-                projectDay.text = "\(projectTimes.0)"
+                let dayString = String(format: "%.2f", projectTimes.0)
+                projectDay.text = dayString
                 clientValueLabel.text = "\(projectTimes.1)"
             }else {
                 projectDay.text = "0.00"
@@ -1035,7 +1042,9 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                 let taskTimeWorked = job?.timeSpent.doubleValue ?? 0.00
                 let taskTimeAllocated = (task?.allocatedTaskTime.doubleValue)! * 3600.0
                 let taskTimes = getDaysAndHours(fromTime: taskTimeAllocated - taskTimeWorked, dayLength: (project?.dayLength.intValue)!)
-                taskDay.text = "\(taskTimes.0)"
+
+                let taskString = String(format: "%.2f", taskTimes.0)
+                taskDay.text = taskString
                 projectValueLabel.text = "\(taskTimes.1)"
             } else {
                 taskDay.text = "0.00"
@@ -1061,9 +1070,9 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
 
     }
     
-    func getDaysAndHours(fromTime:Double, dayLength:Int) -> (Int, Int)
+    func getDaysAndHours(fromTime:Double, dayLength:Int) -> (Double, Int)
     {
-        var days = 0
+        var days = 0.0
         var hours = 0
         var time = abs(fromTime)
         let isNegative = fromTime < 0
@@ -1072,6 +1081,10 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             days = days + 1
             time = time - (Double(dayLength)*3600.0)
         }
+        
+        print((time/3600).truncatingRemainder(dividingBy: 1))
+        days = days + (time/3600).truncatingRemainder(dividingBy: 1)
+        
         while Int(time/60) >= 60
         {
             hours = hours + 1
