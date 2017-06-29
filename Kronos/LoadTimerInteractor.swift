@@ -55,8 +55,15 @@ class LoadTimerInteractor:NSObject, LoadTimerInteractorProtocol
                 let timerID = timer?.id
                 let task = StageTask.getStageTask(forId: Int((project as! StageTask).id))
                 task?.wasDeleted = true
-                DataController.sharedInstance.delete(obj: timer!)
-                try! DataController.sharedInstance.managedObjectContext.save()
+                
+                /** 
+                    Reset current job timer or the to be deleted timer current time, instead of deleting it completely.
+                    To prevent repeating job id.
+                 */
+                DataController.sharedInstance.updateCurrentJobTimer(timer: 0.00)
+                
+                //DataController.sharedInstance.delete(obj: timer!)
+                //try! DataController.sharedInstance.managedObjectContext.save()
                 var recents = UserDefaults.standard.value(forKey: RECENT_TASKS) as! Array<Int>
                 if recents.contains(timerID as! Int)
                 {

@@ -85,7 +85,7 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
     }
     func getCellForClientTab(tableView:UITableView) -> UITableViewCell
     {
-        var cell = getCellForAgencyTab(tableView: tableView)
+        let cell = getCellForAgencyTab(tableView: tableView)
         let agency = Agency.getAgency(forId: viewController.selectedAgency!)
         (cell as! HeaderCell).titleLabel.text = "\(agency!.name!)"
         (cell as! HeaderCell).titleLabel.isHidden = false

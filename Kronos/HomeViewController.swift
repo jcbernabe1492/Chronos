@@ -988,10 +988,14 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                 }
                 if project != nil { 
                     projectValueLabel.text = String(format:"%.2f", ArchiveUtils.getEarned(project: (project?.id)!, archived:false))
-                } else { projectValueLabel.text = "0.00" }
+                } else {
+                    projectValueLabel.text = "0.00"
+                }
                 if task != nil {
                     taskValueLabel.text = String(format:"%.2f", ArchiveUtils.getEarned(task: (task?.id)!))
-                }else { taskValueLabel.text = "0.00" }
+                } else {
+                    taskValueLabel.text = "0.00"
+                }
                  bottomTitleLabel.text = "EARNED"
             }
             else

@@ -666,7 +666,7 @@ class TimerView: UIView, TimerProtocol {
         if let id = UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as? Int
         {
             let job = JobTimer.getTimerWith(id: id)!
-            var time = job.timeSpent.doubleValue
+            //var time = job.timeSpent.doubleValue
             let task = StageTask.getStageTask(forId: job.stageTaskId.intValue)
             let project = Project.getProject(forId: task!.projectId.intValue)
             
@@ -774,7 +774,7 @@ class TimerView: UIView, TimerProtocol {
         if let id = UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as? Int
         {
             let job = JobTimer.getTimerWith(id: id)!
-            var time = job.timeSpent.doubleValue
+            let time = job.timeSpent.doubleValue
             
             ChronoTimer.sharedInstance.setTime(time: time)
    
@@ -1319,7 +1319,7 @@ class TimerView: UIView, TimerProtocol {
             if let id = UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as? Int
             {
                 let job = JobTimer.getTimerWith(id: id)!
-                var time = job.timeSpent.doubleValue
+                //var time = job.timeSpent.doubleValue
                 let task = StageTask.getStageTask(forId: job.stageTaskId.intValue)
                 let project = Project.getProject(forId: task!.projectId.intValue)
                 if project?.allocatedProjectTime == nil || project?.allocatedProjectTime == 0

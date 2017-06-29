@@ -78,7 +78,7 @@ extension Agency {
         {
             return 1
         }
-        return Int((highest?.id)!) + 1
+        return Int64(Int((highest?.id)!) + Int(1))
     }
 
 

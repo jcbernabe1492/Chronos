@@ -180,8 +180,8 @@ class ArchiveUtils:NSObject
     {
         let t = StageTask.getStageTask(forId: task.intValue)
         let totalTime = InvoiceUtils.getTotalTimeWorked(task: t!)
-        var hours = totalTime.0
-        var minutes =  totalTime.1
+        let hours = totalTime.0
+        let minutes =  totalTime.1
         
         return (hours, minutes)
     }

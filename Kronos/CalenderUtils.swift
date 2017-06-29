@@ -89,7 +89,7 @@ class CalenderUtils:NSObject
             let task = StageTask.getStageTask(forId: day.taskId.intValue)
             let fee = FeeRates.getRateWithId(id: (task?.feeRate.intValue)!)
             
-            var ratePerMinute = fee.getRatePerMinute()
+            let ratePerMinute = fee.getRatePerMinute()
 
             totalEarned = totalEarned + (day.timeWorked/60.0)*ratePerMinute
         }
