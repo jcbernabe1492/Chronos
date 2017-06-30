@@ -1263,22 +1263,38 @@ class TimerView: UIView, TimerProtocol {
         }
 
         if timer == .Normal {
-            print("NORMAL -> \(timeInSeconds)")
+            //print("NORMAL -> \(timeInSeconds)")
             job.timeSpent = NSNumber(value: newTime)
             try! DataController.sharedInstance.managedObjectContext.save()
         }
         else if timer == .ProjectTime {
-               print("PROJECT-> \(timeInSeconds)")
+               //print("PROJECT-> \(timeInSeconds)")
         }
 
-
-        if (time?.2)! > minutesPassed || (time?.1)! > hoursPassed {
-            self.minutesPassedView?.percentage = (Double(self.time!.2).multiplied(by: 1.0.divided(by: 120.0)))
-            self.minutesPassedView?.setNeedsDisplay()
-            self.hoursPassedView?.percentage =  (Double(self.time!.1).multiplied(by: 1.0)).divided(by: 24)
-            self.hoursPassedView?.setNeedsDisplay()
-            self.layoutSubviews()
+        if timer == .AllocatedTime {
+            if (time?.2)! < minutesPassed || (time?.1)! < hoursPassed {
+                self.minutesPassedView?.percentage = (Double(self.time!.2).multiplied(by: 1.0.divided(by: 120.0)))
+                self.minutesPassedView?.setNeedsDisplay()
+                self.hoursPassedView?.percentage =  (Double(self.time!.1).multiplied(by: 1.0)).divided(by: 24)
+                self.hoursPassedView?.setNeedsDisplay()
+                self.layoutSubviews()
+            }
+        } else {
+            if (time?.2)! > minutesPassed || (time?.1)! > hoursPassed {
+                self.minutesPassedView?.percentage = (Double(self.time!.2).multiplied(by: 1.0.divided(by: 120.0)))
+                self.minutesPassedView?.setNeedsDisplay()
+                self.hoursPassedView?.percentage =  (Double(self.time!.1).multiplied(by: 1.0)).divided(by: 24)
+                self.hoursPassedView?.setNeedsDisplay()
+                self.layoutSubviews()
+            }
         }
+//        if (time?.2)! > minutesPassed || (time?.1)! > hoursPassed {
+//            self.minutesPassedView?.percentage = (Double(self.time!.2).multiplied(by: 1.0.divided(by: 120.0)))
+//            self.minutesPassedView?.setNeedsDisplay()
+//            self.hoursPassedView?.percentage =  (Double(self.time!.1).multiplied(by: 1.0)).divided(by: 24)
+//            self.hoursPassedView?.setNeedsDisplay()
+//            self.layoutSubviews()
+//        }
         minutesPassed = time!.2
         hoursPassed = time!.1
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "kCheckTime"), object: nil)
