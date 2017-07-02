@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		303A123D1EDB08D000047702 /* EditTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A123C1EDB08D000047702 /* EditTimerViewController.swift */; };
+		48416EC21F08B31B00E95E6C /* IntroViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48416EC11F08B31B00E95E6C /* IntroViewPage.swift */; };
+		48416EC81F08B43600E95E6C /* IntroViewPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48416EC71F08B43600E95E6C /* IntroViewPage.xib */; };
+		485CE3F51F0144CC0087817A /* AppIntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485CE3F41F0144CC0087817A /* AppIntroController.swift */; };
 		86008A6A1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
 		86008A6B1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
 		86008A6C1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
@@ -328,6 +331,9 @@
 
 /* Begin PBXFileReference section */
 		303A123C1EDB08D000047702 /* EditTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimerViewController.swift; sourceTree = "<group>"; };
+		48416EC11F08B31B00E95E6C /* IntroViewPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewPage.swift; sourceTree = "<group>"; };
+		48416EC71F08B43600E95E6C /* IntroViewPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewPage.xib; sourceTree = "<group>"; };
+		485CE3F41F0144CC0087817A /* AppIntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIntroController.swift; sourceTree = "<group>"; };
 		86008A691D62CCC1005BFE96 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
 		86008A6D1D62CCE2005BFE96 /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		86008A711D62CCF5005BFE96 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -511,6 +517,64 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		48416EC01F08B30300E95E6C /* IntroViews */ = {
+			isa = PBXGroup;
+			children = (
+				48416EC11F08B31B00E95E6C /* IntroViewPage.swift */,
+				48416EC71F08B43600E95E6C /* IntroViewPage.xib */,
+			);
+			path = IntroViews;
+			sourceTree = "<group>";
+		};
+		485CE3EE1F0143DF0087817A /* AppIntro */ = {
+			isa = PBXGroup;
+			children = (
+				485CE3EF1F0144AB0087817A /* Entity */,
+				485CE3F01F0144AB0087817A /* Interactor */,
+				485CE3F11F0144AB0087817A /* Presenter */,
+				485CE3F21F0144AB0087817A /* Protocols */,
+				485CE3F31F0144AB0087817A /* View */,
+			);
+			path = AppIntro;
+			sourceTree = "<group>";
+		};
+		485CE3EF1F0144AB0087817A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		485CE3F01F0144AB0087817A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		485CE3F11F0144AB0087817A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		485CE3F21F0144AB0087817A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		485CE3F31F0144AB0087817A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48416EC01F08B30300E95E6C /* IntroViews */,
+				485CE3F41F0144CC0087817A /* AppIntroController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		86008A461D62BF9B005BFE96 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +595,7 @@
 		86008A621D62CBBB005BFE96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				485CE3EE1F0143DF0087817A /* AppIntro */,
 				864779D91DC2DFE8004B79F4 /* Archive */,
 				86A026481DB6924E00095F5E /* Invoice */,
 				862D9FD11D98DB1D006CFCDB /* Calender */,
@@ -1224,6 +1289,7 @@
 				868F4AE51D709CC800C838D8 /* Defaults.plist in Resources */,
 				8610ACE41D7EFC07008F628F /* ExpandableCells.plist in Resources */,
 				868F4AF51D709E8D00C838D8 /* Invoices.plist in Resources */,
+				48416EC81F08B43600E95E6C /* IntroViewPage.xib in Resources */,
 				86CF6C151D6E17E7004DD829 /* NeoSans-Medium.ttf in Resources */,
 				8679715A1D6A936500F85D95 /* NeoSans-Bold.ttf in Resources */,
 				86BE996E1D620C590020F0C9 /* Assets.xcassets in Resources */,
@@ -1303,6 +1369,7 @@
 				86EFE29A1DC53D6900C7EFD7 /* TwoLabelCell.swift in Sources */,
 				86BE99671D620C590020F0C9 /* AppDelegate.swift in Sources */,
 				869295F61DB9604B00F2ECC1 /* FeeRates+CoreDataProperties.swift in Sources */,
+				485CE3F51F0144CC0087817A /* AppIntroController.swift in Sources */,
 				860A376C1DF4A1C100589786 /* InvoiceToPDF.swift in Sources */,
 				8646F0FF1D7DBE5900188605 /* AddTimerViewController.swift in Sources */,
 				869673561D6D041E0078AEBC /* SettingsProtocols.swift in Sources */,
@@ -1365,6 +1432,7 @@
 				864A63341D87433F00B2113F /* LoadTimerPresenter.swift in Sources */,
 				86E5BF0A1D8074A300D7C579 /* JobTimer+CoreDataClass.swift in Sources */,
 				869295EA1DB94E1E00F2ECC1 /* DratftsCell.swift in Sources */,
+				48416EC21F08B31B00E95E6C /* IntroViewPage.swift in Sources */,
 				864A633D1D87437200B2113F /* LoadTimerProtocols.swift in Sources */,
 				8657CF661D9DAA39008BD97E /* CalenderProtocols.swift in Sources */,
 				868F4B191D70A41A00C838D8 /* TextTableViewCell.swift in Sources */,
@@ -1708,7 +1776,8 @@
 				ALTERNATE_GROUP = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = MMD69U6HW5;
 				GCC_PREPROCESSOR_DEFINITIONS = PRO;
 				INFOPLIST_FILE = Kronos/Info.plist;
 				INSTALL_GROUP = "";
@@ -1717,7 +1786,8 @@
 				OTHER_SWIFT_FLAGS = "-DPRO";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Chrono.Pro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f6c86da5-4908-4a78-9f9e-13b38a0a18b1";
+				PROVISIONING_PROFILE_SPECIFIER = ChronosProAdHoc;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

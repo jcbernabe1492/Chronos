@@ -32,6 +32,9 @@ class StartScreen: UIViewController {
         HomeWireframe.addHomeControllerOnWindow(UIApplication.shared.keyWindow!)
     }
     
+    @IBAction func openAppIntro(_ sender: Any) {
+        self.performSegue(withIdentifier: "PresentAppIntro", sender: self)
+    }
 
     /*
     // MARK: - Navigation
