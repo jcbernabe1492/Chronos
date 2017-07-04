@@ -27,9 +27,7 @@ class AddTimerViewController: UIViewController, AddTimerViewControllerProtocol, 
         presenter?.viewDidLoad()
         presenter?.addTimerPresenterOutput = self
         
-        let v = UIView(frame: CGRect(x: 0, y: 0, width: (addTimerTableView?.frame.size.width)! , height: 0.5))
-        v.backgroundColor = UIColor.black
-        addTimerTableView?.tableFooterView = v
+        addTimerTableView?.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
