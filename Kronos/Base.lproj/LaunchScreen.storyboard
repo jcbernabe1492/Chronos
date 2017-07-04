@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +22,21 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn-logo-start" translatesAutoresizingMaskIntoConstraints="NO" id="lS1-nb-SsZ">
+                                <rect key="frame" x="137.5" y="188" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lS1-nb-SsZ" secondAttribute="height" multiplier="1:1" id="Yb8-QT-rWs"/>
+                                    <constraint firstAttribute="height" constant="100" id="pHf-DV-hY0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lS1-nb-SsZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2ic-g7-PLx"/>
+                            <constraint firstItem="lS1-nb-SsZ" firstAttribute="width" secondItem="lS1-nb-SsZ" secondAttribute="height" multiplier="1:1" id="9GR-SX-s9i"/>
+                            <constraint firstItem="lS1-nb-SsZ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="188" id="II5-IO-o61"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,4 +44,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icn-logo-start" width="174" height="174"/>
+    </resources>
 </document>
