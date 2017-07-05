@@ -571,7 +571,6 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
 // MARK: - Load Timer Button Pressed
     @IBAction func loadTimerButtonPressed()
     {
-     
         if !(presenter?.moduleButtonPressed(selectedModule: .LOAD_TIMER))! { return }
         setAllButtonsUnselected()
         if loadTimerSelected
@@ -579,8 +578,9 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             loadTimerSelected = false
             updateHomeScreenValues()
             checkIfTimerWasDeleted()
-        }else
-        {
+            
+            NotificationCenter.default.removeObserver(self)
+        } else {
             loadTimerButton?.setImage(UIImage(named:"btn-load-timer-selected"), for: .normal)
             calenderActive = false
             addTimerSeleced = false
@@ -588,6 +588,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             addTimerSeleced = false
             invoiceActive = false
             loadTimerSelected = true
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(stopCurrentTimer), name: NSNotification.Name(rawValue: "StopRunningTimers"), object: nil)
         }
 
     }

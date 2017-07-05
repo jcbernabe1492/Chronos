@@ -338,12 +338,14 @@ class LoadTimerPresenter:NSObject, LoadTimerPresenterProtocol
             trashView = nil
         }
     }
+    
+    func stopRunningTimers() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "StopRunningTimers"), object: nil)
+    }
         
     func trashOkayButtonClicked()
     {
-//        let currentJobTimer = JobTimer.getTimerWith(id: (UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! NSNumber).intValue)
-//        
-//        return
+        performSelector(onMainThread: #selector(stopRunningTimers), with: nil, waitUntilDone: true)
         
         var toDeleteArray:NSMutableArray?
         toDeleteArray = view?.tableViewCells()
