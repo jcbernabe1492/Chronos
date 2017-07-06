@@ -273,11 +273,14 @@ class EditProjectPresenter :NSObject,  EditProjectPresenterProtocol
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        let proportionalHeight = (UIScreen.main.bounds.size.height-40.0) * 0.06
+        return proportionalHeight
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 30))
+        let proportionalHeight = (UIScreen.main.bounds.size.height-40.0) * 0.06
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: proportionalHeight))
         header.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1.0)
         
         let titleLabel = UILabel()
@@ -295,8 +298,9 @@ class EditProjectPresenter :NSObject,  EditProjectPresenterProtocol
         header.addSubview(okayButton)
         header.addConstraint(NSLayoutConstraint(item: header, attribute: .centerY, relatedBy: .equal, toItem: okayButton, attribute: .centerY, multiplier: 1.0, constant: 0.0))
         header.addConstraint(NSLayoutConstraint(item: header, attribute: .trailing, relatedBy: .equal, toItem: okayButton, attribute: .trailing, multiplier: 1.0, constant: 20.0))
-        header.addConstraint(NSLayoutConstraint(item: okayButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20.0))
-        header.addConstraint(NSLayoutConstraint(item: okayButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20.0))
+        
+        header.addConstraint(NSLayoutConstraint(item: okayButton, attribute: .height, relatedBy: .equal, toItem: header, attribute: .height, multiplier: 0.5, constant: 0.0))
+        okayButton.addConstraint(NSLayoutConstraint(item: okayButton, attribute: .width, relatedBy: .equal, toItem: okayButton, attribute: .height, multiplier: 1, constant: 0))
         
         okayButton.addTarget(self, action: #selector(EditProjectPresenter.okayButtonPressed), for: .touchUpInside)
         
@@ -305,9 +309,11 @@ class EditProjectPresenter :NSObject,  EditProjectPresenterProtocol
         cancelButton.setImage(UIImage(named:"btn-x"), for: .normal)
         header.addSubview(cancelButton)
         header.addConstraint(NSLayoutConstraint(item: header, attribute: .centerY, relatedBy: .equal, toItem: cancelButton, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-        header.addConstraint(NSLayoutConstraint(item: okayButton, attribute: .leading, relatedBy: .equal, toItem: cancelButton, attribute: .trailing, multiplier: 1.0, constant: 10.0))
-        header.addConstraint(NSLayoutConstraint(item: cancelButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20.0))
-        header.addConstraint(NSLayoutConstraint(item: cancelButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20.0))
+        header.addConstraint(NSLayoutConstraint(item: okayButton, attribute: .leading, relatedBy: .equal, toItem: cancelButton, attribute: .trailing, multiplier: 1.0, constant: 8.0))
+        
+        header.addConstraint(NSLayoutConstraint(item: cancelButton, attribute: .height, relatedBy: .equal, toItem: header, attribute: .height, multiplier: 0.5, constant: 0.0))
+        cancelButton.addConstraint(NSLayoutConstraint(item: cancelButton, attribute: .width, relatedBy: .equal, toItem: cancelButton, attribute: .height, multiplier: 1, constant: 0))
+        
         cancelButton.addTarget(self, action: #selector(EditProjectPresenter.cancelButtonPressed), for: .touchUpInside)
         
         
