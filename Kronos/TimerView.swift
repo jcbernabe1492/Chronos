@@ -933,7 +933,7 @@ class TimerView: UIView, TimerProtocol {
         tempTimeChange = time
         ChronoTimer.sharedInstance.addtime(time: tempTimeChange)
         updateCalenderDay(time: time)
-        updateMinuteAndHourCircles(true)
+        //updateMinuteAndHourCircles(true)
         tempTimeChange = 0
         getTimeForTimer(updateOthers: true)
     }
