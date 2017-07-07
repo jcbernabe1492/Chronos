@@ -1291,6 +1291,12 @@ class TimerView: UIView, TimerProtocol {
                 self.hoursPassedView?.percentage =  (Double(self.time!.1).multiplied(by: 1.0)).divided(by: 24)
                 self.hoursPassedView?.setNeedsDisplay()
                 self.layoutSubviews()
+            } else {
+                self.minutesPassedView?.percentage = (Double(self.time!.2).multiplied(by: 1.0.divided(by: 120.0)))
+                self.minutesPassedView?.setNeedsDisplay()
+                self.hoursPassedView?.percentage =  (Double(self.time!.1).multiplied(by: 1.0)).divided(by: 24)
+                self.hoursPassedView?.setNeedsDisplay()
+                self.layoutSubviews()
             }
         } else {
             if (time?.2)! > minutesPassed || (time?.1)! > hoursPassed {
