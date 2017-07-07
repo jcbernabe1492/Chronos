@@ -226,89 +226,6 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         invoiceAskView?.isHidden = true
  
     }
-    func updateTopLabels() {
-
-        if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) == nil
-        {
-            minuteLabel.text = String(format: "    %02d MIN", 0)
-            hourLabel.text = String(format: "    %02d HRS", 0)
-            dayLabel.text = String(format: "    %02d DAYS",  0)
-        }
-        else {
-
-            let offset = timerScrollView.contentOffset
-            if  offset.x > 600 {
-                let timer = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER)
-                    as! Int)
-                let currentTask = StageTask.getStageTask(forId: timer?.stageTaskId as! Int)
-                if let taskTime = currentTask?.allocatedTaskTime {
-//                    let time = selectedTimer.timeInSeconds
-//                    let countDownTime = (taskTime.doubleValue * 3600) + time!
-                    
-                    print(taskTime)
-                    // selectedTimer.timeInSeconds already has the total time of all timers within the same project
-                    // see in - TimerView.getTimeForTimer() .case AllocatedTime
-                    let time = selectedTimer.timeInSeconds
-                    let countDownTime = time!
-                    print(countDownTime)
-                    let project = Project.getProject(forId: (currentTask?.projectId.intValue)!)
-                    var dayLength = project?.dayLength.intValue
-                    if dayLength == nil || dayLength == 0
-                    {
-                        dayLength = 8
-                    }
-
-                    let displayTime = selectedTimer.getDisplayTime(time: countDownTime, dayLength: dayLength!)
-                    minuteLabel.text = String(format: "    %02d MIN", displayTime.2)
-                    hourLabel.text = String(format: "    %02d HRS", displayTime.1)
-                    dayLabel.text = String(format: "    %02d DAYS",  displayTime.0 )
-                }
-            }
-            else {
-
-                minuteLabel.text = String(format: "    %02d MIN", selectedTimer.time?.2 != nil ? selectedTimer.time!.2 : 0)
-                hourLabel.text = String(format: "    %02d HRS", selectedTimer.time?.1 != nil ? selectedTimer.time!.1 : 0)
-                dayLabel.text = String(format: "    %02d DAYS", selectedTimer.time?.0 != nil ? selectedTimer.time!.0 : 0)
-            }
-            if offset.x >= 0 && offset.x < 100
-            {
-                setBottomValues(value: .task)
-            }
-            else if offset.x > 300 && offset.x < 450
-            {
-                setBottomValues(value: .project)
-            }
-            else if offset.x > 600
-            {
-                setBottomValues(value: .allocatedTime)
-            }
-
-            presenter?.updateCalendarDay()
-
-        }
-    }
-    
-    func setTopLabels(min: Int, hrs: Int, days: Int) {
-        minuteLabel.text = String(format: "    %02d MIN", min)
-        var d = 0
-        var hours = hrs
-        var intVal = 8
-        if let i = UserDefaults.standard.value(forKey: "workHoursPerDay")
-        {
-            let i = Int(i as! String)
-            if i != nil
-            {
-                intVal = i!
-            }
-        }
-        while hours >= intVal
-        {
-            hours = hours - intVal
-            d = d + 1
-        }
-        hourLabel.text = String(format: "    %02d HRS", hours)
-        dayLabel.text = String(format: "    %02d DAYS", d)
-    }
     
     //MARK: - ACTIONS
 
@@ -917,6 +834,92 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
          updateHomeScreenValues()
     }
     
+// MARK: - Top Values
+    
+    func updateTopLabels() {
+        
+        if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) == nil
+        {
+            minuteLabel.text = String(format: "    %02d MIN", 0)
+            hourLabel.text = String(format: "    %02d HRS", 0)
+            dayLabel.text = String(format: "    %02d DAYS",  0)
+        }
+        else {
+            
+            let offset = timerScrollView.contentOffset
+            if  offset.x > 600 {
+                let timer = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER)
+                    as! Int)
+                let currentTask = StageTask.getStageTask(forId: timer?.stageTaskId as! Int)
+                if let taskTime = currentTask?.allocatedTaskTime {
+                    //                    let time = selectedTimer.timeInSeconds
+                    //                    let countDownTime = (taskTime.doubleValue * 3600) + time!
+                    
+                    print(taskTime)
+                    // selectedTimer.timeInSeconds already has the total time of all timers within the same project
+                    // see in - TimerView.getTimeForTimer() .case AllocatedTime
+                    let time = selectedTimer.timeInSeconds
+                    let countDownTime = time!
+                    print(countDownTime)
+                    let project = Project.getProject(forId: (currentTask?.projectId.intValue)!)
+                    var dayLength = project?.dayLength.intValue
+                    if dayLength == nil || dayLength == 0
+                    {
+                        dayLength = 8
+                    }
+                    
+                    let displayTime = selectedTimer.getDisplayTime(time: countDownTime, dayLength: dayLength!)
+                    minuteLabel.text = String(format: "    %02d MIN", displayTime.2)
+                    hourLabel.text = String(format: "    %02d HRS", displayTime.1)
+                    dayLabel.text = String(format: "    %02d DAYS",  displayTime.0 )
+                }
+            }
+            else {
+                
+                minuteLabel.text = String(format: "    %02d MIN", selectedTimer.time?.2 != nil ? selectedTimer.time!.2 : 0)
+                hourLabel.text = String(format: "    %02d HRS", selectedTimer.time?.1 != nil ? selectedTimer.time!.1 : 0)
+                dayLabel.text = String(format: "    %02d DAYS", selectedTimer.time?.0 != nil ? selectedTimer.time!.0 : 0)
+            }
+            if offset.x >= 0 && offset.x < 100
+            {
+                setBottomValues(value: .task)
+            }
+            else if offset.x > 300 && offset.x < 450
+            {
+                setBottomValues(value: .project)
+            }
+            else if offset.x > 600
+            {
+                setBottomValues(value: .allocatedTime)
+            }
+            
+            presenter?.updateCalendarDay()
+            
+        }
+    }
+    
+    func setTopLabels(min: Int, hrs: Int, days: Int) {
+        minuteLabel.text = String(format: "    %02d MIN", min)
+        var d = 0
+        var hours = hrs
+        var intVal = 8
+        if let i = UserDefaults.standard.value(forKey: "workHoursPerDay")
+        {
+            let i = Int(i as! String)
+            if i != nil
+            {
+                intVal = i!
+            }
+        }
+        while hours >= intVal
+        {
+            hours = hours - intVal
+            d = d + 1
+        }
+        hourLabel.text = String(format: "    %02d HRS", hours)
+        dayLabel.text = String(format: "    %02d DAYS", d)
+    }
+    
 // MARK: - Bottom Values
     enum BottomValues
     {
@@ -1103,7 +1106,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         return (days, hours)
     }
     
-    //MARK: - UISCrollViewDelegate
+// MARK: - UIScrollView Delegate Functions
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
         print(offset.x)

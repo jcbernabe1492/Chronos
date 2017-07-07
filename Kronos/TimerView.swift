@@ -477,9 +477,21 @@ class TimerView: UIView, TimerProtocol {
             let project = Project.getProject(forId: (task?.projectId.intValue)!)
             daysAlloctaed = Int(floor(project!.allocatedProjectTime.doubleValue / project!.dayLength.doubleValue))
             
-            daysElapsed = ArchiveUtils.getHoursWorked(project: (project?.id)!, archived: false).0
-            daysElapsed = daysElapsed + ArchiveUtils.getHoursWorked(project: (project?.id)!, archived: false).1/60
-            daysElapsed = Int(ceil(Double(daysElapsed/project!.dayLength.intValue)))
+            //hours
+            let totalHoursWorked = ArchiveUtils.getHoursWorked(project: (project?.id)!, archived: false).0
+            
+            //minutes
+            let totalMinutesWorked = ArchiveUtils.getHoursWorked(project: (project?.id)!, archived: false).1
+            
+            if totalMinutesWorked >= 0 {
+                daysElapsed = totalHoursWorked + 1
+            } else {
+                daysElapsed = totalHoursWorked
+            }
+            
+//            daysElapsed = ArchiveUtils.getHoursWorked(project: (project?.id)!, archived: false).0
+//            daysElapsed = daysElapsed + ArchiveUtils.getHoursWorked(project: (project?.id)!, archived: false).1/60
+            daysElapsed = Int(floor(Double(daysElapsed/project!.dayLength.intValue)))
             var daysElapsedArray = (-1)...(-1)
             
             daysElapsed = daysElapsed + (daysElapsed / 5)
@@ -749,6 +761,7 @@ class TimerView: UIView, TimerProtocol {
             minutes = minutes + 1
             currentTime = currentTime - 60
         }
+        
         return (days, hours, minutes)
     }
 
@@ -1288,6 +1301,7 @@ class TimerView: UIView, TimerProtocol {
                 self.layoutSubviews()
             }
         }
+        
 //        if (time?.2)! > minutesPassed || (time?.1)! > hoursPassed {
 //            self.minutesPassedView?.percentage = (Double(self.time!.2).multiplied(by: 1.0.divided(by: 120.0)))
 //            self.minutesPassedView?.setNeedsDisplay()
@@ -1295,6 +1309,7 @@ class TimerView: UIView, TimerProtocol {
 //            self.hoursPassedView?.setNeedsDisplay()
 //            self.layoutSubviews()
 //        }
+        
         minutesPassed = time!.2
         hoursPassed = time!.1
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "kCheckTime"), object: nil)
