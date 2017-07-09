@@ -552,6 +552,12 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                 {
                     timerView1?.startNewTimer(true)
                     timerView1?.startStopButtonPressed()
+                    
+                    timerView2?.startNewTimer(true)
+                    timerView2?.startStopButtonPressed()
+                    timerView3?.startNewTimer(true)
+                    timerView3?.startStopButtonPressed()
+                    
                     let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
                     job?.timeSpent = 1.0
                     try? DataController.sharedInstance.managedObjectContext.save()
@@ -686,6 +692,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         }
         
     }
+    
+// MARK: - Update Home Screen Values
     
     typealias HoursWorked = (Int, Int)
     func updateHomeScreenValues() {

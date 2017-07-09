@@ -51,6 +51,10 @@ class AddTimerWireframe : NSObject, AddTimerWireframeProtocol
         {
             height -= 20
         }
+        
+        let tableBottomInset = (viewController.timerTopLabels?.frame.origin.y)! - 40.0
+        
+        self.viewController?.addTimerTableView?.contentInset = UIEdgeInsetsMake(0, 0, tableBottomInset, 0)
             
         viewController.view.addConstraint(NSLayoutConstraint(item: (timerView as UIViewController).view , attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: height))
         

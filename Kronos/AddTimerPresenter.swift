@@ -240,7 +240,7 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                     (cell as! AddTimerEnterTextCell).enterText?.inputView = nil
                 }
                 
-                if (cell as! AddTimerEnterTextCell).title?.text == "ALLOCATE PROJECT TIME" ||  (cell as! AddTimerEnterTextCell).title?.text == "ALLOCATE TASK TIME"
+                if (cell as! AddTimerEnterTextCell).title?.text == "ALLOCATE PROJECT TIME" ||  (cell as! AddTimerEnterTextCell).title?.text == "ALLOCATE TASK TIME" ||  (cell as! AddTimerEnterTextCell).title?.text == "ALLOCATE TASK TIME (hours)"
                 {
                     (cell as! AddTimerEnterTextCell).setKeyboardNumeric()
                 }else
