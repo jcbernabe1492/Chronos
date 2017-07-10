@@ -693,13 +693,12 @@ class TimerView: UIView, TimerProtocol {
             case .Normal:
 
                 getDaysHoursMinFrom(time: currentTimeFromTimer, dayLength: dayLength!)
-                print("NORMAL START -> \(timeInSeconds)")
                 break
                 
             case .ProjectTime:
                 let currentProjectTime  = DataController.sharedInstance.getAllTimeSpentOnProject(project: project!.id)
                 getDaysHoursMinFrom(time: currentProjectTime, dayLength: dayLength!)
-                 print("PROJECT START -> \(timeInSeconds)")
+      
                 break
             case .AllocatedTime:
 //                let projectTimeAllocated = (project?.allocatedProjectTime.intValue)! / dayLength!
@@ -1470,16 +1469,22 @@ class TimerView: UIView, TimerProtocol {
             if setNewTimer
             {
                 startStopButtonPressed()
-                ChronoTimer.sharedInstance.currentTime = 0.0
-                ChronoTimer.sharedInstance.currentMinutes = 0
-                ChronoTimer.sharedInstance.currentHours = 0
-                ChronoTimer.sharedInstance.second = 0
+//                ChronoTimer.sharedInstance.currentTime = 0.0
+//                ChronoTimer.sharedInstance.currentMinutes = 0
+//                ChronoTimer.sharedInstance.currentHours = 0
+//                ChronoTimer.sharedInstance.second = 0
             }
             else
             {
                 startStopButtonPressed(false, false)
             }
         }
+        
+        ChronoTimer.sharedInstance.currentTime = 0.0
+        ChronoTimer.sharedInstance.currentMinutes = 0
+        ChronoTimer.sharedInstance.currentHours = 0
+        ChronoTimer.sharedInstance.second = 0
+        
         time = (0,0,0)
         timerHand.transform = CGAffineTransform(rotationAngle: 0)
         minutesPassed = 0
