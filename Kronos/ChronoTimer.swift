@@ -85,6 +85,7 @@ class ChronoTimer:NSObject
     {
         currentTime = currentTime! + TIME_INCREMENT_DEFAULT
         DispatchQueue.global(qos: .background).async {
+            print("currentTime: \(Int(self.currentTime!)), second: \(self.second)")
             if Int(self.currentTime!) > self.second
             {
                 self.second = Int(self.currentTime!)

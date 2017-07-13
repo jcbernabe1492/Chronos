@@ -113,7 +113,8 @@ extension FeeRates {
         }
         else
         {
-            return (fee.doubleValue * hours.doubleValue) / 60
+            //return (fee.doubleValue * hours.doubleValue) / 60
+            return (fee.doubleValue/60) / hours.doubleValue
         }
     }
 

@@ -553,10 +553,10 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                     timerView1?.startNewTimer(true)
                     timerView1?.startStopButtonPressed()
                     
-                    timerView2?.startNewTimer(true)
-                    timerView2?.startStopButtonPressed()
-                    timerView3?.startNewTimer(true)
-                    timerView3?.startStopButtonPressed()
+//                    timerView2?.startNewTimer(true)
+//                    timerView2?.startStopButtonPressed()
+//                    timerView3?.startNewTimer(true)
+//                    timerView3?.startStopButtonPressed()
                     
                     let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
                     job?.timeSpent = 1.0
@@ -863,12 +863,12 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                     //                    let time = selectedTimer.timeInSeconds
                     //                    let countDownTime = (taskTime.doubleValue * 3600) + time!
                     
-                    print(taskTime)
+                    //print(taskTime)
                     // selectedTimer.timeInSeconds already has the total time of all timers within the same project
                     // see in - TimerView.getTimeForTimer() .case AllocatedTime
                     let time = selectedTimer.timeInSeconds
                     let countDownTime = time!
-                    print(countDownTime)
+                    //print(countDownTime)
                     let project = Project.getProject(forId: (currentTask?.projectId.intValue)!)
                     var dayLength = project?.dayLength.intValue
                     if dayLength == nil || dayLength == 0
@@ -1099,7 +1099,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             time = time - (Double(dayLength)*3600.0)
         }
         
-        print((time/3600).truncatingRemainder(dividingBy: 1))
+        //print((time/3600).truncatingRemainder(dividingBy: 1))
         days = days + (time/3600).truncatingRemainder(dividingBy: 1)
         
         while Int(time/60) >= 60
@@ -1117,7 +1117,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
 // MARK: - UIScrollView Delegate Functions
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
-        print(offset.x)
+        //print(offset.x)
         if offset.x >= 0 && offset.x < 100
         {
             pageScroller.currentPage = 0
