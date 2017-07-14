@@ -119,8 +119,8 @@ class DayView: UIView {
         returnView.insertSubview(outerCircle!, belowSubview: innerCircle!)
         returnView.addConstraint(NSLayoutConstraint(item: returnView, attribute: .centerX, relatedBy: .equal, toItem: outerCircle, attribute: .centerX, multiplier: 1.0, constant: 0.0))
         returnView.addConstraint(NSLayoutConstraint(item: returnView, attribute: .centerY, relatedBy: .equal, toItem: outerCircle, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-        returnView.addConstraint(NSLayoutConstraint(item: returnView, attribute: .width, relatedBy: .equal, toItem: outerCircle, attribute: .width, multiplier: 1.0, constant: 0.0))
-        returnView.addConstraint(NSLayoutConstraint(item: returnView, attribute: .height, relatedBy: .equal, toItem: outerCircle, attribute: .height, multiplier: 1.0, constant: 0.0))
+        returnView.addConstraint(NSLayoutConstraint(item: returnView, attribute: .width, relatedBy: .equal, toItem: outerCircle, attribute: .width, multiplier: 1.0, constant: 0.35))
+        returnView.addConstraint(NSLayoutConstraint(item: returnView, attribute: .height, relatedBy: .equal, toItem: outerCircle, attribute: .height, multiplier: 1.0, constant: 0.35))
         
         dayNumberLabel = UILabel()
         dayNumberLabel.textAlignment = .center
