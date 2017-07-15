@@ -81,14 +81,14 @@ class LoadTimerViewController: UIViewController, LoadTimerViewControllerProtocol
         if isBeingEdited
         {
             presenter?.editingPressed(editing: false)
-            btn.setImage(UIImage(named:"btn-edit"), for: .normal)
+            editButton?.setImage(UIImage(named:"btn-edit"), for: .normal)
             trashButton?.setImage(UIImage(named:"btn-trash-disabled"), for: .normal)
             isBeingEdited = false
         }
         else
         {
             presenter?.editingPressed(editing: true)
-            btn.setImage(UIImage(named:"btn-x"), for: .normal)
+            editButton?.setImage(UIImage(named:"btn-x"), for: .normal)
             isBeingEdited = true
             trashButton?.setImage(UIImage(named:"btn-trash-selected"), for: .normal)
             

@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="url.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoo-Hf-58A">
-                                <rect key="frame" x="161" y="120" width="54" height="18"/>
+                                <rect key="frame" x="160.5" y="120" width="54" height="18"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part of SCDB.me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMK-PY-yGO">
-                                <rect key="frame" x="138" y="445" width="100.5" height="14.5"/>
+                                <rect key="frame" x="137.5" y="445" width="100.5" height="14.5"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -224,7 +224,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALENDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-jX-dPJ">
-                                <rect key="frame" x="23.5" y="136" width="38" height="8.5"/>
+                                <rect key="frame" x="23" y="136" width="38" height="8.5"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -242,7 +242,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVOICES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-Be-nZ0">
-                                <rect key="frame" x="317" y="136" width="33.5" height="8.5"/>
+                                <rect key="frame" x="316.5" y="136" width="33.5" height="8.5"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -294,7 +294,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8t-EO-Q6P">
-                                <rect key="frame" x="16" y="160.5" width="2" height="1"/>
+                                <rect key="frame" x="16" y="160" width="2" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="mCW-fm-8lx"/>
@@ -340,28 +340,28 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="kUC-Ql-qPu">
-                                        <rect key="frame" x="-2353" y="10" width="2708" height="113"/>
+                                        <rect key="frame" x="339.5" y="10" width="15.5" height="113"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUh-1D-3gl">
-                                                <rect key="frame" x="0.0" y="0.0" width="2708" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="15.5" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z63-YO-fQ1">
-                                                <rect key="frame" x="0.0" y="28.5" width="2708" height="28"/>
+                                                <rect key="frame" x="0.0" y="28.5" width="15.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OV-ZX-o7z">
-                                                <rect key="frame" x="0.0" y="56.5" width="2708" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="56.5" width="15.5" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5W-HM-0Cq">
-                                                <rect key="frame" x="0.0" y="85" width="2708" height="28"/>
+                                                <rect key="frame" x="0.0" y="85" width="15.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -369,28 +369,28 @@
                                         </subviews>
                                     </stackView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="qdh-Of-hhd">
-                                        <rect key="frame" x="-2421.5" y="10" width="2708" height="113"/>
+                                        <rect key="frame" x="271" y="10" width="15.5" height="113"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibp-Zi-rLY">
-                                                <rect key="frame" x="0.0" y="0.0" width="2708" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="15.5" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYm-tR-jG1">
-                                                <rect key="frame" x="0.0" y="28.5" width="2708" height="28"/>
+                                                <rect key="frame" x="0.0" y="28.5" width="15.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkG-hG-Tq2">
-                                                <rect key="frame" x="0.0" y="56.5" width="2708" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="56.5" width="15.5" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mur-I0-fwE">
-                                                <rect key="frame" x="0.0" y="85" width="2708" height="28"/>
+                                                <rect key="frame" x="0.0" y="85" width="15.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -415,7 +415,7 @@
                                 <rect key="frame" x="0.0" y="501" width="375" height="33"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT TASK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej7-up-mYc">
-                                        <rect key="frame" x="20" y="13" width="71.5" height="10.5"/>
+                                        <rect key="frame" x="20" y="12.5" width="71.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -442,13 +442,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EARNED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCB-cw-aoO">
-                                        <rect key="frame" x="316.5" y="13" width="38.5" height="10.5"/>
+                                        <rect key="frame" x="316.5" y="12.5" width="38.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu9-3V-tgR">
-                                        <rect key="frame" x="261.5" y="13" width="25" height="10.5"/>
+                                        <rect key="frame" x="261.5" y="12.5" width="25" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1281,28 +1281,59 @@
                                                     <constraint firstAttribute="width" secondItem="bpJ-gW-jM5" secondAttribute="height" id="b5E-6T-8ZB"/>
                                                 </constraints>
                                                 <state key="normal" image="btn-edit"/>
-                                                <connections>
-                                                    <action selector="editingButtonPressedWithBtn:" destination="Tv9-NR-cah" eventType="touchUpInside" id="wOo-HD-3ME"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJM-xv-NlA">
                                                 <rect key="frame" x="28" y="0.0" width="20" height="20"/>
                                                 <state key="normal" image="btn-trash-disabled"/>
-                                                <connections>
-                                                    <action selector="trashButtonPressed" destination="Tv9-NR-cah" eventType="touchUpInside" id="77d-Bf-ZRW"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a05-7Y-V1S">
+                                        <rect key="frame" x="299" y="0.0" width="64" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2w-qw-rGY">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="32" id="EAa-kb-Dze"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="editingButtonPressedWithBtn:" destination="Tv9-NR-cah" eventType="touchUpInside" id="svZ-KO-bQA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frp-kg-NYd">
+                                                <rect key="frame" x="32" y="0.0" width="32" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="32" id="SdJ-wz-onh"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="trashButtonPressed" destination="Tv9-NR-cah" eventType="touchUpInside" id="6Sg-f4-q78"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="K2w-qw-rGY" secondAttribute="bottom" id="71d-4M-hDN"/>
+                                            <constraint firstAttribute="bottom" secondItem="frp-kg-NYd" secondAttribute="bottom" id="B3n-C2-hUM"/>
+                                            <constraint firstAttribute="width" constant="64" id="Fol-VU-eQk"/>
+                                            <constraint firstItem="K2w-qw-rGY" firstAttribute="top" secondItem="a05-7Y-V1S" secondAttribute="top" id="GIe-1A-xBd"/>
+                                            <constraint firstItem="K2w-qw-rGY" firstAttribute="leading" secondItem="a05-7Y-V1S" secondAttribute="leading" id="KH8-Ew-mwW"/>
+                                            <constraint firstAttribute="trailing" secondItem="frp-kg-NYd" secondAttribute="trailing" id="OFf-u8-g8v"/>
+                                            <constraint firstItem="frp-kg-NYd" firstAttribute="top" secondItem="a05-7Y-V1S" secondAttribute="top" id="Xao-OD-AV4"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ACO-QK-zJH" firstAttribute="height" secondItem="qqP-Z7-jrC" secondAttribute="height" multiplier="0.5" id="3Bo-ej-bli"/>
+                                    <constraint firstAttribute="bottom" secondItem="a05-7Y-V1S" secondAttribute="bottom" id="7UB-Yv-9Uk"/>
+                                    <constraint firstItem="a05-7Y-V1S" firstAttribute="top" secondItem="qqP-Z7-jrC" secondAttribute="top" id="AyV-pN-f9V"/>
                                     <constraint firstAttribute="trailing" secondItem="ACO-QK-zJH" secondAttribute="trailing" constant="20" id="GZI-mj-ZmE"/>
                                     <constraint firstItem="ACO-QK-zJH" firstAttribute="centerY" secondItem="qqP-Z7-jrC" secondAttribute="centerY" id="Igz-2y-rpk"/>
                                     <constraint firstItem="AWq-xG-84O" firstAttribute="height" secondItem="qqP-Z7-jrC" secondAttribute="height" id="RIC-zh-50b"/>
+                                    <constraint firstItem="a05-7Y-V1S" firstAttribute="centerY" secondItem="ACO-QK-zJH" secondAttribute="centerY" id="T6n-8U-1wY"/>
                                     <constraint firstItem="AWq-xG-84O" firstAttribute="leading" secondItem="qqP-Z7-jrC" secondAttribute="leading" constant="10" id="eTs-eW-2GX"/>
                                     <constraint firstItem="AWq-xG-84O" firstAttribute="centerY" secondItem="qqP-Z7-jrC" secondAttribute="centerY" id="mdW-od-LjN"/>
+                                    <constraint firstItem="a05-7Y-V1S" firstAttribute="centerX" secondItem="ACO-QK-zJH" secondAttribute="centerX" id="vUi-nX-Q4x"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mjk-wE-PEK">
@@ -1511,7 +1542,7 @@
                                 <rect key="frame" x="0.0" y="460" width="375" height="40.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MONTHLY SUMMARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQw-ZJ-mt1">
-                                        <rect key="frame" x="20" y="16.5" width="96.5" height="10.5"/>
+                                        <rect key="frame" x="20" y="16" width="96.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1527,7 +1558,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOURS WORKED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZa-38-gHI">
-                                        <rect key="frame" x="278.5" y="16.5" width="76.5" height="10.5"/>
+                                        <rect key="frame" x="278.5" y="16" width="76.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1986,7 +2017,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARE PDF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzL-zB-BHF">
-                                        <rect key="frame" x="310.5" y="85" width="41" height="8.5"/>
+                                        <rect key="frame" x="310" y="85" width="41" height="8.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1998,7 +2029,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVOICE STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvY-ll-ZCn">
-                                        <rect key="frame" x="159" y="85" width="59.5" height="8.5"/>
+                                        <rect key="frame" x="158.5" y="85" width="59.5" height="8.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
