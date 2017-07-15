@@ -102,13 +102,18 @@ class LoadTimerPresenter:NSObject, LoadTimerPresenterProtocol
         {
             if view?.selected == .TASKS
             {
-                cell.textLabel?.text = (object as! StageTask).name
-                cell.textLabel?.font = UIFont().boldFont()
-                view?.hideButtons(active: true)
-                cell.projectNameLabel?.isHidden = true
+//                cell.textLabel?.text = (object as! StageTask).name
+//                cell.textLabel?.font = UIFont().boldFont()
+//                
+//                cell.projectNameLabel?.isHidden = true
+//                cell.clientNameLabel?.isHidden = true
+//                cell.textLabel?.isHidden = false
+//                cell.textLabel?.textColor = UIColor.white
+
+                cell.projectNameLabel?.text = (object as! StageTask).name
+                cell.projectNameLabel?.font = UIFont().normalFont()
                 cell.clientNameLabel?.isHidden = true
-                cell.textLabel?.isHidden = false
-                cell.textLabel?.textColor = UIColor.white
+                cell.textLabel?.isHidden = true
             }
             else
             {
@@ -123,6 +128,8 @@ class LoadTimerPresenter:NSObject, LoadTimerPresenterProtocol
         }
         else if object is Project
         {
+            view?.hideButtons(active: true)
+            
             cell.projectNameLabel?.text = (object as! Project).name
             cell.projectNameLabel?.isHidden = false
             cell.clientNameLabel?.isHidden = false
@@ -202,27 +209,35 @@ class LoadTimerPresenter:NSObject, LoadTimerPresenterProtocol
         }
         else
         {
-            let task = tableData?[indexPath.row] as! StageTask
-            let timer = JobTimer.getTimerWithTask(id: task.id.intValue)
-            
-            var recentArray = UserDefaults.standard.value(forKey: RECENT_TASKS) as! Array<Int>
-            
-            if recentArray.contains((timer?.id.intValue)!)
+            if isEditing
             {
-                recentArray.removeValue(value: (timer?.id.intValue)!)
+                if editProjectTableView == nil {
+                    showEditProjectView(task: tableData?.object(at: indexPath.row) as! StageTask, index: indexPath)
+                }
+                
+            } else {
+                let task = tableData?[indexPath.row] as! StageTask
+                let timer = JobTimer.getTimerWithTask(id: task.id.intValue)
+                
+                var recentArray = UserDefaults.standard.value(forKey: RECENT_TASKS) as! Array<Int>
+                
+                if recentArray.contains((timer?.id.intValue)!)
+                {
+                    recentArray.removeValue(value: (timer?.id.intValue)!)
+                }
+                
+                if recentArray.count == 6
+                {
+                    recentArray.removeAndShift(value: timer?.id as! Int)
+                }
+                else
+                {
+                    recentArray.append(timer?.id as! Int)
+                }
+                UserDefaults.standard.setValue(recentArray, forKey: RECENT_TASKS)
+                
+                wireframe?.closeWithNewProjectSelected(id: (timer?.id)!)
             }
-            
-            if recentArray.count == 6
-            {
-                recentArray.removeAndShift(value: timer?.id as! Int)
-            }
-            else
-            {
-                recentArray.append(timer?.id as! Int)
-            }
-            UserDefaults.standard.setValue(recentArray, forKey: RECENT_TASKS)
-            
-            wireframe?.closeWithNewProjectSelected(id: (timer?.id)!)
         }
         
     }
