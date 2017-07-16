@@ -246,6 +246,7 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
  
     }
     
+// MARK: - CalendarView Delegate Functions
     func dayViewWasPressed(day:Day)
     {
         currentDay = day

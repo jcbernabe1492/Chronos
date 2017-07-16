@@ -193,28 +193,28 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
 // MARK: - Day View Delegate Methods
     
     func dayViewWasPressed(day: Day) {
-        for d in days{
-            if d.isSelected
-            {
-                d.isSelected = false
-                d.setupDayImage()
-                d.setNeedsDisplay()
-                d.layoutSubviews()
-            }
-            else if d.day == day
-            {
-                d.isSelected = true
-                d.setupDayImage()
-                d.setNeedsDisplay()
-                d.layoutSubviews()
-            }
-            
-        }
+        self.previousDaySelected?.isSelected = false
+        self.previousDaySelected?.setupDayImage()
+        self.previousDaySelected?.setNeedsDisplay()
+        self.previousDaySelected?.layoutSubviews()
         
-//        self.previousDaySelected?.isSelected = false
-//        self.previousDaySelected?.setupDayImage()
-//        self.previousDaySelected?.setNeedsDisplay()
-//        self.previousDaySelected?.layoutSubviews()
+//        for d in days{
+//            if d.isSelected
+//            {
+//                d.isSelected = false
+//                d.setupDayImage()
+//                d.setNeedsDisplay()
+//                d.layoutSubviews()
+//            }
+//            else if d.day == day
+//            {
+//                d.isSelected = true
+//                d.setupDayImage()
+//                d.setNeedsDisplay()
+//                d.layoutSubviews()
+//            }
+//            
+//        }
         
         if delegate != nil
         {
