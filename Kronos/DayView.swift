@@ -227,6 +227,7 @@ class DayView: UIView {
             {
                 let view = subviews[0]
                 overtimeHourView = CirclePercentageView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+                overtimeHourView?.tag = -1
                 overtimeHourView?.translatesAutoresizingMaskIntoConstraints = false
                 overtimeHourView?.backgroundColor = UIColor.clear
                 view.insertSubview(overtimeHourView!, aboveSubview: hourView!)
