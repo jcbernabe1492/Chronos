@@ -106,7 +106,11 @@ class ArchiveViewController: UIViewController {
         v.backgroundColor = UIColor.black
         bottomTableView?.tableFooterView = v
 
-
+        numberOfProjects.imageView?.contentMode = .scaleAspectFit
+        invoiceStatus.imageView?.contentMode = .scaleAspectFit
+        incomeEarned.imageView?.contentMode = .scaleAspectFit
+        hoursWorked.imageView?.contentMode = .scaleAspectFit
+        daysWorked.imageView?.contentMode = .scaleAspectFit
 
         NotificationCenter.default.addObserver(self, selector: #selector(ArchiveViewController.changeArchiveStatus(notif:)), name: NSNotification.Name(rawValue: "kChangeArchiveStatus"), object: nil)
         

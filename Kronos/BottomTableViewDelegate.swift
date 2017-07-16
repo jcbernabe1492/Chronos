@@ -320,7 +320,11 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                 (cell as! StatusCell).set(stack: true)
             (cell as! StatusCell).stackClient.text = "\(project!.name!)"
                 let a = Agency.getAgency(forId: (secondaryData?[indexPath.row] as! NSNumber).intValue)
-                (cell as! StatusCell).stackAgency.text = "\(a!.name!)"
+                if a != nil {
+                    (cell as! StatusCell).stackAgency.text = "\(a!.name!)"
+                } else {
+                    (cell as! StatusCell).stackAgency.text = "N/A"
+                }
             }
             else
             {
