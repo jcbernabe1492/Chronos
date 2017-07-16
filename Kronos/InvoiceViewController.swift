@@ -254,6 +254,7 @@ class InvoiceViewController: UIViewController, MFMailComposeViewControllerDelega
     func setInvoiveStatus()
     {
             draftDot?.layer.borderColor = UIColor.white.cgColor
+            draftDot?.backgroundColor = UIColor.clear
             invoicedDot?.layer.borderColor = UIColor.invoicedColor().cgColor
             overdueDot?.layer.borderColor = UIColor.invoicedOverdueColor().cgColor
             criticalDot?.layer.borderColor = UIColor.invoicedCriticalColor().cgColor
@@ -261,55 +262,63 @@ class InvoiceViewController: UIViewController, MFMailComposeViewControllerDelega
             
             if summary.invoice?.status == "DRAFT"
             {
-                draftDot?.backgroundColor = UIColor.clear
+//                draftDot?.backgroundColor = UIColor.clear
                 draftLabel?.alpha = 1.0
             }
             else
             {
-                draftDot?.backgroundColor = UIColor.white
+//                draftDot?.backgroundColor = UIColor.white
                 draftLabel?.alpha = 0.3
             }
             if summary.invoice?.status == "INVOICED"
             {
-                invoicedDot?.backgroundColor = UIColor.clear
+                invoicedDot?.backgroundColor = UIColor.invoicedColor()
+                //invoicedDot?.backgroundColor = UIColor.clear
                 invoicedLabel?.alpha = 1.0
             }
             else
             {
-                invoicedDot?.backgroundColor = UIColor.invoicedColor()
+                invoicedDot?.backgroundColor = UIColor.clear
+                //invoicedDot?.backgroundColor = UIColor.invoicedColor()
                 invoicedLabel?.alpha = 0.3
             }
             
             if summary.invoice?.status == "CRITICAL"
             {
-                criticalDot?.backgroundColor = UIColor.clear
+                criticalDot?.backgroundColor = UIColor.invoicedCriticalColor()
+                //criticalDot?.backgroundColor = UIColor.clear
                 criticalLabel?.alpha = 1.0
             }
             else
             {
-                criticalDot?.backgroundColor = UIColor.invoicedCriticalColor()
+                criticalDot?.backgroundColor = UIColor.clear
+                //criticalDot?.backgroundColor = UIColor.invoicedCriticalColor()
                 criticalLabel?.alpha = 0.3
             }
             
             if summary.invoice?.status == "OVERDUE"
             {
-                overdueDot?.backgroundColor = UIColor.clear
+                overdueDot?.backgroundColor = UIColor.invoicedOverdueColor()
+                //overdueDot?.backgroundColor = UIColor.clear
                 overdueLabel?.alpha = 1.0
             }
             else
             {
-                overdueDot?.backgroundColor = UIColor.invoicedOverdueColor()
+                overdueDot?.backgroundColor = UIColor.clear
+                //overdueDot?.backgroundColor = UIColor.invoicedOverdueColor()
                 overdueLabel?.alpha = 0.3
             }
             
             if summary.invoice?.status == "CLEARED"
             {
-                clearedDot?.backgroundColor = UIColor.clear
+                clearedDot?.backgroundColor = UIColor.invoicedClearedColor()
+                //clearedDot?.backgroundColor = UIColor.clear
                 clearedLabel?.alpha = 1.0
             }
             else
             {
-                clearedDot?.backgroundColor = UIColor.invoicedClearedColor()
+                clearedDot?.backgroundColor = UIColor.clear
+                //clearedDot?.backgroundColor = UIColor.invoicedClearedColor()
                 clearedLabel?.alpha = 0.3
             }
             if summary.invoice != nil
