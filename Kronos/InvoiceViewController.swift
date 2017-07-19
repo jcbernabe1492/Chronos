@@ -375,13 +375,18 @@ class InvoiceViewController: UIViewController, MFMailComposeViewControllerDelega
         
         let trashBottomLabel = UILabel()
         trashBottomLabel.translatesAutoresizingMaskIntoConstraints = false
-        let attrString = NSMutableAttributedString(string: "NOTE:\n\n Jobs archived are automatically removed from INVOICES with\ntheir invoice status changed to cleared.")
+        let attrString = NSMutableAttributedString(string: "NOTE:\n Jobs archived are automatically removed from INVOICES\nwith their invoice status changed to CLEARED.")
     
-        let fontSize:CGFloat = UIScreen().isIphone5() ? 10.0 : 12.0
-   
-        attrString.addAttributes([NSFontAttributeName: UIFont(name:"Neo Sans", size:fontSize)!, NSForegroundColorAttributeName:UIColor.white], range: NSMakeRange(6, attrString.length-6))
-        let font = UIFont(name: "NeoSans-Medium", size: fontSize)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5.0;
+        attrString.addAttributes([NSParagraphStyleAttributeName: paragraphStyle], range: NSMakeRange(0, attrString.length))
         
+        let fontSize:CGFloat = UIScreen().isIphone5() ? 10.0 : 12.0
+        attrString.addAttributes([NSFontAttributeName: UIFont(name:"Neo Sans", size:fontSize)!, NSForegroundColorAttributeName:UIColor.white], range: NSMakeRange(6, attrString.length-6))
+        
+        
+        
+        let font = UIFont(name: "NeoSans-Medium", size: fontSize)
         attrString.addAttributes([NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName:font!], range: NSMakeRange(0,6))
         trashBottomLabel.attributedText = attrString
 
