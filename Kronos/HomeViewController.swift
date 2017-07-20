@@ -980,14 +980,35 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             if bottomButtonSelected == daysWorkedButton
             {
                 if client != nil {
-                    clientValueLabel.text = "\(ArchiveUtils.getDaysWorked(agency: (client?.id)!, archived:false) ) Days"
-                }else { clientValueLabel.text = "0.0 Days"}
+                    //clientValueLabel.text = "\(ArchiveUtils.getDaysWorked(agency: (client?.id)!, archived:false) ) Days"
+                    //clientValueLabel.text = "\(ArchiveUtils.getDaysWorked(agency: (client?.id)!, archived:false) )"
+                    
+                    clientValueLabel.text = HomeViewController.bottomValueGetDaysWorked(agency: (client?.id)!, archived:false)
+                } else {
+                    //clientValueLabel.text = "0.0 Days"
+                    clientValueLabel.text = "0.00"
+                }
+                
                 if project != nil {
-                    projectValueLabel.text = "\(ArchiveUtils.getDaysWorked(project: (project?.id)!, archived: false)) Days"
-                }else { projectValueLabel.text = "0.0 Days" }
+                    //projectValueLabel.text = "\(ArchiveUtils.getDaysWorked(project: (project?.id)!, archived: false)) Days"
+                    //projectValueLabel.text = "\(ArchiveUtils.getDaysWorked(project: (project?.id)!, archived: false))"
+                    
+                    projectValueLabel.text = HomeViewController.bottomValueGetDaysWorked(project: (project?.id)!, archived: false)
+                } else {
+                    //projectValueLabel.text = "0.0 Days"
+                    projectValueLabel.text = "0.00"
+                }
+                
                 if task != nil {
-                    taskValueLabel.text = "\(ArchiveUtils.getDaysWorked(task: (task?.id)!)) Days"
-                }else { taskValueLabel.text  = "0.0 Days" }
+                    //taskValueLabel.text = "\(ArchiveUtils.getDaysWorked(task: (task?.id)!)) Days"
+                    //taskValueLabel.text = "\(ArchiveUtils.getDaysWorked(task: (task?.id)!))"
+                    
+                    taskValueLabel.text = HomeViewController.bottomValueGetDaysWorked(task: (task?.id)!)
+                } else {
+                    //taskValueLabel.text  = "0.0 Days"
+                    taskValueLabel.text  = "0.00"
+                }
+                
                  bottomTitleLabel.text = "WORKING DAYS"
             }
             else if bottomButtonSelected == incomeEarnedButton
@@ -1176,4 +1197,52 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             addTimeBottom = nil
         }
     }
+    
+// MARK: - Helper Functions
+    
+    class func bottomValueGetDaysWorked(agency:NSNumber, archived:Bool) -> String
+    {
+        let tasks = StageTask.getAllTasksFor(agency: agency)
+        
+        var totalProjectDays = 0.00
+        for t in tasks! {
+            if t.archived || !archived
+            {
+                let project = Project.getProject(forId: t.projectId as! Int)
+                let dayLength = project?.dayLength.intValue
+                
+                let jobTimer = JobTimer.getTimerWithTask(id: t.id.intValue)
+                
+                totalProjectDays = totalProjectDays + ((((jobTimer?.timeSpent.doubleValue)!/60.0)/60.0)/Double(dayLength!))
+            }
+        }
+        
+        return String(format: "%.2f", totalProjectDays)
+    }
+    
+    
+    
+    class func bottomValueGetDaysWorked(project:NSNumber, archived:Bool) -> String
+    {
+        let timeSpent = DataController.sharedInstance.getAllTimeSpentOnProject(project: project)
+        print("timeSpent \(timeSpent)")
+    
+        let project = Project.getProject(forId: project.intValue)
+        let dayLength = project?.dayLength.intValue
+
+        return String(format: "%.2f", (((timeSpent/60.0)/60.0)/Double(dayLength!)))
+    }
+    
+    
+    class func bottomValueGetDaysWorked(task:NSNumber) -> String
+    {
+        let t = StageTask.getStageTask(forId: task.intValue)
+        
+        let project = Project.getProject(forId: t?.projectId as! Int)
+        let dayLength = project?.dayLength.intValue
+        
+        let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
+        return String(format: "%.2f", ((((job?.timeSpent.doubleValue)!/60.0)/60.0)/Double(dayLength!)))
+    }
+    
 }
