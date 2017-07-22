@@ -24,9 +24,9 @@ class HeaderCell: UITableViewCell {
         super.awakeFromNib()
         backgroundColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1.0)
         titleLabel.font = UIFont().boldFont()
-        trashButton.alpha = 0.5
-        trashButton.isHidden = false
-        editButtin.isHidden = false
+//        trashButton.alpha = 0.5
+//        trashButton.isHidden = false
+//        editButtin.isHidden = false
         // Initialization code
     }
 
@@ -39,24 +39,24 @@ class HeaderCell: UITableViewCell {
     func initButtonsOnly()
     {
         titleLabel.isHidden = true
-        trashButton.isHidden = false
-        editButtin.isHidden = false
-        unarchiveButton.isHidden = true
+//        trashButton.isHidden = false
+//        editButtin.isHidden = false
+//        unarchiveButton.isHidden = true
         
     }
     
     func showUnarchiveButton()
     {
-        unarchiveButton.isHidden = false
-        unarchiveButton.alpha = 0.5
+//        unarchiveButton.isHidden = false
+//        unarchiveButton.alpha = 0.5
     }
     
     func hideButtons()
     {
         titleLabel.isHidden = false
-        trashButton.isHidden = true
-        editButtin.isHidden = true
-        unarchiveButton.isHidden = true
+//        trashButton.isHidden = true
+//        editButtin.isHidden = true
+//        unarchiveButton.isHidden = true
     }
     
     @IBAction func unarchivePressed()

@@ -31,7 +31,7 @@ enum Tab {
 }
 
 
-class ArchiveViewController: UIViewController {
+class ArchiveViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var agencyBtn:UIButton!
     @IBOutlet var clientBtn:UIButton!
@@ -49,6 +49,18 @@ class ArchiveViewController: UIViewController {
     @IBOutlet var incomeEarned:UIButton!
     @IBOutlet var hoursWorked:UIButton!
     @IBOutlet var daysWorked:UIButton!
+    
+    @IBOutlet weak var bottomScrollHolder: UIView!
+    @IBOutlet weak var bottomScrollView: UIScrollView!
+    @IBOutlet weak var bottomScrollContentView: UIView!
+    @IBOutlet weak var numberOfProjectsTable: UITableView!
+    @IBOutlet weak var invoiceStatusTable: UITableView!
+    @IBOutlet weak var incomeEarnedTable: UITableView!
+    @IBOutlet weak var hoursWorkedTable: UITableView!
+    @IBOutlet weak var daysWorkedTable: UITableView!
+    @IBOutlet weak var centerBarLabel: UILabel!
+    
+    @IBOutlet weak var topTablesScrollView: UIScrollView!
     
     var archiveStatus:Status = .FullYear
     var buttonStatus:ButtonStatus = .INCOME
@@ -115,9 +127,18 @@ class ArchiveViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ArchiveViewController.changeArchiveStatus(notif:)), name: NSNotification.Name(rawValue: "kChangeArchiveStatus"), object: nil)
         
         // Do any additional setup after loading the view.
+        
+        bottomScrollHolder.backgroundColor = UIColor.cellBackgroundColor()
+        
+        numberOfProjects.setImage(UIImage(named:"btn-number-projects-selected"), for: .selected)
+        invoiceStatus.setImage(UIImage(named:"btn-invoice-status-selected"), for: .selected)
+        incomeEarned.setImage(UIImage(named:"btn-income-earned-selected"), for: .selected)
+        hoursWorked.setImage(UIImage(named:"btn-hours-worked-selected"), for: .selected)
+        daysWorked.setImage(UIImage(named:"btn-days-worked-selected"), for: .selected)
+        
+        setButtonsNormal()
+        numberOfProjects.isSelected = true
     }
-
-    
     
     func changeArchiveStatus(notif:NSNotification)
     {
@@ -368,52 +389,37 @@ class ArchiveViewController: UIViewController {
     
     @IBAction func numberProjectsClicked(btn:UIButton)
     {
-        setButtonsNormal()
-        numberOfProjects.setImage(UIImage(named:"btn-number-projects-selected"), for: .normal)
-        buttonStatus = .NUMBER_OF_PROJECTS
-        bottomTableView.reloadData()
+        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*0, y: 0), animated: true)
     }
     
     @IBAction func invoiceStatusClicked(btn:UIButton)
     {
-        setButtonsNormal()
-        invoiceStatus.setImage(UIImage(named:"btn-invoice-status-selected"), for: .normal)
-        buttonStatus = .INVOICE_STATUS
-        bottomTableView.reloadData()
+        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*1, y: 0), animated: true)
     }
     
     @IBAction func incomeEarnedClicked(btn:UIButton)
     {
-        setButtonsNormal()
-        incomeEarned.setImage(UIImage(named:"btn-income-earned-selected"), for: .normal)
-        buttonStatus = .INCOME
-        bottomTableView.reloadData()
+        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*2, y: 0), animated: true)
     }
     
     @IBAction func hoursWorkedClicked(btn:UIButton)
     {
-        setButtonsNormal()
-        hoursWorked.setImage(UIImage(named:"btn-hours-worked-selected"), for: .normal)
-        buttonStatus = .TOTAL_HOURS_WORKED
-        bottomTableView.reloadData()
+        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*3, y: 0), animated: true)
     }
     
     @IBAction func daysWorkedClicked(btn:UIButton)
     {
-        setButtonsNormal()
-         daysWorked.setImage(UIImage(named:"btn-days-worked-selected"), for: .normal)
-        buttonStatus = .DAYS_WORKED
-        bottomTableView.reloadData()
+        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*4, y: 0), animated: true)
     }
     
     
     func setButtonsNormal()
     {
-        numberOfProjects.setImage(UIImage(named:"btn-number-projects"), for: .normal)
-        invoiceStatus.setImage(UIImage(named:"btn-invoice-status"), for: .normal)
-        incomeEarned.setImage(UIImage(named:"btn-income-earned"), for: .normal)
-        hoursWorked.setImage(UIImage(named:"btn-hours-worked"), for: .normal)
-        daysWorked.setImage(UIImage(named:"btn-days-worked"), for: .normal)
+        numberOfProjects.isSelected = false
+        invoiceStatus.isSelected = false
+        incomeEarned.isSelected = false
+        hoursWorked.isSelected = false
+        daysWorked.isSelected = false
     }
     
     func showBottomView()
@@ -583,6 +589,92 @@ class ArchiveViewController: UIViewController {
     func actionButtonNoPressed()
     {
         actionView?.removeFromSuperview()
+    }
+    
+// MARK: - UIScrollView Delegate
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        handleScrollActions(scrollView: scrollView)
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        handleScrollActions(scrollView: scrollView)
+    }
+    
+    func handleScrollActions(scrollView: UIScrollView) {
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        
+        setCenterLabelTextAtPage(pageNumber: Int(pageNumber))
+        
+        
+        switch pageNumber {
+        case 0: scrollToNumberOfProjects()
+        case 1: scrollToInvoiceStatus()
+        case 2: scrollToIncomeEarned()
+        case 3: scrollToHoursWorked()
+        case 4: scrollToDaysWorked()
+            
+        default:
+            break
+        }
+    }
+    
+    func setCenterLabelTextAtPage(pageNumber: Int) {
+        switch pageNumber {
+        case 0: centerBarLabel.text = "Total Projects"
+        case 1: centerBarLabel.text = "Invoice Status"
+        case 2: centerBarLabel.text = "Total Earned"
+        case 3: centerBarLabel.text = "Total Hours Worked"
+        case 4: centerBarLabel.text = "Total Days Worked"
+            
+        default:
+            break
+        }
+    }
+    
+    func scrollToNumberOfProjects() {
+        setButtonsNormal()
+        
+        buttonStatus = .NUMBER_OF_PROJECTS
+        bottomTableView.reloadData()
+        
+        numberOfProjects.isSelected = true
+    }
+    
+    func scrollToInvoiceStatus() {
+        setButtonsNormal()
+        
+        buttonStatus = .INVOICE_STATUS
+        bottomTableView.reloadData()
+        
+        invoiceStatus.isSelected = true
+    }
+    
+    func scrollToIncomeEarned() {
+        setButtonsNormal()
+        
+        buttonStatus = .INCOME
+        bottomTableView.reloadData()
+        
+        incomeEarned.isSelected = true
+    }
+    
+    func scrollToHoursWorked() {
+        setButtonsNormal()
+        
+        buttonStatus = .TOTAL_HOURS_WORKED
+        bottomTableView.reloadData()
+        
+        hoursWorked.isSelected = true
+    }
+    
+    func scrollToDaysWorked() {
+        setButtonsNormal()
+        
+        buttonStatus = .DAYS_WORKED
+        bottomTableView.reloadData()
+        
+        daysWorked.isSelected = true
     }
     
     
