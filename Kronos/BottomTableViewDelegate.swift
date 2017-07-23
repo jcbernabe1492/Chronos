@@ -85,7 +85,7 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                     cell.clearedBtn.alpha = 1.0
                     cell.clearedBtn.setTitleColor(UIColor.invoicedClearedColor(), for: .normal)
                 }
-                
+                cell.selectionStyle = .none
                 return cell
             case 1:
                 let cell:TwoLabelCell = tableView.dequeueReusableCell(withIdentifier: "TwoLabelCell") as! TwoLabelCell
@@ -95,6 +95,7 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                 cell.rightLabel.text = String(format:"$%.2f", feeEared)
                 cell.set(stack: false)
                 cell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                cell.selectionStyle = .none
                 return cell
             case 2:
                 let cell:TwoLabelCell = tableView.dequeueReusableCell(withIdentifier: "TwoLabelCell") as! TwoLabelCell
@@ -103,6 +104,7 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                 cell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
                 let hours = ArchiveUtils.getHoursWorked(task: (task?.id)!)
                 cell.rightLabel.text = "\(hours.0) HRS   \(hours.1) MIN"
+                cell.selectionStyle = .none
                 return cell
             case 3:
                 let cell:TwoLabelCell = tableView.dequeueReusableCell(withIdentifier: "TwoLabelCell") as! TwoLabelCell
@@ -111,6 +113,7 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                 cell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
                 let hours = ArchiveUtils.getDaysWorked(task: (task?.id)!)
                 cell.rightLabel.text = "\(hours) DAYS"
+                cell.selectionStyle = .none
                 return cell
             case 4:
                 let cell:TwoLabelCell = tableView.dequeueReusableCell(withIdentifier: "TwoLabelCell") as! TwoLabelCell
@@ -118,6 +121,7 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                 cell.set(stack: false)
                 cell.rightLabel.text = "\(task!.allocatedTaskTime.intValue) DAYS"
                 cell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                cell.selectionStyle = .none
                 return cell
             case 5:
                 let cell:TwoLabelCell = tableView.dequeueReusableCell(withIdentifier: "TwoLabelCell") as! TwoLabelCell
@@ -125,6 +129,7 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                 cell.set(stack: false)
                 cell.rightLabel.text = "\(project!.allocatedProjectTime.intValue) DAYS"
                 cell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                cell.selectionStyle = .none
                 return cell
             case 6:
                 let cell:TwoLabelCell = tableView.dequeueReusableCell(withIdentifier: "TwoLabelCell") as! TwoLabelCell
@@ -132,6 +137,7 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                 cell.set(stack: false)
                 cell.rightLabel.text = "\((task?.startDate as! Date).simpleDateString())"
                 cell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                cell.selectionStyle = .none
                 return cell
             case 7:
                 let cell:TwoLabelCell = tableView.dequeueReusableCell(withIdentifier: "TwoLabelCell") as! TwoLabelCell
@@ -139,6 +145,7 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
                 cell.set(stack: false)
                 cell.rightLabel.text = "\((task?.startDate as! Date).simpleDateString())"
                 cell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                cell.selectionStyle = .none
                 return cell
             default:
                 break
@@ -409,45 +416,12 @@ class BottomTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelega
         return 1
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 20))
-        header.backgroundColor = UIColor(red: 87/255, green: 88/255, blue: 91/255, alpha: 1)
-        
-        let label = UILabel()
-        label.font = UIFont().normalFont()
-        label.textColor = UIColor.white
-        if viewController.buttonStatus == .INCOME
-        {
-            label.text = "Total Income Earned"
-        }
-        if viewController.buttonStatus == .NUMBER_OF_PROJECTS
-        {
-            label.text = "Total Number of Projects"
-        }
-        if viewController.buttonStatus == .INVOICE_STATUS
-        {
-            label.text = "Invoice Status"
-        }
-        if viewController.buttonStatus == .TOTAL_HOURS_WORKED
-        {
-            label.text = "Total Hours Worked"
-        }
-        if viewController.buttonStatus == .DAYS_WORKED
-        {
-            label.text = "Total Days Worked"
-        }
-        label.translatesAutoresizingMaskIntoConstraints = false
-        header.addSubview(label)
-        header.addConstraint(NSLayoutConstraint(item: header, attribute: .centerY, relatedBy: .equal, toItem: label, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-        header.addConstraint(NSLayoutConstraint(item: header, attribute: .trailing, relatedBy: .equal, toItem: label, attribute: .trailing, multiplier: 1.0, constant: 20.0))
-        return header
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if viewController.selectedTask != nil {
+            return
+        }
+        
         let cell = tableView.cellForRow(at: indexPath)
         if editing
         {

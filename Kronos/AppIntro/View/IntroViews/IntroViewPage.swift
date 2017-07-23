@@ -64,8 +64,8 @@ class IntroViewPage: UIView {
 //    }
     
     func initWithPage(index: Int) {
-        var text: NSString!
-        var attributedText: NSMutableAttributedString!
+//        var text: NSString!
+//        var attributedText: NSMutableAttributedString!
         
         switch index {
         case 0:
@@ -127,10 +127,10 @@ class IntroViewPage: UIView {
         case 8:
             self.contentImage.image = UIImage(named: "app-intro-page8")
             
-        default:
-            text = ""
+        default: break
+//            text = ""
         }
         
-        self.contentTextView.attributedText = attributedText
+//        self.contentTextView.attributedText = attributedText
     }
 }

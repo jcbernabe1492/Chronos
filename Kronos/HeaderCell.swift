@@ -53,7 +53,7 @@ class HeaderCell: UITableViewCell {
     
     func hideButtons()
     {
-        titleLabel.isHidden = false
+//        titleLabel.isHidden = false
 //        trashButton.isHidden = true
 //        editButtin.isHidden = true
 //        unarchiveButton.isHidden = true

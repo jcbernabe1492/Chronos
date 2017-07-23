@@ -60,6 +60,10 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var daysWorkedTable: UITableView!
     @IBOutlet weak var centerBarLabel: UILabel!
     
+    @IBOutlet var trashButton:UIButton!
+    @IBOutlet var editButtin:UIButton!
+    @IBOutlet var unarchiveButton:UIButton!
+    
     @IBOutlet weak var topTablesScrollView: UIScrollView!
     
     var archiveStatus:Status = .FullYear
@@ -84,6 +88,10 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
     
     var topTableViewDelegate:TopTableViewDelegate!
     var bottomtTableViewDelegate:BottomTableViewDelegate!
+    
+    var homeArchiveButton: UIButton!
+    
+    var edit = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,9 +118,10 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         bottomTableView.delegate = bottomtTableViewDelegate
         bottomTableView.dataSource = bottomtTableViewDelegate
         topTableViewDelegate.bottomTable = bottomtTableViewDelegate
+        
         agencyTabPressed()
+        
         incomeEarnedClicked(btn: UIButton())
-
 
         let v = UIView(frame: CGRect(x: 0, y: 0, width: (bottomTableView?.frame.size.width)! , height: 0.5))
         v.backgroundColor = UIColor.black
@@ -130,27 +139,73 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         
         bottomScrollHolder.backgroundColor = UIColor.cellBackgroundColor()
         
-        numberOfProjects.setImage(UIImage(named:"btn-number-projects-selected"), for: .selected)
-        invoiceStatus.setImage(UIImage(named:"btn-invoice-status-selected"), for: .selected)
-        incomeEarned.setImage(UIImage(named:"btn-income-earned-selected"), for: .selected)
-        hoursWorked.setImage(UIImage(named:"btn-hours-worked-selected"), for: .selected)
-        daysWorked.setImage(UIImage(named:"btn-days-worked-selected"), for: .selected)
+        
+        numberOfProjects.setImage(UIImage(named:"btn-number-projects")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        invoiceStatus.setImage(UIImage(named:"btn-invoice-status")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        incomeEarned.setImage(UIImage(named:"btn-income-earned")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        hoursWorked.setImage(UIImage(named:"btn-hours-worked")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        daysWorked.setImage(UIImage(named:"btn-days-worked")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        numberOfProjects.setImage(UIImage(named:"btn-number-projects-selected")?.withRenderingMode(.alwaysTemplate), for: .selected)
+        invoiceStatus.setImage(UIImage(named:"btn-invoice-status-selected")?.withRenderingMode(.alwaysTemplate), for: .selected)
+        incomeEarned.setImage(UIImage(named:"btn-income-earned-selected")?.withRenderingMode(.alwaysTemplate), for: .selected)
+        hoursWorked.setImage(UIImage(named:"btn-hours-worked-selected")?.withRenderingMode(.alwaysTemplate), for: .selected)
+        daysWorked.setImage(UIImage(named:"btn-days-worked-selected")?.withRenderingMode(.alwaysTemplate), for: .selected)
         
         setButtonsNormal()
-        numberOfProjects.isSelected = true
+        
+        incomeEarned.isSelected = true
+        incomeEarned.tintColor = UIColor.white
+        
+        numberOfProjectsTable.delegate = bottomtTableViewDelegate
+        numberOfProjectsTable.dataSource = bottomtTableViewDelegate
+        incomeEarnedTable.delegate = bottomtTableViewDelegate
+        incomeEarnedTable.dataSource = bottomtTableViewDelegate
+        invoiceStatusTable.delegate = bottomtTableViewDelegate
+        invoiceStatusTable.dataSource = bottomtTableViewDelegate
+        hoursWorkedTable.delegate = bottomtTableViewDelegate
+        hoursWorkedTable.dataSource = bottomtTableViewDelegate
+        daysWorkedTable.delegate = bottomtTableViewDelegate
+        daysWorkedTable.dataSource = bottomtTableViewDelegate
+        
+        trashButton.alpha = 0.5
+        trashButton.isHidden = false
+        editButtin.isHidden = false
+
+    }
+    
+    func initialTablesLoad() {
+        
+    }
+    
+    func reloadBottomTablesWithData(data: Array<NSNumber>) {
+        
+        bottomtTableViewDelegate.data = NSArray(array: data)
+        
+        reloadBottomTables()
+    }
+    
+    func reloadBottomTables() {
+        numberOfProjectsTable.reloadData()
+        invoiceStatusTable.reloadData()
+        incomeEarnedTable.reloadData()
+        hoursWorkedTable.reloadData()
+        daysWorkedTable.reloadData()
     }
     
     func changeArchiveStatus(notif:NSNotification)
     {
         let userInfo = notif.userInfo
+        
         if (userInfo?["button"] as! String) == "FULL_HISTORY"
         {
             archiveStatus = .FullHistory
+            homeArchiveButton.setImage(UIImage(named:"btn-archive-pressed-bottom"), for: .normal)
             
-        }else
-        {
+        } else {
             archiveStatus = .FullYear
+            homeArchiveButton.setImage(UIImage(named:"btn-archive-pressed"), for: .normal)
         }
+        
         if selectedStatus == .AGENCY { agencyTabPressed() }
         if selectedStatus == .CLIENT { clientTabPressed() }
         if selectedStatus == .PROJECT { projectTabPressed() }
@@ -165,29 +220,36 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func agencyTabPressed()
     {
+        bottomScrollView.isScrollEnabled = true;
+        selectedTask = nil
+        
         changeButtonColor(btn: agencyBtn)
         selectedStatus = .AGENCY
         taskBtn.setTitleColor(UIColor.white, for: .normal)
         taskBtn.alpha = 0.6
         setButtonsActive(active: true)
-        if cellSelected
-        {
+        
+        if cellSelected {
             
-        }
-        else{
+        } else {
             let data:Array<NSNumber>?
-            if archiveStatus == .FullHistory
-            {
+            
+            if archiveStatus == .FullHistory {
                 data = ArchiveUtils.getAgencies(thisYear: false)
+            } else {
+                data = ArchiveUtils.getAgencies(thisYear: true)
             }
-            else { data = ArchiveUtils.getAgencies(thisYear: true) }
+            
             bottomtTableViewDelegate.data = NSArray(array: data!)
+            
             selectedClient = nil
             selectedAgency = nil
         }
+        
         view.setNeedsLayout()
         view.layoutIfNeeded()
         topTableViewHeight.constant = 45
+        
         if touchedOnce
         {
             topConstraint.constant = 0
@@ -195,13 +257,20 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         {
             touchedOnce = true
         }
+        
         showBottomView()
-        bottomTableView.reloadData()
+        
+        //bottomTableView.reloadData()
+        reloadBottomTables()
+        
         topTableView.reloadData()
     }
     
     @IBAction func clientTabPressed()
     {
+        bottomScrollView.isScrollEnabled = true;
+        selectedTask = nil
+        
         changeButtonColor(btn: clientBtn)
         selectedStatus = .CLIENT
         setButtonsActive(active: true)
@@ -247,14 +316,17 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         cellSelected = false
         topTableView.reloadData()
 
-        
-        bottomTableView.reloadData()
+        reloadBottomTables()
+        //bottomTableView.reloadData()
    
 
     }
     
     @IBAction func projectTabPressed()
     {
+        bottomScrollView.isScrollEnabled = true;
+        selectedTask = nil
+        
         changeButtonColor(btn: projectBtn)
         selectedStatus = .PROJECT
         setButtonsActive(active: true)
@@ -304,11 +376,15 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         topTableViewDelegate.cellselected = cellSelected
         cellSelected = false
         topTableView.reloadData()
-        bottomTableView.reloadData()
+        //bottomTableView.reloadData()
+        
+        reloadBottomTables()
     }
     
     @IBAction func taskTabPressed()
     {
+        bottomScrollView.isScrollEnabled = true;
+        
         setButtonsActive(active: true)
         if cellSelected
         {
@@ -344,18 +420,88 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
             topTableViewDelegate.cellselected = cellSelected
             cellSelected = false
             topTableView.reloadData()
-            bottomTableView.reloadData()
+            //bottomTableView.reloadData()
+            reloadBottomTables()
         }
 
     }
     
+// MARK: - Update Action Buttons
     
+    func initButtonsOnly()
+    {
+        //titleLabel.isHidden = true
+        trashButton.isHidden = false
+        editButtin.isHidden = false
+        unarchiveButton.isHidden = true
+        
+    }
+    
+    func showUnarchiveButton()
+    {
+        unarchiveButton.isHidden = false
+        unarchiveButton.alpha = 0.5
+    }
+    
+    func hideButtons()
+    {
+        //titleLabel.isHidden = false
+        trashButton.isHidden = true
+        editButtin.isHidden = true
+        unarchiveButton.isHidden = true
+    }
+    
+// MARK: - Action Buttons Functions
+    
+    @IBAction func unarchivePressed()
+    {
+        if (topTableViewDelegate?.isEditing)!
+        {
+            deleteActionButtonPressed(action: "unarchive")
+            setEditing()
+        }
+    }
+    
+    @IBAction func trashButtonPressed()
+    {
+        if (topTableViewDelegate?.isEditing)!
+        {
+            deleteActionButtonPressed(action: "delete")
+            setEditing()
+        }
+    }
+    
+    @IBAction func setEditing()
+    {
+        if !edit
+        {
+            trashButton.setImage(UIImage(named:"btn-trash-selected"), for: .normal)
+            unarchiveButton.setImage(UIImage(named: "btn-unarchive-selected"), for: .normal)
+            edit = true
+            trashButton.alpha = 1.0
+            unarchiveButton.alpha = 1.0
+        }
+        else
+        {
+            trashButton.setImage(UIImage(named:"btn-trash"), for: .normal)
+            unarchiveButton.setImage(UIImage(named: "btn-unarchive"), for: .normal)
+            edit = false
+            trashButton.alpha = 0.5
+            unarchiveButton.alpha = 0.5
+        }
+        topTableViewDelegate?.setIsEditing(editing: edit)
+    }
+    
+// MARK: - View Task Details
     func viewTaskDetails()
     {
         setButtonsActive(active: false)
         topTableView.reloadData()
-        bottomTableView.reloadData()
+        //bottomTableView.reloadData()
+        reloadBottomTables()
         cellSelected = false
+        
+        bottomScrollView.isScrollEnabled = false;
     }
     
     func setButtonsActive(active:Bool)
@@ -387,32 +533,38 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         selectedTab.backgroundColor = UIColor.tabSelectedYellow()
     }
     
+
+// MARK: - Five Buttons Functions
     @IBAction func numberProjectsClicked(btn:UIButton)
     {
-        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*0, y: 0), animated: true)
+        scrollBottomToPage(page: 0)
     }
     
     @IBAction func invoiceStatusClicked(btn:UIButton)
     {
-        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*1, y: 0), animated: true)
+        scrollBottomToPage(page: 1)
     }
     
     @IBAction func incomeEarnedClicked(btn:UIButton)
     {
-        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*2, y: 0), animated: true)
+        scrollBottomToPage(page: 2)
     }
     
     @IBAction func hoursWorkedClicked(btn:UIButton)
     {
-        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*3, y: 0), animated: true)
+        scrollBottomToPage(page: 3)
     }
     
     @IBAction func daysWorkedClicked(btn:UIButton)
     {
-        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*4, y: 0), animated: true)
+        scrollBottomToPage(page: 4)
     }
     
+    func scrollBottomToPage(page: CGFloat) {
+        self.bottomScrollView.setContentOffset(CGPoint(x: self.bottomScrollView.bounds.size.width*page, y: 0), animated: true)
+    }
     
+// MARK: - Set Buttons to Normal
     func setButtonsNormal()
     {
         numberOfProjects.isSelected = false
@@ -420,8 +572,15 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         incomeEarned.isSelected = false
         hoursWorked.isSelected = false
         daysWorked.isSelected = false
+        
+        numberOfProjects.tintColor = UIColor(red: 34/255, green: 31/255, blue: 31/255, alpha: 1.0)
+        invoiceStatus.tintColor = UIColor(red: 34/255, green: 31/255, blue: 31/255, alpha: 1.0)
+        incomeEarned.tintColor = UIColor(red: 34/255, green: 31/255, blue: 31/255, alpha: 1.0)
+        hoursWorked.tintColor = UIColor(red: 34/255, green: 31/255, blue: 31/255, alpha: 1.0)
+        daysWorked.tintColor = UIColor(red: 34/255, green: 31/255, blue: 31/255, alpha: 1.0)
     }
     
+// MARK: - Show Bottom View
     func showBottomView()
     {
         if bottomView != nil
@@ -636,47 +795,56 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         setButtonsNormal()
         
         buttonStatus = .NUMBER_OF_PROJECTS
-        bottomTableView.reloadData()
+        //bottomTableView.reloadData()
+        reloadBottomTables()
         
         numberOfProjects.isSelected = true
+        numberOfProjects.tintColor = UIColor.white
     }
     
     func scrollToInvoiceStatus() {
         setButtonsNormal()
         
         buttonStatus = .INVOICE_STATUS
-        bottomTableView.reloadData()
+        //bottomTableView.reloadData()
+        reloadBottomTables()
         
         invoiceStatus.isSelected = true
+        invoiceStatus.tintColor = UIColor.white
     }
     
     func scrollToIncomeEarned() {
         setButtonsNormal()
         
         buttonStatus = .INCOME
-        bottomTableView.reloadData()
+        //bottomTableView.reloadData()
+        reloadBottomTables()
         
         incomeEarned.isSelected = true
+        incomeEarned.tintColor = UIColor.white
     }
     
     func scrollToHoursWorked() {
         setButtonsNormal()
         
         buttonStatus = .TOTAL_HOURS_WORKED
-        bottomTableView.reloadData()
+        //bottomTableView.reloadData()
+        reloadBottomTables()
         
         hoursWorked.isSelected = true
+        hoursWorked.tintColor = UIColor.white
     }
     
     func scrollToDaysWorked() {
         setButtonsNormal()
         
         buttonStatus = .DAYS_WORKED
-        bottomTableView.reloadData()
+        //bottomTableView.reloadData()
+        reloadBottomTables()
         
         daysWorked.isSelected = true
+        daysWorked.tintColor = UIColor.white
     }
-    
     
     /*
     // MARK: - Navigation

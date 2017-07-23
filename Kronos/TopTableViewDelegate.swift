@@ -73,11 +73,15 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
         else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell")
+            
             (cell as! HeaderCell).table = self
             (cell as! HeaderCell).initButtonsOnly()
+            viewController.initButtonsOnly()
+            
             if viewController.selectedStatus == .PROJECT || viewController.selectedStatus == .TASK
             {
-                (cell as! HeaderCell).showUnarchiveButton()
+                //(cell as! HeaderCell).showUnarchiveButton()
+                viewController.showUnarchiveButton()
             }
             cell?.selectionStyle = .none
             return cell!
@@ -110,12 +114,15 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
             if tableView.numberOfRows(inSection: 0) == 2
             {
                 (cell as! HeaderCell).hideButtons()
+                viewController.hideButtons()
+                
                 let agency = Agency.getAgency(forId: viewController.selectedAgency!)
                 (cell as! HeaderCell).titleLabel.text = "\(agency!.name!)"
                 (cell as! HeaderCell).status = .AGENCY
             }else
             {
                 (cell as! HeaderCell).initButtonsOnly()
+                viewController.initButtonsOnly()
                 
                 (cell as! HeaderCell).titleLabel.isHidden = false
                 let agency = Agency.getAgency(forId: viewController.selectedClient!)
@@ -126,7 +133,11 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
         else
         {
             (cell as! HeaderCell).initButtonsOnly()
-            (cell as! HeaderCell).showUnarchiveButton()
+            viewController.initButtonsOnly()
+            
+            //(cell as! HeaderCell).showUnarchiveButton()
+            viewController.showUnarchiveButton()
+            
             (cell as! HeaderCell).titleLabel.isHidden = false
             let agency = Agency.getAgency(forId: viewController.selectedClient!)
             (cell as! HeaderCell).titleLabel.text = "\(agency!.name!)"
@@ -149,21 +160,31 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
             if viewController.selectedAgency != nil
             {
                 let agency = Agency.getAgency(forId: viewController.selectedAgency!)
+                
                 (cell as! HeaderCell).hideButtons()
+                viewController.hideButtons()
+                
                 (cell as! HeaderCell).titleLabel.text = agency?.name
                 (cell as! HeaderCell).status = .AGENCY
             }
             else if viewController.selectedClient != nil
             {
                 let agency = Agency.getAgency(forId: viewController.selectedClient!)
+                
                 (cell as! HeaderCell).hideButtons()
+                viewController.hideButtons()
+                
                 (cell as! HeaderCell).titleLabel.text = agency?.name
                 (cell as! HeaderCell).status = .CLIENT
             }
             else {
                 let agency = Project.getProject(forId: viewController.selectedProject!)
+                
                 (cell as! HeaderCell).initButtonsOnly()
-                (cell as! HeaderCell).showUnarchiveButton()
+                viewController.initButtonsOnly()
+                //(cell as! HeaderCell).showUnarchiveButton()
+                viewController.showUnarchiveButton()
+                
                 (cell as! HeaderCell).titleLabel.isHidden = false
                 (cell as! HeaderCell).titleLabel.text = agency?.name
                 (cell as! HeaderCell).status = .PROJECT
@@ -174,14 +195,21 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
              if viewController.selectedClient != nil && viewController.selectedAgency != nil
             {
                 let agency = Agency.getAgency(forId: viewController.selectedClient!)
+                
                 (cell as! HeaderCell).hideButtons()
+                viewController.hideButtons()
+                
                 (cell as! HeaderCell).titleLabel.text = agency?.name
                 (cell as! HeaderCell).status = .CLIENT
             }
             else {
                 let agency = Project.getProject(forId: viewController.selectedProject!)
+                
                 (cell as! HeaderCell).initButtonsOnly()
-                (cell as! HeaderCell).showUnarchiveButton()
+                viewController.initButtonsOnly()
+                //(cell as! HeaderCell).showUnarchiveButton()
+                viewController.showUnarchiveButton()
+                
                 (cell as! HeaderCell).titleLabel.isHidden = false
                 (cell as! HeaderCell).titleLabel.text = agency?.name
                 (cell as! HeaderCell).status = .PROJECT
@@ -190,8 +218,12 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
         else
         {
             let agency = Project.getProject(forId: viewController.selectedProject!)
+            
             (cell as! HeaderCell).initButtonsOnly()
-             (cell as! HeaderCell).showUnarchiveButton()
+            viewController.initButtonsOnly()
+            //(cell as! HeaderCell).showUnarchiveButton()
+            viewController.showUnarchiveButton()
+            
             (cell as! HeaderCell).titleLabel.isHidden = false
             (cell as! HeaderCell).titleLabel.text = agency?.name
             (cell as! HeaderCell).status = .PROJECT
@@ -220,7 +252,8 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell:HeaderCell = tableView.cellForRow(at: indexPath) as! HeaderCell
         if cell.status == .AGENCY {
-            if viewController.selectedAgency != nil { viewController.agencyTabPressed()
+            if viewController.selectedAgency != nil {
+                viewController.agencyTabPressed()
                 viewController.selectedClient = nil
                 viewController.selectedProject = nil
             }

@@ -245,6 +245,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     {
         archiveWireframe = ArchiveWireframe()
         let archiveVC = archiveWireframe?.createArchiveViewController()
+        archiveVC?.homeArchiveButton = viewController?.archiveButton
         animateViewControllerFromTop(newViewController: archiveVC!, active: false, done: {})
         
     }
