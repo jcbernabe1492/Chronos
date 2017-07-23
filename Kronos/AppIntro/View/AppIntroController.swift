@@ -15,8 +15,9 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var introPageControl: UIPageControl!
     
     @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var pageNumber: UILabel!
     
-    let viewCount = 9;
+    let viewCount = 5;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
     
     func createViews() {
         
-        for index in 0..<9 {
+        for index in 0..<5 {
             
             let introPage = Bundle.main.loadNibNamed("IntroViewPage", owner: self, options: nil)?[0] as! IntroViewPage
             
@@ -50,7 +51,7 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
             self.introScrollView.addConstraint(NSLayoutConstraint(item: introPage, attribute: .leading, relatedBy: .equal, toItem: self.introScrollView, attribute: .leading, multiplier: 1, constant: CGFloat(Int(0)+Int(Int(self.introScrollView.frame.size.width)*index))))
         }
         
-        self.introScrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width*9, height: 1)
+        self.introScrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width*5, height: 1)
         self.introScrollView.delegate = self
     }
     
@@ -76,53 +77,53 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
         
         switch index {
         case 0:
-            text = "INTRO\nGUIDE"
-            attributedText = NSMutableAttributedString(string: text.uppercased())
-            let range = (attributedText.string as NSString).range(of: text)
-            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 30)!, range: range)
-            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
+            text = "INTRO"
+//            attributedText = NSMutableAttributedString(string: text.uppercased())
+//            let range = (attributedText.string as NSString).range(of: text)
+//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
+//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
         case 1:
-            text = "Intro Guide\nQuick Guide\n2/8"
-            attributedText = NSMutableAttributedString(string: text.uppercased())
-            let range = (attributedText.string as NSString).range(of: text)
-            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
+            text = "TRACK TASK TIME"
+//            attributedText = NSMutableAttributedString(string: text.uppercased())
+//            let range = (attributedText.string as NSString).range(of: text)
+//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
+//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
-        case 2:
-            text = "Intro Guide\nSetup\n3/8"
-            attributedText = NSMutableAttributedString(string: text.uppercased())
-            let range = (attributedText.string as NSString).range(of: text)
-            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
+//        case 2:
+//            text = "Intro Guide\nSetup\n3/8"
+//            attributedText = NSMutableAttributedString(string: text.uppercased())
+//            let range = (attributedText.string as NSString).range(of: text)
+//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
+//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
         case 3:
-            text = "Intro Guide\nWorking Day\n4/8"
-            attributedText = NSMutableAttributedString(string: text.uppercased())
-            let range = (attributedText.string as NSString).range(of: text)
-            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
+            text = "SETTINGS"
+//            attributedText = NSMutableAttributedString(string: text.uppercased())
+//            let range = (attributedText.string as NSString).range(of: text)
+//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
+//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
         case 4:
-            text = "Intro Guide\nFee Rares\n5/8"
-            attributedText = NSMutableAttributedString(string: text.uppercased())
-            let range = (attributedText.string as NSString).range(of: text)
-            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
+            text = "MORE INFO"
+//            attributedText = NSMutableAttributedString(string: text.uppercased())
+//            let range = (attributedText.string as NSString).range(of: text)
+//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
+//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
-        case 5:
-            text = "Intro Guide\nDefault Rate\n6/8"
-            attributedText = NSMutableAttributedString(string: text.uppercased())
-            let range = (attributedText.string as NSString).range(of: text)
-            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
+//        case 5:
+//            text = "Intro Guide\nDefault Rate\n6/8"
+//            attributedText = NSMutableAttributedString(string: text.uppercased())
+//            let range = (attributedText.string as NSString).range(of: text)
+//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
+//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
-        case 6:
-            text = "Intro Guide\nInvoice Info\n7/8"
-            attributedText = NSMutableAttributedString(string: text.uppercased())
-            let range = (attributedText.string as NSString).range(of: text)
-            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
+//        case 6:
+//            text = "Intro Guide\nInvoice Info\n7/8"
+//            attributedText = NSMutableAttributedString(string: text.uppercased())
+//            let range = (attributedText.string as NSString).range(of: text)
+//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
+//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
 //        case 7:
 //            text = "Intro Guide\nQuick Guide\n2/8"
@@ -131,19 +132,21 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
 //            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
 //            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
-        case 8:
-            text = "Intro Guide\nThanks\n8/8"
-            attributedText = NSMutableAttributedString(string: text.uppercased())
-            let range = (attributedText.string as NSString).range(of: text)
-            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
+//        case 8:
+//            text = "Intro Guide\nThanks\n8/8"
+//            attributedText = NSMutableAttributedString(string: text.uppercased())
+//            let range = (attributedText.string as NSString).range(of: text)
+//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
+//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
             
-        default:
-            attributedText = NSMutableAttributedString(string: "")
+        default: break
+            //attributedText = NSMutableAttributedString(string: "")
         }
         
-        self.topLabel.attributedText = attributedText
+        self.topLabel.text = text
+        self.pageNumber.text = "\(index+1)/5"
+        //self.topLabel.attributedText = attributedText
     }
     
     @IBAction func closeIntro(_ sender: Any) {
