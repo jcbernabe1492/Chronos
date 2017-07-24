@@ -41,7 +41,11 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     
         wireframe.viewController = view
         wireframe.viewController?.modalTransitionStyle = .flipHorizontal
-        window.rootViewController?.present(wireframe.viewController!, animated: true, completion: nil)
+        if window.rootViewController == nil {
+            window.rootViewController = view
+        } else {
+            window.rootViewController?.present(wireframe.viewController!, animated: true, completion: nil)
+        }
     }
     
     
@@ -52,6 +56,11 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     class func addStartScreenOnWindow(_ window:UIWindow)
     {
         let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartScreen")
+        window.rootViewController = view
+    }
+    
+    class func addIntroScreenOnWindow(_ window: UIWindow) {
+        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppIntroController")
         window.rootViewController = view
     }
     

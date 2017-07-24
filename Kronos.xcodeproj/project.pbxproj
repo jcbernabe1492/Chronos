@@ -11,6 +11,8 @@
 		48416EC21F08B31B00E95E6C /* IntroViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48416EC11F08B31B00E95E6C /* IntroViewPage.swift */; };
 		48416EC81F08B43600E95E6C /* IntroViewPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48416EC71F08B43600E95E6C /* IntroViewPage.xib */; };
 		485CE3F51F0144CC0087817A /* AppIntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485CE3F41F0144CC0087817A /* AppIntroController.swift */; };
+		48C49DD21F26129500240CAD /* IntroViewLastPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C49DD11F26129500240CAD /* IntroViewLastPage.swift */; };
+		48C49DD41F2612B600240CAD /* IntroViewLastPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */; };
 		86008A6A1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
 		86008A6B1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
 		86008A6C1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
@@ -334,6 +336,8 @@
 		48416EC11F08B31B00E95E6C /* IntroViewPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewPage.swift; sourceTree = "<group>"; };
 		48416EC71F08B43600E95E6C /* IntroViewPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewPage.xib; sourceTree = "<group>"; };
 		485CE3F41F0144CC0087817A /* AppIntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIntroController.swift; sourceTree = "<group>"; };
+		48C49DD11F26129500240CAD /* IntroViewLastPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewLastPage.swift; sourceTree = "<group>"; };
+		48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewLastPage.xib; sourceTree = "<group>"; };
 		86008A691D62CCC1005BFE96 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
 		86008A6D1D62CCE2005BFE96 /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		86008A711D62CCF5005BFE96 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -522,6 +526,8 @@
 			children = (
 				48416EC11F08B31B00E95E6C /* IntroViewPage.swift */,
 				48416EC71F08B43600E95E6C /* IntroViewPage.xib */,
+				48C49DD11F26129500240CAD /* IntroViewLastPage.swift */,
+				48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */,
 			);
 			path = IntroViews;
 			sourceTree = "<group>";
@@ -1286,6 +1292,7 @@
 				8610ACE01D7DDD19008F628F /* AddTimerCells.plist in Resources */,
 				8666C6031DEDD343002C4713 /* More_Page_Time.pdf in Resources */,
 				86BE99711D620C590020F0C9 /* LaunchScreen.storyboard in Resources */,
+				48C49DD41F2612B600240CAD /* IntroViewLastPage.xib in Resources */,
 				868F4AE51D709CC800C838D8 /* Defaults.plist in Resources */,
 				8610ACE41D7EFC07008F628F /* ExpandableCells.plist in Resources */,
 				868F4AF51D709E8D00C838D8 /* Invoices.plist in Resources */,
@@ -1433,6 +1440,7 @@
 				86E5BF0A1D8074A300D7C579 /* JobTimer+CoreDataClass.swift in Sources */,
 				869295EA1DB94E1E00F2ECC1 /* DratftsCell.swift in Sources */,
 				48416EC21F08B31B00E95E6C /* IntroViewPage.swift in Sources */,
+				48C49DD21F26129500240CAD /* IntroViewLastPage.swift in Sources */,
 				864A633D1D87437200B2113F /* LoadTimerProtocols.swift in Sources */,
 				8657CF661D9DAA39008BD97E /* CalenderProtocols.swift in Sources */,
 				868F4B191D70A41A00C838D8 /* TextTableViewCell.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppIntroController: UIViewController, UIScrollViewDelegate {
+class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastPageDelegate {
 
     @IBOutlet weak var introScrollView: UIScrollView!
     
@@ -16,18 +16,23 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var pageNumber: UILabel!
-    
+        
     let viewCount = 5;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateTopLabelText(index: 0)
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         createViews()
     }
     
@@ -35,14 +40,24 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
         
         for index in 0..<5 {
             
-            let introPage = Bundle.main.loadNibNamed("IntroViewPage", owner: self, options: nil)?[0] as! IntroViewPage
+            var introPage: UIView
+    
+            if index == 4 {
+                introPage = Bundle.main.loadNibNamed("IntroViewLastPage", owner: self, options: nil)?[0] as! UIView
+                
+                let introLastPage = introPage as! IntroViewLastPage
+                introLastPage.delegate = self
+            } else {
+                introPage = Bundle.main.loadNibNamed("IntroViewPage", owner: self, options: nil)?[0] as! UIView
+                
+                let introViewPage = introPage as! IntroViewPage
+                introViewPage.initWithPage(index: index)
+            }
             
             introPage.translatesAutoresizingMaskIntoConstraints = false
             
             introPage.frame = CGRect(x: 0+(UIScreen.main.bounds.size.width*CGFloat(index)), y: 0, width: UIScreen.main.bounds.size.width, height: self.introScrollView.frame.size.height)
 
-            introPage.initWithPage(index: index)
-            
             self.introScrollView.addSubview(introPage)
             
             self.introScrollView.addConstraint(NSLayoutConstraint(item: introPage, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: introPage.frame.size.width))
@@ -90,8 +105,8 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
 //            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
 //            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
             
-//        case 2:
-//            text = "Intro Guide\nSetup\n3/8"
+        case 2:
+            text = ""
 //            attributedText = NSMutableAttributedString(string: text.uppercased())
 //            let range = (attributedText.string as NSString).range(of: text)
 //            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
@@ -145,11 +160,37 @@ class AppIntroController: UIViewController, UIScrollViewDelegate {
         }
         
         self.topLabel.text = text
-        self.pageNumber.text = "\(index+1)/5"
+        if index != 2 {
+            self.pageNumber.text = "\(index+1)/5"
+        } else {
+            self.pageNumber.text = ""
+        }
+        
+        
         //self.topLabel.attributedText = attributedText
     }
     
     @IBAction func closeIntro(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+// MARK: - Intro View Last Page Delegate
+    
+    func settingsTapped() {
+        
+    }
+    
+    func urlTapped() {
+        
+    }
+    
+    func exitTapped() {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        if launchedBefore {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            HomeWireframe.addHomeControllerOnWindow(UIApplication.shared.keyWindow!)
+        }
     }
 }

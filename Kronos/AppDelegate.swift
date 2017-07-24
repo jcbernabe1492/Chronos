@@ -35,7 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initWindow()
         let _ = DataController.sharedInstance
         if let window = window {
-            HomeWireframe.addStartScreenOnWindow(window)
+            
+            let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+            if launchedBefore {
+                HomeWireframe.addHomeControllerOnWindow(window)
+            } else {
+                HomeWireframe.addIntroScreenOnWindow(window)
+                UserDefaults.standard.set(true, forKey: "launchedBefore")
+            }
         }
         window?.makeKeyAndVisible()
 
