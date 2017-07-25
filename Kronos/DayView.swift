@@ -17,6 +17,7 @@ protocol DayViewDelegate
 {
     func dayViewWasPressed(day:Day)
     func updatePreviouseDaySelected(dayView: DayView)
+    func setTodayDayView(dayView: DayView)
 }
 
 class DayView: UIView {
@@ -34,6 +35,7 @@ class DayView: UIView {
     var outerCornerRadius:CGFloat?
     var isSelected = false
     var active:Bool = true
+    var today: Bool = false
 
     var delegate:DayViewDelegate? = nil
     
@@ -78,6 +80,7 @@ class DayView: UIView {
                 backgroundImage?.image = UIImage(named: "img-calendar-day-off-today")
                 
                 self.delegate?.updatePreviouseDaySelected(dayView: self)
+                self.delegate?.setTodayDayView(dayView: self)
             }
         }
         else if isSelected

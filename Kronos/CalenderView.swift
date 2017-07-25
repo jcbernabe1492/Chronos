@@ -32,7 +32,8 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
     
     var dayViewArray:[DayView] = []
     
-    var previousDaySelected: DayView? 
+    var previousDaySelected: DayView?
+    var todayDay: DayView?
     
     init(month:Int, year:Int)
     {
@@ -63,11 +64,9 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
     }
     
     func refreshCurrentMonth() {
-        for d in days {
-            d.setupDayImage()
-            d.setNeedsDisplay()
-            d.layoutSubviews()
-        }
+        self.todayDay?.setupDayImage()
+        self.todayDay?.setNeedsDisplay()
+        self.todayDay?.layoutSubviews()
     }
     
     func loadStackView()
@@ -232,6 +231,10 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
     
     func updatePreviouseDaySelected(dayView: DayView) {
         self.previousDaySelected = dayView
+    }
+    
+    func setTodayDayView(dayView: DayView) {
+        self.todayDay = dayView
     }
     
     func updateDayView(dayView:Day, type:DAY_TYPE)

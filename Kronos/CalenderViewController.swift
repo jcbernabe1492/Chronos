@@ -112,7 +112,7 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
         let amounts = CalenderUtils.getDataFor(month: Date().getMonth(), year: Date().getYear())
         self.updateBottomLabels(amounts: amounts)
         
-//        refreshCurrentMonth()
+        refreshCurrentMonth()
     }
     
     private func refreshChangesFromSettings() {
