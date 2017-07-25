@@ -62,6 +62,14 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
         loadStackView()
     }
     
+    func refreshCurrentMonth() {
+        for d in days {
+            d.setupDayImage()
+            d.setNeedsDisplay()
+            d.layoutSubviews()
+        }
+    }
+    
     func loadStackView()
     {
         if stackView1 != nil

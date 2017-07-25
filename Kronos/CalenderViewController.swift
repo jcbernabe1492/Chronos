@@ -38,6 +38,8 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
     var scrollViewWasLoadedOnce = false
     var firstLoad = false
     
+    var calendarViews: [CalenderView] = []
+    
     private var previousScrollPos = CGFloat(0.0)
     
     override func viewDidLoad() {
@@ -109,6 +111,8 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
         
         let amounts = CalenderUtils.getDataFor(month: Date().getMonth(), year: Date().getYear())
         self.updateBottomLabels(amounts: amounts)
+        
+//        refreshCurrentMonth()
     }
     
     private func refreshChangesFromSettings() {
@@ -127,6 +131,16 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
             
             UserDefaults.standard.set(false, forKey: "calenderDaysChanged")
         }
+    }
+    
+    private func refreshCurrentMonth() {
+        
+        guard let current = currentMonth  else {
+            return
+        }
+        
+        let currentCalendarMonth = self.calendarViews[current] 
+        currentCalendarMonth.refreshCurrentMonth()
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,6 +173,8 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
                     let calender1Leading = NSLayoutConstraint(item: self.calendarScrollingView, attribute: .leading, relatedBy: .equal, toItem: calender1, attribute: .leading, multiplier: 1.0, constant: -(UIScreen.main.bounds.size.width * CGFloat(month)))
                     calender1.calenderLeadingConstraint = calender1Leading
                     self.view.addConstraint(calender1Leading)
+                    
+                    self.calendarViews.append(calender1)
                     
 //                    let amounts = CalenderUtils.getDataFor(month: (calender1.currentMonth)!, year: (calender1.year)!)
 //                    self.updateBottomLabels(amounts: amounts)
