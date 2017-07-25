@@ -22,16 +22,24 @@ class HomeInteractor : NSObject, HomeInteractorInput
 
         if let currentDay = isCalenderNew(taskId: currentTaskId!) {
 
+            var tempTimeWorked: Double?
+            
             if currentDay.timeStarted != nil {
-                currentDay.timeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted as! Date)
+                //currentDay.timeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted as! Date)
+                tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted as! Date)
                 if stopping {
                     currentDay.timeStarted = nil
                 } else {
                     currentDay.timeStarted = NSDate()
+                    tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(NSDate() as Date)
                 }
             }else {
                 currentDay.timeStarted = NSDate()
+                tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(NSDate() as Date)
             }
+
+            currentDay.timeWorked = tempTimeWorked!
+            
         }
         else {
             if yesterday(task: currentTaskId!)?.timeStarted != nil {
