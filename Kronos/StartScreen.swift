@@ -29,7 +29,8 @@ class StartScreen: UIViewController {
     
     @IBAction func didTouchScreen()
     {
-        HomeWireframe.addHomeControllerOnWindow(UIApplication.shared.keyWindow!)
+        //HomeWireframe.addHomeControllerOnWindow(UIApplication.shared.keyWindow!)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func openAppIntro(_ sender: Any) {

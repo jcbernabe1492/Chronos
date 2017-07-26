@@ -196,10 +196,17 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         view?.addTime(active: active)
     }
     
+// MARK: - Help Button Pressed
+    func helpButtonPressed() {
+        wireframe?.showHelpScreen()
+    }
+    
 // MARK: - Settings Button Pressed
     func settingsButtonPressed() {
         wireframe?.showSettingsScreen()
     }
+    
+// MARK: - Add Timer Button Pressed
     
     func addTimerButtonPressed(active: Bool) {
         self.currentModule = .HOME
@@ -220,12 +227,12 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         return false
     }
     
-// Mark: - Load Timer Tapped
+// MARK: - Load Timer Tapped
     func loadTimerButtonPressed(active: Bool) {
         wireframe?.showLoadTimerScreen(active: active)
     }
     
-// Mark: - Calendar Tapped
+// MARK: - Calendar Tapped
     func calenderButtonPressed() {
         wireframe?.showCalenderView()
     }
@@ -234,7 +241,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         wireframe?.closeCalender(done: done)
     }
     
-// Mark: - Invoice Tapped
+// MARK: - Invoice Tapped
     func invoiceButtonPressed(section:Int)
     {
         wireframe?.showInvoiceView(section: section)
@@ -244,7 +251,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         wireframe?.closeInvoice(done: done)
     }
     
-// Mark: - Archive Tapped
+// MARK: - Archive Tapped
     func archiveButtonPressed(active: Bool) {
         if active{
             wireframe?.showArchive()

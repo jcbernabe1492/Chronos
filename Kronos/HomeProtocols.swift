@@ -18,6 +18,8 @@ protocol HomeWireframeProtocol : class {
     var invoiceWireframe:InvoiceWireframe? {get set}
     var archiveWireframe:ArchiveWireframe? {get set}
     
+    func showAboutScreen()
+    func showHelpScreen()
     func showSettingsScreen()
     func showAddTimerScreen(active:Bool)
     func canSaveTimer() -> Bool
@@ -52,6 +54,7 @@ protocol HomePresenterProtocol : class {
     weak var view: HomeViewControllerProtocol? { get set }
     func viewDidLoad()
     func createTimerView(_ type:TimerType)
+    func helpButtonPressed()
     func settingsButtonPressed()
     func calenderButtonPressed()
     func closeCalender(done: @escaping ()->Void)

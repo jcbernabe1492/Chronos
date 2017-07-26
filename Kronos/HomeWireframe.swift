@@ -26,6 +26,11 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     
     var isAnimating:Bool = false
     
+    var isTimerViewPresent: Bool = true
+    var isArchiveViewPresent: Bool = false
+    var isCalendarViewPresent: Bool = false
+    var isInvoiceViewPresent: Bool = false
+    
     class func addHomeControllerOnWindow(_ window:UIWindow)
     {
         let wireframe = HomeWireframe()
@@ -64,6 +69,40 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         window.rootViewController = view
     }
     
+// MARK: - Show Start Screen
+    
+    func showAboutScreen() {
+        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartScreen")
+        
+        view.modalTransitionStyle = .flipHorizontal
+        viewController?.present(view, animated: true, completion: nil)
+    }
+    
+// MARK: - Show Help Screen
+    
+    func showHelpScreen() {
+        
+        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HelpController") as! HelpController
+        let _ = view.view
+        
+        if isTimerViewPresent {
+            view.showWithType(type: .TimerHelp)
+        } else if isCalendarViewPresent {
+            view.showWithType(type: .CalendarHelp)
+        } else if isInvoiceViewPresent {
+            view.showWithType(type: .InvoiceHelp)
+        } else if isArchiveViewPresent {
+            view.showWithType(type: .ArchiveHelp)
+        } else {
+            return
+        }
+        
+        viewController?.modalPresentationStyle = .overFullScreen
+        viewController?.present(view, animated: false, completion: nil)
+    }
+    
+// MARK: - Show Settings Screen
+    
     func showSettingsScreen()
     {
         if calenderWireframe != nil && (viewController?.calenderActive)!
@@ -81,6 +120,8 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         if settingsController != nil
         {
             animateSettingsScreen(visible: true)
+            
+            isTimerViewPresent = true
         }
         else
         {
@@ -113,6 +154,8 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         
             viewController?.view.layoutIfNeeded()
             self.animateSettingsScreen(visible: false)
+            
+            isTimerViewPresent = false
         }
     }
     
@@ -148,6 +191,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         }
     }
 
+// MARK: - Show Load Timer
     
     func showLoadTimerScreen(active: Bool) {
         var animating = false
@@ -183,6 +227,8 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
             self.loadTimerWireframe = LoadTimerWireframe()
             self.loadTimerWireframe?.homeWireFrame = self
             self.loadTimerWireframe?.showLoadTimerViewOn(viewController: self.viewController!)
+            
+            isTimerViewPresent = false
         }
     }
     
@@ -190,7 +236,11 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     {
         loadTimerWireframe?.animateLoadTimerScreen(visible: true)
         loadTimerWireframe = nil
+        
+        isTimerViewPresent = true
     }
+    
+// MARK: - Show Add Timer
     
     func showAddTimerScreen(active:Bool)
     {
@@ -208,6 +258,8 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
             self.addTimerWireframe = AddTimerWireframe()
             self.addTimerWireframe?.homeWireframe = self
             self.addTimerWireframe?.showAddTimerViewOn(viewController: self.viewController!)
+            
+            isTimerViewPresent = false
         }
     }
     
@@ -225,6 +277,8 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     {
         addTimerWireframe?.animateAddTimerScreen(visible: true)
         addTimerWireframe = nil
+        
+        isTimerViewPresent = true
     }
     
 // MARK: - Show/Close Edit TImer
@@ -256,13 +310,20 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         let archiveVC = archiveWireframe?.createArchiveViewController()
         archiveVC?.homeArchiveButton = viewController?.archiveButton
         animateViewControllerFromTop(newViewController: archiveVC!, active: false, done: {})
+//        animateViewControllerFromBottom(newViewController: archiveVC!, active: false, done: {})
         
+        isArchiveViewPresent = true
+        isTimerViewPresent = false
     }
     
     func closeArchive()
     {
         if archiveWireframe == nil { return }
         animateViewControllerFromTop(newViewController: archiveWireframe!.archiveViewController!, active: true, done: {self.archiveWireframe = nil})
+//        animateViewControllerFromBottom(newViewController: archiveWireframe!.archiveViewController!, active: true, done: {self.archiveWireframe = nil})
+        
+        isArchiveViewPresent = false
+        isTimerViewPresent = true
     }
     
 // MARK: - Show/Close Calendar View
@@ -296,11 +357,16 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
            calenderWireframe?.calenderViewController?.viewWillAppear(true)
             animateViewControllerFromBottom(newViewController: (calenderWireframe?.calenderViewController!)!, active: false, done: {})
         }
+        
+        isCalendarViewPresent = true
+        isTimerViewPresent = false
     }
     
     func closeCalender(done:@escaping () -> Void) {
         animateViewControllerFromBottom(newViewController: calenderWireframe!.calenderViewController!, active: true, done: done)
         
+        isCalendarViewPresent = false
+        isTimerViewPresent = true
     }
     
 // MARK: - Show/Close Invoice View
@@ -324,6 +390,9 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
             invoiceWireframe = InvoiceWireframe()
             let invoiceVC = invoiceWireframe?.createInvoiceViewController(section: section)
             animateViewControllerFromBottom(newViewController: invoiceVC!, active: false, done: {})
+            
+            isInvoiceViewPresent = true
+            isTimerViewPresent = false
         }
         else
         {
@@ -339,13 +408,15 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
             invoiceWireframe?.invoiceViewController?.view.removeFromSuperview()
             invoiceWireframe?.invoiceViewController?.removeFromParentViewController()
             invoiceWireframe = nil
+            
+            isInvoiceViewPresent = false
+            isTimerViewPresent = true
         }
     }
 
     func changeInvoiceSection(section: Int) {
         invoiceWireframe?.invoiceViewController?.changeSection(section: section)
     }
-    
     
 // MARK: - AnimateViewControllerFromBottom
     func animateViewControllerFromBottom(newViewController:UIViewController ,active:Bool, done:@escaping () -> Void)

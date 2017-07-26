@@ -95,7 +95,7 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topConstraint.constant = -20
+        //topConstraint.constant = -20
         
         agencyBtn.titleLabel?.font = UIFont().headerFont()
         agencyBtn.backgroundColor = UIColor.tabSelectedYellow()
@@ -132,6 +132,10 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         incomeEarned.imageView?.contentMode = .scaleAspectFit
         hoursWorked.imageView?.contentMode = .scaleAspectFit
         daysWorked.imageView?.contentMode = .scaleAspectFit
+        
+        trashButton.imageView?.contentMode = .scaleAspectFit
+        editButtin.imageView?.contentMode = .scaleAspectFit
+        unarchiveButton.imageView?.contentMode = .scaleAspectFit
 
         NotificationCenter.default.addObserver(self, selector: #selector(ArchiveViewController.changeArchiveStatus(notif:)), name: NSNotification.Name(rawValue: "kChangeArchiveStatus"), object: nil)
         

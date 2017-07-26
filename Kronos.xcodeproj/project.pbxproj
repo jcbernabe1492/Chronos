@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		303A123D1EDB08D000047702 /* EditTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A123C1EDB08D000047702 /* EditTimerViewController.swift */; };
+		48210EF41F276A400042D517 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48210EF31F276A400042D517 /* HelpController.swift */; };
 		48416EC21F08B31B00E95E6C /* IntroViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48416EC11F08B31B00E95E6C /* IntroViewPage.swift */; };
 		48416EC81F08B43600E95E6C /* IntroViewPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48416EC71F08B43600E95E6C /* IntroViewPage.xib */; };
 		485CE3F51F0144CC0087817A /* AppIntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485CE3F41F0144CC0087817A /* AppIntroController.swift */; };
@@ -333,6 +334,7 @@
 
 /* Begin PBXFileReference section */
 		303A123C1EDB08D000047702 /* EditTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimerViewController.swift; sourceTree = "<group>"; };
+		48210EF31F276A400042D517 /* HelpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		48416EC11F08B31B00E95E6C /* IntroViewPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewPage.swift; sourceTree = "<group>"; };
 		48416EC71F08B43600E95E6C /* IntroViewPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewPage.xib; sourceTree = "<group>"; };
 		485CE3F41F0144CC0087817A /* AppIntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIntroController.swift; sourceTree = "<group>"; };
@@ -521,6 +523,22 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		48210EF11F276A340042D517 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				48210EF21F276A340042D517 /* View */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		48210EF21F276A340042D517 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48210EF31F276A400042D517 /* HelpController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		48416EC01F08B30300E95E6C /* IntroViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,6 +619,7 @@
 		86008A621D62CBBB005BFE96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				48210EF11F276A340042D517 /* Help */,
 				485CE3EE1F0143DF0087817A /* AppIntro */,
 				864779D91DC2DFE8004B79F4 /* Archive */,
 				86A026481DB6924E00095F5E /* Invoice */,
@@ -1391,6 +1410,7 @@
 				86B765111D6CDB5A00A12117 /* StartScreen.swift in Sources */,
 				86DD3FB61D64236C00CE66E3 /* Screen.swift in Sources */,
 				86DD3FB41D63F08900CE66E3 /* Colors.swift in Sources */,
+				48210EF41F276A400042D517 /* HelpController.swift in Sources */,
 				86973DF21DBAAA9500964202 /* SummaryTextCell.swift in Sources */,
 				868F4B0D1D70A3E500C838D8 /* OptionsTableViewCell.swift in Sources */,
 				86BF07B61D6AA0EA005FE76B /* CircleView.swift in Sources */,

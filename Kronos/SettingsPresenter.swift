@@ -72,8 +72,9 @@ class SettingsPresenter:NSObject, SettingsPresenterProtocol
     
     func goBackToHomeScreen()
     {
-        ChronoTimer.sharedInstance.appWillClose()
-        view?.homeWireframe?.viewController?.dismiss(animated: true, completion: nil)
+        //ChronoTimer.sharedInstance.appWillClose()
+        //view?.homeWireframe?.viewController?.dismiss(animated: true, completion: nil)
+        view?.homeWireframe?.showAboutScreen()
     }
     
     

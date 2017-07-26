@@ -228,6 +228,13 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     }
     
     //MARK: - ACTIONS
+    
+// MARK: - Help Button Pressed
+    
+    @IBAction func helpButtonPressed(_ sender: Any) {
+        presenter?.helpButtonPressed()
+    }
+    
 
 // MARK: - Settings Button Pressed
     @IBAction func settingsButtonPressed()
