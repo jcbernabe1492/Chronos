@@ -177,7 +177,7 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
 // MARK: - Intro View Last Page Delegate
     
     func settingsTapped() {
-        
+        HomeWireframe.addHomeControllerOnWindowWithSettingsOn(UIApplication.shared.keyWindow!)
     }
     
     func urlTapped() {
@@ -185,12 +185,12 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
     }
     
     func exitTapped() {
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        
-        if launchedBefore {
-            self.dismiss(animated: true, completion: nil)
-        } else {
+//        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+//        
+//        if launchedBefore {
+//            self.dismiss(animated: true, completion: nil)
+//        } else {
             HomeWireframe.addHomeControllerOnWindow(UIApplication.shared.keyWindow!)
-        }
+//        }
     }
 }

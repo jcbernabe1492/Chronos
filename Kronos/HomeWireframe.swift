@@ -53,6 +53,32 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         }
     }
     
+    class func addHomeControllerOnWindowWithSettingsOn(_ window:UIWindow)
+    {
+        let wireframe = HomeWireframe()
+        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as! HomeViewController
+        let presenter = HomePresenter()
+        let interactor = HomeInteractor()
+        
+        view.presenter = presenter
+        presenter.interactor = interactor
+        presenter.wireframe = wireframe
+        presenter.view = view
+        interactor.presenter = presenter
+        
+        wireframe.viewController = view
+        wireframe.viewController?.modalTransitionStyle = .flipHorizontal
+
+        
+        if window.rootViewController == nil {
+            window.rootViewController = view
+        } else {
+            window.rootViewController?.present(wireframe.viewController!, animated: true, completion: {
+                view.settingsButtonPressed()
+            })
+        }
+    }
+    
     
     func isAnyViewAnimating() -> Bool {
         return isAnimating
