@@ -17,6 +17,7 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     weak var viewController:HomeViewController?
     weak var settingsController:SettingsViewController?
     weak var editTimerViewController:EditTimerViewController?
+    weak var helpScreen: HelpController?
     weak var homeWireFrameDelegate: HomeWireFrameDelegate?
     var calenderWireframe: CalenderWireframe?
     var addTimerWireframe:AddTimerWireframe?
@@ -111,6 +112,9 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HelpController") as! HelpController
         let _ = view.view
         
+        view.homeWireframe = self
+        helpScreen = view
+        
         if isTimerViewPresent {
             view.showWithType(type: .TimerHelp)
         } else if isCalendarViewPresent {
@@ -122,9 +126,25 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         } else {
             return
         }
+  
+        view.view.translatesAutoresizingMaskIntoConstraints = false
+        viewController?.addChildViewController(view)
+        viewController?.view.addSubview((view.view)!)
+
+        viewController?.view.addConstraint(NSLayoutConstraint(item: (view as UIViewController).view , attribute: .leading,     relatedBy: .equal, toItem: viewController?.view, attribute: .leading, multiplier: 1.0, constant: 0.0))
+        viewController?.view.addConstraint(NSLayoutConstraint(item: (view as UIViewController).view , attribute: .trailing, relatedBy: .equal, toItem: viewController?.view, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+        viewController?.view.addConstraint(NSLayoutConstraint(item: (view as UIViewController).view , attribute: .top, relatedBy: .equal, toItem: viewController?.view, attribute: .top, multiplier: 1.0, constant: 0.0))
+        let bottom =  NSLayoutConstraint(item: (view as UIViewController).view, attribute: .bottom, relatedBy: .equal, toItem: viewController?.view , attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        bottom.identifier = "bottom"
+        viewController?.view.addConstraint(bottom)
         
-        viewController?.modalPresentationStyle = .overFullScreen
-        viewController?.present(view, animated: false, completion: nil)
+        viewController?.view.layoutIfNeeded()
+    }
+    
+    func dismissHelpScreen() {
+        self.helpScreen?.view.removeFromSuperview()
+        self.helpScreen?.removeFromParentViewController()
+        self.helpScreen = nil
     }
     
 // MARK: - Show Settings Screen

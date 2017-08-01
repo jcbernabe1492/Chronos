@@ -16,21 +16,19 @@ enum HelpType {
 }
 
 class HelpController: UIViewController {
+    var homeWireframe:HomeWireframe?
+    
     @IBOutlet weak var helpImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.clear
-//        self.helpImageView.alpha = 0.0
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
-        
-//        UIView.animate(withDuration: 0.5) { 
-//            self.helpImageView.alpha = 1.0
-//        }
     }
     
     func showWithType(type: HelpType) {
@@ -47,7 +45,8 @@ class HelpController: UIViewController {
     }
 
     @IBAction func dismissHelpScreenTapped(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        //self.dismiss(animated: false, completion: nil)
+        self.homeWireframe?.dismissHelpScreen()
     }
   
     override func didReceiveMemoryWarning() {
