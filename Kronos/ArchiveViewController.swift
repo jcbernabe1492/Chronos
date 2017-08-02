@@ -787,8 +787,8 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         case 0: centerBarLabel.text = "Total Projects"
         case 1: centerBarLabel.text = "Invoice Status"
         case 2: centerBarLabel.text = "Total Earned"
-        case 3: centerBarLabel.text = "Total Hours Worked"
-        case 4: centerBarLabel.text = "Total Days Worked"
+        case 3: centerBarLabel.text = "Total Hours"//"Total Hours Worked"
+        case 4: centerBarLabel.text = "Total Days"//"Total Days Worked"
             
         default:
             break
