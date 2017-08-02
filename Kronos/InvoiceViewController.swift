@@ -220,30 +220,30 @@ class InvoiceViewController: UIViewController, MFMailComposeViewControllerDelega
         
         
         draftDot?.layer.borderWidth = 1
-        draftDot?.layer.cornerRadius = 6
+        draftDot?.layer.cornerRadius = 4
         draftLabel?.textColor = UIColor.white
         draftLabel?.font = UIFont(name: "NeoSans", size: 9)!
         
 
         invoicedDot?.layer.borderWidth = 1
-        invoicedDot?.layer.cornerRadius = 6
+        invoicedDot?.layer.cornerRadius = 4
         invoicedLabel?.textColor = UIColor.white
         invoicedLabel?.font = UIFont(name: "NeoSans", size: 9)!
         
 
         criticalDot?.layer.borderWidth = 1
-        criticalDot?.layer.cornerRadius = 6
+        criticalDot?.layer.cornerRadius = 4
         criticalLabel?.textColor = UIColor.white
         criticalLabel?.font = UIFont(name: "NeoSans", size: 9)!
         
         
         overdueDot?.layer.borderWidth = 1
-        overdueDot?.layer.cornerRadius = 6
+        overdueDot?.layer.cornerRadius = 4
         overdueLabel?.textColor = UIColor.white
         overdueLabel?.font = UIFont(name: "NeoSans", size: 9)!
         
         clearedDot?.layer.borderWidth = 1
-        clearedDot?.layer.cornerRadius = 6
+        clearedDot?.layer.cornerRadius = 4
         clearedLabel?.textColor = UIColor.white
         clearedLabel?.font = UIFont(name: "NeoSans", size: 9)!
         setInvoiveStatus()
