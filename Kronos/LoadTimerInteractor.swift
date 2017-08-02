@@ -60,7 +60,9 @@ class LoadTimerInteractor:NSObject, LoadTimerInteractorProtocol
                     Reset current job timer or the to be deleted timer current time, instead of deleting it completely.
                     To prevent repeating job id.
                  */
-                DataController.sharedInstance.updateCurrentJobTimer(timer: 0.00)
+                if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) != nil {
+                    DataController.sharedInstance.updateCurrentJobTimer(timer: 0.00)
+                }
                 
                 //DataController.sharedInstance.delete(obj: timer!)
                 //try! DataController.sharedInstance.managedObjectContext.save()

@@ -693,7 +693,13 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         
         let deleteButton = UIButton()
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        deleteButton.setImage(UIImage(named:"btn-archive-yes"), for: .normal)
+        
+        if action == "archive" {
+            deleteButton.setImage(UIImage(named:"btn-archive-yes"), for: .normal)
+        } else {
+            deleteButton.setImage(UIImage(named:"btn-delete-green"), for: .normal)
+        }
+
         archiveViewTop.addSubview(deleteButton)
         archiveViewTop.addConstraint(NSLayoutConstraint(item: archiveViewTop, attribute: .centerY, relatedBy: .equal, toItem: deleteButton, attribute: .centerY, multiplier: 1.0, constant: 10.0))
         archiveViewTop.addConstraint(NSLayoutConstraint(item: archiveViewTop, attribute: .centerX, relatedBy: .equal, toItem: deleteButton, attribute: .leading, multiplier: 1.0, constant: -5.0))
