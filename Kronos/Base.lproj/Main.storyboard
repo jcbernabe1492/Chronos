@@ -2063,7 +2063,7 @@
                                         <rect key="frame" x="175.5" y="17.5" width="184.5" height="53.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9s-fh-4qt">
-                                                <rect key="frame" x="0.0" y="0.5" width="53.5" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="53.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="a9s-fh-4qt" secondAttribute="height" multiplier="1:1" id="NQh-bC-lNR"/>
                                                 </constraints>
@@ -2073,14 +2073,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2s-0J-z5Z">
-                                                <rect key="frame" x="65.5" y="0.5" width="53.5" height="53.5"/>
+                                                <rect key="frame" x="65.5" y="0.0" width="53.5" height="53.5"/>
                                                 <state key="normal" image="invoice-archive"/>
                                                 <connections>
                                                     <action selector="archiveButtonPressed" destination="jrw-C9-SS8" eventType="touchUpInside" id="Jxf-GU-iEg"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsq-n7-Qeq">
-                                                <rect key="frame" x="131" y="0.5" width="53.5" height="53.5"/>
+                                                <rect key="frame" x="131" y="0.0" width="53.5" height="53.5"/>
                                                 <state key="normal" image="invoice-pdf"/>
                                                 <connections>
                                                     <action selector="pdfButtonPressed" destination="jrw-C9-SS8" eventType="touchUpInside" id="Yx6-h0-v0z"/>
@@ -2089,19 +2089,19 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARE PDF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzL-zB-BHF">
-                                        <rect key="frame" x="313" y="76" width="41" height="8.5"/>
+                                        <rect key="frame" x="313" y="75.5" width="41" height="8.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARCHIVE JOB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cm-rt-AC3">
-                                        <rect key="frame" x="244.5" y="76" width="46" height="8.5"/>
+                                        <rect key="frame" x="244.5" y="75.5" width="46" height="8.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVOICE STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvY-ll-ZCn">
-                                        <rect key="frame" x="173" y="76" width="59.5" height="8.5"/>
+                                        <rect key="frame" x="173" y="75.5" width="59.5" height="8.5"/>
                                         <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -2312,23 +2312,14 @@
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HQ-Qe-QiT">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <state key="normal" image="btn-unarchive"/>
-                                                <connections>
-                                                    <action selector="unarchivePressed" destination="OvT-xw-Qm6" eventType="touchUpInside" id="tcn-SA-L9A"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eoc-pa-FLw">
                                                 <rect key="frame" x="30" y="0.0" width="20" height="20"/>
                                                 <state key="normal" image="btn-trash"/>
-                                                <connections>
-                                                    <action selector="trashButtonPressed" destination="OvT-xw-Qm6" eventType="touchUpInside" id="0KQ-Hi-o3V"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joM-gH-ad9">
                                                 <rect key="frame" x="60" y="0.0" width="20" height="20"/>
                                                 <state key="normal" image="btn-edit"/>
-                                                <connections>
-                                                    <action selector="setEditing" destination="OvT-xw-Qm6" eventType="touchUpInside" id="yMZ-Ex-QdW"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -2337,15 +2328,42 @@
                                             <constraint firstItem="Eoc-pa-FLw" firstAttribute="width" secondItem="uQU-DJ-neD" secondAttribute="height" id="jdv-Aw-xRd"/>
                                         </constraints>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VUQ-mY-FUO">
+                                        <rect key="frame" x="260" y="0.0" width="110" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhA-JB-wf6">
+                                                <rect key="frame" x="0.0" y="0.0" width="36.5" height="40"/>
+                                                <connections>
+                                                    <action selector="unarchivePressed" destination="OvT-xw-Qm6" eventType="touchUpInside" id="LdH-yq-utj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZK-Tm-AMi">
+                                                <rect key="frame" x="36.5" y="0.0" width="37" height="40"/>
+                                                <connections>
+                                                    <action selector="trashButtonPressed" destination="OvT-xw-Qm6" eventType="touchUpInside" id="oBd-Dr-k0l"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPa-Hr-ZoV">
+                                                <rect key="frame" x="73.5" y="0.0" width="36.5" height="40"/>
+                                                <connections>
+                                                    <action selector="setEditing" destination="OvT-xw-Qm6" eventType="touchUpInside" id="0aY-L3-MSv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="VUQ-mY-FUO" firstAttribute="width" secondItem="uQU-DJ-neD" secondAttribute="width" constant="30" id="3Pk-To-U6T"/>
+                                    <constraint firstItem="VUQ-mY-FUO" firstAttribute="height" secondItem="3fI-8o-oPQ" secondAttribute="height" id="828-OX-mQ0"/>
                                     <constraint firstItem="uQU-DJ-neD" firstAttribute="centerY" secondItem="3fI-8o-oPQ" secondAttribute="centerY" id="94W-3C-nIl"/>
                                     <constraint firstAttribute="trailing" secondItem="uQU-DJ-neD" secondAttribute="trailing" constant="20" id="Dn6-Ks-vgk"/>
                                     <constraint firstItem="uvn-eo-XEf" firstAttribute="height" secondItem="3fI-8o-oPQ" secondAttribute="height" id="IWD-uP-VdP"/>
+                                    <constraint firstItem="VUQ-mY-FUO" firstAttribute="centerX" secondItem="uQU-DJ-neD" secondAttribute="centerX" id="OuT-UY-heq"/>
                                     <constraint firstItem="uvn-eo-XEf" firstAttribute="centerY" secondItem="3fI-8o-oPQ" secondAttribute="centerY" id="YOs-iB-6Di"/>
                                     <constraint firstItem="uvn-eo-XEf" firstAttribute="leading" secondItem="3fI-8o-oPQ" secondAttribute="leading" id="bji-z9-Al7"/>
                                     <constraint firstItem="uQU-DJ-neD" firstAttribute="height" secondItem="3fI-8o-oPQ" secondAttribute="height" multiplier="0.5" id="jIC-BM-VIb"/>
+                                    <constraint firstItem="VUQ-mY-FUO" firstAttribute="centerY" secondItem="uQU-DJ-neD" secondAttribute="centerY" id="kkT-Vy-Zyg"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2H-Tb-pEm">

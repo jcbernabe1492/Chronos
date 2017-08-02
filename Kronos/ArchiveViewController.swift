@@ -465,6 +465,10 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func unarchivePressed()
     {
+        if unarchiveButton.isHidden {
+            return
+        }
+        
         if (topTableViewDelegate?.isEditing)!
         {
             deleteActionButtonPressed(action: "unarchive")
