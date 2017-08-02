@@ -444,7 +444,13 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
     func showUnarchiveButton()
     {
         unarchiveButton.isHidden = false
-        unarchiveButton.alpha = 0.5
+        
+        if edit {
+            unarchiveButton.alpha = 1.0
+        } else {
+            unarchiveButton.alpha = 0.5
+        }
+        
     }
     
     func hideButtons()
@@ -673,7 +679,7 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         archiveViewTop.addSubview(trashBottomLabel)
         archiveViewTop.addConstraint(NSLayoutConstraint(item: archiveViewTop, attribute: .bottom, relatedBy: .equal, toItem: trashBottomLabel, attribute: .bottom, multiplier: 1.0, constant:20))
         archiveViewTop.addConstraint(NSLayoutConstraint(item: archiveViewTop, attribute: .centerX, relatedBy: .equal, toItem: trashBottomLabel, attribute: .centerX, multiplier: 1.0, constant: 0))
-        archiveViewTop.addConstraint(NSLayoutConstraint(item: archiveViewTop, attribute: .width, relatedBy: .equal, toItem: trashBottomLabel, attribute: .width, multiplier: 1.0, constant: 75))
+        archiveViewTop.addConstraint(NSLayoutConstraint(item: archiveViewTop, attribute: .width, relatedBy: .equal, toItem: trashBottomLabel, attribute: .width, multiplier: 1.0, constant: 65))
         
         let cancelButton = UIButton()
         cancelButton.translatesAutoresizingMaskIntoConstraints = false

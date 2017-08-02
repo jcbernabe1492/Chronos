@@ -280,7 +280,8 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
     func setIsEditing(editing:Bool)
     {
         bottomTable?.editing = editing
-        viewController.bottomTableView.reloadData()
+        //viewController.bottomTableView.reloadData()
+        viewController.reloadBottomTables()
         isEditing = editing
     }
     
