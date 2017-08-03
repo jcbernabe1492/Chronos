@@ -174,11 +174,32 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         trashButton.alpha = 0.5
         trashButton.isHidden = false
         editButtin.isHidden = false
-
+        
+        registerTableCells()
     }
     
-    func initialTablesLoad() {
+    
+    func registerTableCells() {
         
+        numberOfProjectsTable.register(UINib(nibName: "TwoLabelCell", bundle: nil), forCellReuseIdentifier: "TwoLabelCell")
+        numberOfProjectsTable.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "StatusCell")
+        numberOfProjectsTable.register(UINib(nibName: "InvoiceStatusCell", bundle: nil), forCellReuseIdentifier: "InvoiceStatus")
+        
+        incomeEarnedTable.register(UINib(nibName: "TwoLabelCell", bundle: nil), forCellReuseIdentifier: "TwoLabelCell")
+        incomeEarnedTable.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "StatusCell")
+        incomeEarnedTable.register(UINib(nibName: "InvoiceStatusCell", bundle: nil), forCellReuseIdentifier: "InvoiceStatus")
+        
+        invoiceStatusTable.register(UINib(nibName: "TwoLabelCell", bundle: nil), forCellReuseIdentifier: "TwoLabelCell")
+        invoiceStatusTable.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "StatusCell")
+        invoiceStatusTable.register(UINib(nibName: "InvoiceStatusCell", bundle: nil), forCellReuseIdentifier: "InvoiceStatus")
+        
+        hoursWorkedTable.register(UINib(nibName: "TwoLabelCell", bundle: nil), forCellReuseIdentifier: "TwoLabelCell")
+        hoursWorkedTable.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "StatusCell")
+        hoursWorkedTable.register(UINib(nibName: "InvoiceStatusCell", bundle: nil), forCellReuseIdentifier: "InvoiceStatus")
+        
+        daysWorkedTable.register(UINib(nibName: "TwoLabelCell", bundle: nil), forCellReuseIdentifier: "TwoLabelCell")
+        daysWorkedTable.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "StatusCell")
+        daysWorkedTable.register(UINib(nibName: "InvoiceStatusCell", bundle: nil), forCellReuseIdentifier: "InvoiceStatus")
     }
     
     func reloadBottomTablesWithData(data: Array<NSNumber>) {

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TwoLabelCell" id="vOQ-yL-O9X" customClass="TwoLabelCell" customModule="Chrono_Pro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vOQ-yL-O9X" id="13f-1R-24M">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-fR-rKM">
+                        <rect key="frame" x="20" y="11.5" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-vb-W63">
+                        <rect key="frame" x="313" y="11.5" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJZ-w7-Vhb">
+                        <rect key="frame" x="20" y="11" width="16" height="22"/>
+                        <state key="normal" image="radio-off"/>
+                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BWm-8U-44F">
+                        <rect key="frame" x="18" y="5" width="42" height="34"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLF-pp-qpZ">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pp-qa-zut">
+                                <rect key="frame" x="0.0" y="17" width="42" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nr0-Sh-mZ4">
+                        <rect key="frame" x="0.0" y="42.5" width="375" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Euv-Ic-vqh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="nr0-Sh-mZ4" secondAttribute="bottom" id="ERM-2Y-RbZ"/>
+                    <constraint firstItem="BWm-8U-44F" firstAttribute="height" secondItem="13f-1R-24M" secondAttribute="height" multiplier="0.8" id="H4M-XE-j9K"/>
+                    <constraint firstAttribute="trailing" secondItem="ug2-vb-W63" secondAttribute="trailing" constant="20" id="RhX-ko-aH9"/>
+                    <constraint firstItem="c0x-fR-rKM" firstAttribute="centerY" secondItem="13f-1R-24M" secondAttribute="centerY" id="Rpu-X7-qH2"/>
+                    <constraint firstItem="BWm-8U-44F" firstAttribute="centerY" secondItem="13f-1R-24M" secondAttribute="centerY" id="TmY-2H-dfh"/>
+                    <constraint firstItem="cJZ-w7-Vhb" firstAttribute="leading" secondItem="13f-1R-24M" secondAttribute="leading" constant="20" id="U39-53-2z8"/>
+                    <constraint firstItem="cJZ-w7-Vhb" firstAttribute="centerY" secondItem="13f-1R-24M" secondAttribute="centerY" id="WD9-Lv-hfY"/>
+                    <constraint firstItem="nr0-Sh-mZ4" firstAttribute="leading" secondItem="13f-1R-24M" secondAttribute="leading" id="fOV-nq-fS7"/>
+                    <constraint firstItem="ug2-vb-W63" firstAttribute="centerY" secondItem="13f-1R-24M" secondAttribute="centerY" id="gUD-YR-04e"/>
+                    <constraint firstItem="c0x-fR-rKM" firstAttribute="leading" secondItem="13f-1R-24M" secondAttribute="leading" constant="20" id="jJb-kg-XLL"/>
+                    <constraint firstItem="BWm-8U-44F" firstAttribute="leading" secondItem="13f-1R-24M" secondAttribute="leadingMargin" constant="10" id="rjW-eq-oAL"/>
+                    <constraint firstAttribute="trailing" secondItem="nr0-Sh-mZ4" secondAttribute="trailing" id="xra-rp-WDi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="labelConstraint" destination="jJb-kg-XLL" id="AO0-4h-3gu"/>
+                <outlet property="leftLabel" destination="c0x-fR-rKM" id="WLY-0y-Mzu"/>
+                <outlet property="radioButton" destination="cJZ-w7-Vhb" id="zxd-OG-Zsi"/>
+                <outlet property="rightLabel" destination="ug2-vb-W63" id="W7b-Qv-InJ"/>
+                <outlet property="stackAgency" destination="1pp-qa-zut" id="iVz-xN-nTp"/>
+                <outlet property="stackClient" destination="WLF-pp-qpZ" id="CFW-VQ-xYf"/>
+                <outlet property="stackConsraint" destination="rjW-eq-oAL" id="Btc-CF-5uM"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="radio-off" width="16" height="16"/>
+    </resources>
+</document>
