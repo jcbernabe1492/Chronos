@@ -2266,7 +2266,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-eo-XEf">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="40"/>
+                                        <rect key="frame" x="18" y="0.0" width="127" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3F-ZP-tvw">
                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="40"/>
@@ -2361,7 +2361,7 @@
                                     <constraint firstItem="uvn-eo-XEf" firstAttribute="height" secondItem="3fI-8o-oPQ" secondAttribute="height" id="IWD-uP-VdP"/>
                                     <constraint firstItem="VUQ-mY-FUO" firstAttribute="centerX" secondItem="uQU-DJ-neD" secondAttribute="centerX" id="OuT-UY-heq"/>
                                     <constraint firstItem="uvn-eo-XEf" firstAttribute="centerY" secondItem="3fI-8o-oPQ" secondAttribute="centerY" id="YOs-iB-6Di"/>
-                                    <constraint firstItem="uvn-eo-XEf" firstAttribute="leading" secondItem="3fI-8o-oPQ" secondAttribute="leading" id="bji-z9-Al7"/>
+                                    <constraint firstItem="uvn-eo-XEf" firstAttribute="leading" secondItem="3fI-8o-oPQ" secondAttribute="leading" constant="18" id="bji-z9-Al7"/>
                                     <constraint firstItem="uQU-DJ-neD" firstAttribute="height" secondItem="3fI-8o-oPQ" secondAttribute="height" multiplier="0.5" id="jIC-BM-VIb"/>
                                     <constraint firstItem="VUQ-mY-FUO" firstAttribute="centerY" secondItem="uQU-DJ-neD" secondAttribute="centerY" id="kkT-Vy-Zyg"/>
                                 </constraints>
