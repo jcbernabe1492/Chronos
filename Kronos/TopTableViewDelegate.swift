@@ -253,9 +253,11 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
         let cell:HeaderCell = tableView.cellForRow(at: indexPath) as! HeaderCell
         if cell.status == .AGENCY {
             if viewController.selectedAgency != nil {
-                viewController.agencyTabPressed()
-                viewController.selectedClient = nil
-                viewController.selectedProject = nil
+//                viewController.agencyTabPressed()
+//                viewController.selectedClient = nil
+//                viewController.selectedProject = nil
+                viewController.cellSelected = true
+                viewController.clientTabPressed()
             }
         }
         else if cell.status == .CLIENT
@@ -263,8 +265,9 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
             if viewController.selectedClient != nil
             {
                 viewController.cellSelected = true
-                viewController.clientTabPressed()
-                viewController.selectedProject = nil
+//                viewController.clientTabPressed()
+//                viewController.selectedProject = nil
+                viewController.projectTabPressed()
             }
         }
         else if cell.status == .PROJECT
@@ -272,7 +275,8 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
             if viewController.selectedProject != nil
             {
                 viewController.cellSelected = true
-                viewController.projectTabPressed()
+//                viewController.projectTabPressed()
+                viewController.taskTabPressed()
             }
         }
     }
