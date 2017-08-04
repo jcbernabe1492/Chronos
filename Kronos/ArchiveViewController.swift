@@ -242,6 +242,30 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+// MARK: - Top Table Item Selected
+    
+    func topTableAgencyTapped() {
+        cellSelected = true
+        clientTabPressed()
+    }
+    
+    func topTableClientTapped() {
+        cellSelected = true
+        projectTabPressed()
+        if selectedAgency == nil {
+            topTableViewHeight.constant = 45
+        }
+    }
+    
+    func topTableProjectTapped() {
+        cellSelected = true
+        
+        self.selectedTask = nil
+        
+        taskTabPressed()
+    }
+    
+// MARK: - Top buttons actions
     
     @IBAction func agencyTabPressed()
     {
@@ -530,7 +554,7 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
 // MARK: - View Task Details
     func viewTaskDetails()
     {
-        setButtonsActive(active: false)
+        setButtonsActive(active: true)
         topTableView.reloadData()
         //bottomTableView.reloadData()
         reloadBottomTables()

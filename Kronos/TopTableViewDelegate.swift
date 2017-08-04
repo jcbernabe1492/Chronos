@@ -256,27 +256,26 @@ class TopTableViewDelegate:NSObject, UITableViewDataSource, UITableViewDelegate
 //                viewController.agencyTabPressed()
 //                viewController.selectedClient = nil
 //                viewController.selectedProject = nil
-                viewController.cellSelected = true
-                viewController.clientTabPressed()
+                viewController.topTableAgencyTapped()
             }
         }
         else if cell.status == .CLIENT
         {
             if viewController.selectedClient != nil
             {
-                viewController.cellSelected = true
+//                viewController.cellSelected = true
 //                viewController.clientTabPressed()
 //                viewController.selectedProject = nil
-                viewController.projectTabPressed()
+                viewController.topTableClientTapped()
             }
         }
         else if cell.status == .PROJECT
         {
             if viewController.selectedProject != nil
             {
-                viewController.cellSelected = true
+//                viewController.cellSelected = true
 //                viewController.projectTabPressed()
-                viewController.taskTabPressed()
+                viewController.topTableProjectTapped()
             }
         }
     }
