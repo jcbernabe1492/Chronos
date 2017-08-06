@@ -35,6 +35,22 @@
 					<string>helpButtonVIsability</string>
 				</array>
 			</dict>
+            <dict>
+                <key>TYPE</key>
+                <string>SWITCH</string>
+                <key>TITLE</key>
+                <string>Simple Timer</string>
+                <key>SUBTITLE</key>
+                <string></string>
+                <key>IMAGE</key>
+                <string></string>
+                <key>OPTIONS</key>
+                <array/>
+                <key>KEYS</key>
+                <array>
+                    <string>simpleTimer</string>
+                </array>
+            </dict>
 		</array>
 		<key>BACK UP</key>
 		<array>

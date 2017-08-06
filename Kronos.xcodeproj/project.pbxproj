@@ -15,6 +15,8 @@
 		487153B71F32CC260053DCA2 /* TwoLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153B61F32CC260053DCA2 /* TwoLabelCell.xib */; };
 		487153B91F32CC460053DCA2 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153B81F32CC460053DCA2 /* StatusCell.xib */; };
 		487153BB1F32CC560053DCA2 /* InvoiceStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153BA1F32CC560053DCA2 /* InvoiceStatusCell.xib */; };
+		487153BF1F3562D40053DCA2 /* SimpleTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153BE1F3562D40053DCA2 /* SimpleTimerView.swift */; };
+		487153C11F3562DF0053DCA2 /* SimpleTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153C01F3562DF0053DCA2 /* SimpleTimerView.xib */; };
 		48C49DD21F26129500240CAD /* IntroViewLastPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C49DD11F26129500240CAD /* IntroViewLastPage.swift */; };
 		48C49DD41F2612B600240CAD /* IntroViewLastPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */; };
 		86008A6A1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
@@ -344,6 +346,8 @@
 		487153B61F32CC260053DCA2 /* TwoLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoLabelCell.xib; sourceTree = "<group>"; };
 		487153B81F32CC460053DCA2 /* StatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
 		487153BA1F32CC560053DCA2 /* InvoiceStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceStatusCell.xib; sourceTree = "<group>"; };
+		487153BE1F3562D40053DCA2 /* SimpleTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTimerView.swift; sourceTree = "<group>"; };
+		487153C01F3562DF0053DCA2 /* SimpleTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTimerView.xib; sourceTree = "<group>"; };
 		48C49DD11F26129500240CAD /* IntroViewLastPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewLastPage.swift; sourceTree = "<group>"; };
 		48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewLastPage.xib; sourceTree = "<group>"; };
 		86008A691D62CCC1005BFE96 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
@@ -605,6 +609,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		487153BD1F3562B90053DCA2 /* Simple Timer */ = {
+			isa = PBXGroup;
+			children = (
+				487153BE1F3562D40053DCA2 /* SimpleTimerView.swift */,
+				487153C01F3562DF0053DCA2 /* SimpleTimerView.xib */,
+			);
+			name = "Simple Timer";
+			sourceTree = "<group>";
+		};
 		86008A461D62BF9B005BFE96 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,6 +655,7 @@
 		86008A631D62CBC9005BFE96 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				487153BD1F3562B90053DCA2 /* Simple Timer */,
 				86BF07AB1D6A9430005FE76B /* Timer View */,
 				86008A791D62CF66005BFE96 /* Protocols */,
 				86008A681D62CC94005BFE96 /* Wireframe */,
@@ -1329,6 +1343,7 @@
 				48416EC81F08B43600E95E6C /* IntroViewPage.xib in Resources */,
 				86CF6C151D6E17E7004DD829 /* NeoSans-Medium.ttf in Resources */,
 				8679715A1D6A936500F85D95 /* NeoSans-Bold.ttf in Resources */,
+				487153C11F3562DF0053DCA2 /* SimpleTimerView.xib in Resources */,
 				86BE996E1D620C590020F0C9 /* Assets.xcassets in Resources */,
 				487153B71F32CC260053DCA2 /* TwoLabelCell.xib in Resources */,
 				867971561D6A92CD00F85D95 /* NeoSans.ttf in Resources */,
@@ -1413,6 +1428,7 @@
 				869673561D6D041E0078AEBC /* SettingsProtocols.swift in Sources */,
 				8646F0FB1D7DBE4800188605 /* AddTimerProtocol.swift in Sources */,
 				869673541D6D04060078AEBC /* SettingsWireframe.swift in Sources */,
+				487153BF1F3562D40053DCA2 /* SimpleTimerView.swift in Sources */,
 				8646F1031D7DBE6900188605 /* AddTimerInteractor.swift in Sources */,
 				862F8ED41D91B716002FBD34 /* EditProjectPresenter.swift in Sources */,
 				86EFE2911DC53A3F00C7EFD7 /* BottomTableViewDelegate.swift in Sources */,

@@ -1205,6 +1205,16 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         }
     }
     
+// MARK: - Show Simple Timer
+    
+    func activateSimpleTimer() {
+        
+    }
+    
+    func deactivateSimpleTimer() {
+        
+    }
+    
 // MARK: - Helper Functions
     
     class func bottomValueGetDaysWorked(agency:NSNumber, archived:Bool) -> String

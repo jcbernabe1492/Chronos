@@ -70,6 +70,7 @@ class ChronoUserDefaults
         
         //Default Settings
         UserDefaults.standard.setValue(true, forKey: "helpButtonVIsability")
+        UserDefaults.standard.setValue(false, forKey: "simpleTimer")
         UserDefaults.standard.setValue("NO BACKUPS AVAILABLE", forKey: "lastBackupData")
         UserDefaults.standard.setValue(false, forKey: "passcodeOnOff")
         UserDefaults.standard.setValue("NO PASSCODE SET", forKey: "passcode")
