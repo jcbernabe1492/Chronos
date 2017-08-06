@@ -178,6 +178,36 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         registerTableCells()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+//        switch selectedStatus {
+//        case .AGENCY:
+//            if cellSelected {
+//                agencyTabPressed()
+//                agencyTabPressed()
+//            } else {
+//                agencyTabPressed()
+//            }
+//            
+//        case .CLIENT: break
+//        
+//        case .PROJECT: break
+//            
+//            if cellSelected {
+//                projectTabPressed()
+//                projectTabPressed()
+//            } else {
+//                projectTabPressed()
+//            }
+//            
+//        case .TASK: break
+//        
+//        default: break
+//        }
+        
+    }
     
     func registerTableCells() {
         
@@ -514,6 +544,15 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
             return
         }
         
+        if bottomtTableViewDelegate.toDeleteSet.count == 0 {
+            
+            let alert = UIAlertController(title: "Nothing Selected", message: "Please select an item to unarchive.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         if (topTableViewDelegate?.isEditing)!
         {
             deleteActionButtonPressed(action: "unarchive")
@@ -523,6 +562,15 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func trashButtonPressed()
     {
+        if bottomtTableViewDelegate.toDeleteSet.count == 0 {
+            
+            let alert = UIAlertController(title: "Nothing Selected", message: "Please select an item to delete.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         if (topTableViewDelegate?.isEditing)!
         {
             deleteActionButtonPressed(action: "delete")

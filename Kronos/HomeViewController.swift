@@ -429,6 +429,9 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         timerView3?.setDim(dim: false)
         
         UserDefaults.standard.removeObject(forKey: CURRENT_JOB_TIMER)
+        
+        updateHomeScreenValues()
+        checkIfTimerWasDeleted()
     }
     
     func invoiceCancelPressed()
