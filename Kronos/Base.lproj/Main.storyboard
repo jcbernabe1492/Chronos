@@ -227,7 +227,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0vR-qn-eIw" secondAttribute="height" multiplier="1:1" id="yup-rw-fzh"/>
                                 </constraints>
-                                <state key="normal" image="icn-calendar"/>
+                                <state key="normal" image="icn-analytics"/>
                                 <connections>
                                     <action selector="calenderButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCw-FQ-oBn"/>
                                 </connections>
@@ -263,8 +263,8 @@
                                     <action selector="invoicesButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="fUP-gN-OqE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALENDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-jX-dPJ">
-                                <rect key="frame" x="23" y="136" width="38" height="8.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANALYTICS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-jX-dPJ">
+                                <rect key="frame" x="22" y="136" width="40" height="8.5"/>
                                 <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -3766,7 +3766,7 @@
         <image name="day-settings-available" width="31" height="31"/>
         <image name="help-timer-overlay" width="889" height="1522"/>
         <image name="icn-add-timer" width="126" height="126"/>
-        <image name="icn-calendar" width="125" height="125"/>
+        <image name="icn-analytics" width="114" height="114"/>
         <image name="icn-invoice-job" width="125" height="125"/>
         <image name="icn-invoices" width="125" height="125"/>
         <image name="icn-load-timer" width="125" height="125"/>

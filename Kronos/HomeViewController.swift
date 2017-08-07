@@ -213,7 +213,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     
     func setAllButtonsUnselected()
     {
-        calenderButton?.setImage(UIImage(named:"icn-calendar"), for: .normal)
+        //calenderButton?.setImage(UIImage(named:"icn-calendar"), for: .normal)
+        calenderButton?.setImage(UIImage(named:"icn-analytics"), for: .normal)
         loadTimerButton?.setImage(UIImage(named:"icn-load-timer"), for: .normal)
         addTimerButton?.setImage(UIImage(named: "icn-add-timer"), for: .normal)
         invoiceButton?.setImage(UIImage(named:"icn-invoice-job"), for: .normal)
@@ -265,7 +266,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         }
         else
         {
-            calenderButton?.setImage(UIImage(named:"btn-calendar-selected"), for: .normal)
+            calenderButton?.setImage(UIImage(named:"icn-analytics-selected"), for: .normal)
             addTimerSeleced = false
             archiveIsActive = false
             addTimerSeleced = false
@@ -280,7 +281,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     func closeCalendar(done:@escaping ()->Void)
     {
         calenderActive = false
-        calenderButton?.setImage(UIImage(named:"icn-calendar"), for: .normal)
+        //calenderButton?.setImage(UIImage(named:"icn-calendar"), for: .normal)
+        calenderButton?.setImage(UIImage(named:"icn-analytics"), for: .normal)
         presenter?.closeCalender(done: done)
         
     }
@@ -636,7 +638,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             presenter?.closeAnyViewControllers()
             settingsButton?.setImage(UIImage(named:"btn-settings"), for: .normal)
             settingsSelected = false
-            calenderButton?.setImage(UIImage(named:"icn-calendar"), for: .normal)
+            //calenderButton?.setImage(UIImage(named:"icn-calendar"), for: .normal)
+            calenderButton?.setImage(UIImage(named:"icn-analytics"), for: .normal)
             calenderActive = false
             invoiceButton?.setImage(UIImage(named:"icn-invoice-job"), for: .normal)
             invoiceActive = false
