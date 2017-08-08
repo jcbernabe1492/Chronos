@@ -104,7 +104,7 @@ class ChronoTimer:NSObject
                 d.secondPassed(newTime: time)
             }
         }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "kSecondPassed"), object: nil)
+        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "kSecondPassed"), object: nil)
     }
     
     func addtime(time:Int)

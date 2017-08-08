@@ -24,7 +24,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SimpleTimerView" customModule="Chrono_Pro" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="449"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -32,23 +32,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="24.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALENDAR DAYS WORKED =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDk-FT-PZP">
-                            <rect key="frame" x="10" y="7.5" width="150" height="10.5"/>
+                            <rect key="frame" x="10" y="8" width="150" height="10.5"/>
                             <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
-                            <color key="textColor" red="0.65098039215686276" green="0.6588235294117647" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.13725490196078433" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="= WORKING DAY LENGTH" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iK-vR-HG3">
-                            <rect key="frame" x="160" y="7.5" width="150" height="10.5"/>
+                            <rect key="frame" x="160" y="8" width="150" height="10.5"/>
                             <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
-                            <color key="textColor" red="0.65098039220000004" green="0.6588235294" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.13725490196078433" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="2iK-vR-HG3" firstAttribute="centerY" secondItem="Lqd-mq-qza" secondAttribute="centerY" id="BmF-DE-mi9"/>
+                        <constraint firstItem="2iK-vR-HG3" firstAttribute="centerY" secondItem="Lqd-mq-qza" secondAttribute="centerY" constant="1" id="BmF-DE-mi9"/>
                         <constraint firstItem="rDk-FT-PZP" firstAttribute="leading" secondItem="Lqd-mq-qza" secondAttribute="leading" constant="10" id="Wlz-bL-7dh"/>
-                        <constraint firstItem="rDk-FT-PZP" firstAttribute="centerY" secondItem="Lqd-mq-qza" secondAttribute="centerY" id="aJV-Bw-xtU"/>
+                        <constraint firstItem="rDk-FT-PZP" firstAttribute="centerY" secondItem="Lqd-mq-qza" secondAttribute="centerY" constant="1" id="aJV-Bw-xtU"/>
                         <constraint firstItem="2iK-vR-HG3" firstAttribute="leading" secondItem="Lqd-mq-qza" secondAttribute="centerX" id="dBt-07-zsk"/>
                         <constraint firstItem="rDk-FT-PZP" firstAttribute="trailing" secondItem="Lqd-mq-qza" secondAttribute="centerX" id="kmB-4z-0g5"/>
                         <constraint firstAttribute="trailing" secondItem="2iK-vR-HG3" secondAttribute="trailing" constant="10" id="two-sR-0oX"/>
@@ -60,7 +60,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIU-yp-VIj">
                     <rect key="frame" x="0.0" y="24.5" width="320" height="179.5"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nnG-4O-FT5">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnG-4O-FT5">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-PZ-sA2" userLabel="ScrollContentHolder">
@@ -328,6 +328,9 @@
                             <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
                             <state key="normal" image="btn-timer-stopped"/>
                             <state key="selected" backgroundImage="btn-timer-active-numbered"/>
+                            <connections>
+                                <action selector="startStopTimer:" destination="iN0-l3-epB" eventType="touchUpInside" id="Uy9-eg-GfH"/>
+                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HSy-3s-6u3">
                             <rect key="frame" x="0.0" y="75.5" width="320" height="199.5"/>
@@ -375,7 +378,7 @@
                                                         <constraint firstItem="TUM-sk-1pb" firstAttribute="top" secondItem="R5U-8v-d8q" secondAttribute="bottom" id="pqI-GP-vZh"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61x-jr-sCK">
+                                                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61x-jr-sCK">
                                                     <rect key="frame" x="77.5" y="0.0" width="68" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PtZ-Xb-CRD">
@@ -405,7 +408,7 @@
                                                         <constraint firstItem="PtZ-Xb-CRD" firstAttribute="leading" secondItem="61x-jr-sCK" secondAttribute="leading" id="zfs-4Y-i07"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dt-On-GYw">
+                                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dt-On-GYw">
                                                     <rect key="frame" x="154.5" y="0.0" width="68.5" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEk-XL-bY1">
@@ -435,7 +438,7 @@
                                                         <constraint firstItem="snw-d8-u8A" firstAttribute="leading" secondItem="1dt-On-GYw" secondAttribute="leading" id="lMz-86-IT1"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czA-1w-EfR">
+                                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czA-1w-EfR">
                                                     <rect key="frame" x="232" y="0.0" width="68" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7F-ph-8cE">
@@ -557,7 +560,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="CmP-7o-kHE" secondAttribute="trailing" id="tyj-2F-MpE"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRg-Al-iWc">
+                                                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRg-Al-iWc">
                                                     <rect key="frame" x="77.5" y="0.0" width="68" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXA-ZY-MYZ">
@@ -587,7 +590,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="fXA-ZY-MYZ" secondAttribute="trailing" id="qur-F0-zke"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRN-ng-boS">
+                                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRN-ng-boS">
                                                     <rect key="frame" x="154.5" y="0.0" width="68.5" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DO-4E-4om">
@@ -617,7 +620,7 @@
                                                         <constraint firstItem="0DO-4E-4om" firstAttribute="top" secondItem="OmX-9l-BKc" secondAttribute="bottom" id="xuH-f5-TlS"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2L-fH-FRx">
+                                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2L-fH-FRx">
                                                     <rect key="frame" x="232" y="0.0" width="68" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dF-dC-Von">
@@ -735,6 +738,53 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomFirstAgency" destination="czA-1w-EfR" id="oa6-Ee-omX"/>
+                <outlet property="bottomFirstAgencyLabel" destination="Hoz-8j-T2B" id="HP0-d0-7WX"/>
+                <outlet property="bottomFirstAgencyLine" destination="C7F-ph-8cE" id="pYH-Ci-lAA"/>
+                <outlet property="bottomFirstClienLabel" destination="snw-d8-u8A" id="iWE-ku-ZeE"/>
+                <outlet property="bottomFirstClient" destination="1dt-On-GYw" id="AUv-qW-doe"/>
+                <outlet property="bottomFirstClientLine" destination="uEk-XL-bY1" id="RmE-OV-1cM"/>
+                <outlet property="bottomFirstProject" destination="Ebc-fR-KAb" id="bfe-pL-QjV"/>
+                <outlet property="bottomFirstProjectLabel" destination="R5U-8v-d8q" id="xUz-hA-HgA"/>
+                <outlet property="bottomFirstProjectLine" destination="TUM-sk-1pb" id="Pn0-6T-Ikm"/>
+                <outlet property="bottomFirstTask" destination="61x-jr-sCK" id="9o0-Wh-zTO"/>
+                <outlet property="bottomFirstTaskLabel" destination="avv-Oa-dNG" id="KRS-0f-AMk"/>
+                <outlet property="bottomFirstTaskLine" destination="PtZ-Xb-CRD" id="c4X-TB-s1V"/>
+                <outlet property="bottomHolder" destination="oGa-j7-gjB" id="824-Xs-4R3"/>
+                <outlet property="bottomSecondAgency" destination="Z2L-fH-FRx" id="U5U-IL-0Ii"/>
+                <outlet property="bottomSecondAgencyLabel" destination="9uz-5s-V5F" id="fmc-Fn-wZh"/>
+                <outlet property="bottomSecondAgencyLine" destination="4dF-dC-Von" id="a2d-pF-VZV"/>
+                <outlet property="bottomSecondClient" destination="YRN-ng-boS" id="5qh-zC-3Le"/>
+                <outlet property="bottomSecondClientLabel" destination="OmX-9l-BKc" id="K96-1f-6uD"/>
+                <outlet property="bottomSecondClientLine" destination="0DO-4E-4om" id="gcV-4b-sWD"/>
+                <outlet property="bottomSecondProject" destination="TLQ-3k-RU0" id="v16-9D-dxS"/>
+                <outlet property="bottomSecondProjectLabel" destination="CmP-7o-kHE" id="PFi-uZ-ZsC"/>
+                <outlet property="bottomSecondProjectLine" destination="kol-bl-fx4" id="I2y-tU-MNg"/>
+                <outlet property="bottomSecondTask" destination="IRg-Al-iWc" id="IXG-FG-ChC"/>
+                <outlet property="bottomSecondTaskLabel" destination="DSe-jU-sS5" id="RHN-gE-53e"/>
+                <outlet property="bottomSecondTaskLine" destination="fXA-ZY-MYZ" id="XOp-aP-WXg"/>
+                <outlet property="calendarDaysWorkedLabel" destination="rDk-FT-PZP" id="bkz-0T-jQB"/>
+                <outlet property="firstTimerDays" destination="zrr-wb-g5l" id="Uyv-1e-lHX"/>
+                <outlet property="firstTimerHours" destination="btR-KO-nB4" id="669-HU-gNI"/>
+                <outlet property="firstTimerMinutes" destination="xCp-bu-IKd" id="eTU-uZ-Zyb"/>
+                <outlet property="firstTimerView" destination="7YD-xr-ef5" id="riz-c9-VtH"/>
+                <outlet property="jobDetailsStack" destination="HSy-3s-6u3" id="lbw-NM-OUQ"/>
+                <outlet property="pageControl" destination="tIZ-Zj-e4W" id="gEY-Dj-ywB"/>
+                <outlet property="projectTimeAllocationLabel" destination="MHt-Tb-3aC" id="cY0-C8-oXJ"/>
+                <outlet property="secondTimerDays" destination="Z4R-lB-bYN" id="uUT-Va-VdC"/>
+                <outlet property="secondTimerHours" destination="O9R-Tx-I3G" id="jAi-r0-8o2"/>
+                <outlet property="secondTimerMinutes" destination="hnV-Fr-FCb" id="ueO-ya-3vV"/>
+                <outlet property="secondTimerView" destination="7A2-IU-fcr" id="zTk-qM-GKC"/>
+                <outlet property="startStopButton" destination="Gf2-1F-pYj" id="8N6-iJ-9MW"/>
+                <outlet property="taskTimeAllocationLabel" destination="yyd-8j-D8i" id="ufL-cz-Toc"/>
+                <outlet property="timeAllocationsHolder" destination="snR-H5-kra" id="P7M-lB-nY2"/>
+                <outlet property="timerHolderContent" destination="CZH-PZ-sA2" id="L9d-e3-T7v"/>
+                <outlet property="timerHolderScroll" destination="nnG-4O-FT5" id="gYx-aE-JoT"/>
+                <outlet property="timerHolderView" destination="ZIU-yp-VIj" id="Tjl-qY-04g"/>
+                <outlet property="topBarView" destination="Lqd-mq-qza" id="jrF-Y8-NGl"/>
+                <outlet property="workingDayLengthLabel" destination="2iK-vR-HG3" id="c9F-yA-X0E"/>
+            </connections>
             <point key="canvasLocation" x="35" y="67.5"/>
         </view>
     </objects>

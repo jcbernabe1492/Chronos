@@ -106,7 +106,11 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     
     func settingsDidChange()
     {
-         helpButton.isHidden = !(UserDefaults.standard.value(forKey: "helpButtonVIsability") as! Bool)
+        helpButton.isHidden = !(UserDefaults.standard.value(forKey: "helpButtonVIsability") as! Bool)
+        
+        if UserDefaults.standard.value(forKey: "simpleTimer") as! Bool == true {
+            switchToSimpleTimer()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,6 +122,28 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         super.viewDidAppear(animated)
         updateHomeScreenValues()
     }
+    
+// MARK: - Transition To Simple Timer
+    
+    func switchToSimpleTimer() {
+        let simpleTimer = Bundle.main.loadNibNamed("SimpleTimerView", owner: self, options: nil)?[0] as! SimpleTimerView
+        simpleTimer.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(simpleTimer, aboveSubview: timerScrollView)
+        
+        view.addConstraint(NSLayoutConstraint(item: simpleTimer, attribute: .top, relatedBy: .equal, toItem: timerTopLabels, attribute: .top, multiplier: 1.0, constant: 0.0))
+        
+        view.addConstraint(NSLayoutConstraint(item: simpleTimer, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0))
+        
+        view.addConstraint(NSLayoutConstraint(item: simpleTimer, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0))
+        
+        view.addConstraint(NSLayoutConstraint(item: simpleTimer, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 1))
+        
+        
+        let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
+        simpleTimer.updateValues(withCurrentTime: (self.timerView1?.timeInSeconds)!, jobTimer: job!)
+    }
+    
+// MARK: - Check Timer
     
     func checkTimer(){
         timerView1?.checkCurrentTimerPosition()
