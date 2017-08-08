@@ -508,7 +508,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             updateHomeScreenValues()
             checkIfTimerWasDeleted()
             
-            NotificationCenter.default.removeObserver(self)
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "StopRunningTimers"), object: nil)
         } else {
             loadTimerButton?.setImage(UIImage(named:"btn-load-timer-selected"), for: .normal)
             calenderActive = false
@@ -858,6 +858,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
 // MARK: - Top Values
     
     func updateTopLabels() {
+        
+        print("updateTopLAbels")
         
         if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) == nil
         {
