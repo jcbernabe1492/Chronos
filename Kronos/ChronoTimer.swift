@@ -17,6 +17,8 @@ protocol TimerProtocol
 {
     func secondPassed(newTime:Double)
     
+    func timerStoppedFromAppClosure()
+    
     func updateTimerViewWithNewTime(time: Int)
 }
 
@@ -127,7 +129,15 @@ class ChronoTimer:NSObject
         {
             UserDefaults.standard.setValue(true, forKey: TIMER_IS_ON)
             UserDefaults.standard.setValue(NSDate(), forKey: "closeDate")
-            DataController.sharedInstance.updateCurrentJobTimer(timer: currentTime!)
+            //DataController.sharedInstance.updateCurrentJobTimer(timer: currentTime!)
+            
+            for d in delegates
+            {
+                if d != nil {
+                    d.timerStoppedFromAppClosure()
+                }
+            }
+            stopTimer()
         }
         else
         {

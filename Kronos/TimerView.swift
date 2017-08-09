@@ -844,7 +844,6 @@ class TimerView: UIView, TimerProtocol {
         {
             let globalPoint = startStopButton.superview?.convert(startStopButton.frame.origin, to: nil)
             delegate?.showEditTimer(buttonFrame: CGRect(origin: globalPoint!, size: startStopButton.frame.size))
-            
         }
     }
     
@@ -933,77 +932,7 @@ class TimerView: UIView, TimerProtocol {
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
-    
-// MARK: - Edit Timer Okay Button Pressed
-//    func okayButtonPressed()
-//    {
-//        ChronoTimer.sharedInstance.addtime(time: tempTimeChange)
-//        updateCalenderDay(time: tempTimeChange)
-//        updateMinuteAndHourCircles(true)
-//        tempTimeChange = 0
-//        getTimeForTimer(updateOthers: true)
-//
-//        self.cancelButtonPressed()
-//        self.layoutSubviews()
-//        for t in otherTimers!
-//        {
-//            t.layoutSubviews()
-//        }
-//    }
-    
-// MARK: - Edit Timer Plus Button Pressed
-//    func plusButtonPressed()
-//    {
-//        tempTimeChange = tempTimeChange + 1
-//        let tempTime = ChronoTimer.sharedInstance.getCurrentTime() + Double(tempTimeChange*60)
-//        
-//        let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
-//        delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
-//        
-//    }
-    
-// MARK: - Edit Timer Minus Button Pressed
-//    func minusButtonPressed()
-//    {
-//        tempTimeChange = tempTimeChange - 1
-//        let tempTime = ChronoTimer.sharedInstance.currentTime! + Double(tempTimeChange*60)
-//        
-//        if tempTime <= 0
-//        {
-//            tempTimeChange = tempTimeChange + 1
-//            return
-//        }
-//        else
-//        {
-//            let times = secondsToHoursMinutesSeconds(seconds: Int(tempTime))
-//            delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
-//        }
-//    }
-//
-    
-// MARK: - Edit Timer Cancel Button Pressed
-//    func cancelButtonPressed()
-//    {
-//        delegate?.addTime(active: false)
-//        
-//        //        editTimerView.removeFromSuperview()
-//        
-//        //        addTimeDimView?.removeFromSuperview()
-//        //        addTimeDimView = nil
-//        //        okayButton?.removeFromSuperview()
-//        //        plusButton?.removeFromSuperview()
-//        //        minusButton?.removeFromSuperview()
-//        //        cancelButton?.removeFromSuperview()
-//        //        middleLine?.removeFromSuperview()
-//        //        topLine?.removeFromSuperview()
-//        //        bottomLine?.removeFromSuperview()
-//        
-//        let times = secondsToHoursMinutesSeconds(seconds: Int(ChronoTimer.sharedInstance.currentTime!))
-//        delegate?.setTopLabels(min: times.1, hrs: times.0, days: 0)
-//        tempTimeChange = 0
-//        
-//    }
-    
+
 // MARK: - Start Stop Button Pressed
     func buttonPressed()
     {
@@ -1024,15 +953,17 @@ class TimerView: UIView, TimerProtocol {
         
         if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) != nil || timerIsActive
         {
-            if timerIsActive{
+            if timerIsActive {
+                
                 timerIsActive = false
                 startStopButton.setImage(UIImage(named: "btn-timer-stopped"), for: [])
-                if tellDelegate
-                {
+                
+                if tellDelegate {
                     ChronoTimer.sharedInstance.stopTimer()
                 }
-            }else
-            {
+                
+            } else {
+                
                 timerIsActive = true
                 startStopButton.setImage(UIImage(named: "btn-timer-active"), for: [])
                 if tellDelegate
@@ -1046,16 +977,17 @@ class TimerView: UIView, TimerProtocol {
                     }
                 }
             }
+            
             startStopTimer()
+            
             if tellDelegate
             {
                 delegate?.startStopButtonPressed(timerIsActive)
             }
-        }
-        else
-        {
-            if tellDelegate
-            {
+            
+        } else {
+            
+            if tellDelegate {
                 delegate?.noTimerActive()
             }
         }
@@ -1229,7 +1161,11 @@ class TimerView: UIView, TimerProtocol {
 
     }
     
-
+    func timerStoppedFromAppClosure() {
+        startStopButtonPressed()
+    }
+    
+// MARK: - Layout Subviews
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -1376,10 +1312,6 @@ class TimerView: UIView, TimerProtocol {
             if setNewTimer
             {
                 startStopButtonPressed()
-//                ChronoTimer.sharedInstance.currentTime = 0.0
-//                ChronoTimer.sharedInstance.currentMinutes = 0
-//                ChronoTimer.sharedInstance.currentHours = 0
-//                ChronoTimer.sharedInstance.second = 0
             }
             else
             {
@@ -1404,6 +1336,32 @@ class TimerView: UIView, TimerProtocol {
         hoursPassedView?.setNeedsDisplay()
         checkHoursAndMinutesSettings()
         getTimeForTimer(updateOthers: setNewTimer)
+    }
+    
+    func setupNewTimer() {
+        
+        if timerIsActive
+        {
+            startStopButtonPressed(true, false)
+        }
+        
+        ChronoTimer.sharedInstance.currentTime = 0.0
+        ChronoTimer.sharedInstance.currentMinutes = 0
+        ChronoTimer.sharedInstance.currentHours = 0
+        ChronoTimer.sharedInstance.second = 0
+        
+        time = (0,0,0)
+        timerHand.transform = CGAffineTransform(rotationAngle: 0)
+        minutesPassed = 0
+        minutesPassedView?.percentage = 0
+        minutesPassedView?.setNeedsDisplay()
+        minuteView.setNeedsDisplay()
+        hoursPassed = 0
+        hoursView.setNeedsDisplay()
+        hoursPassedView?.percentage = 0
+        hoursPassedView?.setNeedsDisplay()
+        checkHoursAndMinutesSettings()
+        getTimeForTimer(updateOthers: false)
     }
     
     
