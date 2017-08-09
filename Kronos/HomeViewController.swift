@@ -562,13 +562,12 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                 addTimerSeleced = false
                 if UserDefaults.standard.value(forKey: "autoStartTimer") as! Bool == true
                 {
-                    timerView1?.startNewTimer(true)
+                
+                    timerView1?.setupNewTimer()
+                    timerView2?.setupNewTimer()
+                    timerView3?.setupNewTimer()
+
                     timerView1?.startStopButtonPressed()
-                    
-//                    timerView2?.startNewTimer(true)
-//                    timerView2?.startStopButtonPressed()
-//                    timerView3?.startNewTimer(true)
-//                    timerView3?.startStopButtonPressed()
                     
                     let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
                     job?.timeSpent = 1.0

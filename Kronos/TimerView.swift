@@ -1313,10 +1313,6 @@ class TimerView: UIView, TimerProtocol {
             if setNewTimer
             {
                 startStopButtonPressed()
-//                ChronoTimer.sharedInstance.currentTime = 0.0
-//                ChronoTimer.sharedInstance.currentMinutes = 0
-//                ChronoTimer.sharedInstance.currentHours = 0
-//                ChronoTimer.sharedInstance.second = 0
             }
             else
             {
@@ -1341,6 +1337,32 @@ class TimerView: UIView, TimerProtocol {
         hoursPassedView?.setNeedsDisplay()
         checkHoursAndMinutesSettings()
         getTimeForTimer(updateOthers: setNewTimer)
+    }
+    
+    func setupNewTimer() {
+        
+        if timerIsActive
+        {
+            startStopButtonPressed(true, false)
+        }
+        
+        ChronoTimer.sharedInstance.currentTime = 0.0
+        ChronoTimer.sharedInstance.currentMinutes = 0
+        ChronoTimer.sharedInstance.currentHours = 0
+        ChronoTimer.sharedInstance.second = 0
+        
+        time = (0,0,0)
+        timerHand.transform = CGAffineTransform(rotationAngle: 0)
+        minutesPassed = 0
+        minutesPassedView?.percentage = 0
+        minutesPassedView?.setNeedsDisplay()
+        minuteView.setNeedsDisplay()
+        hoursPassed = 0
+        hoursView.setNeedsDisplay()
+        hoursPassedView?.percentage = 0
+        hoursPassedView?.setNeedsDisplay()
+        checkHoursAndMinutesSettings()
+        getTimeForTimer(updateOthers: false)
     }
     
     
