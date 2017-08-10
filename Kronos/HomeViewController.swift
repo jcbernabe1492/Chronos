@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScrollViewDelegate {
+class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScrollViewDelegate, SimpleTimerViewDelegate {
 
     var presenter : HomePresenterProtocol?
     
@@ -88,6 +88,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     var timerScrollView:UIScrollView!
     var selectedTimer:TimerView!
     
+    var simpleTimer: SimpleTimerView!
+    
     var page:Int = 1
     
     override func viewDidLoad() {
@@ -99,23 +101,25 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.updateTopLabels), name: NSNotification.Name(rawValue: "kCheckTime"), object: nil)
         
         helpButton.isHidden = !(UserDefaults.standard.value(forKey: "helpButtonVIsability") as! Bool)
-        // Do any additional setup after loading the view.
-
     }
 
-    
     func settingsDidChange()
     {
         helpButton.isHidden = !(UserDefaults.standard.value(forKey: "helpButtonVIsability") as! Bool)
         
         if UserDefaults.standard.value(forKey: "simpleTimer") as! Bool == true {
             switchToSimpleTimer()
+        } else {
+            removeSimpleTimer()
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if UserDefaults.standard.value(forKey: "simpleTimer") as! Bool == true {
+            switchToSimpleTimer()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -126,7 +130,12 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
 // MARK: - Transition To Simple Timer
     
     func switchToSimpleTimer() {
-        let simpleTimer = Bundle.main.loadNibNamed("SimpleTimerView", owner: self, options: nil)?[0] as! SimpleTimerView
+        
+        if simpleTimer != nil {
+            return
+        }
+        
+        simpleTimer = Bundle.main.loadNibNamed("SimpleTimerView", owner: self, options: nil)?[0] as! SimpleTimerView
         simpleTimer.translatesAutoresizingMaskIntoConstraints = false
         view.insertSubview(simpleTimer, aboveSubview: timerScrollView)
         
@@ -138,9 +147,31 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         
         view.addConstraint(NSLayoutConstraint(item: simpleTimer, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 1))
         
+        simpleTimer.simpleTimerDelegate = self
         
         let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
         simpleTimer.updateValues(withCurrentTime: (self.timerView1?.timeInSeconds)!, jobTimer: job!)
+        
+        if (timerView1?.timerIsActive)! {
+            simpleTimer.startAsActiveTimer()
+        }
+    }
+    
+    func removeSimpleTimer() {
+        if simpleTimer != nil {
+            simpleTimer.removeFromSuperview()
+            simpleTimer = nil
+        }
+    }
+    
+// MARK: - Simple Timer View Delegate 
+    
+    func startTimer() {
+        timerView1?.startStopButtonPressed()
+    }
+    
+    func stopTimer() {
+        timerView1?.startStopButtonPressed()
     }
     
 // MARK: - Check Timer

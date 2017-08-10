@@ -32,13 +32,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="24.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALENDAR DAYS WORKED =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDk-FT-PZP">
-                            <rect key="frame" x="10" y="8" width="150" height="10.5"/>
+                            <rect key="frame" x="10" y="8.5" width="150" height="10.5"/>
                             <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
                             <color key="textColor" red="0.13725490196078433" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="= WORKING DAY LENGTH" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iK-vR-HG3">
-                            <rect key="frame" x="160" y="8" width="150" height="10.5"/>
+                            <rect key="frame" x="160" y="8.5" width="150" height="10.5"/>
                             <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
                             <color key="textColor" red="0.13725490196078433" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
@@ -246,6 +246,9 @@
                                 <constraint firstItem="CZH-PZ-sA2" firstAttribute="leading" secondItem="nnG-4O-FT5" secondAttribute="leading" id="la5-4e-E67"/>
                                 <constraint firstItem="7YD-xr-ef5" firstAttribute="height" secondItem="nnG-4O-FT5" secondAttribute="height" id="yjA-jY-I9h"/>
                             </constraints>
+                            <connections>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="09k-GM-1A0"/>
+                            </connections>
                         </scrollView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -326,12 +329,23 @@
                             </constraints>
                             <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="14"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" image="btn-timer-stopped"/>
-                            <state key="selected" backgroundImage="btn-timer-active-numbered"/>
+                            <state key="normal" title="60" image="btn-timer-stopped-big">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
                             <connections>
                                 <action selector="startStopTimer:" destination="iN0-l3-epB" eventType="touchUpInside" id="Uy9-eg-GfH"/>
                             </connections>
                         </button>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wq6-fN-s6M">
+                            <rect key="frame" x="147.5" y="18" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="ZKV-C5-J45"/>
+                                <constraint firstAttribute="width" constant="25" id="sTc-ar-ZLB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HSy-3s-6u3">
                             <rect key="frame" x="0.0" y="75.5" width="320" height="199.5"/>
                             <subviews>
@@ -710,9 +724,11 @@
                         <constraint firstAttribute="trailing" secondItem="HSy-3s-6u3" secondAttribute="trailing" id="DAg-xG-0zV"/>
                         <constraint firstAttribute="bottom" secondItem="HSy-3s-6u3" secondAttribute="bottom" id="DMO-sO-avZ"/>
                         <constraint firstItem="HSy-3s-6u3" firstAttribute="top" secondItem="snR-H5-kra" secondAttribute="bottom" id="GdN-wi-bYi"/>
+                        <constraint firstItem="wq6-fN-s6M" firstAttribute="centerX" secondItem="Gf2-1F-pYj" secondAttribute="centerX" id="SHv-RY-ndc"/>
                         <constraint firstItem="HSy-3s-6u3" firstAttribute="leading" secondItem="oGa-j7-gjB" secondAttribute="leading" id="aaY-qU-ez6"/>
                         <constraint firstAttribute="trailing" secondItem="snR-H5-kra" secondAttribute="trailing" id="fol-5F-AEE"/>
                         <constraint firstItem="Gf2-1F-pYj" firstAttribute="centerX" secondItem="oGa-j7-gjB" secondAttribute="centerX" id="i0o-Vb-y70"/>
+                        <constraint firstItem="wq6-fN-s6M" firstAttribute="centerY" secondItem="Gf2-1F-pYj" secondAttribute="centerY" constant="1" id="v35-KW-adD"/>
                         <constraint firstItem="snR-H5-kra" firstAttribute="top" secondItem="oGa-j7-gjB" secondAttribute="top" constant="30" id="zld-gs-ZyZ"/>
                     </constraints>
                 </view>
@@ -745,6 +761,8 @@
                 <outlet property="bottomFirstClienLabel" destination="snw-d8-u8A" id="iWE-ku-ZeE"/>
                 <outlet property="bottomFirstClient" destination="1dt-On-GYw" id="AUv-qW-doe"/>
                 <outlet property="bottomFirstClientLine" destination="uEk-XL-bY1" id="RmE-OV-1cM"/>
+                <outlet property="bottomFirstIncomeLabel" destination="C5G-wF-bhl" id="qNZ-rL-8SL"/>
+                <outlet property="bottomFirstNameLabel" destination="aHz-tb-VY2" id="tUm-Ec-mI0"/>
                 <outlet property="bottomFirstProject" destination="Ebc-fR-KAb" id="bfe-pL-QjV"/>
                 <outlet property="bottomFirstProjectLabel" destination="R5U-8v-d8q" id="xUz-hA-HgA"/>
                 <outlet property="bottomFirstProjectLine" destination="TUM-sk-1pb" id="Pn0-6T-Ikm"/>
@@ -758,6 +776,8 @@
                 <outlet property="bottomSecondClient" destination="YRN-ng-boS" id="5qh-zC-3Le"/>
                 <outlet property="bottomSecondClientLabel" destination="OmX-9l-BKc" id="K96-1f-6uD"/>
                 <outlet property="bottomSecondClientLine" destination="0DO-4E-4om" id="gcV-4b-sWD"/>
+                <outlet property="bottomSecondIncomeLabel" destination="knl-cj-ewT" id="byS-Ez-lS5"/>
+                <outlet property="bottomSecondNameLabel" destination="4N6-2i-KLe" id="Kqz-x5-Iyt"/>
                 <outlet property="bottomSecondProject" destination="TLQ-3k-RU0" id="v16-9D-dxS"/>
                 <outlet property="bottomSecondProjectLabel" destination="CmP-7o-kHE" id="PFi-uZ-ZsC"/>
                 <outlet property="bottomSecondProjectLine" destination="kol-bl-fx4" id="I2y-tU-MNg"/>
@@ -776,6 +796,7 @@
                 <outlet property="secondTimerHours" destination="O9R-Tx-I3G" id="jAi-r0-8o2"/>
                 <outlet property="secondTimerMinutes" destination="hnV-Fr-FCb" id="ueO-ya-3vV"/>
                 <outlet property="secondTimerView" destination="7A2-IU-fcr" id="zTk-qM-GKC"/>
+                <outlet property="secondsLabel" destination="wq6-fN-s6M" id="jOC-Tm-XzW"/>
                 <outlet property="startStopButton" destination="Gf2-1F-pYj" id="8N6-iJ-9MW"/>
                 <outlet property="taskTimeAllocationLabel" destination="yyd-8j-D8i" id="ufL-cz-Toc"/>
                 <outlet property="timeAllocationsHolder" destination="snR-H5-kra" id="P7M-lB-nY2"/>
@@ -790,7 +811,6 @@
     </objects>
     <resources>
         <image name="bottom-icn-income" width="69" height="65"/>
-        <image name="btn-timer-active-numbered" width="80" height="80"/>
-        <image name="btn-timer-stopped" width="80" height="80"/>
+        <image name="btn-timer-stopped-big" width="80" height="80"/>
     </resources>
 </document>

@@ -364,7 +364,11 @@ class DataController:NSObject
     func getAgencyForTask(id:Int) -> Agency?
     {
         let project = Project.getProject(forId: id)
-        return Agency.getAgency(forId: (project?.agencyId.intValue)!)!
+        if project?.agencyId != -1 {
+            return Agency.getAgency(forId: (project?.agencyId.intValue)!)!
+        }
+        
+        return nil
     }
     
     func getAllTimeSpentOnProject(project:NSNumber) -> Double
