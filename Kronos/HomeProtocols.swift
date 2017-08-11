@@ -74,11 +74,12 @@ protocol HomePresenterProtocol : class {
 
     func moduleButtonPressed(selectedModule:MODULES) -> Bool
     
+    func showEditTimerFromSimpleTimer(buttonFrame: CGRect)
 }
   
 
 protocol HomeInteractorInput : class {
-   weak var presenter: HomeInteractorOutput? { get set }
+    weak var presenter: HomeInteractorOutput? { get set }
     func updateCalendarDay(stopping: Bool)
 
 }
@@ -95,7 +96,7 @@ protocol HomeViewControllerProtocol : class {
     func closeLoadTimer()
     func stopCurrentTimer()
     func updateTopLabels()
-     func setTopLabels(min: Int, hrs: Int, days: Int)
+    func setTopLabels(min: Int, hrs: Int, days: Int)
     func showScrollViewWithTimers(timer1:TimerView?, timer2:TimerView?, timer3:TimerView?)
     func addTime(active:Bool)
     

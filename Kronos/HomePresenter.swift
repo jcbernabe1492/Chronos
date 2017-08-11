@@ -149,6 +149,12 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         interactor?.updateCalendarDay(stopping: false)
     }
     
+// MARK: - Show Edit Timer From Simple Timer 
+    
+    func showEditTimerFromSimpleTimer(buttonFrame: CGRect) {
+        wireframe?.showEditTimerScreen(buttonFrame: buttonFrame)
+    }
+    
 // MARK: - HomeWireFrame Delegates
     
     func updateTimerViewWithNewTime(time: Int) {

@@ -152,6 +152,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
         simpleTimer.updateValues(withCurrentTime: (self.timerView1?.timeInSeconds)!, jobTimer: job!)
         
+        
         if (timerView1?.timerIsActive)! {
             simpleTimer.startAsActiveTimer()
         }
@@ -172,6 +173,10 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     
     func stopTimer() {
         timerView1?.startStopButtonPressed()
+    }
+    
+    func showEditTimer(buttonFrame: CGRect) {
+        presenter?.showEditTimerFromSimpleTimer(buttonFrame: buttonFrame)
     }
     
 // MARK: - Check Timer
@@ -629,6 +634,13 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
                     let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
                     job?.timeSpent = 1.0
                     try? DataController.sharedInstance.managedObjectContext.save()
+                    
+                    if UserDefaults.standard.value(forKey: "simpleTimer") as! Bool == true {
+                        if simpleTimer != nil {
+                            simpleTimer.updateValues(withCurrentTime: (timerView1?.timeInSeconds)!, jobTimer: job!)
+                            simpleTimer.startAsActiveTimer()
+                        }
+                    }
                 }
                 else
                 {
@@ -760,6 +772,12 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             timerView3?.startStopButtonPressed()
         }
         
+        if UserDefaults.standard.value(forKey: "simpleTimer") as! Bool == true
+        {
+            if simpleTimer != nil {
+                simpleTimer.stopActiveTimer()
+            }
+        }
     }
     
 // MARK: - Update Home Screen Values
@@ -874,12 +892,31 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             timerView1?.checkCurrentTimerPosition()
             timerView2?.checkCurrentTimerPosition()
             timerView3?.checkCurrentTimerPosition()
+            
+            updateSimpleTimerIFActive()
         }
         timerView1?.layoutSubviews()
         timerView2?.layoutSubviews()
         timerView3?.layoutSubviews()
         updateTopLabels()
- }
+    }
+    
+    func updateSimpleTimerIFActive() {
+        if simpleTimer != nil {
+            simpleTimer.updateValues(withCurrentTime: (timerView1?.timeInSeconds)!, jobTimer: JobTimer.getTimerWith(id: (UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! NSNumber).intValue)!)
+            
+            if let leftOn = UserDefaults.standard.value(forKey: TIMER_IS_ON) as? Bool
+            {
+                if leftOn
+                {
+                    if !(timerView1?.timerIsActive)!
+                    {
+                        simpleTimer.startAsActiveTimer()
+                    }
+                }
+            }
+        }
+    }
     
     
     @IBAction func invomceEarnedButtonPressed(){

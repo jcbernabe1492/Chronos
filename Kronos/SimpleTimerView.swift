@@ -11,6 +11,7 @@ import UIKit
 protocol SimpleTimerViewDelegate: class {
     func startTimer()
     func stopTimer()
+    func showEditTimer(buttonFrame: CGRect)
 }
 
 class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
@@ -118,6 +119,10 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(buttonLongPressed(tap:)))
+        longpress.minimumPressDuration = 1
+        startStopButton.addGestureRecognizer(longpress)
+        
         bottomFirstProject.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleFirstBottomSelection(gesture:))))
         bottomFirstTask.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleFirstBottomSelection(gesture:))))
         bottomFirstClient.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleFirstBottomSelection(gesture:))))
@@ -174,6 +179,12 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         self.startStopButton.isSelected = true
         self.secondsLabel.isHidden = false;
         self.startStopButton.setImage(UIImage(named:"btn-timer-active-numbered"), for: .normal)
+    }
+    
+    func stopActiveTimer() {
+        self.startStopButton.isSelected = false
+        self.secondsLabel.isHidden = true;
+        self.startStopButton.setImage(UIImage(named:"btn-timer-stopped-big"), for: .normal)
     }
     
 // MARK: - Update Seconds Value
@@ -478,6 +489,20 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
             self.startStopButton.setImage(UIImage(named:"btn-timer-active-numbered"), for: .normal)
         }
         
+    }
+    
+// MARK: - Button Long Pressed
+    func buttonLongPressed(tap:UILongPressGestureRecognizer)
+    {
+        if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) == nil
+        {
+            return
+        }
+        if tap.state == .began && !startStopButton.isSelected
+        {
+            let globalPoint = startStopButton.superview?.convert(startStopButton.frame.origin, to: nil)
+            simpleTimerDelegate?.showEditTimer(buttonFrame: CGRect(origin: globalPoint!, size: startStopButton.frame.size))
+        }
     }
     
 // MARK: - Timer Protocol
