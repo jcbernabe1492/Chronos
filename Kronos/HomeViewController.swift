@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScrollViewDelegate, SimpleTimerViewDelegate {
+class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScrollViewDelegate, SimpleTimerViewDelegate, InvoiceQuestionViewDelegate {
 
     var presenter : HomePresenterProtocol?
     
@@ -61,13 +61,16 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     
     @IBOutlet var pageScroller:UIPageControl!
     @IBOutlet var bottomBtnMoneyEarned:UIButton!
-     @IBOutlet var bottomBtnTimeWorked:UIButton!
+    @IBOutlet var bottomBtnTimeWorked:UIButton!
     @IBOutlet var bottomBtnDaysWorked:UIButton!
+    
     var calenderActive = false
     var invoiceActive = false
     var invoiceAskView:UIView?
     var invoicesActive = false
     var archiveIsActive = false
+    
+    var invoiceQuestionView: InvoiceQuestionView?
     
     var bottomButtonSelected:UIButton?
     @IBOutlet var bottomTitleLabel:UILabel!
@@ -373,7 +376,11 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             timerView2?.setDim(dim: false)
             timerView3?.setDim(dim: false)
             presenter?.currentModule = .HOME
-            invoiceAskView?.isHidden = true
+            //invoiceAskView?.isHidden = true
+            
+            invoiceQuestionView?.removeFromSuperview()
+            invoiceQuestionView = nil
+            
             closeArchive(done: {})
         }
     }
@@ -393,120 +400,58 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
     {
         if invoiceActive
         {
-            timerView1?.setDim(dim: true)
-            timerView2?.setDim(dim: true)
-            timerView3?.setDim(dim: true)
-            
-            if invoiceAskView == nil
+            if invoiceQuestionView == nil
             {
-                invoiceAskView = UIView()
-                invoiceAskView?.translatesAutoresizingMaskIntoConstraints = false
-                let topLabel = UILabel()
-                topLabel.translatesAutoresizingMaskIntoConstraints = false
-                topLabel.numberOfLines = 2
-                topLabel.text = "STOP TIMER & INVOICE JOB?"
-                topLabel.textAlignment = .center
-                topLabel.font = UIFont().boldFont()
-                topLabel.textColor = UIColor.white
-                invoiceAskView?.addSubview(topLabel)
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: invoiceAskView!, attribute: .top, relatedBy: .equal, toItem: topLabel, attribute: .top, multiplier: 1.0, constant: -60.0))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: invoiceAskView!, attribute: .centerX, relatedBy: .equal, toItem: topLabel, attribute: .centerX, multiplier: 1.0, constant: 0.0))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: topLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 125.0))
+                
+                invoiceQuestionView = (Bundle.main.loadNibNamed("InvoiceQuestionView", owner: self, options: nil)?[0] as! InvoiceQuestionView)
+                invoiceQuestionView?.invoiceQuestionDelegate = self
+                invoiceQuestionView?.translatesAutoresizingMaskIntoConstraints = false
+                
+                view.addSubview(invoiceQuestionView!)
+                
+                view.addConstraint(NSLayoutConstraint(item: invoiceQuestionView!, attribute: .top, relatedBy: .equal, toItem: timerTopLabels, attribute: .top, multiplier: 1.0, constant: 0))
+                view.addConstraint(NSLayoutConstraint(item: invoiceQuestionView!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0))
+                view.addConstraint(NSLayoutConstraint(item: invoiceQuestionView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0))
                 
                 
-                var buttonsize = CGFloat(75)
-                var btnsbottom = CGFloat(-10)
-                var bottomText = CGFloat(70)
-                if UIScreen.device() == .iphone_5 {
-                    buttonsize = 65
-                    btnsbottom = 0
-                    bottomText = 55
+                if simpleTimer != nil {
+                    view.addConstraint(NSLayoutConstraint(item: invoiceQuestionView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: -simpleTimer.jobDetailsStack.frame.size.height))
+                } else {
+                    view.addConstraint(NSLayoutConstraint(item: invoiceQuestionView!, attribute: .bottom, relatedBy: .equal, toItem: bottomHeaderBar, attribute: .top, multiplier: 1.0, constant: 0))
                 }
-                
-                let cancelbutton = UIButton()
-                cancelbutton.translatesAutoresizingMaskIntoConstraints = false
-                cancelbutton.setImage(UIImage(named:"btn-cancel-red"), for: .normal)
-                invoiceAskView?.addSubview(cancelbutton)
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: topLabel, attribute: .bottom, relatedBy: .equal, toItem: cancelbutton, attribute: .top, multiplier: 1.0, constant: btnsbottom))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: invoiceAskView!, attribute: .centerX, relatedBy: .equal, toItem: cancelbutton, attribute: .centerX, multiplier: 1.0, constant: 40.0))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: cancelbutton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: buttonsize))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: cancelbutton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: buttonsize))
-                
-                    cancelbutton.addTarget(self, action: #selector(HomeViewController.invoiceCancelPressed), for: .touchUpInside)
-                
-                let okaybutton = UIButton()
-                okaybutton.translatesAutoresizingMaskIntoConstraints = false
-                okaybutton.setImage(UIImage(named:"btn-invoice-yes"), for: .normal)
-                invoiceAskView?.addSubview(okaybutton)
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: topLabel, attribute: .bottom, relatedBy: .equal, toItem: okaybutton, attribute: .top, multiplier: 1.0, constant: btnsbottom))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: invoiceAskView!, attribute: .centerX, relatedBy: .equal, toItem: okaybutton, attribute: .centerX, multiplier: 1.0, constant: -40.0))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: okaybutton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: buttonsize))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: okaybutton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: buttonsize))
-                okaybutton.addTarget(self, action: #selector(HomeViewController.invoiceOkayPressed), for: .touchUpInside)
-                
-                
-                
-                let bottomLabel = UILabel()
-                bottomLabel.translatesAutoresizingMaskIntoConstraints = false
-                bottomLabel.textAlignment = .center
-                bottomLabel.text = "Jobs moved to invoice can be re-activated by archiving re-activating the job"
-                bottomLabel.textColor = UIColor.white
-                bottomLabel.font = UIFont().normalFont()
-                bottomLabel.numberOfLines = 3
-                invoiceAskView?.addSubview(bottomLabel)
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: invoiceAskView!, attribute: .bottom, relatedBy: .equal, toItem: bottomLabel, attribute: .bottom, multiplier: 1.0, constant: bottomText))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: invoiceAskView!, attribute: .centerX, relatedBy: .equal, toItem: bottomLabel, attribute: .centerX, multiplier: 1.0, constant: 0.0))
-                invoiceAskView?.addConstraint(NSLayoutConstraint(item: bottomLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 150))
-                
-                
-                view?.addSubview(invoiceAskView!)
-                
-                view?.addConstraint(NSLayoutConstraint(item: timerScrollView!, attribute: .centerX, relatedBy: .equal, toItem: invoiceAskView, attribute: .centerX, multiplier: 1.0, constant: 0.0))
-                view?.addConstraint(NSLayoutConstraint(item: timerScrollView!, attribute: .centerY, relatedBy: .equal, toItem: invoiceAskView, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-                view?.addConstraint(NSLayoutConstraint(item: timerScrollView!, attribute: .width, relatedBy: .equal, toItem: invoiceAskView, attribute: .width, multiplier: 1.0, constant: 0.0))
-                view?.addConstraint(NSLayoutConstraint(item: timerScrollView!, attribute: .height, relatedBy: .equal, toItem: invoiceAskView, attribute: .height, multiplier: 1.0, constant: 0.0))
-            }
-            else
-            {
-                invoiceAskView?.isHidden = false
             }
         }
         else
         {
-            timerView1?.setDim(dim: false)
-            timerView2?.setDim(dim: false)
-            timerView3?.setDim(dim: false)
-            invoiceAskView?.isHidden = true
+            invoiceQuestionView?.removeFromSuperview()
+            invoiceQuestionView = nil
         }
     }
     
-    func invoiceOkayPressed()
-    {
+// MARK: - Invoice Question View Delegate
+    
+    func cancelledInvoiceJob() {
+        
+        invoiceQuestionView?.removeFromSuperview()
+        invoiceQuestionView = nil
+        
+        invoiceActive = false
+        invoiceButton?.setImage(UIImage(named:"icn-invoice-job"), for: .normal)
+    }
+    
+    func acceptedInvoiceJob() {
+        invoiceQuestionView?.removeFromSuperview()
+        invoiceQuestionView = nil
+        
         if (timerView1?.timerIsActive)! {
             timerView1?.stopTimer(true)
         }
         presenter?.invoiceButtonPressed(section: 3)
-        invoiceAskView?.isHidden = true
-        
-        timerView1?.setDim(dim: false)
-        timerView2?.setDim(dim: false)
-        timerView3?.setDim(dim: false)
         
         UserDefaults.standard.removeObject(forKey: CURRENT_JOB_TIMER)
         
         updateHomeScreenValues()
         checkIfTimerWasDeleted()
-    }
-    
-    func invoiceCancelPressed()
-    {
-        timerView1?.setDim(dim: false)
-        timerView2?.setDim(dim: false)
-        timerView3?.setDim(dim: false)
-        
-        invoiceActive = false
-        invoiceAskView?.isHidden = true
-        invoiceButton?.setImage(UIImage(named:"icn-invoice-job"), for: .normal)
     }
     
 // MARK: - Invoices Button Pressed

@@ -17,6 +17,8 @@
 		487153BB1F32CC560053DCA2 /* InvoiceStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153BA1F32CC560053DCA2 /* InvoiceStatusCell.xib */; };
 		487153BF1F3562D40053DCA2 /* SimpleTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153BE1F3562D40053DCA2 /* SimpleTimerView.swift */; };
 		487153C11F3562DF0053DCA2 /* SimpleTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153C01F3562DF0053DCA2 /* SimpleTimerView.xib */; };
+		487153C41F3E9C560053DCA2 /* InvoiceQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153C31F3E9C560053DCA2 /* InvoiceQuestionView.swift */; };
+		487153C61F3E9C610053DCA2 /* InvoiceQuestionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153C51F3E9C610053DCA2 /* InvoiceQuestionView.xib */; };
 		48C49DD21F26129500240CAD /* IntroViewLastPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C49DD11F26129500240CAD /* IntroViewLastPage.swift */; };
 		48C49DD41F2612B600240CAD /* IntroViewLastPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */; };
 		86008A6A1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
@@ -348,6 +350,8 @@
 		487153BA1F32CC560053DCA2 /* InvoiceStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceStatusCell.xib; sourceTree = "<group>"; };
 		487153BE1F3562D40053DCA2 /* SimpleTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTimerView.swift; sourceTree = "<group>"; };
 		487153C01F3562DF0053DCA2 /* SimpleTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTimerView.xib; sourceTree = "<group>"; };
+		487153C31F3E9C560053DCA2 /* InvoiceQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceQuestionView.swift; sourceTree = "<group>"; };
+		487153C51F3E9C610053DCA2 /* InvoiceQuestionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceQuestionView.xib; sourceTree = "<group>"; };
 		48C49DD11F26129500240CAD /* IntroViewLastPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewLastPage.swift; sourceTree = "<group>"; };
 		48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewLastPage.xib; sourceTree = "<group>"; };
 		86008A691D62CCC1005BFE96 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
@@ -618,6 +622,15 @@
 			name = "Simple Timer";
 			sourceTree = "<group>";
 		};
+		487153C21F3E9C350053DCA2 /* Invoice Question View */ = {
+			isa = PBXGroup;
+			children = (
+				487153C31F3E9C560053DCA2 /* InvoiceQuestionView.swift */,
+				487153C51F3E9C610053DCA2 /* InvoiceQuestionView.xib */,
+			);
+			name = "Invoice Question View";
+			sourceTree = "<group>";
+		};
 		86008A461D62BF9B005BFE96 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +668,7 @@
 		86008A631D62CBC9005BFE96 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				487153C21F3E9C350053DCA2 /* Invoice Question View */,
 				487153BD1F3562B90053DCA2 /* Simple Timer */,
 				86BF07AB1D6A9430005FE76B /* Timer View */,
 				86008A791D62CF66005BFE96 /* Protocols */,
@@ -1331,6 +1345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487153C61F3E9C610053DCA2 /* InvoiceQuestionView.xib in Resources */,
 				8610ACE01D7DDD19008F628F /* AddTimerCells.plist in Resources */,
 				8666C6031DEDD343002C4713 /* More_Page_Time.pdf in Resources */,
 				86BE99711D620C590020F0C9 /* LaunchScreen.storyboard in Resources */,
@@ -1445,6 +1460,7 @@
 				86E5BEEC1D8073FA00D7C579 /* Project+CoreDataProperties.swift in Sources */,
 				8696D2391D6BF89000896807 /* Extensions.swift in Sources */,
 				8657CF511D9DA9BC008BD97E /* CalenderWireframe.swift in Sources */,
+				487153C41F3E9C560053DCA2 /* InvoiceQuestionView.swift in Sources */,
 				864A632C1D87430E00B2113F /* LoadTimerInteractor.swift in Sources */,
 				86E5BEFE1D8073FA00D7C579 /* Agency+CoreDataProperties.swift in Sources */,
 				86F634EE1DC2FB6B00187B68 /* ArchiveUtils.swift in Sources */,

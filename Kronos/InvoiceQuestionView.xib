@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NeoSans-Medium.ttf">
+            <string>NeoSans-Medium</string>
+        </array>
+        <array key="NeoSans.ttf">
+            <string>NeoSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InvoiceQuestionView" customModule="Chrono_Pro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STOP TIMER &amp; INVOINCE JOB?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="rTv-ZA-Ih3">
+                    <rect key="frame" x="77.5" y="80" width="220" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="JwV-AW-hBl"/>
+                        <constraint firstAttribute="width" constant="220" id="Ovo-cX-dV2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ1-La-23b">
+                    <rect key="frame" x="110" y="103" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="9q7-fa-kxa"/>
+                        <constraint firstAttribute="width" constant="75" id="yUJ-rs-qXV"/>
+                    </constraints>
+                    <state key="normal" image="btn-cancel-red"/>
+                    <connections>
+                        <action selector="cancelButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="frg-DQ-pP5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8u-Iw-vow">
+                    <rect key="frame" x="190" y="103" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="4Em-Xe-YoO"/>
+                        <constraint firstAttribute="height" constant="75" id="DWw-hD-v8x"/>
+                    </constraints>
+                    <state key="normal" image="btn-invoice-yes"/>
+                    <connections>
+                        <action selector="invoiceJobTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="GuT-Ic-QlL"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs moved to invoice can be re-activated by archiving re-activating the job" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="vwf-kE-h1z">
+                    <rect key="frame" x="62" y="180.5" width="250" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="aTH-Vu-1Sg"/>
+                        <constraint firstAttribute="height" constant="40" id="wQZ-zJ-cc9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.13725490196078433" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DQ1-La-23b" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-40" id="6hd-56-oy2"/>
+                <constraint firstItem="DQ1-La-23b" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NRQ-1r-FOz"/>
+                <constraint firstItem="r8u-Iw-vow" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UXv-bM-bHZ"/>
+                <constraint firstItem="rTv-ZA-Ih3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cC3-KJ-ASF"/>
+                <constraint firstItem="rTv-ZA-Ih3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="oVc-iV-xa3"/>
+                <constraint firstItem="vwf-kE-h1z" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="60" id="twD-PQ-cXf"/>
+                <constraint firstItem="vwf-kE-h1z" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yKx-8y-P9l"/>
+                <constraint firstItem="r8u-Iw-vow" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="40" id="ygh-rg-2vp"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="DQ1-La-23b" id="tNX-SK-Heb"/>
+                <outlet property="descriptionLabel" destination="vwf-kE-h1z" id="Jvw-fr-3J1"/>
+                <outlet property="invoiceJobButton" destination="r8u-Iw-vow" id="sVO-X9-uaV"/>
+                <outlet property="titleLabel" destination="rTv-ZA-Ih3" id="WbI-g2-gNF"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="-67.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn-cancel-red" width="86" height="86"/>
+        <image name="btn-invoice-yes" width="86" height="86"/>
+    </resources>
+</document>
