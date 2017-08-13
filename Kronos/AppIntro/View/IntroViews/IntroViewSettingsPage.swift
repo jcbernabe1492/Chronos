@@ -23,6 +23,15 @@ class IntroViewSettingsPage: UIView {
     @IBOutlet weak var dayRateLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var thirdLabel: UILabel!
+    @IBOutlet weak var fourthLabel: UILabel!
+    @IBOutlet weak var fifthLabel: UILabel!
+    @IBOutlet weak var sixthLabel: UILabel!
+    @IBOutlet weak var seventhLabel: UILabel!
+    @IBOutlet weak var eigthLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -37,6 +46,21 @@ class IntroViewSettingsPage: UIView {
         dayRateHolder.isUserInteractionEnabled = true
         hoursHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(inputHours)))
         hoursHolder.isUserInteractionEnabled = true
+        
+        adjustFontSizes()
+    }
+
+    func adjustFontSizes() {
+        if UIScreen.main.bounds.size.height > 568 {
+            firstLabel.font = firstLabel.font.withSize(13)
+            secondLabel.font = secondLabel.font.withSize(15)
+            thirdLabel.font = thirdLabel.font.withSize(13)
+            fourthLabel.font = fourthLabel.font.withSize(13)
+            fifthLabel.font = fifthLabel.font.withSize(15)
+            sixthLabel.font = sixthLabel.font.withSize(13)
+            seventhLabel.font = seventhLabel.font.withSize(15)
+            eigthLabel.font = eigthLabel.font.withSize(13)
+        }
     }
     
     func inputDayRate() {

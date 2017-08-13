@@ -42,15 +42,6 @@
                             <color key="textColor" red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will ensure you can keep an eye on budgets / earnings as you work. This can be changed any time." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-UB-Kn1">
-                            <rect key="frame" x="45" y="137" width="285" height="33"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="33" id="O3B-sm-MXg"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
-                            <color key="textColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your day rate below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Si4-0a-KVu">
                             <rect key="frame" x="45" y="65" width="206" height="29"/>
                             <constraints>
@@ -59,6 +50,15 @@
                             </constraints>
                             <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will ensure you can keep an eye on budgets / earnings as you work. This can be changed any time." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-UB-Kn1">
+                            <rect key="frame" x="45" y="137" width="285" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="33" id="O3B-sm-MXg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
+                            <color key="textColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXW-1u-k2U">
@@ -138,9 +138,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional preferences can be set in the settings any time. We recommend entering your invoice info before you invoice a job." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8L-ie-FVI">
-                            <rect key="frame" x="45" y="341" width="285" height="38"/>
+                            <rect key="frame" x="45" y="341" width="285" height="42"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="38" id="A0t-oA-Fv5"/>
+                                <constraint firstAttribute="height" constant="42" id="A0t-oA-Fv5"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
                             <color key="textColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -200,8 +200,16 @@
             <connections>
                 <outlet property="dayRateHolder" destination="IXW-1u-k2U" id="1jZ-aa-hSd"/>
                 <outlet property="dayRateLabel" destination="R6a-2R-CwH" id="rAg-1q-UqB"/>
+                <outlet property="eigthLabel" destination="y8L-ie-FVI" id="57H-yF-8R4"/>
+                <outlet property="fifthLabel" destination="2gd-8Q-2MZ" id="kNz-1H-OuH"/>
+                <outlet property="firstLabel" destination="wze-JI-G1M" id="JPv-Lb-kpl"/>
+                <outlet property="fourthLabel" destination="mas-TH-hOD" id="MK3-vl-zBH"/>
                 <outlet property="hoursHolder" destination="7bj-CB-Hnr" id="Htl-ks-dyC"/>
                 <outlet property="hoursLabel" destination="jM2-gJ-tcP" id="ERA-Hu-njb"/>
+                <outlet property="secondLabel" destination="Si4-0a-KVu" id="ebe-lc-jU2"/>
+                <outlet property="seventhLabel" destination="Qaq-hD-Adk" id="Oqm-MW-ZwE"/>
+                <outlet property="sixthLabel" destination="W1v-Zs-hrK" id="owf-9q-7x7"/>
+                <outlet property="thirdLabel" destination="RBV-UB-Kn1" id="bga-jb-Ga7"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
