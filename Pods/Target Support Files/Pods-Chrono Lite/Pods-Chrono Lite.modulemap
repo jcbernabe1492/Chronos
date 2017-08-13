@@ -1,0 +1,6 @@
+framework module Pods_Chrono_Lite {
+  umbrella header "Pods-Chrono Lite-umbrella.h"
+
+  export *
+  module * { export * }
+}

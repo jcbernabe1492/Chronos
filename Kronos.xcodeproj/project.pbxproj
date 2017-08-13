@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17F46A26D666064FF9CDEF86 /* Pods_Chrono_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785ED58FEAB92AAAACAC4BC0 /* Pods_Chrono_Pro.framework */; };
+		1C018D7D7CA1B4AFD2CF944E /* Pods_Chrono_Lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBFEAAB8E791A78197F7989 /* Pods_Chrono_Lite.framework */; };
 		303A123D1EDB08D000047702 /* EditTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A123C1EDB08D000047702 /* EditTimerViewController.swift */; };
 		48210EF41F276A400042D517 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48210EF31F276A400042D517 /* HelpController.swift */; };
 		48416EC21F08B31B00E95E6C /* IntroViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48416EC11F08B31B00E95E6C /* IntroViewPage.swift */; };
@@ -19,6 +21,12 @@
 		487153C11F3562DF0053DCA2 /* SimpleTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153C01F3562DF0053DCA2 /* SimpleTimerView.xib */; };
 		487153C41F3E9C560053DCA2 /* InvoiceQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153C31F3E9C560053DCA2 /* InvoiceQuestionView.swift */; };
 		487153C61F3E9C610053DCA2 /* InvoiceQuestionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153C51F3E9C610053DCA2 /* InvoiceQuestionView.xib */; };
+		487153C81F4028620053DCA2 /* IntroViewSettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153C71F4028620053DCA2 /* IntroViewSettingsPage.swift */; };
+		487153CA1F4028690053DCA2 /* IntroViewSettingsPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487153C91F4028690053DCA2 /* IntroViewSettingsPage.xib */; };
+		487153E81F403FB00053DCA2 /* CHIBasePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153E41F403FB00053DCA2 /* CHIBasePageControl.swift */; };
+		487153E91F403FB00053DCA2 /* CHILayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153E51F403FB00053DCA2 /* CHILayer.swift */; };
+		487153EA1F403FB00053DCA2 /* CHIPageControlAji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153E61F403FB00053DCA2 /* CHIPageControlAji.swift */; };
+		487153EB1F403FB00053DCA2 /* CHIPageControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153E71F403FB00053DCA2 /* CHIPageControllable.swift */; };
 		48C49DD21F26129500240CAD /* IntroViewLastPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C49DD11F26129500240CAD /* IntroViewLastPage.swift */; };
 		48C49DD41F2612B600240CAD /* IntroViewLastPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */; };
 		86008A6A1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
@@ -337,10 +345,13 @@
 		86F797921DC989DF009F4885 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F797911DC989DF009F4885 /* StatusCell.swift */; };
 		86F797931DC989DF009F4885 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F797911DC989DF009F4885 /* StatusCell.swift */; };
 		86F797941DC989DF009F4885 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F797911DC989DF009F4885 /* StatusCell.swift */; };
+		AA1ABE5BB079136FDA5FBDB1 /* Pods_Chrono_Plus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AB2742F3C87530ABFCB825 /* Pods_Chrono_Plus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		303A123C1EDB08D000047702 /* EditTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimerViewController.swift; sourceTree = "<group>"; };
+		39B31585EC522B0E48844A11 /* Pods-Chrono Lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chrono Lite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chrono Lite/Pods-Chrono Lite.release.xcconfig"; sourceTree = "<group>"; };
+		47E69081969B4A6242FE0F79 /* Pods-Chrono Lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chrono Lite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chrono Lite/Pods-Chrono Lite.debug.xcconfig"; sourceTree = "<group>"; };
 		48210EF31F276A400042D517 /* HelpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		48416EC11F08B31B00E95E6C /* IntroViewPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewPage.swift; sourceTree = "<group>"; };
 		48416EC71F08B43600E95E6C /* IntroViewPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewPage.xib; sourceTree = "<group>"; };
@@ -352,8 +363,18 @@
 		487153C01F3562DF0053DCA2 /* SimpleTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTimerView.xib; sourceTree = "<group>"; };
 		487153C31F3E9C560053DCA2 /* InvoiceQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceQuestionView.swift; sourceTree = "<group>"; };
 		487153C51F3E9C610053DCA2 /* InvoiceQuestionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceQuestionView.xib; sourceTree = "<group>"; };
+		487153C71F4028620053DCA2 /* IntroViewSettingsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewSettingsPage.swift; sourceTree = "<group>"; };
+		487153C91F4028690053DCA2 /* IntroViewSettingsPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewSettingsPage.xib; sourceTree = "<group>"; };
+		487153E41F403FB00053DCA2 /* CHIBasePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHIBasePageControl.swift; sourceTree = "<group>"; };
+		487153E51F403FB00053DCA2 /* CHILayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHILayer.swift; sourceTree = "<group>"; };
+		487153E61F403FB00053DCA2 /* CHIPageControlAji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHIPageControlAji.swift; sourceTree = "<group>"; };
+		487153E71F403FB00053DCA2 /* CHIPageControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHIPageControllable.swift; sourceTree = "<group>"; };
 		48C49DD11F26129500240CAD /* IntroViewLastPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewLastPage.swift; sourceTree = "<group>"; };
 		48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewLastPage.xib; sourceTree = "<group>"; };
+		4AA864B30B19E219EE1AC097 /* Pods-Chrono Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chrono Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro.release.xcconfig"; sourceTree = "<group>"; };
+		69DF60F0F20ABDC11BD7FBE3 /* Pods-Chrono Plus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chrono Plus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chrono Plus/Pods-Chrono Plus.release.xcconfig"; sourceTree = "<group>"; };
+		75AB2742F3C87530ABFCB825 /* Pods_Chrono_Plus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chrono_Plus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		785ED58FEAB92AAAACAC4BC0 /* Pods_Chrono_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chrono_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86008A691D62CCC1005BFE96 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
 		86008A6D1D62CCE2005BFE96 /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		86008A711D62CCF5005BFE96 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -477,6 +498,9 @@
 		86F634ED1DC2FB6B00187B68 /* ArchiveUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveUtils.swift; sourceTree = "<group>"; };
 		86F634F11DC2FC0100187B68 /* ArchiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		86F797911DC989DF009F4885 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		ACF049438288B6DCD3F9D4B5 /* Pods-Chrono Plus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chrono Plus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chrono Plus/Pods-Chrono Plus.debug.xcconfig"; sourceTree = "<group>"; };
+		EE8046D8F85B813693EEFEEF /* Pods-Chrono Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chrono Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro.debug.xcconfig"; sourceTree = "<group>"; };
+		FFBFEAAB8E791A78197F7989 /* Pods_Chrono_Lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chrono_Lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,6 +508,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F46A26D666064FF9CDEF86 /* Pods_Chrono_Pro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E5BF071D80745B00D7C579 /* CoreData.framework in Frameworks */,
+				1C018D7D7CA1B4AFD2CF944E /* Pods_Chrono_Lite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,12 +525,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1ABE5BB079136FDA5FBDB1 /* Pods_Chrono_Plus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F34F7AF3AF06B792DCA348E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				47E69081969B4A6242FE0F79 /* Pods-Chrono Lite.debug.xcconfig */,
+				39B31585EC522B0E48844A11 /* Pods-Chrono Lite.release.xcconfig */,
+				ACF049438288B6DCD3F9D4B5 /* Pods-Chrono Plus.debug.xcconfig */,
+				69DF60F0F20ABDC11BD7FBE3 /* Pods-Chrono Plus.release.xcconfig */,
+				EE8046D8F85B813693EEFEEF /* Pods-Chrono Pro.debug.xcconfig */,
+				4AA864B30B19E219EE1AC097 /* Pods-Chrono Pro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		303A12381EDB089500047702 /* EditTimer */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,10 +596,13 @@
 		48416EC01F08B30300E95E6C /* IntroViews */ = {
 			isa = PBXGroup;
 			children = (
+				487153E31F403FB00053DCA2 /* CHIPageControl */,
 				48416EC11F08B31B00E95E6C /* IntroViewPage.swift */,
 				48416EC71F08B43600E95E6C /* IntroViewPage.xib */,
 				48C49DD11F26129500240CAD /* IntroViewLastPage.swift */,
 				48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */,
+				487153C71F4028620053DCA2 /* IntroViewSettingsPage.swift */,
+				487153C91F4028690053DCA2 /* IntroViewSettingsPage.xib */,
 			);
 			path = IntroViews;
 			sourceTree = "<group>";
@@ -629,6 +672,17 @@
 				487153C51F3E9C610053DCA2 /* InvoiceQuestionView.xib */,
 			);
 			name = "Invoice Question View";
+			sourceTree = "<group>";
+		};
+		487153E31F403FB00053DCA2 /* CHIPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				487153E41F403FB00053DCA2 /* CHIBasePageControl.swift */,
+				487153E51F403FB00053DCA2 /* CHILayer.swift */,
+				487153E61F403FB00053DCA2 /* CHIPageControlAji.swift */,
+				487153E71F403FB00053DCA2 /* CHIPageControllable.swift */,
+			);
+			path = CHIPageControl;
 			sourceTree = "<group>";
 		};
 		86008A461D62BF9B005BFE96 /* Storyboards */ = {
@@ -1119,6 +1173,7 @@
 				86BE99651D620C590020F0C9 /* Kronos */,
 				86BE99641D620C590020F0C9 /* Products */,
 				86E5BF051D80745B00D7C579 /* Frameworks */,
+				0F34F7AF3AF06B792DCA348E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1223,6 +1278,9 @@
 			isa = PBXGroup;
 			children = (
 				86E5BF061D80745B00D7C579 /* CoreData.framework */,
+				FFBFEAAB8E791A78197F7989 /* Pods_Chrono_Lite.framework */,
+				75AB2742F3C87530ABFCB825 /* Pods_Chrono_Plus.framework */,
+				785ED58FEAB92AAAACAC4BC0 /* Pods_Chrono_Pro.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1248,9 +1306,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86BE99751D620C590020F0C9 /* Build configuration list for PBXNativeTarget "Chrono Pro" */;
 			buildPhases = (
+				E2F5C2DE3D132043367BB762 /* [CP] Check Pods Manifest.lock */,
 				86BE995F1D620C590020F0C9 /* Sources */,
 				86BE99601D620C590020F0C9 /* Frameworks */,
 				86BE99611D620C590020F0C9 /* Resources */,
+				3FCB6FEEA71BDD33CA46BA36 /* [CP] Embed Pods Frameworks */,
+				307A8EE1A1FCED0099A7BA52 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1265,9 +1326,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86BE99811D620C7E0020F0C9 /* Build configuration list for PBXNativeTarget "Chrono Lite" */;
 			buildPhases = (
+				E077AC220D7C82AC5D8EFD52 /* [CP] Check Pods Manifest.lock */,
 				86BE99791D620C7E0020F0C9 /* Sources */,
 				86BE997C1D620C7E0020F0C9 /* Frameworks */,
 				86BE997D1D620C7E0020F0C9 /* Resources */,
+				6FAB14D87353216FE4D97770 /* [CP] Embed Pods Frameworks */,
+				1407DB881E2FD4C10048E2C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1282,9 +1346,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86BE998F1D620C820020F0C9 /* Build configuration list for PBXNativeTarget "Chrono Plus" */;
 			buildPhases = (
+				76F724A199971EE771D653F6 /* [CP] Check Pods Manifest.lock */,
 				86BE99871D620C820020F0C9 /* Sources */,
 				86BE998A1D620C820020F0C9 /* Frameworks */,
 				86BE998B1D620C820020F0C9 /* Resources */,
+				56DEA84E92A3CFBF13CC0B0C /* [CP] Embed Pods Frameworks */,
+				050E794F8314BFDA15697AFA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1346,6 +1413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				487153C61F3E9C610053DCA2 /* InvoiceQuestionView.xib in Resources */,
+				487153CA1F4028690053DCA2 /* IntroViewSettingsPage.xib in Resources */,
 				8610ACE01D7DDD19008F628F /* AddTimerCells.plist in Resources */,
 				8666C6031DEDD343002C4713 /* More_Page_Time.pdf in Resources */,
 				86BE99711D620C590020F0C9 /* LaunchScreen.storyboard in Resources */,
@@ -1408,6 +1476,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		050E794F8314BFDA15697AFA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chrono Plus/Pods-Chrono Plus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1407DB881E2FD4C10048E2C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chrono Lite/Pods-Chrono Lite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		307A8EE1A1FCED0099A7BA52 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3FCB6FEEA71BDD33CA46BA36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56DEA84E92A3CFBF13CC0B0C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chrono Plus/Pods-Chrono Plus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FAB14D87353216FE4D97770 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chrono Lite/Pods-Chrono Lite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76F724A199971EE771D653F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chrono Plus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E077AC220D7C82AC5D8EFD52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chrono Lite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2F5C2DE3D132043367BB762 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chrono Pro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		86BE995F1D620C590020F0C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1422,6 +1637,7 @@
 				86E5BEE91D8073FA00D7C579 /* Project+CoreDataClass.swift in Sources */,
 				86EFE28D1DC53A2B00C7EFD7 /* TopTableViewDelegate.swift in Sources */,
 				864757311D79BDCE00787F0C /* AddCustomRateCell.swift in Sources */,
+				487153C81F4028620053DCA2 /* IntroViewSettingsPage.swift in Sources */,
 				867E6FFA1E514044007BE8EA /* PaymentTermsCell.swift in Sources */,
 				864A63301D87432800B2113F /* LoadTimerWireframe.swift in Sources */,
 				86008A761D62CD25005BFE96 /* HomeViewController.swift in Sources */,
@@ -1460,6 +1676,7 @@
 				86E5BEEC1D8073FA00D7C579 /* Project+CoreDataProperties.swift in Sources */,
 				8696D2391D6BF89000896807 /* Extensions.swift in Sources */,
 				8657CF511D9DA9BC008BD97E /* CalenderWireframe.swift in Sources */,
+				487153EA1F403FB00053DCA2 /* CHIPageControlAji.swift in Sources */,
 				487153C41F3E9C560053DCA2 /* InvoiceQuestionView.swift in Sources */,
 				864A632C1D87430E00B2113F /* LoadTimerInteractor.swift in Sources */,
 				86E5BEFE1D8073FA00D7C579 /* Agency+CoreDataProperties.swift in Sources */,
@@ -1470,6 +1687,7 @@
 				86CD18591E5278F5001509CE /* KronoBackupCreator.swift in Sources */,
 				8657CF5E1D9DAA18008BD97E /* CalenderView.swift in Sources */,
 				8610ACD81D7DDBE7008F628F /* AddTimerOptionCell.swift in Sources */,
+				487153E91F403FB00053DCA2 /* CHILayer.swift in Sources */,
 				869295F31DB9604B00F2ECC1 /* FeeRates+CoreDataClass.swift in Sources */,
 				8657CF551D9DA9DA008BD97E /* CalenderUtils.swift in Sources */,
 				8657CF621D9DAA22008BD97E /* DayView.swift in Sources */,
@@ -1486,6 +1704,7 @@
 				8610ACDC1D7DDBF6008F628F /* AddTimerEnterTextCell.swift in Sources */,
 				86DC004F1D825D9F0091D596 /* StageTask+CoreDataProperties.swift in Sources */,
 				86973DEA1DBAA33A00964202 /* SummaryPresenter.swift in Sources */,
+				487153EB1F403FB00053DCA2 /* CHIPageControllable.swift in Sources */,
 				86F249461D6FBAB2004CDF97 /* SettingsUserGuideViewController.swift in Sources */,
 				86E5BEF21D8073FA00D7C579 /* DaysWorked+CoreDataProperties.swift in Sources */,
 				868F4B111D70A3FA00C838D8 /* CalenderTableViewCell.swift in Sources */,
@@ -1508,6 +1727,7 @@
 				864A633D1D87437200B2113F /* LoadTimerProtocols.swift in Sources */,
 				8657CF661D9DAA39008BD97E /* CalenderProtocols.swift in Sources */,
 				868F4B191D70A41A00C838D8 /* TextTableViewCell.swift in Sources */,
+				487153E81F403FB00053DCA2 /* CHIBasePageControl.swift in Sources */,
 				86F797921DC989DF009F4885 /* StatusCell.swift in Sources */,
 				86F634F21DC2FC0100187B68 /* ArchiveViewController.swift in Sources */,
 				86056F701D9B16180058486E /* CalendarDay+CoreDataProperties.swift in Sources */,
@@ -1822,6 +2042,7 @@
 		};
 		86BE99761D620C590020F0C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE8046D8F85B813693EEFEEF /* Pods-Chrono Pro.debug.xcconfig */;
 			buildSettings = {
 				ALTERNATE_GROUP = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1844,6 +2065,7 @@
 		};
 		86BE99771D620C590020F0C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AA864B30B19E219EE1AC097 /* Pods-Chrono Pro.release.xcconfig */;
 			buildSettings = {
 				ALTERNATE_GROUP = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1866,6 +2088,7 @@
 		};
 		86BE99821D620C7E0020F0C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47E69081969B4A6242FE0F79 /* Pods-Chrono Lite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1881,6 +2104,7 @@
 		};
 		86BE99831D620C7E0020F0C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39B31585EC522B0E48844A11 /* Pods-Chrono Lite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1895,6 +2119,7 @@
 		};
 		86BE99901D620C820020F0C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACF049438288B6DCD3F9D4B5 /* Pods-Chrono Plus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1910,6 +2135,7 @@
 		};
 		86BE99911D620C820020F0C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69DF60F0F20ABDC11BD7FBE3 /* Pods-Chrono Plus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

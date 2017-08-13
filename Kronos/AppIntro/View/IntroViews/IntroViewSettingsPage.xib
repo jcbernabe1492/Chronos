@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NeoSans.ttf">
+            <string>NeoSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IntroViewSettingsPage" customModule="Chrono_Pro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qk6-Dh-rk3">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyu-AU-5H1">
+                    <rect key="frame" x="0.0" y="614" width="375" height="53.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4M-7j-8mK">
+                    <rect key="frame" x="0.0" y="167" width="375" height="447"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP ONE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wze-JI-G1M">
+                            <rect key="frame" x="45" y="54" width="99" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="99" id="O1L-g5-AjO"/>
+                                <constraint firstAttribute="height" constant="21" id="Q6N-6T-O3B"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
+                            <color key="textColor" red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will ensure you can keep an eye on budgets / earnings as you work. This can be changed any time." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-UB-Kn1">
+                            <rect key="frame" x="45" y="137" width="285" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="33" id="O3B-sm-MXg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
+                            <color key="textColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your day rate below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Si4-0a-KVu">
+                            <rect key="frame" x="45" y="65" width="206" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="29" id="3hI-o0-Qye"/>
+                                <constraint firstAttribute="width" constant="206" id="BhE-S0-moe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXW-1u-k2U">
+                            <rect key="frame" x="45" y="98.5" width="285" height="33"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Here" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6a-2R-CwH">
+                                    <rect key="frame" x="8" y="10" width="269" height="15"/>
+                                    <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="13"/>
+                                    <color key="textColor" red="1" green="0.90588235289999997" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="R6a-2R-CwH" firstAttribute="top" secondItem="IXW-1u-k2U" secondAttribute="top" constant="10" id="EHF-rg-IJk"/>
+                                <constraint firstAttribute="bottom" secondItem="R6a-2R-CwH" secondAttribute="bottom" constant="8" id="mcO-M7-2mJ"/>
+                                <constraint firstItem="R6a-2R-CwH" firstAttribute="leading" secondItem="IXW-1u-k2U" secondAttribute="leading" constant="8" id="rSZ-lJ-QHi"/>
+                                <constraint firstAttribute="height" constant="33" id="sT4-iS-Eid"/>
+                                <constraint firstAttribute="trailing" secondItem="R6a-2R-CwH" secondAttribute="trailing" constant="8" id="vzK-Rg-1s6"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP TWO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mas-TH-hOD">
+                            <rect key="frame" x="45" y="183" width="99" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="99" id="Ksq-OQ-tqb"/>
+                                <constraint firstAttribute="height" constant="21" id="pkj-5u-3BC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
+                            <color key="textColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the number of hours that you charge your day rate at (by default it's 8 hours):" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gd-8Q-2MZ">
+                            <rect key="frame" x="45" y="194" width="285" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="viJ-FE-Tl4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bj-CB-Hnr">
+                            <rect key="frame" x="45" y="239" width="285" height="33"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Here" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM2-gJ-tcP">
+                                    <rect key="frame" x="8" y="10" width="269" height="15"/>
+                                    <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="13"/>
+                                    <color key="textColor" red="1" green="0.90588235289999997" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="jM2-gJ-tcP" firstAttribute="top" secondItem="7bj-CB-Hnr" secondAttribute="top" constant="10" id="1Jw-ox-jI0"/>
+                                <constraint firstAttribute="trailing" secondItem="jM2-gJ-tcP" secondAttribute="trailing" constant="8" id="OoI-je-lcY"/>
+                                <constraint firstAttribute="height" constant="33" id="a0u-Yl-cAh"/>
+                                <constraint firstAttribute="bottom" secondItem="jM2-gJ-tcP" secondAttribute="bottom" constant="8" id="nKr-tp-alQ"/>
+                                <constraint firstItem="jM2-gJ-tcP" firstAttribute="leading" secondItem="7bj-CB-Hnr" secondAttribute="leading" constant="8" id="wMs-0a-PiP"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This can be changed in settings but will only apple to new timers when changed, and not existing timer." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1v-Zs-hrK">
+                            <rect key="frame" x="45" y="277" width="285" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="33" id="Bv5-dY-W1u"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
+                            <color key="textColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="And that's it" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qaq-hD-Adk">
+                            <rect key="frame" x="45" y="325" width="117" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="8sS-c5-Pd8"/>
+                                <constraint firstAttribute="width" constant="117" id="o46-DW-MIo"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional preferences can be set in the settings any time. We recommend entering your invoice info before you invoice a job." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8L-ie-FVI">
+                            <rect key="frame" x="45" y="341" width="285" height="38"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="38" id="A0t-oA-Fv5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="NeoSans" family="Neo Sans" pointSize="10"/>
+                            <color key="textColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="2gd-8Q-2MZ" firstAttribute="leading" secondItem="W1v-Zs-hrK" secondAttribute="leading" id="0d6-wO-BcN"/>
+                        <constraint firstItem="RBV-UB-Kn1" firstAttribute="leading" secondItem="E4M-7j-8mK" secondAttribute="leading" constant="45" id="5Oa-Y2-J9G"/>
+                        <constraint firstItem="mas-TH-hOD" firstAttribute="centerY" secondItem="E4M-7j-8mK" secondAttribute="centerY" constant="-30" id="Cyf-hS-HRi"/>
+                        <constraint firstAttribute="trailing" secondItem="7bj-CB-Hnr" secondAttribute="trailing" constant="45" id="EDH-3Y-eWq"/>
+                        <constraint firstItem="y8L-ie-FVI" firstAttribute="leading" secondItem="E4M-7j-8mK" secondAttribute="leading" constant="45" id="H6f-gC-d7n"/>
+                        <constraint firstItem="Si4-0a-KVu" firstAttribute="leading" secondItem="RBV-UB-Kn1" secondAttribute="leading" id="IXn-4M-Vpw"/>
+                        <constraint firstAttribute="trailing" secondItem="RBV-UB-Kn1" secondAttribute="trailing" constant="45" id="Q2A-wp-Adh"/>
+                        <constraint firstAttribute="trailing" secondItem="W1v-Zs-hrK" secondAttribute="trailing" constant="45" id="RYe-PG-wXG"/>
+                        <constraint firstAttribute="trailing" secondItem="IXW-1u-k2U" secondAttribute="trailing" constant="45" id="Sd3-Uy-eYd"/>
+                        <constraint firstItem="2gd-8Q-2MZ" firstAttribute="top" secondItem="mas-TH-hOD" secondAttribute="bottom" constant="-10" id="Vvo-Rn-gCl"/>
+                        <constraint firstAttribute="trailing" secondItem="y8L-ie-FVI" secondAttribute="trailing" constant="45" id="WKy-7I-rt6"/>
+                        <constraint firstItem="IXW-1u-k2U" firstAttribute="top" secondItem="Si4-0a-KVu" secondAttribute="bottom" constant="5" id="XVq-uV-Wvj"/>
+                        <constraint firstItem="7bj-CB-Hnr" firstAttribute="leading" secondItem="E4M-7j-8mK" secondAttribute="leading" constant="45" id="crO-7X-Phw"/>
+                        <constraint firstItem="IXW-1u-k2U" firstAttribute="leading" secondItem="E4M-7j-8mK" secondAttribute="leading" constant="45" id="hF3-xF-URq"/>
+                        <constraint firstItem="W1v-Zs-hrK" firstAttribute="leading" secondItem="E4M-7j-8mK" secondAttribute="leading" constant="45" id="hf6-14-fcl"/>
+                        <constraint firstItem="Qaq-hD-Adk" firstAttribute="leading" secondItem="y8L-ie-FVI" secondAttribute="leading" id="mzk-3B-rQ1"/>
+                        <constraint firstItem="wze-JI-G1M" firstAttribute="leading" secondItem="Si4-0a-KVu" secondAttribute="leading" id="nmz-QZ-0Pt"/>
+                        <constraint firstItem="Si4-0a-KVu" firstAttribute="top" secondItem="wze-JI-G1M" secondAttribute="bottom" constant="-10" id="oBz-sy-wV6"/>
+                        <constraint firstItem="y8L-ie-FVI" firstAttribute="top" secondItem="Qaq-hD-Adk" secondAttribute="bottom" constant="-5" id="osh-2o-sJI"/>
+                        <constraint firstItem="W1v-Zs-hrK" firstAttribute="top" secondItem="7bj-CB-Hnr" secondAttribute="bottom" constant="5" id="qeI-e6-DuW"/>
+                        <constraint firstItem="RBV-UB-Kn1" firstAttribute="centerY" secondItem="E4M-7j-8mK" secondAttribute="centerY" constant="-70" id="uNQ-8f-oNa"/>
+                        <constraint firstItem="mas-TH-hOD" firstAttribute="leading" secondItem="2gd-8Q-2MZ" secondAttribute="leading" id="uwS-an-gib"/>
+                        <constraint firstItem="2gd-8Q-2MZ" firstAttribute="trailing" secondItem="W1v-Zs-hrK" secondAttribute="trailing" id="wIr-Xj-P9Y"/>
+                        <constraint firstItem="RBV-UB-Kn1" firstAttribute="top" secondItem="IXW-1u-k2U" secondAttribute="bottom" constant="5" id="xM8-Z3-8r2"/>
+                        <constraint firstItem="7bj-CB-Hnr" firstAttribute="top" secondItem="2gd-8Q-2MZ" secondAttribute="bottom" constant="5" id="yql-IU-P1d"/>
+                        <constraint firstItem="Qaq-hD-Adk" firstAttribute="top" secondItem="W1v-Zs-hrK" secondAttribute="bottom" constant="15" id="z1x-f5-Mum"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wyu-AU-5H1" secondAttribute="trailing" id="4uW-tP-k79"/>
+                <constraint firstItem="qk6-Dh-rk3" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.25" id="7lH-1d-71y"/>
+                <constraint firstItem="qk6-Dh-rk3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Dkc-nP-KrY"/>
+                <constraint firstItem="E4M-7j-8mK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EFM-DD-afJ"/>
+                <constraint firstItem="wyu-AU-5H1" firstAttribute="top" secondItem="E4M-7j-8mK" secondAttribute="bottom" id="GUB-Fj-as0"/>
+                <constraint firstAttribute="trailing" secondItem="E4M-7j-8mK" secondAttribute="trailing" id="UWS-Df-Gm2"/>
+                <constraint firstAttribute="trailing" secondItem="qk6-Dh-rk3" secondAttribute="trailing" id="ZYL-RS-tkg"/>
+                <constraint firstItem="E4M-7j-8mK" firstAttribute="top" secondItem="qk6-Dh-rk3" secondAttribute="bottom" id="kVL-K3-jSn"/>
+                <constraint firstItem="qk6-Dh-rk3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ma4-Ja-WPZ"/>
+                <constraint firstItem="wyu-AU-5H1" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.08" id="pVD-a2-Rcz"/>
+                <constraint firstAttribute="bottom" secondItem="wyu-AU-5H1" secondAttribute="bottom" id="xSN-Xe-rJp"/>
+                <constraint firstItem="wyu-AU-5H1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xXP-JB-5y5"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dayRateHolder" destination="IXW-1u-k2U" id="1jZ-aa-hSd"/>
+                <outlet property="dayRateLabel" destination="R6a-2R-CwH" id="rAg-1q-UqB"/>
+                <outlet property="hoursHolder" destination="7bj-CB-Hnr" id="Htl-ks-dyC"/>
+                <outlet property="hoursLabel" destination="jM2-gJ-tcP" id="ERA-Hu-njb"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

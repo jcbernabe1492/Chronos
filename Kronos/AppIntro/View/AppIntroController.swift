@@ -8,15 +8,20 @@
 
 import UIKit
 
-class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastPageDelegate {
+class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastPageDelegate, IntroViewSettingsPageDelegate {
 
     @IBOutlet weak var introScrollView: UIScrollView!
     
-    @IBOutlet weak var introPageControl: UIPageControl!
+    @IBOutlet weak var introPageControl: CHIPageControlAji!
     
+    @IBOutlet weak var settingsIcon: UIImageView!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var pageNumber: UILabel!
-        
+    
+    var introSettingsPage: IntroViewSettingsPage?
+    
+    var feeRate: FeeRates?
+    
     let viewCount = 5;
     
     override func viewDidLoad() {
@@ -24,7 +29,9 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
         
         updateTopLabelText(index: 0)
         
+        settingsIcon.isHidden = true
         
+        feeRate = FeeRates.getRateWithId(id: 4)
     }
     
     override func viewDidLayoutSubviews() {
@@ -47,6 +54,14 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
                 
                 let introLastPage = introPage as! IntroViewLastPage
                 introLastPage.delegate = self
+                
+            } else if index == 3 {
+                
+                introPage = Bundle.main.loadNibNamed("IntroViewSettingsPage", owner: self, options: nil)?[0] as! UIView
+                
+                introSettingsPage = introPage as? IntroViewSettingsPage
+                introSettingsPage?.introSettingsPageDelegate = self
+                
             } else {
                 introPage = Bundle.main.loadNibNamed("IntroViewPage", owner: self, options: nil)?[0] as! UIView
                 
@@ -73,7 +88,7 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
-        self.introPageControl.currentPage = Int(pageNumber)
+        self.introPageControl.set(progress: Int(pageNumber), animated: true)
         
         updateTopLabelText(index: Int(pageNumber))
     }
@@ -86,77 +101,31 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
 //            print(UIFont.fontNames(forFamilyName: fontFamilies[index]))
 //        }
         
-        var attributedText: NSMutableAttributedString!
         var text: String!
-        
         
         switch index {
         case 0:
             text = "INTRO"
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
+            settingsIcon.isHidden = true
+   
         case 1:
             text = "TRACK TASK TIME"
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
+            settingsIcon.isHidden = true
+ 
         case 2:
             text = ""
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
+            settingsIcon.isHidden = true
+
         case 3:
             text = "SETTINGS"
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
+            settingsIcon.isHidden = false
+
         case 4:
             text = "MORE INFO"
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
-//        case 5:
-//            text = "Intro Guide\nDefault Rate\n6/8"
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
-//        case 6:
-//            text = "Intro Guide\nInvoice Info\n7/8"
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
-//        case 7:
-//            text = "Intro Guide\nQuick Guide\n2/8"
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
-//        case 8:
-//            text = "Intro Guide\nThanks\n8/8"
-//            attributedText = NSMutableAttributedString(string: text.uppercased())
-//            let range = (attributedText.string as NSString).range(of: text)
-//            attributedText.addAttribute(NSFontAttributeName, value: UIFont(name: "NeoSans", size: 20)!, range: range)
-//            attributedText.addAttribute(NSForegroundColorAttributeName, value: self.topLabel.textColor, range: range)
-            
-            
+            settingsIcon.isHidden = true
+
         default: break
-            //attributedText = NSMutableAttributedString(string: "")
+            
         }
         
         self.topLabel.text = text
@@ -165,9 +134,6 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
         } else {
             self.pageNumber.text = ""
         }
-        
-        
-        //self.topLabel.attributedText = attributedText
     }
     
     @IBAction func closeIntro(_ sender: Any) {
@@ -177,11 +143,57 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
 // MARK: - Intro View Last Page Delegate
     
     func settingsTapped() {
-        HomeWireframe.addHomeControllerOnWindowWithSettingsOn(UIApplication.shared.keyWindow!)
+        //HomeWireframe.addHomeControllerOnWindowWithSettingsOn(UIApplication.shared.keyWindow!)
     }
     
     func urlTapped() {
+        if UIApplication.shared.canOpenURL(URL(string: "https://www.chronoapp.net/")!) {
+            UIApplication.shared.openURL(URL(string: "https://www.chronoapp.net/")!)
+        }
+    }
+    
+// MARK: - Intro View Settings Page Delegate 
+    
+    func inputDayRate() {
+        let alert = UIAlertController(title: "Enter day rate", message: "", preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            self.introSettingsPage?.dayRateLabel.text = textField.text
+            
+            self.feeRate?.fee = NSNumber(value: Int(textField.text!)!)
+            try! DataController.sharedInstance.managedObjectContext.save()
+        }))
+            
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "enter here"
+            textField.keyboardType = .numberPad
+        }
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func inputHours() {
+        let alert = UIAlertController(title: "Enter Hours", message: "", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            self.introSettingsPage?.hoursLabel.text = textField.text
+            
+            self.feeRate?.hours = NSNumber(value: Int(textField.text!)!)
+            try! DataController.sharedInstance.managedObjectContext.save()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "enter here"
+            textField.keyboardType = .numberPad
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func exitTapped() {
