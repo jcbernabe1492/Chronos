@@ -152,9 +152,10 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         
         simpleTimer.simpleTimerDelegate = self
         
-        let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)
-        simpleTimer.updateValues(withCurrentTime: (self.timerView1?.timeInSeconds)!, jobTimer: job!)
-        
+        if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) != nil {
+            let job = JobTimer.getTimerWith(id: UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! Int)!
+            simpleTimer.updateValues(withCurrentTime: (self.timerView1?.timeInSeconds)!, jobTimer: job)
+        }
         
         if (timerView1?.timerIsActive)! {
             simpleTimer.startAsActiveTimer()
@@ -452,6 +453,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         
         updateHomeScreenValues()
         checkIfTimerWasDeleted()
+        
+        invoiceActive = false
     }
     
 // MARK: - Invoices Button Pressed
@@ -467,13 +470,11 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         
         if invoiceActive
         {
-            if !(invoiceAskView?.isHidden)!
+            if invoiceQuestionView != nil
             {
-                invoiceAskView?.isHidden = true
-                    
-                timerView1?.setDim(dim: false)
-                timerView2?.setDim(dim: false)
-                timerView3?.setDim(dim: false)
+                invoiceQuestionView?.removeFromSuperview()
+                invoiceQuestionView = nil
+                
                     
                 invoiceButton?.setImage(UIImage(named:"icn-invoice-job"), for: .normal)
                 invoiceActive = false
@@ -546,6 +547,10 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             timerView1?.stopTimer()
             timerView2?.stopTimer()
             timerView3?.stopTimer()
+            
+            if simpleTimer != nil {
+                simpleTimer.stopActiveTimer()
+            }
         }
     }
     
@@ -846,9 +851,16 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
         updateTopLabels()
     }
     
+// Update Simple Timer IF Active
+    
     func updateSimpleTimerIFActive() {
         if simpleTimer != nil {
-            simpleTimer.updateValues(withCurrentTime: (timerView1?.timeInSeconds)!, jobTimer: JobTimer.getTimerWith(id: (UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! NSNumber).intValue)!)
+            
+            if UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) != nil {
+                if let job = JobTimer.getTimerWith(id: (UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as! NSNumber).intValue) {
+                    simpleTimer.updateValues(withCurrentTime: (timerView1?.timeInSeconds)!, jobTimer: job)
+                }
+            }
             
             if let leftOn = UserDefaults.standard.value(forKey: TIMER_IS_ON) as? Bool
             {
@@ -1249,16 +1261,6 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             addTimeBottom?.removeFromSuperview()
             addTimeBottom = nil
         }
-    }
-    
-// MARK: - Show Simple Timer
-    
-    func activateSimpleTimer() {
-        
-    }
-    
-    func deactivateSimpleTimer() {
-        
     }
     
 // MARK: - Helper Functions
