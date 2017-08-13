@@ -25,7 +25,8 @@ class SettingsUserGuidePresenter : NSObject, SettingsUserGuidePresenterProtocol
     func selected(tab: Int) {
         switch tab{
         case 1:
-             view?.setScrollViewImage(image: UIImage(named: "img-versions")!)
+            //view?.setScrollViewImage(image: UIImage(named: "img-versions")!)
+            view?.setScrollViewImage(image: UIImage(named: "user-guide-app-description")!)
             break
         case 2:
             if UIScreen().isiPhone6() || UIScreen().isiPhone6Plus()

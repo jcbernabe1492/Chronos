@@ -62,6 +62,9 @@ protocol SettingsTableViewProtocol : class {
    func getController() -> UIViewController 
 }
 
+protocol SettingsUserGuideViewControllerDelegate: class {
+    func showIntroGuide()
+}
 
 protocol SettingsUserGuidePresenterProtocol : class {
     var interactor : SettingsInteractorInput? { get set }

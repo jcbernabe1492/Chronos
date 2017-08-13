@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 HomeWireframe.addHomeControllerOnWindow(window)
             } else {
                 HomeWireframe.addIntroScreenOnWindow(window)
-                UserDefaults.standard.set(true, forKey: "launchedBefore")
             }
         }
         window?.makeKeyAndVisible()

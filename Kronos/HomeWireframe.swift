@@ -96,6 +96,14 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
         window.rootViewController = view
     }
     
+// MARK: - Show Intro Screen from User Guide
+    
+    func showIntroScreenFromUserGuide() {
+        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppIntroController")
+        
+        viewController?.present(view, animated: true, completion: nil)
+    }
+    
 // MARK: - Show Start Screen
     
     func showAboutScreen() {

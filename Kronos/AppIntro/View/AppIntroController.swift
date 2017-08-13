@@ -197,12 +197,13 @@ class AppIntroController: UIViewController, UIScrollViewDelegate, IntroViewLastP
     }
     
     func exitTapped() {
-//        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-//        
-//        if launchedBefore {
-//            self.dismiss(animated: true, completion: nil)
-//        } else {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        if launchedBefore {
+            self.dismiss(animated: true, completion: nil)
+        } else {
             HomeWireframe.addHomeControllerOnWindow(UIApplication.shared.keyWindow!)
-//        }
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
     }
 }

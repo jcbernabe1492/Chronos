@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
+class SettingsViewController: UIViewController, SettingsViewControllerProtocol, SettingsUserGuideViewControllerDelegate {
 
     
     var presenter: SettingsPresenterProtocol?
@@ -54,6 +54,8 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
     func setUserGuideContainerVisibleWith(viewController: SettingsUserGuideViewController?) {
         if viewController != nil
         {
+            viewController?.delegate = self
+            
             addChildViewController(viewController!)
             userGuideContainer?.addSubview((viewController?.view)!)
             viewController?.view.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +82,11 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
         presenter?.tabChanged(value: value)
     }
     
-
+// MARK: - Settings User Guide View Controller Delegate
+    
+    func showIntroGuide() {
+        homeWireframe?.showIntroScreenFromUserGuide()
+    }
 
     /*
     // MARK: - Navigation

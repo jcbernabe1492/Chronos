@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsUserGuideViewController: UIViewController, SettingsUserGuideProtocol, UIScrollViewDelegate {
 
+    weak var delegate: SettingsUserGuideViewControllerDelegate?
+    
     var presenter: SettingsUserGuidePresenterProtocol?
     @IBOutlet var scrollViewImage:UIImageView?
     @IBOutlet var firstBtn:UIButton?
@@ -29,6 +31,9 @@ class SettingsUserGuideViewController: UIViewController, SettingsUserGuideProtoc
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func showIntroGuideTapped(_ sender: Any) {
+        delegate?.showIntroGuide()
+    }
 
     @IBAction func tabButtonPressed(btn:UIButton)
     {
