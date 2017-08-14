@@ -363,7 +363,8 @@ class DataController:NSObject
     
     func getAgencyForTask(id:Int) -> Agency?
     {
-        let project = Project.getProject(forId: id)
+        let task = StageTask.getStageTask(forId: id)
+        let project = Project.getProject(forId: task?.projectId as! Int)
         if project?.agencyId != -1 {
             return Agency.getAgency(forId: (project?.agencyId.intValue)!)!
         }

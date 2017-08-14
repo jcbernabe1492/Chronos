@@ -94,6 +94,7 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     
     // Current Job Time
     var currentJobTime: Double?
+    var currentTaskJobTime: Double?
     
     // Job Related Objects
     var jobItem: JobTimer?
@@ -151,6 +152,7 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
 // MARK: - Update  Values
     func updateValues(withCurrentTime: Double, jobTimer: JobTimer) {
         currentJobTime = withCurrentTime
+        self.currentTaskJobTime = withCurrentTime
         jobItem = jobTimer
         
         // Retrieve job related details
@@ -383,6 +385,7 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
 // MARK: - Show Detail From Selection 
     
     private func showProjectDetails(firstRow: Bool) {
+        
         var incomeText = ""
         
         if let formattedIncome = self.numberFormatter.string(from: ArchiveUtils.getEarned(project: (self.jobProject?.id)!, archived:false) as NSNumber) {
@@ -394,6 +397,13 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         if firstRow {
             bottomFirstIncomeLabel.text = incomeText
             bottomFirstNameLabel.text = nameText
+            
+            // Update Timer Values
+            let currentProjectTime  = DataController.sharedInstance.getAllTimeSpentOnProject(project: (self.jobProject?.id)!)
+            //self.currentJobTime = self.currentJobTime! + currentProjectTime
+            self.currentJobTime = currentProjectTime
+            updateTimerValues()
+            updateSecondsValue()
         } else {
             bottomSecondIncomeLabel.text = incomeText
             bottomSecondNameLabel.text = nameText
@@ -413,6 +423,10 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         if firstRow {
             bottomFirstIncomeLabel.text = incomeText
             bottomFirstNameLabel.text = nameText
+            
+            self.currentJobTime = self.currentTaskJobTime
+            updateTimerValues()
+            updateSecondsValue()
         } else {
             bottomSecondIncomeLabel.text = incomeText
             bottomSecondNameLabel.text = nameText
@@ -420,6 +434,7 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     }
     
     private func showClientDetails(firstRow: Bool) {
+        
         var incomeText = ""
         var nameText = ""
         
@@ -437,6 +452,17 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         if firstRow {
             bottomFirstIncomeLabel.text = incomeText
             bottomFirstNameLabel.text = nameText
+            
+            if self.jobClient != nil {
+                // Retrieve all time worked for client, then sum it all up to be added to the current time
+                let clientWorkedTime = getAgencyTimeWorked(agency: (self.jobClient?.id)!, archived:false)
+                
+                self.currentJobTime = clientWorkedTime
+                
+                self.updateTimerValues()
+                self.updateSecondsValue()
+            }
+
         } else {
             bottomSecondIncomeLabel.text = incomeText
             bottomSecondNameLabel.text = nameText
@@ -462,6 +488,16 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         if firstRow {
             bottomFirstIncomeLabel.text = incomeText
             bottomFirstNameLabel.text = nameText
+            
+            if self.jobAgency != nil {
+                // Retrieve all time worked for agency, then sum it all up to be added to the current time
+                let agencyWorkedTime = getAgencyTimeWorked(agency: (self.jobAgency?.id)!, archived:false)
+              
+                self.currentJobTime = agencyWorkedTime
+                self.updateTimerValues()
+                self.updateSecondsValue()
+            }
+            
         } else {
             bottomSecondIncomeLabel.text = incomeText
             bottomSecondNameLabel.text = nameText
@@ -509,6 +545,7 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     
     func secondPassed(newTime: Double) {
         self.currentJobTime = newTime
+        self.currentTaskJobTime = self.currentJobTime
         
         updateTimerValues()
         updateSecondsValue()
@@ -582,6 +619,23 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         let remainder = self.currentJobTime?.truncatingRemainder(dividingBy: 60.00)
         print("remaind: \(Int(remainder!))")
         return "\(Int(remainder!))"
+    }
+    
+    private func getAgencyTimeWorked(agency:NSNumber, archived:Bool) -> Double
+    {
+        var totalSeconds = 0.00
+        
+        let tasks = StageTask.getAllTasksFor(agency: agency)
+        
+        for t in tasks!{
+            if t.archived || !archived && !t.wasDeleted
+            {
+                let agencyTaskJob =  JobTimer.getTimerWithTask(id: Int(t.id))
+                totalSeconds = totalSeconds + (agencyTaskJob?.timeSpent.doubleValue)!
+            }
+        }
+    
+        return totalSeconds
     }
 }
 
