@@ -137,8 +137,13 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         let activeColor = UIColor(red: 255/255, green: 231/255, blue: 22/255, alpha: 1.0)
         bottomFirstTaskLabel.textColor = activeColor
         bottomFirstTaskLine.backgroundColor = activeColor
+        bottomFirstProject.alpha = 0.2
+        bottomFirstProject.isUserInteractionEnabled = false
+        
         bottomSecondProjectLabel.textColor = activeColor
         bottomSecondProjectLine.backgroundColor = activeColor
+        bottomSecondTask.alpha = 0.2
+        bottomSecondTask.isUserInteractionEnabled = false
         
         ChronoTimer.sharedInstance.delegates.append(self)
     }
@@ -279,6 +284,7 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     func handleFirstBottomSelection(gesture: UITapGestureRecognizer) {
         
         resetFirstBottomViewsSelection()
+        resetSecondBottomDeactivation()
         
         let activeColor = UIColor(red: 255/255, green: 231/255, blue: 22/255, alpha: 1.0)
         
@@ -293,11 +299,17 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showProjectDetails(firstRow: true)
                 
+                bottomSecondProject.alpha = 0.2;
+                bottomSecondProject.isUserInteractionEnabled = false
+                
             case 1:
                 bottomFirstTaskLabel.textColor = activeColor
                 bottomFirstTaskLine.backgroundColor = activeColor
                 
                 showTaskDetails(firstRow: true)
+                
+                bottomSecondTask.alpha = 0.2;
+                bottomSecondTask.isUserInteractionEnabled = false
                 
             case 2:
                 bottomFirstClienLabel.textColor = activeColor
@@ -305,11 +317,17 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showClientDetails(firstRow: true)
                 
+                bottomSecondClient.alpha = 0.2;
+                bottomSecondClient.isUserInteractionEnabled = false
+                
             case 3:
                 bottomFirstAgencyLabel.textColor = activeColor
                 bottomFirstAgencyLine.backgroundColor = activeColor
                 
                 showAgencyDetails(firstRow: true)
+                
+                bottomSecondAgency.alpha = 0.2;
+                bottomSecondAgency.isUserInteractionEnabled = false
                 
             default: break
             }
@@ -329,9 +347,21 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         bottomFirstAgencyLine.backgroundColor = inactiveColor
     }
     
+    private func resetFirstBottomDeactivation() {
+        bottomFirstProject.alpha = 1.0
+        bottomFirstProject.isUserInteractionEnabled = true
+        bottomFirstTask.alpha = 1.0
+        bottomFirstTask.isUserInteractionEnabled = true
+        bottomFirstClient.alpha = 1.0
+        bottomFirstClient.isUserInteractionEnabled = true
+        bottomFirstAgency.alpha = 1.0
+        bottomFirstAgency.isUserInteractionEnabled = true
+    }
+    
     func handleSecondBottomSelection(gesture: UITapGestureRecognizer) {
         
         resetSecondBottomViewsSelection()
+        resetFirstBottomDeactivation()
         
         let activeColor = UIColor(red: 255/255, green: 231/255, blue: 22/255, alpha: 1.0)
         
@@ -346,11 +376,17 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showProjectDetails(firstRow: false)
                 
+                bottomFirstProject.alpha = 0.2;
+                bottomFirstProject.isUserInteractionEnabled = false
+                
             case 1:
                 bottomSecondTaskLabel.textColor = activeColor
                 bottomSecondTaskLine.backgroundColor = activeColor
                 
                 showTaskDetails(firstRow: false)
+                
+                bottomFirstTask.alpha = 0.2;
+                bottomFirstTask.isUserInteractionEnabled = false
                 
             case 2:
                 bottomSecondClientLabel.textColor = activeColor
@@ -358,11 +394,17 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showClientDetails(firstRow: false)
                 
+                bottomFirstClient.alpha = 0.2;
+                bottomFirstClient.isUserInteractionEnabled = false
+                
             case 3:
                 bottomSecondAgencyLabel.textColor = activeColor
                 bottomSecondAgencyLine.backgroundColor = activeColor
                 
                 showAgencyDetails(firstRow: false)
+                
+                bottomFirstAgency.alpha = 0.2;
+                bottomFirstAgency.isUserInteractionEnabled = false
                 
             default: break
             }
@@ -380,6 +422,17 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         bottomSecondClientLine.backgroundColor = inactiveColor
         bottomSecondAgencyLabel.textColor = inactiveColor
         bottomSecondAgencyLine.backgroundColor = inactiveColor
+    }
+    
+    private func resetSecondBottomDeactivation() {
+        bottomSecondProject.alpha = 1.0
+        bottomSecondProject.isUserInteractionEnabled = true
+        bottomSecondTask.alpha = 1.0
+        bottomSecondTask.isUserInteractionEnabled = true
+        bottomSecondClient.alpha = 1.0
+        bottomSecondClient.isUserInteractionEnabled = true
+        bottomSecondAgency.alpha = 1.0
+        bottomSecondAgency.isUserInteractionEnabled = true
     }
     
 // MARK: - Show Detail From Selection 
@@ -404,6 +457,10 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
             self.currentJobTime = currentProjectTime
             updateTimerValues()
             updateSecondsValue()
+            
+            bottomSecondProject.alpha = 0.2
+            bottomSecondProject.isUserInteractionEnabled = false
+            
         } else {
             bottomSecondIncomeLabel.text = incomeText
             bottomSecondNameLabel.text = nameText
