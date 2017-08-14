@@ -103,7 +103,6 @@ protocol HomeViewControllerProtocol : class {
 }
 
 protocol SimpleTimerInterface {
-    func secondsPassing(seconds: Double)
     func updateValues(withCurrentTime: Double, jobTimer: JobTimer)
 }
 

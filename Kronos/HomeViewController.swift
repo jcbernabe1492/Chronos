@@ -550,6 +550,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, UIScroll
             
             if simpleTimer != nil {
                 simpleTimer.stopActiveTimer()
+                simpleTimer.resetSimpleTimer()
             }
         }
     }

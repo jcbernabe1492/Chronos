@@ -148,12 +148,6 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         ChronoTimer.sharedInstance.delegates.append(self)
     }
     
-// MARK: - Running Time
-    
-    func secondsPassing(seconds: Double) {
-        currentJobTime = seconds
-    }
-    
 // MARK: - Update  Values
     func updateValues(withCurrentTime: Double, jobTimer: JobTimer) {
         currentJobTime = withCurrentTime
@@ -192,6 +186,33 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         self.startStopButton.isSelected = false
         self.secondsLabel.isHidden = true;
         self.startStopButton.setImage(UIImage(named:"btn-timer-stopped-big"), for: .normal)
+    }
+    
+// MARK: - Reset Timer
+    
+    func resetSimpleTimer() {
+        
+        timerHolderScroll.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        
+        calendarDaysWorkedLabel.text = "CALENDAR DAYS WORKED = 0"
+        workingDayLengthLabel.text = "0 = WORKING DAY LENGTH"
+        
+        firstTimerDays.text = "00"
+        firstTimerHours.text = "00"
+        firstTimerMinutes.text = "00"
+        
+        secondTimerDays.text = "00"
+        secondTimerHours.text = "00"
+        secondTimerMinutes.text = "00"
+        
+        projectTimeAllocationLabel.text = "0 DAYS 0 HOURS"
+        taskTimeAllocationLabel.text = "0 DAYS 0 HOURS"
+        
+        bottomFirstIncomeLabel.text = "0.00"
+        bottomFirstNameLabel.text = ""
+        
+        bottomSecondIncomeLabel.text = "0.00"
+        bottomSecondNameLabel.text = ""
     }
     
 // MARK: - Update Seconds Value
@@ -445,7 +466,10 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
             incomeText = formattedIncome
         }
         
-        let nameText = self.jobProject?.name
+        var nameText = ""
+        if self.jobProject != nil {
+            nameText = (self.jobProject?.name)!
+        }
         
         if firstRow {
             bottomFirstIncomeLabel.text = incomeText
@@ -475,7 +499,10 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
             incomeText = formattedIncome
         }
         
-        let nameText = self.jobTask?.name
+        var nameText = ""
+        if self.jobTask != nil {
+            nameText = (self.jobTask?.name)!
+        }
         
         if firstRow {
             bottomFirstIncomeLabel.text = incomeText
