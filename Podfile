@@ -23,4 +23,6 @@ target 'Chrono Pro' do
 
   # Pods for Chrono Pro
 
+pod 'DatePickerDialog'
+
 end

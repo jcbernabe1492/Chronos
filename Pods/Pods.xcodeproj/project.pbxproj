@@ -7,42 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03A95EB83E0A8E10F7E0B4DB551D5200 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF7E6193630249F095817A7E5AD3C9 /* DatePickerDialog.swift */; };
+		135EB128936A1909CF73AEFF05727C3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		23684DF766FF4B3DFFA4FF4D36ADF909 /* Pods-Chrono Lite-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C6FA26E0BE1FC6CF8C66317027E737DD /* Pods-Chrono Lite-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		517DD48E9A3407E28D7980A7254088E0 /* Pods-Chrono Pro-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F6CC3DBABF74B9401A4BA7C063C9D5 /* Pods-Chrono Pro-dummy.m */; };
 		6CDB6E41E07CC3BA7A32446E6419DB34 /* Pods-Chrono Plus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2488D1CE488F087ECD6BEA1156C5FFAA /* Pods-Chrono Plus-dummy.m */; };
 		6FF4BB66300AEC85AF0504A66951822C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		78548E51B36DCCFCB578B104DE2138FB /* Pods-Chrono Pro-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FD9753A94603464C8A7C5F7BF392D597 /* Pods-Chrono Pro-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7BB056BB4AD65CB66380CBDD52CB0FD3 /* DatePickerDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A78E6B77B3A55F0EEB6C516109BFD9 /* DatePickerDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84F5C332C8C0C968C2C9E1C540917A1B /* Pods-Chrono Lite-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D61D1E47E60E075326527EBDEE2654 /* Pods-Chrono Lite-dummy.m */; };
-		867636ADF44F7D2AE3BB5979A29E8E7B /* Pods-Chrono Pro-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FD9753A94603464C8A7C5F7BF392D597 /* Pods-Chrono Pro-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE2FC6827991BF00A84304C2E5EDD816 /* Pods-Chrono Plus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BBDC6D80B02547AB14D3F9F4B03B6B9E /* Pods-Chrono Plus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D00AEF1F1E592F01D8D2D0B003E269AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		E46B302934898D9306A01F38817D5EC6 /* Pods-Chrono Pro-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F6CC3DBABF74B9401A4BA7C063C9D5 /* Pods-Chrono Pro-dummy.m */; };
+		DE45DAEE660ADE5C146EE7CF7259F35A /* DatePickerDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F45266F8C4B3037C39A013D77A5907BF /* DatePickerDialog-dummy.m */; };
 		EDA743B27165F1241D2F86485305B2FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		F0E6B4E125DFF6A8AE24F5EE2FA38E21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		51C98DF316EA94C050901812B47F63D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 184A1650DC0B648BD756068E60BF2C59;
+			remoteInfo = DatePickerDialog;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		02677F4CAB53A2F1B5E03F885095E22D /* Pods-Chrono Pro-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Chrono Pro-acknowledgements.plist"; sourceTree = "<group>"; };
+		0767512D306C5485F9E47215E95ABABB /* DatePickerDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DatePickerDialog.modulemap; sourceTree = "<group>"; };
 		1163DD126A135696A48E0138270DB3D2 /* Pods-Chrono Lite-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Chrono Lite-frameworks.sh"; sourceTree = "<group>"; };
+		1A763DF473B5737CEF718CF1C4472552 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B087D2B9C5EB3EECA324E5723CDE922 /* Pods-Chrono Pro.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Chrono Pro.modulemap"; sourceTree = "<group>"; };
-		1F2A49412D05178724E906BD59055DD4 /* Pods_Chrono_Lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Chrono_Lite.framework; path = "Pods-Chrono Lite.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		214AD116129CE53F493D81C285D67932 /* Pods_Chrono_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Chrono_Pro.framework; path = "Pods-Chrono Pro.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2154308A2CF8B4973A241E9A2DD3960F /* Pods-Chrono Lite-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Chrono Lite-acknowledgements.plist"; sourceTree = "<group>"; };
 		2488D1CE488F087ECD6BEA1156C5FFAA /* Pods-Chrono Plus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Chrono Plus-dummy.m"; sourceTree = "<group>"; };
 		298B7A0B370A6FC160448E038442955B /* Pods-Chrono Pro-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Chrono Pro-resources.sh"; sourceTree = "<group>"; };
 		2B820E827E5E71DB085AA85D3FCB5FC0 /* Pods-Chrono Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Chrono Pro.release.xcconfig"; sourceTree = "<group>"; };
+		3A0995D31EFD31EC972E0171B586A35A /* Pods_Chrono_Plus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Chrono_Plus.framework; path = "Pods-Chrono Plus.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E092DCD56150BF8727C2927F84C7A84 /* Pods-Chrono Pro-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Chrono Pro-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4D016022060C5831C9931E54F6838E12 /* Pods-Chrono Lite.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Chrono Lite.modulemap"; sourceTree = "<group>"; };
+		53A78E6B77B3A55F0EEB6C516109BFD9 /* DatePickerDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-umbrella.h"; sourceTree = "<group>"; };
+		58B1511C85CDD34C61B10725713ACA08 /* DatePickerDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.xcconfig; sourceTree = "<group>"; };
 		593FD2D4E9159B87A415EE9438FB8A06 /* Pods-Chrono Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Chrono Pro.debug.xcconfig"; sourceTree = "<group>"; };
 		5BD73663AF143CE6A54845B801FA210C /* Pods-Chrono Lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Chrono Lite.debug.xcconfig"; sourceTree = "<group>"; };
+		65DF7E6193630249F095817A7E5AD3C9 /* DatePickerDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerDialog.swift; path = Sources/DatePickerDialog.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		67A661F9C55D0373AD5CFA6CCA35D42A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73EEB192EE9C41F140C6F12AD520DE72 /* Pods-Chrono Plus-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Chrono Plus-acknowledgements.plist"; sourceTree = "<group>"; };
+		74CDEC4AAD2D95CD8BED17056E0CE34F /* DatePickerDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-prefix.pch"; sourceTree = "<group>"; };
 		7554F99CCB0373E630E376357C1C87C6 /* Pods-Chrono Plus-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Chrono Plus-frameworks.sh"; sourceTree = "<group>"; };
-		7B30087AC94FAAC3CA470A1380BE0390 /* Pods_Chrono_Plus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Chrono_Plus.framework; path = "Pods-Chrono Plus.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C2D3CF26FE2EE13E4B977337A2623F3 /* Pods_Chrono_Lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Chrono_Lite.framework; path = "Pods-Chrono Lite.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B119E81804EA87E0E71D8CA6B0AB8B /* Pods-Chrono Plus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Chrono Plus.modulemap"; sourceTree = "<group>"; };
 		91E97F752968E14BCF9DE1DB764DC97F /* Pods-Chrono Plus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Chrono Plus.release.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94400AD93E577C6DC2A4BC49C0C7CF66 /* Pods-Chrono Lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Chrono Lite.release.xcconfig"; sourceTree = "<group>"; };
 		9B9A6D7AC6F83BA2DA7081168D9E94E6 /* Pods-Chrono Lite-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Chrono Lite-resources.sh"; sourceTree = "<group>"; };
 		A37CDF33F11C2EBE10E23FBD8E7004C2 /* Pods-Chrono Plus-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Chrono Plus-resources.sh"; sourceTree = "<group>"; };
+		A7D24A9A2FA5662AEF9508A2014AC677 /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DatePickerDialog.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D61D1E47E60E075326527EBDEE2654 /* Pods-Chrono Lite-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Chrono Lite-dummy.m"; sourceTree = "<group>"; };
 		BBDC6D80B02547AB14D3F9F4B03B6B9E /* Pods-Chrono Plus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Chrono Plus-umbrella.h"; sourceTree = "<group>"; };
 		BD7674EBD68025C03299DEDA439142FF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,18 +70,28 @@
 		D2DD0707F31214E9C2F0B6BCCC9E45F6 /* Pods-Chrono Lite-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Chrono Lite-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D2F6CC3DBABF74B9401A4BA7C063C9D5 /* Pods-Chrono Pro-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Chrono Pro-dummy.m"; sourceTree = "<group>"; };
 		DB21A89989A8D2AB58EF08F7834A59C0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB867518B80B47352504C59E6FAA51CE /* Pods_Chrono_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Chrono_Pro.framework; path = "Pods-Chrono Pro.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BC80E8F5693226D15B264067C2693A /* Pods-Chrono Plus-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Chrono Plus-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EAB900E9EB0EC8851FC3924E75B52CF9 /* Pods-Chrono Pro-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Chrono Pro-frameworks.sh"; sourceTree = "<group>"; };
+		F45266F8C4B3037C39A013D77A5907BF /* DatePickerDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DatePickerDialog-dummy.m"; sourceTree = "<group>"; };
 		F667ED9D0CA65B39A0E31818E61252BF /* Pods-Chrono Plus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Chrono Plus.debug.xcconfig"; sourceTree = "<group>"; };
 		FD9753A94603464C8A7C5F7BF392D597 /* Pods-Chrono Pro-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Chrono Pro-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5C5A9845931683127FF29D245DD42FD7 /* Frameworks */ = {
+		31AE3E263B8032AC2966F95252E5AADC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00AEF1F1E592F01D8D2D0B003E269AF /* Foundation.framework in Frameworks */,
+				135EB128936A1909CF73AEFF05727C3A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9506C53A63D8ABDA69D49A28E95DF458 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0E6B4E125DFF6A8AE24F5EE2FA38E21 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,14 +114,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17B4E125FA3AE699F9902E05DD2E711C /* Products */ = {
+		472C12DFE5EC29444688E54975EC4878 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1F2A49412D05178724E906BD59055DD4 /* Pods_Chrono_Lite.framework */,
-				7B30087AC94FAAC3CA470A1380BE0390 /* Pods_Chrono_Plus.framework */,
-				214AD116129CE53F493D81C285D67932 /* Pods_Chrono_Pro.framework */,
+				0767512D306C5485F9E47215E95ABABB /* DatePickerDialog.modulemap */,
+				58B1511C85CDD34C61B10725713ACA08 /* DatePickerDialog.xcconfig */,
+				F45266F8C4B3037C39A013D77A5907BF /* DatePickerDialog-dummy.m */,
+				74CDEC4AAD2D95CD8BED17056E0CE34F /* DatePickerDialog-prefix.pch */,
+				53A78E6B77B3A55F0EEB6C516109BFD9 /* DatePickerDialog-umbrella.h */,
+				1A763DF473B5737CEF718CF1C4472552 /* Info.plist */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/DatePickerDialog";
+			sourceTree = "<group>";
+		};
+		53D3FF309F197BAF3E6D99C94A7B5372 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4EC259C6C9712304527DDEA79BC8C0D /* DatePickerDialog */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		541074A291712D825422F876A4277391 /* Pods-Chrono Plus */ = {
@@ -112,12 +154,24 @@
 			path = "Target Support Files/Pods-Chrono Plus";
 			sourceTree = "<group>";
 		};
+		757E8FA6DBCAD1EE91C94EFDB6606C0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7D24A9A2FA5662AEF9508A2014AC677 /* DatePickerDialog.framework */,
+				7C2D3CF26FE2EE13E4B977337A2623F3 /* Pods_Chrono_Lite.framework */,
+				3A0995D31EFD31EC972E0171B586A35A /* Pods_Chrono_Plus.framework */,
+				DB867518B80B47352504C59E6FAA51CE /* Pods_Chrono_Pro.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				17B4E125FA3AE699F9902E05DD2E711C /* Products */,
+				53D3FF309F197BAF3E6D99C94A7B5372 /* Pods */,
+				757E8FA6DBCAD1EE91C94EFDB6606C0B /* Products */,
 				D43D464B49941992F9888973E01BC545 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -146,6 +200,16 @@
 				FFB9EF7079DF60FF16712E73C3667B2A /* Pods-Chrono Pro */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E4EC259C6C9712304527DDEA79BC8C0D /* DatePickerDialog */ = {
+			isa = PBXGroup;
+			children = (
+				65DF7E6193630249F095817A7E5AD3C9 /* DatePickerDialog.swift */,
+				472C12DFE5EC29444688E54975EC4878 /* Support Files */,
+			);
+			name = DatePickerDialog;
+			path = DatePickerDialog;
 			sourceTree = "<group>";
 		};
 		F5B80E28C65F27D4DD21953ADA2DF396 /* Pods-Chrono Lite */ = {
@@ -187,11 +251,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		685078B9ABF04261261324D36FC76EE1 /* Headers */ = {
+		2675140161515F2E9F99FEB0F11F1ED3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				867636ADF44F7D2AE3BB5979A29E8E7B /* Pods-Chrono Pro-umbrella.h in Headers */,
+				7BB056BB4AD65CB66380CBDD52CB0FD3 /* DatePickerDialog-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +272,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE2FC6827991BF00A84304C2E5EDD816 /* Pods-Chrono Plus-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D29D45B3C30C4F26763E530AF5BC8588 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78548E51B36DCCFCB578B104DE2138FB /* Pods-Chrono Pro-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +300,42 @@
 			);
 			name = "Pods-Chrono Plus";
 			productName = "Pods-Chrono Plus";
-			productReference = 7B30087AC94FAAC3CA470A1380BE0390 /* Pods_Chrono_Plus.framework */;
+			productReference = 3A0995D31EFD31EC972E0171B586A35A /* Pods_Chrono_Plus.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD5CF02785F10F0CDA34F90832C66CFA /* Build configuration list for PBXNativeTarget "DatePickerDialog" */;
+			buildPhases = (
+				1D432F1231D861C3C85333A043376EAE /* Sources */,
+				31AE3E263B8032AC2966F95252E5AADC /* Frameworks */,
+				2675140161515F2E9F99FEB0F11F1ED3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DatePickerDialog;
+			productName = DatePickerDialog;
+			productReference = A7D24A9A2FA5662AEF9508A2014AC677 /* DatePickerDialog.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8DABC5D0A188E56755868C56A5A45673 /* Pods-Chrono Pro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FB3A656F8BAD256426D8461C3A1B3F0 /* Build configuration list for PBXNativeTarget "Pods-Chrono Pro" */;
+			buildPhases = (
+				8FFD209CE7FF28E717A44C52899BCC25 /* Sources */,
+				9506C53A63D8ABDA69D49A28E95DF458 /* Frameworks */,
+				D29D45B3C30C4F26763E530AF5BC8588 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				362973DC0E24778E28CB6C033A78701C /* PBXTargetDependency */,
+			);
+			name = "Pods-Chrono Pro";
+			productName = "Pods-Chrono Pro";
+			productReference = DB867518B80B47352504C59E6FAA51CE /* Pods_Chrono_Pro.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		97593CCF734F5BEEE8746029370FE906 /* Pods-Chrono Lite */ = {
@@ -245,24 +352,7 @@
 			);
 			name = "Pods-Chrono Lite";
 			productName = "Pods-Chrono Lite";
-			productReference = 1F2A49412D05178724E906BD59055DD4 /* Pods_Chrono_Lite.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		D9C9DBAAEF92EAE43A7EC5F338D0F216 /* Pods-Chrono Pro */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 39AD441875C813F648BFD2D26B0AB889 /* Build configuration list for PBXNativeTarget "Pods-Chrono Pro" */;
-			buildPhases = (
-				8A662CAB1B5A07235A8958995E802322 /* Sources */,
-				5C5A9845931683127FF29D245DD42FD7 /* Frameworks */,
-				685078B9ABF04261261324D36FC76EE1 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Chrono Pro";
-			productName = "Pods-Chrono Pro";
-			productReference = 214AD116129CE53F493D81C285D67932 /* Pods_Chrono_Pro.framework */;
+			productReference = 7C2D3CF26FE2EE13E4B977337A2623F3 /* Pods_Chrono_Lite.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -282,18 +372,28 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 17B4E125FA3AE699F9902E05DD2E711C /* Products */;
+			productRefGroup = 757E8FA6DBCAD1EE91C94EFDB6606C0B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */,
 				97593CCF734F5BEEE8746029370FE906 /* Pods-Chrono Lite */,
 				0B4039314C35AD0F17A331013C21D463 /* Pods-Chrono Plus */,
-				D9C9DBAAEF92EAE43A7EC5F338D0F216 /* Pods-Chrono Pro */,
+				8DABC5D0A188E56755868C56A5A45673 /* Pods-Chrono Pro */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1D432F1231D861C3C85333A043376EAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE45DAEE660ADE5C146EE7CF7259F35A /* DatePickerDialog-dummy.m in Sources */,
+				03A95EB83E0A8E10F7E0B4DB551D5200 /* DatePickerDialog.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8555E364FB99F3A7D0962A4AA8104501 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,11 +402,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8A662CAB1B5A07235A8958995E802322 /* Sources */ = {
+		8FFD209CE7FF28E717A44C52899BCC25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E46B302934898D9306A01F38817D5EC6 /* Pods-Chrono Pro-dummy.m in Sources */,
+				517DD48E9A3407E28D7980A7254088E0 /* Pods-Chrono Pro-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +419,15 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		362973DC0E24778E28CB6C033A78701C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DatePickerDialog;
+			target = 184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */;
+			targetProxy = 51C98DF316EA94C050901812B47F63D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0DD0F8660E313BD4A936CC331496CD41 /* Release */ = {
@@ -401,78 +510,6 @@
 			};
 			name = Release;
 		};
-		52C3C6E36D06CAC14DAFBE7EA25E94E7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 593FD2D4E9159B87A415EE9438FB8A06 /* Pods-Chrono Pro.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Chrono Pro/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Chrono_Pro;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		52C45AE70C902F00CD6186431770C1D5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B820E827E5E71DB085AA85D3FCB5FC0 /* Pods-Chrono Pro.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Chrono Pro/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Chrono_Pro;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		6C23961D29D261E7DCA33E136C81FBB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94400AD93E577C6DC2A4BC49C0C7CF66 /* Pods-Chrono Lite.release.xcconfig */;
@@ -503,6 +540,114 @@
 				PRODUCT_NAME = Pods_Chrono_Lite;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		851329B605D07A1010DEAF26BD9D3875 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58B1511C85CDD34C61B10725713ACA08 /* DatePickerDialog.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DatePickerDialog/DatePickerDialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DatePickerDialog/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DatePickerDialog/DatePickerDialog.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DatePickerDialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AE26F051D24C73F70510E02E3D7200DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58B1511C85CDD34C61B10725713ACA08 /* DatePickerDialog.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DatePickerDialog/DatePickerDialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DatePickerDialog/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DatePickerDialog/DatePickerDialog.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DatePickerDialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DD75814F0F1BB7DDD235F3BD3F6932B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B820E827E5E71DB085AA85D3FCB5FC0 /* Pods-Chrono Pro.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Chrono Pro/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Chrono_Pro;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -630,6 +775,45 @@
 			};
 			name = Debug;
 		};
+		FF383906FD280EFC4959C74B24831B81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 593FD2D4E9159B87A415EE9438FB8A06 /* Pods-Chrono Pro.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Chrono Pro/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Chrono_Pro;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -642,11 +826,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39AD441875C813F648BFD2D26B0AB889 /* Build configuration list for PBXNativeTarget "Pods-Chrono Pro" */ = {
+		6FB3A656F8BAD256426D8461C3A1B3F0 /* Build configuration list for PBXNativeTarget "Pods-Chrono Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52C3C6E36D06CAC14DAFBE7EA25E94E7 /* Debug */,
-				52C45AE70C902F00CD6186431770C1D5 /* Release */,
+				FF383906FD280EFC4959C74B24831B81 /* Debug */,
+				DD75814F0F1BB7DDD235F3BD3F6932B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -665,6 +849,15 @@
 			buildConfigurations = (
 				E4A5E8B3BB23B9B7332F2CFAF7E07362 /* Debug */,
 				0DD0F8660E313BD4A936CC331496CD41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD5CF02785F10F0CDA34F90832C66CFA /* Build configuration list for PBXNativeTarget "DatePickerDialog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				851329B605D07A1010DEAF26BD9D3875 /* Debug */,
+				AE26F051D24C73F70510E02E3D7200DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
