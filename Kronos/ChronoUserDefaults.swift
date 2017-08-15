@@ -83,7 +83,7 @@ class ChronoUserDefaults
         UserDefaults.standard.setValue("SELECT NUMBER 1-24", forKey: "workHoursPerDay")
         UserDefaults.standard.setValue("4", forKey: "defaultDayRate")
         UserDefaults.standard.setValue([], forKey: "calenderDays")
-        UserDefaults.standard.setValue("30", forKey: "invoiceToNearest")
+        UserDefaults.standard.setValue("01", forKey: "invoiceToNearest")
         UserDefaults.standard.setValue(true, forKey: "includeThingsOnInvoice")
         UserDefaults.standard.setValue([], forKey: RECENT_TASKS)
         

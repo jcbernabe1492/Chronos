@@ -202,12 +202,15 @@ class SummaryPresenter:NSObject, UITableViewDelegate, UITableViewDataSource
             case 6:
                 cell = tableView.dequeueReusableCell(withIdentifier: "SummaryText")!
                 (cell as! SummaryTextCell).titleLabel.text = "OTHER FEES"
+                (cell as! SummaryTextCell).textfield.keyboardType = .numberPad
                 var t = "N/A"
                 if invoice != nil
                 {
                     if invoice!.otherFees.doubleValue > 0.0
                     {
-                        t = "\(invoice?.otherFees)"
+                        if let otherFee = invoice?.otherFees {
+                            t = "\(otherFee)"
+                        }
                     }
                 }
                 (cell as! SummaryTextCell).textfield.text = t
@@ -216,11 +219,11 @@ class SummaryPresenter:NSObject, UITableViewDelegate, UITableViewDataSource
                 cell = tableView.dequeueReusableCell(withIdentifier: "SummaryText")!
                 (cell as! SummaryTextCell).titleLabel.text = "OTHER FEES FOR"
                 var t = "N/A"
-                if invoice != nil
-                    {
-                        if invoice?.otherFeesFor != ""
-                        {
-                            t = "\(invoice?.otherFeesFor)"
+                if invoice != nil {
+                        if let otherFeesFor = invoice?.otherFeesFor {
+                            if otherFeesFor != "" {
+                                t = "\(otherFeesFor)"
+                            }
                         }
                 }
                 (cell as! SummaryTextCell).textfield.text = t
@@ -228,6 +231,7 @@ class SummaryPresenter:NSObject, UITableViewDelegate, UITableViewDataSource
             case 8:
                 cell = tableView.dequeueReusableCell(withIdentifier: "SummaryText")!
                 (cell as! SummaryTextCell).titleLabel.text = "TOTAL DUE"
+                (cell as! SummaryTextCell).textfield.keyboardType = .numberPad
 
                 if invoice?.totalDue == 0 || invoice == nil
                 {

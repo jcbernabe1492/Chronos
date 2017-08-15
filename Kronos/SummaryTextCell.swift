@@ -24,6 +24,7 @@ class SummaryTextCell: UITableViewCell, UITextFieldDelegate {
         textfield.font = UIFont().boldFont()
         textfield.textColor = UIColor.white
         textfield.clearsOnBeginEditing = true
+        textfield.autocorrectionType = .no
         textfield.delegate = self
         textfield.returnKeyType = .done
         textfield.enablesReturnKeyAutomatically = false

@@ -244,7 +244,7 @@ class SettingsTableViewPresenter : NSObject, SettingsTableViewPresenterProtocol,
                 (cell as! FeeRateTableViewCell).section = indexPath.section
                 (cell as! FeeRateTableViewCell).row = indexPath.row
                 (cell as! FeeRateTableViewCell).setEnabled(selectFee)
-                if sectionCounter?[indexPath.section] as! String == "DEFAULT DAY RATE"{
+                if sectionCounter?[indexPath.section] as! String == "DEFAULT RATE"{
                     (cell as! FeeRateTableViewCell).titleLabel?.isEnabled = false
                 }
             }
@@ -388,7 +388,7 @@ class SettingsTableViewPresenter : NSObject, SettingsTableViewPresenterProtocol,
             {
                 if section == 0
                 {
-                    title.text = "DEFAULT DAY RATE"
+                    title.text = "DEFAULT RATE"
                 }
                 else
                 {

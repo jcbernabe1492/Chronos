@@ -62,7 +62,7 @@ class EnterTextTableViewCell: UITableViewCell, UITextFieldDelegate {
     func setupText()
     {
         textBox?.isUserInteractionEnabled = true
-        if self.titleLabel?.text == "Default Day Rate"
+        if self.titleLabel?.text == "Default Rate"
         {
             self.textBox?.isUserInteractionEnabled = false
             let num = Int((UserDefaults.standard.value(forKey: keys?[0] as! String) as? String)!)

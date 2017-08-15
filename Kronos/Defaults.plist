@@ -35,22 +35,22 @@
 					<string>helpButtonVIsability</string>
 				</array>
 			</dict>
-            <dict>
-                <key>TYPE</key>
-                <string>SWITCH</string>
-                <key>TITLE</key>
-                <string>Simple Timer</string>
-                <key>SUBTITLE</key>
-                <string></string>
-                <key>IMAGE</key>
-                <string></string>
-                <key>OPTIONS</key>
-                <array/>
-                <key>KEYS</key>
-                <array>
-                    <string>simpleTimer</string>
-                </array>
-            </dict>
+			<dict>
+				<key>TYPE</key>
+				<string>SWITCH</string>
+				<key>TITLE</key>
+				<string>Simple Timer</string>
+				<key>SUBTITLE</key>
+				<string></string>
+				<key>IMAGE</key>
+				<string></string>
+				<key>OPTIONS</key>
+				<array/>
+				<key>KEYS</key>
+				<array>
+					<string>simpleTimer</string>
+				</array>
+			</dict>
 		</array>
 		<key>BACK UP</key>
 		<array>
@@ -213,7 +213,7 @@
 				<key>TYPE</key>
 				<string>ENTER_TEXT</string>
 				<key>TITLE</key>
-				<string>Default Day Rate</string>
+				<string>Default Rate</string>
 				<key>SUBTITLE</key>
 				<string>SELECT FEE HERE</string>
 				<key>IMAGE</key>
