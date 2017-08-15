@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DatePickerDialog
 
 class SummaryTextCell: UITableViewCell, UITextFieldDelegate {
 
@@ -37,6 +38,39 @@ class SummaryTextCell: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if titleLabel.text == "ISSUE DATE:" || titleLabel.text == "DUE DATE:" {
+            DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Select", cancelButtonTitle: "Cancel", datePickerMode: .date) { (date) -> Void in
+                
+                if date == nil {
+                    textField.text = "--/--/--"
+            
+                } else {
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "MM/dd/yy"
+                    
+                    textField.text = formatter.string(from: date!)
+                    
+                    self.saveDate()
+                }
+            }
+        }
+    }
+    
+    func saveDate() {
+        if self.titleLabel.text == "ISSUE DATE:"
+        {
+            self.invoice?.issueDate = textfield.text
+        }else
+        {
+            self.invoice?.dueDate = textfield.text
+        }
+        
+        try!  DataController.sharedInstance.managedObjectContext.save()
+        table?.reloadData()
+        self.endEditing(true)
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
 
         if textfield.text == ""
@@ -48,24 +82,24 @@ class SummaryTextCell: UITableViewCell, UITextFieldDelegate {
         {
             invoice?.refNumber = textField.text
         }
-        else if titleLabel.text == "ISSUE DATE:" || titleLabel.text == "DUE DATE:"
-        {
-            let calender = Calendar(identifier: .gregorian)
-            let formatter = DateFormatter()
-            formatter.calendar = calender
-            formatter.dateFormat = "MM/dd/yy"
-            let date = formatter.date(from: textField.text!)
-            if date != nil
-            {
-                if titleLabel.text == "ISSUE DATE:"
-                {
-                    invoice?.issueDate = textField.text
-                }else
-                {
-                    invoice?.dueDate = textField.text
-                }
-            }
-        }
+//        else if titleLabel.text == "ISSUE DATE:" || titleLabel.text == "DUE DATE:"
+//        {
+//            let calender = Calendar(identifier: .gregorian)
+//            let formatter = DateFormatter()
+//            formatter.calendar = calender
+//            formatter.dateFormat = "MM/dd/yy"
+//            let date = formatter.date(from: textField.text!)
+//            if date != nil
+//            {
+//                if titleLabel.text == "ISSUE DATE:"
+//                {
+//                    invoice?.issueDate = textField.text
+//                }else
+//                {
+//                    invoice?.dueDate = textField.text
+//                }
+//            }
+//        }
         else if titleLabel.text == "OTHER FEES"
         {
             if let num = Double(textField.text!)
