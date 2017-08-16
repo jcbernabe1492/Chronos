@@ -77,6 +77,9 @@ class TimerView: UIView, TimerProtocol {
     
     var noTimerImage:UIImageView?
     var isDim = false
+    
+    var allocatedTimeOutView: UIImageView?
+    
     override func draw(_ rect: CGRect) {
         
         let ctx = UIGraphicsGetCurrentContext()
@@ -708,6 +711,12 @@ class TimerView: UIView, TimerProtocol {
                 let projectTimePast = DataController.sharedInstance.getAllTimeSpentOnProject(project: project!.id)
                 let allocatedTimeInSeconds = Double(projectTimeAllocated)*60.0*60.0
                 getDaysHoursMinFrom(time: allocatedTimeInSeconds - projectTimePast, dayLength: dayLength!)
+                
+                if timeInSeconds <= 0.0 {
+                    showAllocatedTimerOut()
+                } else {
+                    removeAllocatedTimerOut()
+                }
                 break
             }
         }
@@ -806,8 +815,8 @@ class TimerView: UIView, TimerProtocol {
 
             hoursPassedView?.percentage =  (Double(hoursPassed).multiplied(by: 1.0)).divided(by: 24)
             hoursPassedView?.setNeedsDisplay()
-        }else
-        {
+            
+        } else {
             timerHand.transform = CGAffineTransform(rotationAngle: CGFloat(0.degreesToRadians))
             
             minutesPassedView?.percentage = 0
@@ -817,6 +826,7 @@ class TimerView: UIView, TimerProtocol {
             hoursPassedView?.setNeedsDisplay()
             return
         }
+        
         if let leftOn = UserDefaults.standard.value(forKey: TIMER_IS_ON) as? Bool
         {
             if leftOn
@@ -829,6 +839,14 @@ class TimerView: UIView, TimerProtocol {
                 else{
                     startStopTimer()
                 }
+            }
+        }
+        
+        if timer == .AllocatedTime {
+            if timeInSeconds <= 0.0 {
+                showAllocatedTimerOut()
+            } else {
+                removeAllocatedTimerOut()
             }
         }
     }
@@ -1123,6 +1141,13 @@ class TimerView: UIView, TimerProtocol {
         }
 
         if timer == .AllocatedTime {
+            
+            if timeInSeconds <= 0.0 {
+                showAllocatedTimerOut()
+            } else {
+                removeAllocatedTimerOut()
+            }
+            
             if (time?.2)! < minutesPassed || (time?.1)! < hoursPassed {
                 self.minutesPassedView?.percentage = (Double(self.time!.2).multiplied(by: 1.0.divided(by: 120.0)))
                 self.minutesPassedView?.setNeedsDisplay()
@@ -1163,6 +1188,29 @@ class TimerView: UIView, TimerProtocol {
     
     func timerStoppedFromAppClosure() {
         startStopButtonPressed()
+    }
+    
+// MARK: - Show Allocated Timer Run Out
+    
+    func showAllocatedTimerOut() {
+        
+        if allocatedTimeOutView == nil {
+            allocatedTimeOutView = UIImageView(image: UIImage(named: "allocated-time-out"))
+            allocatedTimeOutView!.translatesAutoresizingMaskIntoConstraints = false
+            addSubview(allocatedTimeOutView!)
+            addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: allocatedTimeOutView, attribute: .leading, multiplier: 1.0, constant: 0.0))
+            addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: allocatedTimeOutView, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+            addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: allocatedTimeOutView, attribute: .top, multiplier: 1.0, constant: 0.0))
+            addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: allocatedTimeOutView, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+            allocatedTimeOutView!.contentMode = .scaleAspectFill
+        }
+    }
+    
+    func removeAllocatedTimerOut() {
+        if allocatedTimeOutView != nil {
+            allocatedTimeOutView?.removeFromSuperview()
+            allocatedTimeOutView = nil
+        }
     }
     
 // MARK: - Layout Subviews
