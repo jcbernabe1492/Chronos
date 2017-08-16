@@ -113,6 +113,7 @@ class ChronoTimer:NSObject
     {
         currentTime = currentTime!+Double(time*60)
         setTime(time: currentTime!)
+        self.second = time
         DataController.sharedInstance.updateCurrentJobTimer(timer: currentTime!)
 
     }
