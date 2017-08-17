@@ -584,6 +584,7 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         {
             trashButton.setImage(UIImage(named:"btn-trash-selected"), for: .normal)
             unarchiveButton.setImage(UIImage(named: "btn-unarchive-selected"), for: .normal)
+            editButtin.setImage(UIImage(named: "btn-edit-selected-big"), for: .normal)
             edit = true
             trashButton.alpha = 1.0
             unarchiveButton.alpha = 1.0
@@ -592,6 +593,7 @@ class ArchiveViewController: UIViewController, UIScrollViewDelegate {
         {
             trashButton.setImage(UIImage(named:"btn-trash"), for: .normal)
             unarchiveButton.setImage(UIImage(named: "btn-unarchive"), for: .normal)
+            editButtin.setImage(UIImage(named: "btn-edit"), for: .normal)
             edit = false
             trashButton.alpha = 0.5
             unarchiveButton.alpha = 0.5
