@@ -45,6 +45,17 @@ struct InvoiceToPDF
         let task = StageTask.getStageTask(forId: timer.stageTaskId.intValue)!
         let project = Project.getProject(forId: task.projectId.intValue)!
         let agency:Agency!
+    
+        if project.agencyId.intValue < 0 {
+            var returnInfoDict = [String:String]()
+            returnInfoDict["name"] = ""
+            returnInfoDict["country"] = ""
+            returnInfoDict["street"] = ""
+            returnInfoDict["zip"] = ""
+            returnInfoDict["contact"] = ""
+            returnInfoDict["phone"] = ""
+            return NSDictionary(dictionary: returnInfoDict)
+        }
         
         if address == "agency"
         {
@@ -83,20 +94,26 @@ struct InvoiceToPDF
     
     private func getJobDetails() -> NSDictionary
     {
-        let timer = JobTimer.getTimerWith(id: invoice.timerID.intValue)!
-        let task = StageTask.getStageTask(forId: timer.stageTaskId.intValue)!
-        let project = Project.getProject(forId: task.projectId.intValue)!
-        let agency = Agency.getAgency(forId: project.agencyId.intValue)!
-        let client = Agency.getClient(forId: project.clientId.intValue)!
-        
         var returnInfoDict = [String:String]()
         
         returnInfoDict["ref"] = invoice.refNumber
-        returnInfoDict["agency"] = agency.name
         
-        returnInfoDict["client"] = client.name
-        returnInfoDict["project"] = project.name
+        let timer = JobTimer.getTimerWith(id: invoice.timerID.intValue)!
+        let task = StageTask.getStageTask(forId: timer.stageTaskId.intValue)!
+        
         returnInfoDict["task"] = task.name
+        
+        let project = Project.getProject(forId: task.projectId.intValue)!
+        
+        returnInfoDict["project"] = project.name
+        
+        if let agency = Agency.getAgency(forId: project.agencyId.intValue) {
+            returnInfoDict["agency"] = agency.name
+        }
+        
+        if let client = Agency.getClient(forId: project.clientId.intValue) {
+            returnInfoDict["client"] = client.name
+        }
         
         return NSDictionary(dictionary: returnInfoDict)
     }

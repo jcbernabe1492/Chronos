@@ -150,9 +150,19 @@ class InvoicePDF:NSObject
     private func addJobDetails(jobDetails:NSDictionary)
     {
         let ref = jobDetails.value(forKey: "ref") as! String
-        let agencyName = jobDetails.value(forKey: "agency") as! String
-        let client = jobDetails.value(forKey: "client") as! String
+        
+        var agencyName = ""
+        if jobDetails.value(forKey: "agency") != nil {
+            agencyName = jobDetails.value(forKey: "agency") as! String
+        }
+        
+        var client = ""
+        if jobDetails.value(forKey: "client") != nil {
+            client = jobDetails.value(forKey: "client") as! String
+        }
+        
         let project = jobDetails.value(forKey: "project") as! String
+        
         let task = jobDetails.value(forKey: "task") as! String
         
         self.createTextRect(frame: CGRect(x: 232 , y: 85, width: 200, height: 15), text: "REF: \(ref)", size: 8.0, textColorType: .LIGHT)

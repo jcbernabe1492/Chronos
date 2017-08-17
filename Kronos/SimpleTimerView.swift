@@ -137,13 +137,13 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         let activeColor = UIColor(red: 255/255, green: 231/255, blue: 22/255, alpha: 1.0)
         bottomFirstTaskLabel.textColor = activeColor
         bottomFirstTaskLine.backgroundColor = activeColor
-        bottomFirstProject.alpha = 0.2
-        bottomFirstProject.isUserInteractionEnabled = false
+//        bottomFirstProject.alpha = 0.2
+//        bottomFirstProject.isUserInteractionEnabled = false
         
         bottomSecondProjectLabel.textColor = activeColor
         bottomSecondProjectLine.backgroundColor = activeColor
-        bottomSecondTask.alpha = 0.2
-        bottomSecondTask.isUserInteractionEnabled = false
+//        bottomSecondTask.alpha = 0.2
+//        bottomSecondTask.isUserInteractionEnabled = false
         
         ChronoTimer.sharedInstance.delegates.append(self)
     }
@@ -305,7 +305,7 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     func handleFirstBottomSelection(gesture: UITapGestureRecognizer) {
         
         resetFirstBottomViewsSelection()
-        resetSecondBottomDeactivation()
+        //resetSecondBottomDeactivation()
         
         let activeColor = UIColor(red: 255/255, green: 231/255, blue: 22/255, alpha: 1.0)
         
@@ -320,8 +320,8 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showProjectDetails(firstRow: true)
                 
-                bottomSecondProject.alpha = 0.2;
-                bottomSecondProject.isUserInteractionEnabled = false
+//                bottomSecondProject.alpha = 0.2;
+//                bottomSecondProject.isUserInteractionEnabled = false
                 
             case 1:
                 bottomFirstTaskLabel.textColor = activeColor
@@ -329,8 +329,8 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showTaskDetails(firstRow: true)
                 
-                bottomSecondTask.alpha = 0.2;
-                bottomSecondTask.isUserInteractionEnabled = false
+//                bottomSecondTask.alpha = 0.2;
+//                bottomSecondTask.isUserInteractionEnabled = false
                 
             case 2:
                 bottomFirstClienLabel.textColor = activeColor
@@ -338,8 +338,8 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showClientDetails(firstRow: true)
                 
-                bottomSecondClient.alpha = 0.2;
-                bottomSecondClient.isUserInteractionEnabled = false
+//                bottomSecondClient.alpha = 0.2;
+//                bottomSecondClient.isUserInteractionEnabled = false
                 
             case 3:
                 bottomFirstAgencyLabel.textColor = activeColor
@@ -347,8 +347,8 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showAgencyDetails(firstRow: true)
                 
-                bottomSecondAgency.alpha = 0.2;
-                bottomSecondAgency.isUserInteractionEnabled = false
+//                bottomSecondAgency.alpha = 0.2;
+//                bottomSecondAgency.isUserInteractionEnabled = false
                 
             default: break
             }
@@ -382,7 +382,7 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     func handleSecondBottomSelection(gesture: UITapGestureRecognizer) {
         
         resetSecondBottomViewsSelection()
-        resetFirstBottomDeactivation()
+        //resetFirstBottomDeactivation()
         
         let activeColor = UIColor(red: 255/255, green: 231/255, blue: 22/255, alpha: 1.0)
         
@@ -397,8 +397,8 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showProjectDetails(firstRow: false)
                 
-                bottomFirstProject.alpha = 0.2;
-                bottomFirstProject.isUserInteractionEnabled = false
+//                bottomFirstProject.alpha = 0.2;
+//                bottomFirstProject.isUserInteractionEnabled = false
                 
             case 1:
                 bottomSecondTaskLabel.textColor = activeColor
@@ -406,8 +406,8 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showTaskDetails(firstRow: false)
                 
-                bottomFirstTask.alpha = 0.2;
-                bottomFirstTask.isUserInteractionEnabled = false
+//                bottomFirstTask.alpha = 0.2;
+//                bottomFirstTask.isUserInteractionEnabled = false
                 
             case 2:
                 bottomSecondClientLabel.textColor = activeColor
@@ -415,8 +415,8 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showClientDetails(firstRow: false)
                 
-                bottomFirstClient.alpha = 0.2;
-                bottomFirstClient.isUserInteractionEnabled = false
+//                bottomFirstClient.alpha = 0.2;
+//                bottomFirstClient.isUserInteractionEnabled = false
                 
             case 3:
                 bottomSecondAgencyLabel.textColor = activeColor
@@ -424,8 +424,8 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
                 
                 showAgencyDetails(firstRow: false)
                 
-                bottomFirstAgency.alpha = 0.2;
-                bottomFirstAgency.isUserInteractionEnabled = false
+//                bottomFirstAgency.alpha = 0.2;
+//                bottomFirstAgency.isUserInteractionEnabled = false
                 
             default: break
             }
@@ -460,17 +460,32 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     
     private func showProjectDetails(firstRow: Bool) {
         
+        var nameText = ""
         var incomeText = ""
         
-        if let formattedIncome = self.numberFormatter.string(from: ArchiveUtils.getEarned(project: (self.jobProject?.id)!, archived:false) as NSNumber) {
-            incomeText = formattedIncome
-        }
-        
-        var nameText = ""
-        if self.jobProject != nil {
+        if self.jobProject == nil {
+            
+            nameText = "N/A"
+            incomeText = "0.00"
+            if firstRow {
+                bottomFirstIncomeLabel.text = incomeText
+                bottomFirstNameLabel.text = nameText
+            } else {
+                bottomSecondIncomeLabel.text = incomeText
+                bottomSecondNameLabel.text = nameText
+            }
+            
+            return
+            
+        } else {
             nameText = (self.jobProject?.name)!
+            
+            if let formattedIncome = self.numberFormatter.string(from: ArchiveUtils.getEarned(project: (self.jobProject?.id)!, archived:false) as NSNumber) {
+                incomeText = formattedIncome
+            }
+            
         }
-        
+
         if firstRow {
             bottomFirstIncomeLabel.text = incomeText
             bottomFirstNameLabel.text = nameText
@@ -481,10 +496,6 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
             self.currentJobTime = currentProjectTime
             updateTimerValues()
             updateSecondsValue()
-            
-            bottomSecondProject.alpha = 0.2
-            bottomSecondProject.isUserInteractionEnabled = false
-            
         } else {
             bottomSecondIncomeLabel.text = incomeText
             bottomSecondNameLabel.text = nameText
@@ -493,15 +504,29 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
     
     private func showTaskDetails(firstRow: Bool) {
         
+        var nameText = ""
         var incomeText = ""
         
-        if let formattedIncome = self.numberFormatter.string(from: ArchiveUtils.getEarned(task: (self.jobTask?.id)!) as NSNumber) {
-            incomeText = formattedIncome
-        }
-        
-        var nameText = ""
-        if self.jobTask != nil {
+        if self.jobTask == nil {
+            
+            nameText = "N/A"
+            incomeText = "0.00"
+            if firstRow {
+                bottomFirstIncomeLabel.text = incomeText
+                bottomFirstNameLabel.text = nameText
+            } else {
+                bottomSecondIncomeLabel.text = incomeText
+                bottomSecondNameLabel.text = nameText
+            }
+            
+            return
+            
+        } else {
             nameText = (self.jobTask?.name)!
+            
+            if let formattedIncome = self.numberFormatter.string(from: ArchiveUtils.getEarned(task: (self.jobTask?.id)!) as NSNumber) {
+                incomeText = formattedIncome
+            }
         }
         
         if firstRow {
@@ -525,6 +550,16 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         if self.jobClient == nil {
             nameText = "N/A"
             incomeText = "0.00"
+            if firstRow {
+                bottomFirstIncomeLabel.text = incomeText
+                bottomFirstNameLabel.text = nameText
+            } else {
+                bottomSecondIncomeLabel.text = incomeText
+                bottomSecondNameLabel.text = nameText
+            }
+            
+            return
+            
         } else {
             nameText = (self.jobClient?.name)!
             
@@ -561,6 +596,16 @@ class SimpleTimerView: UIView, SimpleTimerInterface, TimerProtocol {
         if self.jobAgency == nil {
             nameText = "N/A"
             incomeText = "0.00"
+            if firstRow {
+                bottomFirstIncomeLabel.text = incomeText
+                bottomFirstNameLabel.text = nameText
+            } else {
+                bottomSecondIncomeLabel.text = incomeText
+                bottomSecondNameLabel.text = nameText
+            }
+            
+            return
+            
         } else {
             nameText = (self.jobAgency?.name)!
             
