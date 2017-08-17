@@ -143,7 +143,7 @@ struct InvoiceToPDF
         }
         else
         {
-            returnInfoDict["dueDAte"] = invoice.dueDate
+            returnInfoDict["dueDate"] = invoice.dueDate
         }
         returnInfoDict["totalDue"] = "\(invoice.totalDue.intValue)"
         
@@ -157,7 +157,7 @@ struct InvoiceToPDF
         let accountName = (bankingInfo[0] as! NSDictionary)["SUBTITLE"] as! String
         let bankName = (bankingInfo[1] as! NSDictionary)["SUBTITLE"] as! String
         let iban = (bankingInfo[3] as! NSDictionary)["SUBTITLE"] as! String
-        let swiftCode = (bankingInfo[6] as! NSDictionary)["SUBTITLE"] as! String
+        let swiftCode = (bankingInfo[5] as! NSDictionary)["SUBTITLE"] as! String
         let accountNumber = (bankingInfo[2] as! NSDictionary)["SUBTITLE"] as! String
         let sortCode = (bankingInfo[4] as! NSDictionary)["SUBTITLE"] as! String
         

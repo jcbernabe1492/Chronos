@@ -387,10 +387,10 @@ class InvoicePDF:NSObject
             pageY = 255
         }
         
-        self.createTextRect(frame: CGRect(x: 36 , y: pageY, width: 75, height: 15), text: name, size: 8.0, textColorType: .LIGHT)
-        self.createTextRect(frame: CGRect(x: 36 , y: pageY+20, width: 75, height: 15), text: email, size: 8.0, textColorType: .LIGHT)
+        self.createTextRect(frame: CGRect(x: 36 , y: pageY, width: 120, height: 15), text: name, size: 8.0, textColorType: .LIGHT)
+        self.createTextRect(frame: CGRect(x: 36 , y: pageY+20, width: 120, height: 15), text: email, size: 8.0, textColorType: .LIGHT)
         self.createTextRect(frame: CGRect(x: 36 , y: pageY+30, width: 75, height: 15), text: phone, size: 8.0, textColorType: .LIGHT)
-        self.createTextRect(frame: CGRect(x: 36 , y: pageY+40, width: 75, height: 15), text: url, size: 8.0, textColorType: .LIGHT)
+        self.createTextRect(frame: CGRect(x: 36 , y: pageY+50, width: 120, height: 15), text: url, size: 8.0, textColorType: .LIGHT)
         self.createTextRect(frame: CGRect(x: 36 , y: pageY+70, width: 75, height: 15), text: "ADDRESS", size: 8.0, textColorType: .LIGHT)
         self.createTextRect(frame: CGRect(x: 36 , y: pageY+80, width: 75, height: 15), text: address, size: 8.0, textColorType: .LIGHT)
         self.createTextRect(frame: CGRect(x: 36 , y: pageY+90, width: 75, height: 15), text: city, size: 8.0, textColorType: .LIGHT)
