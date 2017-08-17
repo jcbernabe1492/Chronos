@@ -70,7 +70,12 @@ class InvoicePDF:NSObject
         let pageRect = page.getBoxRect(.mediaBox)
         let pageSize = pageRect.size
         
-        UIGraphicsBeginImageContext(pageSize)
+//        UIGraphicsBeginImageContext(pageSize)
+        /* 
+            Fix for pixelated result
+            Based from: https://stackoverflow.com/questions/25210620/how-come-my-drawing-code-keeps-resulting-in-fuzzy-shapes
+         */
+        UIGraphicsBeginImageContextWithOptions(pageSize, true, 0.0)
         let context = UIGraphicsGetCurrentContext()
         context?.interpolationQuality = .high
         UIColor.white.set()

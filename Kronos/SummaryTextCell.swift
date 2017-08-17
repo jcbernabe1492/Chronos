@@ -115,6 +115,9 @@ class SummaryTextCell: UITableViewCell, UITextFieldDelegate {
         {
             invoice?.totalDue = NSNumber(value:Double(textField.text!.replacingOccurrences(of: ",", with: ""))!)
         }
+        else if titleLabel.text == "CURRENCY" {
+            invoice?.currency = textField.text!
+        }
         try!  DataController.sharedInstance.managedObjectContext.save()
         table?.reloadData()
         self.endEditing(true)

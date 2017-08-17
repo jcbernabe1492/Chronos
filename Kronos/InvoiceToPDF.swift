@@ -262,7 +262,7 @@ struct InvoiceToPDF
                 userDay = Int(i)!
             }
         }
-        returnInfoDict["feePerDay"] = String(format:"%.2f (%@)", (fee.getRatePerMinute()*60) * Double(userDay), "")
+        returnInfoDict["feePerDay"] = String(format:"%.2f (%@)", (fee.getRatePerMinute()*60) * Double(userDay), invoice.currency)
         returnInfoDict["dayLength"] = "\(userDay)"
         returnInfoDict["additionalFees"] = "\(invoice.otherFees)"
         returnInfoDict["paymentTerms"] = ""
