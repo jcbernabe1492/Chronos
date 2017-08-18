@@ -40,7 +40,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>9</string>
 	<key>Fonts provided by application</key>
 	<array>
 		<string>NeoSans.ttf</string>
