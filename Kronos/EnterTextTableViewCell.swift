@@ -31,6 +31,7 @@ class EnterTextTableViewCell: UITableViewCell, UITextFieldDelegate {
         textBox?.delegate = self
         textBox?.clearsOnBeginEditing = true
         textBox?.returnKeyType = .done
+        textBox?.autocorrectionType = .no
         textBox?.enablesReturnKeyAutomatically = false
         textBox?.font = UIFont().boldFont()
         

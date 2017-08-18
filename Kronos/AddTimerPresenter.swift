@@ -217,7 +217,7 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
             else
             {
                 (cell as! AddTimerEnterTextCell).row = indexPath.row
-                                (cell as! AddTimerEnterTextCell).enterText?.isUserInteractionEnabled = true
+                (cell as! AddTimerEnterTextCell).enterText?.isUserInteractionEnabled = true
                 (cell as! AddTimerEnterTextCell).tableData = tableData
                 (cell as! AddTimerEnterTextCell).title?.text = cellInfo?.value(forKey: "TITLE") as? String
                 (cell as! AddTimerEnterTextCell).enterText?.text = cellInfo?.value(forKey: "TEXT") as? String
@@ -246,6 +246,16 @@ class AddTimerPresenter: NSObject, AddTimerPresenterProtocol
                 }else
                 {
                     (cell as! AddTimerEnterTextCell).setKeyboardCharacters()
+                }
+                
+                // Change keyboard types based on input needed
+                let title = cellInfo?.value(forKey: "TITLE") as? String
+                if title == "POSTCODE" {
+                    (cell as! AddTimerEnterTextCell).enterText?.keyboardType = .numberPad
+                } else if title == "CONTACT" || title == "PHONE" {
+                    (cell as! AddTimerEnterTextCell).enterText?.keyboardType = .phonePad
+                } else if title == "EMAIL" {
+                    (cell as! AddTimerEnterTextCell).enterText?.keyboardType = .emailAddress
                 }
             }
         }

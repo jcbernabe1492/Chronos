@@ -31,8 +31,9 @@ class SettingsTableViewPresenter : NSObject, SettingsTableViewPresenterProtocol,
     override init()
     {
         super.init()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(SettingsTableViewPresenter.keyboardWillShow(notif:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-                NotificationCenter.default.addObserver(self, selector: #selector(SettingsTableViewPresenter.keyboardWillHide(notif:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsTableViewPresenter.keyboardWillHide(notif:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     var goBackToStartScreen: () -> ()? = {() in
         return
@@ -277,13 +278,30 @@ class SettingsTableViewPresenter : NSObject, SettingsTableViewPresenterProtocol,
             else
             {
                 cell = tableView.dequeueReusableCell(withIdentifier: "ENTER_TEXT") as! EnterTextTableViewCell
-                (cell as! EnterTextTableViewCell).titleLabel?.text = (cells[indexPath.row] as! NSDictionary).value(forKey: "TITLE") as? String
+                
+                let enterTextCell = (cell as! EnterTextTableViewCell)
+                let title = (cells[indexPath.row] as! NSDictionary).value(forKey: "TITLE") as? String
+                
+                (cell as! EnterTextTableViewCell).titleLabel?.text = title
                 (cell as! EnterTextTableViewCell).textBox?.text = (cells[indexPath.row] as! NSDictionary).value(forKey: "SUBTITLE") as? String
                 (cell as! EnterTextTableViewCell).section = key as? String
                 (cell as! EnterTextTableViewCell).row = indexPath.row
                 (cell as! EnterTextTableViewCell).keys = nil
                 (cell as! EnterTextTableViewCell).textBox?.isUserInteractionEnabled = true
-                (cell as! EnterTextTableViewCell).textBox?.keyboardType = .default
+                //(cell as! EnterTextTableViewCell).textBox?.keyboardType = .default
+                
+                if title == "EMAIL" || title == "URL" {
+                    enterTextCell.textBox?.keyboardType = .emailAddress
+                } else if title == "PHONE" {
+                    enterTextCell.textBox?.keyboardType = .phonePad
+                } else if title == "POSTCODE"  {
+                    enterTextCell.textBox?.keyboardType = .numberPad
+                } else if title == "ACCOUNT NO" {
+                    enterTextCell.textBox?.keyboardType = .numbersAndPunctuation
+                } else if title == "IBAN NO" {
+                    enterTextCell.textBox?.keyboardType = .namePhonePad
+                }
+                
                 if (cell as! EnterTextTableViewCell).titleLabel?.text == "LOGO"
                 {
                     (cell as! EnterTextTableViewCell).textBox?.isUserInteractionEnabled = false
