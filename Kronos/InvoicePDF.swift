@@ -396,10 +396,39 @@ class InvoicePDF:NSObject
         self.createTextRect(frame: CGRect(x: 36 , y: pageY+90, width: 75, height: 15), text: city, size: 8.0, textColorType: .LIGHT)
         self.createTextRect(frame: CGRect(x: 36 , y: pageY+100, width: 75, height: 15), text: country, size: 8.0, textColorType: .LIGHT)
         self.createTextRect(frame: CGRect(x: 36 , y: pageY+110, width: 75, height: 15), text: zip, size: 8.0, textColorType: .LIGHT)
+
+        if UserDefaults.standard.value(forKey: "logoImage") != nil {
+            let image = flipImageVertically(originalImage: UIImage(data: UserDefaults.standard.value(forKey: "logoImage") as! Data)!)
+            let imageRect = CGRect(x: 36.0, y: Double(pageY-132), width: 103.0, height: 103.0)
+            
+            let imageView = UIImageView(frame: imageRect)
+            imageView.image = image
+            imageView.transform = CGAffineTransform(scaleX: 1, y: -1);
+
+            
+            
+            let context = UIGraphicsGetCurrentContext()
+            context?.draw(image.cgImage!, in: imageRect)
+            UIGraphicsEndImageContext()
+        }
     }
     
     
-    
+    private func flipImageVertically(originalImage:UIImage) -> UIImage{
+        
+        let tempImageView:UIImageView = UIImageView(image: originalImage)
+        UIGraphicsBeginImageContext(tempImageView.frame.size)
+        let context:CGContext = UIGraphicsGetCurrentContext()!
+        
+        let flipVertical:CGAffineTransform = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: tempImageView.frame.size.height)
+        context.concatenate(flipVertical)
+        tempImageView.layer .render(in: context)
+        
+        let flippedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return flippedImage
+    }
     
     private func createTextRect(frame:CGRect, text:String?, size:CGFloat, textColorType:TEXT_COLOR_TYPE)
     {
