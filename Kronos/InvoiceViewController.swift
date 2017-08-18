@@ -76,19 +76,43 @@ class InvoiceViewController: UIViewController, MFMailComposeViewControllerDelega
             timingsButton.titleLabel?.alpha = 0.5
         }
         // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(InvoiceViewController.keyboardWillShow(notif:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(InvoiceViewController.keyboardWillHide(notif:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tableTappedDismissEditing)))
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.changeSection(section: selectedTab)
     }
 
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//MARK: - Keyboard Notifications
+    
+    func keyboardWillShow(notif:NSNotification)
+    {
+        let info = notif.userInfo
+        let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height - (summaryView?.frame.size.height)!, right: 0.0)
+        
+        tableView.contentInset = contentInsets
+        tableView.scrollIndicatorInsets = contentInsets
+        
     }
     
+    func keyboardWillHide(notif:NSNotification)
+    {
+        tableView.contentInset = .zero
+        tableView.scrollIndicatorInsets = .zero
+    }
+    
+//MARK: - Tap Gesture 
+    
+//    func tableTappedDismissEditing() {
+//        tableView.endEditing(true)
+//    }
+    
+//MARK: - Change Section
     
     func changeSection(section:Int)
     {
