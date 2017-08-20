@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import StoreKit
+
+class InAppManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+    
+    static var sharedInstance = InAppManager()
+    
+    
+
+//MARK: - SKProducts Request Delegate
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        
+    }
+    
+//MARK: - SKPayment Transactions Observer
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+    }
+}

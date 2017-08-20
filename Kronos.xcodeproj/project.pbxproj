@@ -27,6 +27,8 @@
 		487153E91F403FB00053DCA2 /* CHILayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153E51F403FB00053DCA2 /* CHILayer.swift */; };
 		487153EA1F403FB00053DCA2 /* CHIPageControlAji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153E61F403FB00053DCA2 /* CHIPageControlAji.swift */; };
 		487153EB1F403FB00053DCA2 /* CHIPageControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153E71F403FB00053DCA2 /* CHIPageControllable.swift */; };
+		488CABB41F488ACA004DBE39 /* InAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488CABB31F488ACA004DBE39 /* InAppManager.swift */; };
+		488CABB61F488DA8004DBE39 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CABB51F488DA8004DBE39 /* StoreKit.framework */; };
 		48C49DD21F26129500240CAD /* IntroViewLastPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C49DD11F26129500240CAD /* IntroViewLastPage.swift */; };
 		48C49DD41F2612B600240CAD /* IntroViewLastPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */; };
 		86008A6A1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
@@ -369,6 +371,8 @@
 		487153E51F403FB00053DCA2 /* CHILayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHILayer.swift; sourceTree = "<group>"; };
 		487153E61F403FB00053DCA2 /* CHIPageControlAji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHIPageControlAji.swift; sourceTree = "<group>"; };
 		487153E71F403FB00053DCA2 /* CHIPageControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHIPageControllable.swift; sourceTree = "<group>"; };
+		488CABB31F488ACA004DBE39 /* InAppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppManager.swift; sourceTree = "<group>"; };
+		488CABB51F488DA8004DBE39 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		48C49DD11F26129500240CAD /* IntroViewLastPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewLastPage.swift; sourceTree = "<group>"; };
 		48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewLastPage.xib; sourceTree = "<group>"; };
 		4AA864B30B19E219EE1AC097 /* Pods-Chrono Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chrono Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro.release.xcconfig"; sourceTree = "<group>"; };
@@ -508,6 +512,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				488CABB61F488DA8004DBE39 /* StoreKit.framework in Frameworks */,
 				17F46A26D666064FF9CDEF86 /* Pods_Chrono_Pro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,6 +688,14 @@
 				487153E71F403FB00053DCA2 /* CHIPageControllable.swift */,
 			);
 			path = CHIPageControl;
+			sourceTree = "<group>";
+		};
+		488CABB21F488ABF004DBE39 /* InAppManager */ = {
+			isa = PBXGroup;
+			children = (
+				488CABB31F488ACA004DBE39 /* InAppManager.swift */,
+			);
+			path = InAppManager;
 			sourceTree = "<group>";
 		};
 		86008A461D62BF9B005BFE96 /* Storyboards */ = {
@@ -1196,6 +1209,7 @@
 				868EEE671D6E3A6A003B3FBD /* Timer */,
 				86BF07B41D6AA0D7005FE76B /* CustomViews */,
 				86DD3FB21D63F07000CE66E3 /* Configs */,
+				488CABB21F488ABF004DBE39 /* InAppManager */,
 				86008A621D62CBBB005BFE96 /* Modules */,
 				86008A471D62BFA8005BFE96 /* App Delegate */,
 				86B7650F1D6CDB4800A12117 /* StartScreen */,
@@ -1277,6 +1291,7 @@
 		86E5BF051D80745B00D7C579 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				488CABB51F488DA8004DBE39 /* StoreKit.framework */,
 				86E5BF061D80745B00D7C579 /* CoreData.framework */,
 				FFBFEAAB8E791A78197F7989 /* Pods_Chrono_Lite.framework */,
 				75AB2742F3C87530ABFCB825 /* Pods_Chrono_Plus.framework */,
@@ -1692,6 +1707,7 @@
 				8610ACD81D7DDBE7008F628F /* AddTimerOptionCell.swift in Sources */,
 				487153E91F403FB00053DCA2 /* CHILayer.swift in Sources */,
 				869295F31DB9604B00F2ECC1 /* FeeRates+CoreDataClass.swift in Sources */,
+				488CABB41F488ACA004DBE39 /* InAppManager.swift in Sources */,
 				8657CF551D9DA9DA008BD97E /* CalenderUtils.swift in Sources */,
 				8657CF621D9DAA22008BD97E /* DayView.swift in Sources */,
 				86E5BF0D1D8074A300D7C579 /* JobTimer+CoreDataProperties.swift in Sources */,
