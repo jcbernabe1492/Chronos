@@ -152,9 +152,12 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
                 
                 let day = Day(day: dayCount, month: currentMonth!, year:year!, parent:self)
                 let dayView = DayView(day: day)
+               
+                dayView.delegate = self
+                dayView.setupDayImage()
                 dayView.tag = 100 + count
                 dayViewArray.append(dayView)
-                dayView.delegate = self
+                
                 if !dayActive
                 {
                     dayView.setInactive()

@@ -45,7 +45,6 @@ class DayView: UIView {
         backgroundImage = UIImageView()
         backgroundImage?.translatesAutoresizingMaskIntoConstraints = false
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        setupDayImage()
     }
     
 
@@ -79,8 +78,8 @@ class DayView: UIView {
                 innerCircle?.layer.borderWidth = 2
                 backgroundImage?.image = UIImage(named: "img-calendar-day-off-today")
                 
-                self.delegate?.updatePreviouseDaySelected(dayView: self)
-                self.delegate?.setTodayDayView(dayView: self)
+                delegate?.updatePreviouseDaySelected(dayView: self)
+                delegate?.setTodayDayView(dayView: self)
             }
         }
         else if isSelected
@@ -89,7 +88,7 @@ class DayView: UIView {
             outerCircle?.layer.borderWidth = 2
             backgroundImage?.image = UIImage(named: "img-calendar-day-off-today")
             
-            self.delegate?.updatePreviouseDaySelected(dayView: self)
+            delegate?.updatePreviouseDaySelected(dayView: self)
         }
         else
         {
