@@ -194,8 +194,8 @@ class DayView: UIView {
             totalTimeWorked = totalTimeWorked + task.value
         }
         
-        //var hours = floor(totalTimeWorked/60/60)
-        var hours = round(totalTimeWorked/60/60)
+        var hours = floor(totalTimeWorked/60/60)
+//        var hours = round(totalTimeWorked/60/60)
         let percent = (ONE_HOUR*hours / DAY_HOURS )/2
         if hourView == nil
         {

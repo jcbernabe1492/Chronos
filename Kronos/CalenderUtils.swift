@@ -21,7 +21,9 @@ class CalenderUtils:NSObject
         {
             let task = StageTask.getStageTask(forId: days.taskId.intValue)
             if !(task?.wasDeleted)! {
-                returnDict[days.taskId.intValue] = days.timeWorked
+//                returnDict[days.taskId.intValue] = days.timeWorked
+                let job = JobTimer.getTimerWithTask(id: days.taskId.intValue)
+                returnDict[days.taskId.intValue] = job?.timeSpent as! Double
             }
         }
         return returnDict
