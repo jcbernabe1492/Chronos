@@ -78,7 +78,7 @@ class DayView: UIView {
                 innerCircle?.layer.borderWidth = 2
                 backgroundImage?.image = UIImage(named: "img-calendar-day-off-today")
                 
-                delegate?.updatePreviouseDaySelected(dayView: self)
+                //delegate?.updatePreviouseDaySelected(dayView: self)
                 delegate?.setTodayDayView(dayView: self)
             }
         }

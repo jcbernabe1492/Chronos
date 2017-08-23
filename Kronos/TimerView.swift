@@ -15,6 +15,7 @@ protocol TimerViewDelegate {
     func setTopLabels(min:Int, hrs:Int, days:Int)
     func addTime(active:Bool)
     func showEditTimer(buttonFrame: CGRect)
+
 }
 
 enum TimerType

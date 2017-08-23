@@ -150,11 +150,11 @@ class EditTimerViewController: UIViewController {
     }
     
     @IBAction func okButtonTapped(_ sender: Any) {
-        editTimerDelegate?.okButtonTappedWithNewTime(time: tempTimeChange)
-        
-        //ChronoTimer.sharedInstance.addtime(time: tempTimeChange)
-        
-        tempTimeChange = 0
+        if self.tempTimeChange != 0 {
+            editTimerDelegate?.okButtonTappedWithNewTime(time: tempTimeChange)
+            tempTimeChange = 0
+        }
+    
         self.dismiss(animated: false, completion: nil)
     }
     

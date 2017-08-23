@@ -242,9 +242,9 @@ class CalenderViewController: UIViewController, CalenderViewDelegate, UITableVie
             totals.2 = totals.2 + amounts.2
             totals.3 = totals.3 + amounts.3
         }
-        let num = Double(totals.1.1).truncatingRemainder(dividingBy: 24)
-        totals.1.0 = totals.1.0 + Int(num)
-        totals.1.1 = totals.1.1 - Int((24*num))
+//        let num = Double(totals.1.1).truncatingRemainder(dividingBy: 24)
+//        totals.1.0 = totals.1.0 + Int(num)
+//        totals.1.1 = Int((24*num)) - totals.1.1
         
         updateBottomLabels(amounts: totals)
         

@@ -28,6 +28,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
     weak var view : HomeViewControllerProtocol?
     
     var timerOne: TimerView?
+    var timerRunning: Bool = false
     
     func viewDidLoad() {
         createTimerView(TimerType.Normal)
@@ -145,8 +146,13 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         return true
     }
     
+// MARK: - Update Calendar Day
     func updateCalendarDay() {
-        interactor?.updateCalendarDay(stopping: false)
+         interactor?.updateCalendarDay(stopping: false, resetTimeStarted: false)
+    }
+    
+    func resetCalendarDayStarted() {
+        interactor?.updateCalendarDay(stopping: false, resetTimeStarted: true)
     }
     
 // MARK: - Show Edit Timer From Simple Timer 
@@ -160,6 +166,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
     func updateTimerViewWithNewTime(time: Int) {
         self.timerOne?.updateTimerViewWithNewTime(time: time)
         view?.updateHomeScreenValues()
+        resetCalendarDayStarted()
     }
     
     func updateTopLabels(min: Int, hrs: Int, days: Int) {
@@ -181,11 +188,13 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
         if active
         {
             image = UIImage(named: "icn-logo-red")
-            interactor?.updateCalendarDay(stopping: false)
+            interactor?.updateCalendarDay(stopping: false, resetTimeStarted: false)
+            timerRunning = true
         }else
         {
             image = UIImage(named: "icn-logo-black")
-            interactor?.updateCalendarDay(stopping: true)
+            interactor?.updateCalendarDay(stopping: true, resetTimeStarted: false)
+            timerRunning = false
         }
         view?.updateTopLogoImage(image: image!)
     }
@@ -201,7 +210,7 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
     func addTime(active: Bool) {
         view?.addTime(active: active)
     }
-    
+
 // MARK: - Help Button Pressed
     func helpButtonPressed() {
         wireframe?.showHelpScreen()

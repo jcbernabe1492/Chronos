@@ -159,6 +159,8 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     
     func showSettingsScreen()
     {
+        self.viewController?.cancelledInvoiceJob()
+        
         if calenderWireframe != nil && (viewController?.calenderActive)!
         {
             viewController?.calenderButtonPressed()
@@ -599,6 +601,9 @@ class HomeWireframe : NSObject, HomeWireframeProtocol, EditTimerViewControllerDe
     }
     
     func closeAnyViewControllers() {
+        
+        self.viewController?.cancelledInvoiceJob()
+        
         if settingsController != nil{
             self.animateSettingsScreen(visible: true)
         }

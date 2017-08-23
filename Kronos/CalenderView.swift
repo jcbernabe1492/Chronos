@@ -67,6 +67,8 @@ class CalenderView: UIView, ChronoCalender, DayViewDelegate {
         self.todayDay?.setupDayImage()
         self.todayDay?.setNeedsDisplay()
         self.todayDay?.layoutSubviews()
+        
+        self.todayDay?.dayWasClicked()
     }
     
     func loadStackView()

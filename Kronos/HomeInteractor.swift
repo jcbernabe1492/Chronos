@@ -13,7 +13,7 @@ class HomeInteractor : NSObject, HomeInteractorInput
     weak var presenter: HomeInteractorOutput?
 
 
-    func updateCalendarDay(stopping: Bool) {
+    func updateCalendarDay(stopping: Bool, resetTimeStarted: Bool) {
         guard let currentTimerId = UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as? NSNumber else {
             return
         }
@@ -22,24 +22,40 @@ class HomeInteractor : NSObject, HomeInteractorInput
 
         if let currentDay = isCalenderNew(taskId: currentTaskId!) {
 
-            var tempTimeWorked: Double?
+//            var tempTimeWorked: Double?
+            
+            
+            if let leftOn = UserDefaults.standard.value(forKey: TIMER_IS_ON) as? Bool
+            {
+                if !leftOn { return }
+            }
             
             if currentDay.timeStarted != nil {
-                //currentDay.timeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted as! Date)
-                tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted as! Date)
+                
+                currentDay.timeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted! as Date)
+//                tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted as! Date)
+                
                 if stopping {
                     currentDay.timeStarted = nil
                 } else {
                     currentDay.timeStarted = NSDate()
-                    tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(NSDate() as Date)
+//                    tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted as! Date)
                 }
-            }else {
+            
+            } else {
+                
                 currentDay.timeStarted = NSDate()
-                tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(NSDate() as Date)
+//                tempTimeWorked = currentDay.timeWorked + Date().timeIntervalSince(currentDay.timeStarted as! Date)
+                
+            }
+            
+            if resetTimeStarted {
+                currentDay.timeStarted = nil
+                
             }
 
-            currentDay.timeWorked = tempTimeWorked!
-            
+//            currentDay.timeWorked = tempTimeWorked!
+            print(currentDay.timeWorked)
         }
         else {
             if yesterday(task: currentTaskId!)?.timeStarted != nil {
