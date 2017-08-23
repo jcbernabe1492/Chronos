@@ -197,6 +197,8 @@ class HomePresenter : NSObject, HomePresenterProtocol, TimerViewDelegate, HomeWi
             timerRunning = false
         }
         view?.updateTopLogoImage(image: image!)
+        
+        interactor?.activeTimer(active: active)
     }
     
     func noTimerActive() {

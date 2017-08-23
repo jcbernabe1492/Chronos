@@ -12,6 +12,7 @@ class HomeInteractor : NSObject, HomeInteractorInput
 {
     weak var presenter: HomeInteractorOutput?
 
+    var activeTimerRunning: Bool = false
 
     func updateCalendarDay(stopping: Bool, resetTimeStarted: Bool) {
         guard let currentTimerId = UserDefaults.standard.value(forKey: CURRENT_JOB_TIMER) as? NSNumber else {
@@ -24,10 +25,8 @@ class HomeInteractor : NSObject, HomeInteractorInput
 
 //            var tempTimeWorked: Double?
             
-            
-            if let leftOn = UserDefaults.standard.value(forKey: TIMER_IS_ON) as? Bool
-            {
-                if !leftOn { return }
+            if !activeTimerRunning {
+                return
             }
             
             if currentDay.timeStarted != nil {
@@ -75,6 +74,10 @@ class HomeInteractor : NSObject, HomeInteractorInput
         }
         try! DataController.sharedInstance.managedObjectContext.save()
 
+    }
+    
+    func activeTimer(active: Bool) {
+        self.activeTimerRunning = active
     }
 
     private func isCalenderNew(taskId: Int) -> CalendarDay? {

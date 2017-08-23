@@ -81,7 +81,7 @@ protocol HomePresenterProtocol : class {
 protocol HomeInteractorInput : class {
     weak var presenter: HomeInteractorOutput? { get set }
     func updateCalendarDay(stopping: Bool, resetTimeStarted: Bool)
-
+    func activeTimer(active: Bool)
 }
 
 protocol HomeInteractorOutput : class {
