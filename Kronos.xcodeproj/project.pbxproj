@@ -29,6 +29,7 @@
 		487153EB1F403FB00053DCA2 /* CHIPageControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487153E71F403FB00053DCA2 /* CHIPageControllable.swift */; };
 		488CABB41F488ACA004DBE39 /* InAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488CABB31F488ACA004DBE39 /* InAppManager.swift */; };
 		488CABB61F488DA8004DBE39 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CABB51F488DA8004DBE39 /* StoreKit.framework */; };
+		488CABB81F4A8DEA004DBE39 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CABB71F4A8DEA004DBE39 /* GameKit.framework */; };
 		48C49DD21F26129500240CAD /* IntroViewLastPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C49DD11F26129500240CAD /* IntroViewLastPage.swift */; };
 		48C49DD41F2612B600240CAD /* IntroViewLastPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */; };
 		86008A6A1D62CCC1005BFE96 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86008A691D62CCC1005BFE96 /* HomeWireframe.swift */; };
@@ -373,6 +374,7 @@
 		487153E71F403FB00053DCA2 /* CHIPageControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHIPageControllable.swift; sourceTree = "<group>"; };
 		488CABB31F488ACA004DBE39 /* InAppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppManager.swift; sourceTree = "<group>"; };
 		488CABB51F488DA8004DBE39 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		488CABB71F4A8DEA004DBE39 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		48C49DD11F26129500240CAD /* IntroViewLastPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewLastPage.swift; sourceTree = "<group>"; };
 		48C49DD31F2612B600240CAD /* IntroViewLastPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewLastPage.xib; sourceTree = "<group>"; };
 		4AA864B30B19E219EE1AC097 /* Pods-Chrono Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chrono Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chrono Pro/Pods-Chrono Pro.release.xcconfig"; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				488CABB81F4A8DEA004DBE39 /* GameKit.framework in Frameworks */,
 				488CABB61F488DA8004DBE39 /* StoreKit.framework in Frameworks */,
 				17F46A26D666064FF9CDEF86 /* Pods_Chrono_Pro.framework in Frameworks */,
 			);
@@ -1291,6 +1294,7 @@
 		86E5BF051D80745B00D7C579 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				488CABB71F4A8DEA004DBE39 /* GameKit.framework */,
 				488CABB51F488DA8004DBE39 /* StoreKit.framework */,
 				86E5BF061D80745B00D7C579 /* CoreData.framework */,
 				FFBFEAAB8E791A78197F7989 /* Pods_Chrono_Lite.framework */,
@@ -1393,6 +1397,14 @@
 						DevelopmentTeamName = "David Wee";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					86BE99781D620C7E0020F0C9 = {
 						LastSwiftMigration = 0800;
@@ -2073,7 +2085,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DPRO";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Chrono.Pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SCDB.Chrono;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "343e2b2c-5180-446e-834a-5b7aa5c762f5";
 				PROVISIONING_PROFILE_SPECIFIER = ChronosProDevelopment;
@@ -2097,7 +2109,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DPRO";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Chrono.Pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SCDB.Chrono;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a710cf12-29cb-4624-97da-89104ec0ab59";
 				PROVISIONING_PROFILE_SPECIFIER = ChronosProAdhocNewMBP;
